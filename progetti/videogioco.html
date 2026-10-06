@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- TODO: quando avrà un nome, sostituisci "Videogioco" in tutta la pagina e in index.html -->
+  <title>Videogioco — Stefano Oberto</title>
+  <meta name="description" content="Un videogioco che Stefano Oberto sta sviluppando da solo: concept, interfaccia di gioco e diario di sviluppo.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%232f3bff'/><text x='50%' y='56%' text-anchor='middle' dominant-baseline='middle' font-family='Arial,sans-serif' font-weight='700' font-size='30' fill='%23fff'>SO</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Vai al contenuto</a>
+
+  <header class="top g4 mono">
+    <a href="../index.html">Stefano Oberto</a>
+    <span class="hide-m">UI/UX Designer — Città</span>
+    <nav aria-label="Principale"><a href="../index.html#lavori" aria-current="true">Lavori</a><a href="../chi-sono.html">Chi sono</a><a href="#contatti">Contatti</a></nav>
+    <span class="r hide-m"><span id="clock">--:--</span> CET</span>
+  </header>
+
+  <!-- MODELLO: PROGETTO PERSONALE IN CORSO
+       Non è un caso studio chiuso: è un cantiere aperto. Il diario di sviluppo
+       mostra costanza, e la sezione sull'interfaccia di gioco collega la passione
+       al lavoro UI/UX che cerchi. -->
+  <main id="main">
+    <section class="case-head">
+      <p class="crumb mono mute"><a href="../index.html#lavori">Lavori</a><span>/</span><span>Personale</span></p>
+      <p class="status mono" style="margin-bottom:2vh">In sviluppo</p>
+      <h1 class="case-title">Videogioco</h1>
+      <div class="g4">
+        <p class="case-sub lead">Un gioco che sto costruendo da solo, interfaccia compresa. <span>Il gioco in una frase: genere, protagonista, cosa fai.</span></p>
+      </div>
+      <dl class="meta g4 mono">
+        <div><dt>Genere</dt><dd>Es. avventura, puzzle</dd></div>
+        <div><dt>Piattaforma</dt><dd>Es. PC</dd></div>
+        <div><dt>Motore · Strumenti</dt><dd>Es. Godot, Aseprite, Figma</dd></div>
+        <div><dt>Iniziato</dt><dd>Mese anno</dd></div>
+      </dl>
+    </section>
+
+    <div class="media" style="margin-top:6vh">
+      <figure><div class="ph wide" data-label="Immagine chiave del gioco · schermata o illustrazione"></div></figure>
+    </div>
+
+    <section class="block g4">
+      <h2 class="label mono">L'idea</h2>
+      <div class="body">
+        <p>Da dove nasce il gioco e cosa vuoi che provi chi lo gioca. Racconta la premessa come la racconteresti a un amico.</p>
+      </div>
+    </section>
+
+    <section class="block g4">
+      <h2 class="label mono">Come si gioca</h2>
+      <div class="body">
+        <p>Le meccaniche principali, in poche righe.</p>
+        <ul>
+          <li>Meccanica 1: cosa fa il giocatore.</li>
+          <li>Meccanica 2: cosa lo rende diverso.</li>
+          <li>Meccanica 3: come si progredisce.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="block g4" style="padding-bottom:4vh">
+      <h2 class="label mono">Mondo e stile</h2>
+      <div class="body"><p>Riferimenti visivi, palette, atmosfera.</p></div>
+    </section>
+    <div class="figs g4 three">
+      <figure class="fig"><div class="ph square" data-label="Concept / bozzetto"></div></figure>
+      <figure class="fig"><div class="ph square" data-label="Personaggio"></div></figure>
+      <figure class="fig"><div class="ph square" data-label="Ambiente"></div></figure>
+    </div>
+
+    <section class="block g4">
+      <h2 class="label mono">Interfaccia di gioco</h2>
+      <!-- La sezione più importante per chi ti valuta come UI/UX designer -->
+      <div class="body">
+        <p>Come hai progettato HUD, menu e tutorial: quali informazioni servono al giocatore e quando, come lo guidi senza spiegargli tutto.</p>
+        <p>Se hai fatto provare il gioco ad altre persone, racconta cosa hai cambiato dopo averle osservate.</p>
+      </div>
+    </section>
+    <div class="figs g4 two">
+      <figure class="fig"><div class="ph" data-label="HUD in gioco"></div><figcaption>HUD: solo quello che serve nel momento</figcaption></figure>
+      <figure class="fig"><div class="ph" data-label="Menu / inventario"></div><figcaption>Menu principale e inventario</figcaption></figure>
+    </div>
+    <div class="media">
+      <figure><div class="ph" data-label="Wireframe dei menu → versione finale"></div><figcaption>Dai wireframe alla grafica di gioco</figcaption></figure>
+    </div>
+
+    <section class="block g4">
+      <h2 class="label mono">Diario di sviluppo</h2>
+      <!-- TODO: aggiungi una riga ogni volta che raggiungi un traguardo, la più recente in alto -->
+      <ol class="body log">
+        <li><span class="mono mute">Mese 2026</span><span>Primo test con cinque persone: riscritto il tutorial.</span></li>
+        <li><span class="mono mute">Mese 2026</span><span>Prototipo giocabile del primo livello.</span></li>
+        <li><span class="mono mute">Mese 2025</span><span>Stile visivo definito e prime animazioni.</span></li>
+        <li><span class="mono mute">Mese 2025</span><span>Idea, documento di design e primi schizzi.</span></li>
+      </ol>
+    </section>
+
+    <section class="block g4">
+      <h2 class="label mono">Prossimi passi</h2>
+      <div class="body">
+        <p>Cosa manca e quando pensi di pubblicarlo, anche solo una demo.</p>
+        <p><a href="#">Segui lo sviluppo →</a></p><!-- TODO: link a itch.io, Instagram o newsletter, oppure elimina -->
+      </div>
+    </section>
+
+    <a class="next" href="progetto-tre.html">
+      <span class="mono">Progetto successivo</span>
+      <h2>Progetto Tre →</h2>
+    </a>
+  </main>
+
+  <footer class="foot g4" id="contatti">
+    <span class="mono mute">Scrivimi</span>
+    <a class="mail" href="mailto:oberto.stefano.job@gmail.com">oberto.stefano.job@gmail.com</a>
+    <ul class="mono"><li><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="#">Behance</a></li><li><a href="#">Dribbble</a></li></ul>
+    <a class="mono" href="../cv.pdf">Scarica il CV ↓</a>
+    <span></span>
+    <span class="mono r">© <span id="year">2026</span></span>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>
