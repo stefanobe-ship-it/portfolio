@@ -40,8 +40,7 @@ ul, ol { list-style: none; }
 /* ---------- Testata ---------- */
 .top { position: fixed; inset: 0 0 auto; z-index: 10; padding: 18px var(--gut); color: var(--ink); background: rgba(255, 255, 255, .72); -webkit-backdrop-filter: blur(16px) saturate(1.4); backdrop-filter: blur(16px) saturate(1.4); }
 .top a:hover { color: var(--accent); }
-.top nav { display: flex; gap: 18px; }
-.top .r { text-align: right; }
+.top nav { grid-column: 3 / -1; display: flex; justify-content: flex-end; gap: 18px; }
 .top [aria-current] { text-decoration: underline; text-underline-offset: 3px; }
 
 /* ---------- Home: hero ---------- */

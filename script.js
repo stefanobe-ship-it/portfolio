@@ -7,14 +7,6 @@ const toTop = () => { if (!location.hash) window.scrollTo({ top: 0, left: 0, beh
 toTop();
 addEventListener('load', () => { toTop(); setTimeout(toTop, 100); });
 
-// Ora locale nella testata
-const clock = document.getElementById('clock');
-if (clock) {
-  const tick = () => clock.textContent = new Date().toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Rome' });
-  tick();
-  setInterval(tick, 15000);
-}
-
 // Home: il nome sale lettera per lettera e riempie esattamente la larghezza
 const name = document.querySelector('.name');
 if (name) {
