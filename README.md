@@ -10,6 +10,13 @@ Sito portfolio statico (HTML + CSS + un po' di JavaScript), senza dipendenze né
 
 Per vederlo in locale basta aprire `index.html` nel browser.
 
+## Prototipi della nuova home
+
+Nella cartella `prototipi/` ci sono tre direzioni alternative da confrontare
+(apri `prototipi/index.html`): **A · Indice**, **B · Manifesto**, **C · Poster**.
+Sono file autonomi, non toccano il sito attuale. Quando ne scegli una diventa la
+base del nuovo `index.html`.
+
 ## Pubblicazione gratuita con GitHub Pages
 
 1. Su GitHub apri il repository → **Settings** → **Pages**.

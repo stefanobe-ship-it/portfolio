@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prototipi home — Stefano Oberto</title>
+  <style>
+    :root { --ink: #111; --mute: #777; --line: #ddd; --gut: clamp(16px, 3vw, 40px); }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #fff; color: var(--ink); font: 16px/1.5 system-ui, -apple-system, "Inter", sans-serif; padding: var(--gut); }
+    h1 { font-size: clamp(28px, 4vw, 48px); letter-spacing: -.03em; line-height: 1.05; font-weight: 600; max-width: 22ch; }
+    .lead { color: var(--mute); max-width: 60ch; margin-top: 12px; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gut); margin-top: 48px; }
+    .d { border-top: 2px solid var(--ink); padding-top: 14px; display: flex; flex-direction: column; gap: 12px; }
+    .d h2 { font-size: 24px; letter-spacing: -.02em; font-weight: 600; }
+    .d p { color: #333; }
+    .d dl { display: grid; grid-template-columns: 90px 1fr; gap: 6px 12px; font-size: 14px; border-top: 1px solid var(--line); padding-top: 12px; }
+    .d dt { color: var(--mute); }
+    .sw { display: flex; gap: 4px; }
+    .sw i { width: 28px; height: 28px; border: 1px solid var(--line); }
+    .d a.go { margin-top: auto; display: inline-block; background: var(--ink); color: #fff; text-decoration: none; padding: 12px 16px; font-weight: 500; }
+    .d a.go:hover { opacity: .8; }
+    .note { margin-top: 56px; color: var(--mute); font-size: 14px; max-width: 70ch; }
+    @media (max-width: 860px) { .grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <h1>Tre direzioni per la home di Stefano Oberto</h1>
+  <p class="lead">Ogni direzione è una mini identità: un concetto, un carattere, un colore, un modo di muoversi. I contenuti sono segnaposto. Aprile su desktop e su telefono.</p>
+
+  <div class="grid">
+    <section class="d">
+      <h2>A · Indice</h2>
+      <p>Il lavoro come archivio preciso. Bianco, nero, un solo blu che compare quando interagisci. I progetti sono un elenco ordinato: l'immagine si vede solo al passaggio del cursore.</p>
+      <dl>
+        <dt>Carattere</dt><dd>Instrument Sans + JetBrains Mono</dd>
+        <dt>Colore</dt><dd><span class="sw"><i style="background:#fff"></i><i style="background:#0b0b0c"></i><i style="background:#2f3bff"></i></span></dd>
+        <dt>Movimento</dt><dd>Rapido e preciso. Il nome sale lettera per lettera, l'anteprima segue il cursore.</dd>
+        <dt>Voce</dt><dd>Fattuale, frasi brevi.</dd>
+      </dl>
+      <a class="go" href="a-indice.html">Apri A →</a>
+    </section>
+
+    <section class="d">
+      <h2>B · Manifesto</h2>
+      <p>Prima il punto di vista, poi i lavori come prova. Una voce in serif dritto e grande, la struttura in grotesk piccolo. Fondo scuro con un rosso caldo sulle parole che contano.</p>
+      <dl>
+        <dt>Carattere</dt><dd>Newsreader + Inter Tight</dd>
+        <dt>Colore</dt><dd><span class="sw"><i style="background:#0c0c0c"></i><i style="background:#ecebe7"></i><i style="background:#ff4a1c"></i></span></dd>
+        <dt>Movimento</dt><dd>Lento e ampio. Le righe salgono dalla maschera, le immagini si aprono entrando nello schermo.</dd>
+        <dt>Voce</dt><dd>In prima persona, con una tesi.</dd>
+      </dl>
+      <a class="go" href="b-manifesto.html">Apri B →</a>
+    </section>
+
+    <section class="d">
+      <h2>C · Poster</h2>
+      <p>Elastico. Un solo carattere che si stringe e si allarga, come chi si adatta al problema senza perdere forma. Colori pieni, uno per progetto, pannelli che si impilano.</p>
+      <dl>
+        <dt>Carattere</dt><dd>Archivo variabile (larghezza 62–125)</dd>
+        <dt>Colore</dt><dd><span class="sw"><i style="background:#2236ff"></i><i style="background:#ff5b2e"></i><i style="background:#d6f23a"></i><i style="background:#f6b8d6"></i><i style="background:#111"></i></span></dd>
+        <dt>Movimento</dt><dd>Energico. Il nome cambia larghezza col cursore, nastro che scorre, pannelli sticky.</dd>
+        <dt>Voce</dt><dd>Diretta, quasi da slogan.</dd>
+      </dl>
+      <a class="go" href="c-poster.html">Apri C →</a>
+    </section>
+  </div>
+
+  <p class="note">I font si caricano da Google Fonts. Quando scegli una direzione conviene ospitarli nel repository: è più veloce e non manda dati dei visitatori a terzi.</p>
+</body>
+</html>

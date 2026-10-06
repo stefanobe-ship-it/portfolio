@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>B · Manifesto — Stefano Oberto</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400&family=Inter+Tight:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* DIREZIONE B — MANIFESTO
+       Concetto: prima il punto di vista, poi i lavori come prova.
+       Una voce (serif dritto, grande) e una struttura (grotesk piccolo).
+       Notte, con un solo colore caldo che segnala le parole che contano. */
+    :root {
+      --bg: #0c0c0c;
+      --ink: #ecebe7;
+      --mute: #7d7c78;
+      --line: #262626;
+      --accent: #ff4a1c;           /* rosso segnale */
+      --serif: "Newsreader", "Liberation Serif", Georgia, serif;
+      --sans: "Inter Tight", "Inter", system-ui, sans-serif;
+      --ease: cubic-bezier(.16, 1, .3, 1);
+      --gut: clamp(16px, 2.4vw, 36px);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 15px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    ::selection { background: var(--accent); color: var(--bg); }
+    .small { font-size: 13px; color: var(--mute); }
+
+    .top { position: fixed; inset: 0 0 auto; z-index: 10; display: flex; justify-content: space-between; align-items: baseline; padding: 20px var(--gut); }
+    .top nav { display: flex; gap: 28px; }
+    .top nav a { color: var(--mute); transition: color .4s; }
+    .top nav a:hover { color: var(--ink); }
+    .logo { font-weight: 500; display: inline-flex; gap: .35em; align-items: baseline; }
+    .logo b { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); display: inline-block; animation: pulse 2.4s ease-in-out infinite; }
+    @keyframes pulse { 50% { opacity: .25; } }
+
+    /* Hero: il manifesto. Ogni riga entra da sotto una maschera. */
+    .hero { min-height: 100svh; display: flex; flex-direction: column; justify-content: flex-end; padding: 120px var(--gut) 8vh; }
+    .hero h1 { font-family: var(--serif); font-weight: 300; font-size: clamp(34px, 6.6vw, 112px); line-height: 1; letter-spacing: -.025em; white-space: nowrap; }
+    .line { display: block; overflow: hidden; padding-bottom: .08em; margin-bottom: -.08em; }
+    .line > span { display: inline-block; transform: translateY(110%); animation: up 1.3s var(--ease) forwards; }
+    @keyframes up { to { transform: none; } }
+    .hero h1 em { font-style: normal; color: var(--accent); }
+    .hero__foot { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--gut); margin-top: 7vh; padding-top: 16px; border-top: 1px solid var(--line); opacity: 0; animation: fade 1s 1.2s forwards; }
+    @keyframes fade { to { opacity: 1; } }
+    .hero__foot p:last-child { text-align: right; }
+
+    /* Lavori: griglia asimmetrica, immagini che si aprono entrando nello schermo */
+    .work { padding: 14vh var(--gut) 6vh; display: grid; grid-template-columns: repeat(12, 1fr); column-gap: var(--gut); row-gap: 16vh; }
+    .work__title { grid-column: 1 / -1; display: flex; justify-content: space-between; border-top: 1px solid var(--line); padding-top: 16px; }
+    .item { display: block; }
+    .item:nth-child(2) { grid-column: 1 / span 7; }
+    .item:nth-child(3) { grid-column: 9 / span 4; margin-top: 30vh; }
+    .item:nth-child(4) { grid-column: 3 / span 8; }
+    .item:nth-child(5) { grid-column: 1 / span 4; }
+    .item:nth-child(6) { grid-column: 6 / span 7; margin-top: 12vh; }
+    .media { position: relative; overflow: hidden; aspect-ratio: 4 / 3; clip-path: inset(18% 12% 18% 12%); transition: clip-path 1.4s var(--ease); }
+    .item:nth-child(3) .media, .item:nth-child(5) .media { aspect-ratio: 3 / 4; }
+    .media.in { clip-path: inset(0 0 0 0); }
+    .media .fill { position: absolute; inset: -8% 0; transition: transform 1.2s var(--ease); }
+    .item:hover .fill { transform: scale(1.04); }
+    .media .lbl { position: absolute; left: 14px; bottom: 12px; font-size: 12px; color: rgba(255,255,255,.7); }
+    .item h3 { font-family: var(--sans); font-weight: 500; font-size: 15px; margin-top: 16px; }
+    .item p { font-family: var(--serif); font-size: clamp(22px, 2.1vw, 32px); line-height: 1.12; letter-spacing: -.01em; margin-top: 4px; max-width: 22ch; transition: color .5s var(--ease); }
+    .item:hover p { color: var(--accent); }
+    .item p.small { font-family: var(--sans); font-size: 13px; letter-spacing: 0; margin-top: 10px; }
+    .item:hover p.small { color: var(--mute); }
+
+    /* Chi sono: una frase lunga in serif, il resto è struttura */
+    .about { padding: 18vh var(--gut); display: grid; grid-template-columns: repeat(12, 1fr); column-gap: var(--gut); }
+    .about .small { grid-column: 1 / span 2; }
+    .about .big { grid-column: 3 / span 9; font-family: var(--serif); font-weight: 300; font-size: clamp(26px, 3.4vw, 56px); line-height: 1.08; letter-spacing: -.018em; }
+    .about .big span { color: var(--mute); }
+    .about ul.small { grid-column: 3 / span 9; list-style: none; display: flex; flex-wrap: wrap; gap: 8px 32px; margin-top: 6vh; color: var(--mute); }
+
+    .contact { padding: 10vh var(--gut) 24px; border-top: 1px solid var(--line); }
+    .contact a.mail { display: inline-block; font-family: var(--serif); font-weight: 300; font-size: clamp(40px, 8.2vw, 150px); letter-spacing: -.035em; line-height: 1; margin: 2vh 0 14vh; background: linear-gradient(var(--accent), var(--accent)) 0 100% / 0 2px no-repeat; transition: background-size .9s var(--ease); }
+    .contact a.mail:hover { background-size: 100% 2px; }
+    .contact .row { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .contact .row nav { display: flex; gap: 24px; }
+    .contact .row nav a:hover { color: var(--ink); }
+
+    @media (max-width: 760px) {
+      .top nav { gap: 16px; }
+      .hero__foot { grid-template-columns: 1fr; gap: 4px; }
+      .hero__foot p:last-child { text-align: left; }
+      .work { row-gap: 9vh; }
+      .work > .item { grid-column: 1 / -1 !important; margin-top: 0 !important; }
+      .about .small, .about .big, .about ul.small { grid-column: 1 / -1; }
+      .about .small { margin-bottom: 16px; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } .line > span { transform: none; } .hero__foot { opacity: 1; } .media { clip-path: none; } }
+  </style>
+</head>
+<body>
+  <header class="top">
+    <a class="logo" href="#">Stefano Oberto <b aria-hidden="true"></b></a>
+    <nav><a href="#lavori">Lavori</a><a href="#chi-sono">Chi sono</a><a href="#contatti">Contatti</a></nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <!-- TODO: il tuo manifesto in una frase. Le parole in <em> sono quelle che vuoi far ricordare. -->
+      <h1>
+        <span class="line"><span>Le idee valgono poco</span></span>
+        <span class="line"><span>finché qualcuno non</span></span>
+        <span class="line"><span>le <em>usa</em>. Io lavoro</span></span>
+        <span class="line"><span>su quel finché.</span></span>
+      </h1>
+      <div class="hero__foot small">
+        <p>Ruolo — descrizione in tre parole</p><!-- TODO -->
+        <p>Città, Italia</p>
+        <p>Lavori selezionati ↓</p>
+      </div>
+    </section>
+
+    <section class="work" id="lavori">
+      <div class="work__title small"><span>Lavori selezionati</span><span>2023 — 2026</span></div>
+      <!-- TODO: ogni .item è un progetto. La riga in serif è la "promessa" del progetto: un verbo, un risultato. -->
+      <a class="item" href="#"><div class="media"><div class="fill" style="background:radial-gradient(120% 90% at 20% 10%,#ff4a1c,#3a1206 60%,#0c0c0c)"></div><span class="lbl">Immagine o video del progetto</span></div><h3>Progetto Uno</h3><p>Dare forma a un servizio in sei settimane.</p><p class="small">Strategia · Prodotto · 2026</p></a>
+      <a class="item" href="#"><div class="media"><div class="fill" style="background:linear-gradient(200deg,#d9d7d0,#6d6b66)"></div><span class="lbl">Immagine</span></div><h3>Progetto Due</h3><p>Da zero a mille utenti, senza budget media.</p><p class="small">Growth · Contenuti · 2025</p></a>
+      <a class="item" href="#"><div class="media"><div class="fill" style="background:conic-gradient(from 210deg at 70% 60%,#1d1d1d,#4b4b4b,#1d1d1d)"></div><span class="lbl">Immagine o video del progetto</span></div><h3>Progetto Tre</h3><p>Riscrivere il modo in cui un marchio parla.</p><p class="small">Brand · Voce · 2025</p></a>
+      <a class="item" href="#"><div class="media"><div class="fill" style="background:linear-gradient(140deg,#2a2a2a,#ff4a1c 140%)"></div><span class="lbl">Immagine</span></div><h3>Progetto Quattro</h3><p>Un sistema che si regge da solo.</p><p class="small">Operazioni · 2024</p></a>
+      <a class="item" href="#"><div class="media"><div class="fill" style="background:radial-gradient(80% 60% at 70% 80%,#8a8780,#151515)"></div><span class="lbl">Immagine o video del progetto</span></div><h3>Progetto Cinque</h3><p>Una domanda giusta, prima di ogni risposta.</p><p class="small">Ricerca · 2023</p></a>
+    </section>
+
+    <section class="about" id="chi-sono">
+      <p class="small">Chi sono</p>
+      <!-- TODO: bio. La parte in grigio è il tono più personale. -->
+      <p class="big">Sono Stefano. Lavoro dove strategia e fare si toccano: capire il problema, scegliere cosa costruire, portarlo davanti alle persone. <span>Fuori dal lavoro, una passione che dice qualcosa di te.</span></p>
+      <ul class="small"><li>Strategia</li><li>Prodotto</li><li>Contenuti</li><li>Crescita</li><li>Ricerca</li></ul>
+    </section>
+  </main>
+
+  <footer class="contact" id="contatti">
+    <p class="small">Hai qualcosa che deve ancora arrivare alle persone?</p>
+    <a class="mail" href="mailto:oberto.stefano.job@gmail.com">Scrivimi.</a>
+    <div class="row small">
+      <span>oberto.stefano.job@gmail.com</span>
+      <nav><a href="#">LinkedIn</a><a href="https://github.com/stefanobe-ship-it">GitHub</a><a href="#">Instagram</a></nav>
+      <span>© 2026 Stefano Oberto</span>
+    </div>
+  </footer>
+
+  <script>
+    // Le righe del manifesto entrano una dopo l'altra
+    document.querySelectorAll('.line > span').forEach((s, i) => s.style.animationDelay = (0.2 + i * 0.11) + 's');
+
+    // Le immagini si aprono quando entrano nello schermo
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: 0.2 });
+    document.querySelectorAll('.media').forEach(m => io.observe(m));
+
+    // Leggera parallasse dentro le immagini
+    const fills = [...document.querySelectorAll('.fill')];
+    const par = () => fills.forEach(f => { const r = f.parentElement.getBoundingClientRect(); const k = (r.top + r.height / 2 - innerHeight / 2) / innerHeight; f.style.translate = `0 ${k * -6}%`; });
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) { addEventListener('scroll', par, { passive: true }); par(); }
+  </script>
+</body>
+</html>
