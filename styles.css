@@ -114,6 +114,9 @@ ul, ol { list-style: none; }
 .ph.tall { aspect-ratio: 4 / 5; }
 .ph.square { aspect-ratio: 1; }
 .ph.wide { aspect-ratio: 21 / 9; }
+.media img, .fig img, .portrait img { width: 100%; height: auto; background: var(--tint); }
+.fig img.crop-45 { aspect-ratio: 4 / 5; object-fit: cover; }
+.fig img.crop-11 { aspect-ratio: 1; object-fit: cover; }
 figcaption { font-family: var(--mono); font-size: 12px; letter-spacing: .02em; text-transform: uppercase; color: var(--mute); }
 .figs { padding: 0 var(--gut); }
 .figs.two { grid-template-columns: 1fr 1fr; }
@@ -152,6 +155,7 @@ figcaption { font-family: var(--mono); font-size: 12px; letter-spacing: .02em; t
 .list .item:last-child { border-bottom: 1px solid var(--line); }
 .list h3 { font-size: clamp(18px, 1.6vw, 24px); font-weight: 500; letter-spacing: -.015em; line-height: 1.2; }
 .list p { color: var(--mute); margin-top: 4px; }
+.list p a { color: var(--ink); white-space: nowrap; }
 
 /* Teaser "chi sono" in home */
 .about { padding: 6vh var(--gut) 16vh; }

@@ -8,7 +8,7 @@ Sito portfolio statico (HTML + CSS + un po' di JavaScript), senza dipendenze né
 - `chi-sono.html`: pagina personale (percorso, metodo, strumenti, passioni).
 - `progetti/`: una pagina per progetto. Ci sono tre modelli da copiare:
   - `progetto-uno.html` / `progetto-due.html`: caso studio **UI/UX** (contesto, problema, ricerca, intuizione, soluzione, test, risultati);
-  - `progetto-tre.html` / `progetto-quattro.html`: **branding** e **grafica** (brief, idea, sistema, applicazioni);
+  - `ventinove-fest.html` / `siel.html`: **branding** (contesto, brief o ruolo, idea, applicazioni), con immagini vere in `img/`;
   - `videogioco.html`: **progetto personale in corso**, con diario di sviluppo.
 - `styles.css`: aspetto grafico. Colori e font sono in cima, nella sezione `:root`.
 - `script.js`: orologio, nome a tutta larghezza, filtri, anteprima al passaggio del cursore, comparse.
