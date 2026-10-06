@@ -9,7 +9,7 @@ Sito portfolio statico (HTML + CSS + un po' di JavaScript), senza dipendenze né
 - `progetti/`: una pagina per progetto. Ci sono tre modelli da copiare:
   - `hoomie.html` / `club-deal.html`: caso studio **UI/UX** (obiettivo, utenti, flussi, scelte di design, risultati);
   - `ventinove-fest.html` / `siel.html`: **branding** (contesto, brief o ruolo, idea, applicazioni), con immagini vere in `img/`;
-  - `videogioco.html`: **progetto personale in corso**, con diario di sviluppo.
+  - `coniuratio.html`: **progetto personale in corso** (il videogioco), con diario di sviluppo.
 - `styles.css`: aspetto grafico. Colori e font sono in cima, nella sezione `:root`.
 - `script.js`: orologio, nome a tutta larghezza, filtri, anteprima al passaggio del cursore, comparse.
 
