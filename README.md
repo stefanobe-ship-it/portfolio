@@ -15,6 +15,12 @@ Sito portfolio statico (HTML + CSS + un po' di JavaScript), senza dipendenze né
 
 Le parti da personalizzare sono segnate con `TODO`. Per vederlo in locale basta aprire `index.html` nel browser.
 
+## Contenuti ancora da scrivere
+
+Le parti segnaposto (testi guida, il diario di Coniuratio, i link al CV finché
+non c'è `cv.pdf`) hanno la classe `todo`: restano nel codice ma non si vedono
+online. Quando le completi, togli `todo` dall'elemento.
+
 ## Lingue (italiano, inglese, tedesco)
 
 Le pagine italiane sono la fonte. Le versioni in `en/` e `de/` **non si modificano a mano**:
@@ -58,7 +64,7 @@ Salva il CV come `cv.pdf` nella cartella principale: i link "Scarica il CV" punt
 
 1. Su GitHub apri il repository → **Settings** → **Pages**.
 2. In **Build and deployment** scegli **Source: Deploy from a branch**.
-3. Seleziona il branch (es. `main`) e la cartella `/ (root)`, poi salva.
+3. Seleziona il branch `main` e la cartella `/ (root)`, poi salva.
 4. Dopo qualche minuto il sito è online su
    `https://stefanobe-ship-it.github.io/portfolio/`.
 

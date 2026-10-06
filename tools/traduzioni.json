@@ -1180,5 +1180,69 @@
  "Sto costruendo da solo Coniuratio, un videogioco: storia, grafica e interfaccia. È il posto dove sperimento quello che poi porto nel lavoro.": {
   "en": "I'm building Coniuratio, a video game, on my own: story, art and interface. It's where I experiment with what I later bring to my work.",
   "de": "Ich entwickle allein Coniuratio, ein Videospiel: Geschichte, Grafik und Interface. Dort probiere ich aus, was ich später in meine Arbeit einbringe."
+ },
+ "Schermata del titolo di Coniuratio: la scritta su un cumulo di macerie, tegole e travi bruciate": {
+  "en": "Coniuratio title screen: the name over a heap of rubble, roof tiles and burnt beams",
+  "de": "Titelbildschirm von Coniuratio: der Schriftzug über Trümmern, Dachziegeln und verkohlten Balken"
+ },
+ "Ambienti, oggetti e materiali del mondo di gioco.": {
+  "en": "Places, objects and materials from the game world.",
+  "de": "Orte, Objekte und Materialien aus der Spielwelt."
+ },
+ "Facciata di un edificio a più piani con botteghe al piano terra, panni stesi e tetto di tegole": {
+  "en": "Multi-storey building front with shops on the ground floor, laundry hanging out and a tiled roof",
+  "de": "Mehrstöckige Fassade mit Läden im Erdgeschoss, aufgehängter Wäsche und Ziegeldach"
+ },
+ "Facciata con botteghe": {
+  "en": "Building front with shops",
+  "de": "Fassade mit Läden"
+ },
+ "Carro di legno a due ruote piene con il giogo": {
+  "en": "Wooden two-wheeled cart with solid wheels and a yoke",
+  "de": "Zweirädriger Holzkarren mit Vollrädern und Joch"
+ },
+ "Carro": {
+  "en": "Cart",
+  "de": "Karren"
+ },
+ "Porta di assi di legno con chiavistello in una stanza dai muri scrostati": {
+  "en": "Plank door with a bolt in a room with peeling walls",
+  "de": "Bretttür mit Riegel in einem Raum mit abblätternden Wänden"
+ },
+ "Porta": {
+  "en": "Door",
+  "de": "Tür"
+ },
+ "Tenda di tela rattoppata tesa davanti a una bottega": {
+  "en": "Patched canvas awning stretched in front of a shop",
+  "de": "Geflickte Stoffmarkise vor einem Laden"
+ },
+ "Tenda di una bottega": {
+  "en": "Shop awning",
+  "de": "Ladenmarkise"
+ },
+ "Dettaglio della tela sfilacciata legata a un palo con una corda": {
+  "en": "Close-up of the frayed canvas tied to a pole with rope",
+  "de": "Detail des ausgefransten Stoffs, mit einem Seil an einen Pfahl gebunden"
+ },
+ "Tela, dettaglio": {
+  "en": "Canvas, detail",
+  "de": "Stoff, Detail"
+ },
+ "Due tegole di terracotta, una piatta con i bordi rialzati e una curva": {
+  "en": "Two terracotta roof tiles, one flat with raised edges and one curved",
+  "de": "Zwei Dachziegel aus Terrakotta, ein flacher mit hochgezogenen Rändern und ein gewölbter"
+ },
+ "Tegole": {
+  "en": "Roof tiles",
+  "de": "Dachziegel"
+ },
+ "Assi di legno scuro consumate, viste dall'alto": {
+  "en": "Worn dark wooden planks seen from above",
+  "de": "Abgenutzte dunkle Holzdielen von oben"
+ },
+ "Pavimento in legno": {
+  "en": "Wooden floor",
+  "de": "Holzboden"
  }
 }

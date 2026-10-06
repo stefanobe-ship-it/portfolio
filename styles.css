@@ -198,6 +198,11 @@ figcaption { font-family: var(--mono); font-size: 12px; letter-spacing: .02em; t
 .foot a:hover { color: var(--accent); }
 .foot .r { text-align: right; }
 
+/* Contenuti ancora da scrivere: restano nel codice ma non si vedono online.
+   Quando li completi, togli la classe "todo". */
+.todo { display: none !important; }
+.foot .todo { display: block !important; visibility: hidden; }
+
 /* Comparsa all'ingresso nello schermo */
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity .9s var(--ease), transform 1.1s var(--ease); }
 .reveal.in { opacity: 1; transform: none; }
