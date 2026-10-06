@@ -1,5 +1,7 @@
 {
  "// nota": "Chiave = testo italiano esatto. Valore = stessa stringa per tutte le lingue, oppure {en, de}.",
+ "Creative Director": "Creative Director",
+ "Politecnico di Milano, Politecnico di Torino": "Politecnico di Milano, Politecnico di Torino",
  "IT": "IT",
  "EN": "EN",
  "DE": "DE",
@@ -1128,5 +1130,41 @@
  "Segui lo sviluppo →": {
   "en": "Follow the development →",
   "de": "Die Entwicklung verfolgen →"
+ },
+ "Studi": {
+  "en": "Studied at",
+  "de": "Studium"
+ },
+ "Brand e UI/UX designer": {
+  "en": "Brand and UI/UX designer",
+  "de": "Brand- und UI/UX-Designer"
+ },
+ "Identità, architettura dell'informazione, interfaccia web e mobile": {
+  "en": "Identity, information architecture, web and mobile interface",
+  "de": "Identität, Informationsarchitektur, Web- und Mobile-Interface"
+ },
+ "UI/UX dell'app, design system": {
+  "en": "App UI/UX, design system",
+  "de": "UI/UX der App, Designsystem"
+ },
+ "Graphic designer": {
+  "en": "Graphic designer",
+  "de": "Grafikdesigner"
+ },
+ "Ventinove Fest · Cuneo": {
+  "en": "Ventinove Fest · Cuneo",
+  "de": "Ventinove Fest · Cuneo"
+ },
+ "Co-organizzatore e responsabile della comunicazione": {
+  "en": "Co-organiser and head of communication",
+  "de": "Mitorganisator und Verantwortlicher für Kommunikation"
+ },
+ "Progetto personale": {
+  "en": "Personal project",
+  "de": "Persönliches Projekt"
+ },
+ "Da solo: game design, grafica, interfaccia": {
+  "en": "Solo: game design, art, interface",
+  "de": "Allein: Game Design, Grafik, Interface"
  }
 }

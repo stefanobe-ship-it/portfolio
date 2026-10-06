@@ -84,8 +84,8 @@ ul, ol { list-style: none; }
 .filters button[aria-pressed="true"] { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
 .filters sup { font-size: 9px; margin-left: 2px; }
 .index__head { display: grid; grid-template-columns: 1fr 3fr 3fr 2fr 1fr; gap: var(--gut); padding-bottom: 12px; }
-.rows { border-bottom: 1px solid var(--line); }
-.row { position: relative; display: grid; grid-template-columns: 1fr 3fr 3fr 2fr 1fr; gap: var(--gut); align-items: baseline; padding: 22px 0 20px; border-top: 1px solid var(--line); transition: color .4s var(--ease); }
+.rows { display: grid; grid-auto-rows: 1fr; border-bottom: 1px solid var(--line); }  /* tutte le righe alte come la più alta */
+.row { position: relative; display: grid; grid-template-columns: 1fr 3fr 3fr 2fr 1fr; gap: var(--gut); align-items: center; padding: 22px 0; border-top: 1px solid var(--line); transition: color .4s var(--ease); }
 .row[hidden] { display: none; }
 .thumb { display: none; }
 .row h3 { font-size: clamp(26px, 3.4vw, 52px); font-weight: 500; letter-spacing: -.035em; line-height: 1; transition: transform .6s var(--ease); }
