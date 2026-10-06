@@ -15,12 +15,34 @@ Sito portfolio statico (HTML + CSS + un po' di JavaScript), senza dipendenze né
 
 Le parti da personalizzare sono segnate con `TODO`. Per vederlo in locale basta aprire `index.html` nel browser.
 
+## Lingue (italiano, inglese, tedesco)
+
+Le pagine italiane sono la fonte. Le versioni in `en/` e `de/` **non si modificano a mano**:
+si rigenerano con
+
+    python3 tools/traduci.py
+
+Lo script copia ogni pagina italiana, sostituisce i testi con quelli di
+`tools/traduzioni.json` e sistema i percorsi di immagini, CSS e script.
+Se aggiungi o cambi un testo italiano, aggiungi la sua traduzione in
+`tools/traduzioni.json` (la chiave è il testo italiano esatto): se ne manca
+una, lo script si ferma e dice quale. `python3 tools/traduci.py --mancanti`
+elenca solo i testi ancora da tradurre.
+
+## Tema chiaro e scuro
+
+Il sito segue l'impostazione del sistema. Il pulsante nella testata la
+sovrascrive e la scelta resta salvata nel browser; tornando sulla stessa
+modalità del sistema il sito torna automatico. I colori dei due temi sono in
+cima a `styles.css`.
+
 ## Aggiungere un progetto
 
 1. Copia il modello più adatto in `progetti/` e rinominalo (es. `progetti/app-prenotazioni.html`).
 2. In `index.html` aggiungi una riga `<a class="row" ...>` che punta alla nuova pagina:
    `data-cat` è la disciplina (`ux`, `brand`, `grafica`, `personale`), `data-img` la copertina.
 3. Aggiorna il link "Progetto successivo" in fondo alle pagine, così la catena resta chiusa.
+4. Aggiungi le traduzioni dei nuovi testi e lancia `python3 tools/traduci.py`.
 
 ## Immagini
 

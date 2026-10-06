@@ -7,6 +7,27 @@ const toTop = () => { if (!location.hash) window.scrollTo({ top: 0, left: 0, beh
 toTop();
 addEventListener('load', () => { toTop(); setTimeout(toTop, 100); });
 
+// Tema chiaro/scuro: segue il sistema finché non scegli tu.
+// Se torni sulla stessa modalità del sistema, la scelta si azzera e il sito torna automatico.
+const root = document.documentElement;
+const themeBtn = document.querySelector('.theme');
+const sysDark = matchMedia('(prefers-color-scheme: dark)');
+const isDark = () => (root.dataset.theme || (sysDark.matches ? 'dark' : 'light')) === 'dark';
+const syncTheme = () => { if (themeBtn) themeBtn.setAttribute('aria-pressed', String(isDark())); };
+if (themeBtn) {
+  syncTheme();
+  themeBtn.addEventListener('click', () => {
+    const next = isDark() ? 'light' : 'dark';
+    const system = sysDark.matches ? 'dark' : 'light';
+    try {
+      if (next === system) { delete root.dataset.theme; localStorage.removeItem('theme'); }
+      else { root.dataset.theme = next; localStorage.setItem('theme', next); }
+    } catch (e) { root.dataset.theme = next; }
+    syncTheme();
+  });
+  sysDark.addEventListener('change', syncTheme);
+}
+
 // Home: il nome sale lettera per lettera e riempie esattamente la larghezza
 const name = document.querySelector('.name');
 if (name) {
@@ -44,6 +65,7 @@ filters.forEach((btn) => {
 
 // Home: copertina del progetto. Su telefono è fissa dentro ogni riga,
 // con il mouse compare al passaggio e segue il cursore.
+const coverLabel = { en: 'Cover', de: 'Titelbild' }[root.lang] || 'Copertina';
 const cover = (r) => r.dataset.img
   ? `url("${r.dataset.img}") center / cover`
   : `linear-gradient(160deg, ${r.dataset.c || '#ff4f00'} 0 62%, #0b0b0c 62%)`;
@@ -52,7 +74,7 @@ rows.forEach((r) => {
   t.className = 'thumb mono';
   t.setAttribute('aria-hidden', 'true');
   t.style.background = cover(r);
-  if (!r.dataset.img) t.textContent = 'Copertina';
+  if (!r.dataset.img) t.textContent = coverLabel;
   r.prepend(t);
 });
 
@@ -62,7 +84,7 @@ if (pv && rows.length && matchMedia('(hover: hover)').matches) {
     const card = document.createElement('i');
     card.className = 'mono';
     card.style.background = cover(r);
-    if (!r.dataset.img) card.textContent = 'Copertina · ' + r.querySelector('h3').textContent;
+    if (!r.dataset.img) card.textContent = coverLabel + ' · ' + r.querySelector('h3').textContent;
     pv.appendChild(card);
     r.addEventListener('mouseenter', () => {
       pv.classList.add('on');

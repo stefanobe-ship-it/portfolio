@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Club Deal — Stefano Oberto</title>
+  <meta name="description" content="UI/UX-Case-Study: Club Deal, die Plattform, die private Unternehmer mit Startups aus Norditalien zusammenbringt.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%23ff4f00'/><text x='50%' y='56%' text-anchor='middle' dominant-baseline='middle' font-family='Arial,sans-serif' font-weight='700' font-size='30' fill='%23fff'>SO</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    // Applica il tema scelto prima del disegno della pagina, per evitare il lampo di colore
+    try { var t = localStorage.getItem('theme'); if (t === 'dark' || t === 'light') document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Zum Inhalt springen</a>
+
+  <header class="top g4 mono">
+    <a class="brand" href="../index.html"><span class="full">Stefano Oberto</span><span class="short" aria-hidden="true">S.O.</span></a>
+    <span class="hide-m">UI/UX Designer</span>
+    <div class="tools">
+      <nav aria-label="Hauptmenü"><a href="../index.html#lavori" aria-current="true">Projekte</a><a href="../chi-sono.html">Über mich</a><a href="#contatti">Kontakt</a></nav>
+      <ul class="langs" aria-label="Sprache"><li><a href="../../progetti/club-deal.html" lang="it" hreflang="it" title="Italiano">IT</a></li><li><a href="../../en/progetti/club-deal.html" lang="en" hreflang="en" title="English">EN</a></li><li><a href="club-deal.html" lang="de" hreflang="de" title="Deutsch" aria-current="true">DE</a></li></ul>
+      <button class="theme" type="button" aria-label="Dunkles Design" aria-pressed="false"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M8 1.5a6.5 6.5 0 0 1 0 13z" fill="currentColor"/></svg></button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="case-head">
+      <p class="crumb mono mute"><a href="../index.html#lavori">Projekte</a><span>/</span><span>UI/UX</span></p>
+      <h1 class="case-title">Club Deal</h1>
+      <div class="g4">
+        <p class="case-sub lead">Unternehmern, die nicht aus der Startup-Welt kommen, verständlich machen, worin sie investieren. <span>Eine Plattform, die sie mit Startups aus Norditalien zusammenbringt, vor allem aus dem Piemont.</span></p>
+      </div>
+      <dl class="meta g4 mono">
+        <div><dt>Rolle</dt><dd>Branding, UI/UX</dd></div>
+        <div><dt>Jahr</dt><dd>—</dd></div><!-- TODO: anno del progetto -->
+        <div><dt>Plattform</dt><dd>Web und Mobile</dd></div>
+        <div><dt>Nutzer</dt><dd>Private Unternehmer, die in Startups investieren</dd></div>
+      </dl>
+    </section>
+
+    <div class="media" style="margin-top:6vh">
+      <figure><img src="../../img/club-deal/app-mobile.jpg" alt="Fünf Screens der Club-Deal-App: Portfolio, Startup-Seite, Vergleich und Simulation" width="2400" height="1350"></figure>
+    </div>
+
+    <section class="block g4">
+      <h2 class="label mono">Ziel</h2>
+      <div class="body">
+        <ul>
+          <li>Das Interface leicht navigierbar machen.</li>
+          <li>Die Bewertung eines Projekts vereinfachen.</li>
+          <li>Die Informationen für Menschen lesbar machen, die Unternehmen verstehen, aber keine Startup-Experten sind.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="block g4">
+      <h2 class="label mono">Navigation</h2>
+      <div class="body">
+        <p><strong>Hauptbereiche.</strong> Ein allgemeines Dashboard, um die Entwicklung der Investitionen zu verfolgen und die laut Plattform interessantesten Projekte zu entdecken, die Projektliste und das Portfolio.</p>
+        <p><strong>Kontextbezogene Aktionen.</strong> Vergleichen und Investieren sind zentrale Aktionen, ergeben aber nur innerhalb eines Projekts Sinn: Im Hauptmenü würden sie verwirren.</p>
+        <p><strong>Persönlicher Bereich.</strong> Favoriten und Verwaltung gehören ins Nutzerprofil.</p>
+        <p><strong>Später.</strong> Funktionen, die heute nicht gebraucht werden, bleiben draußen: Im Moment geht es ums Entdecken.</p>
+      </div>
+    </section>
+    <div class="media">
+      <figure><img src="../../img/club-deal/navigazione.jpg" alt="Navigationsschema: die Einträge des Seitenmenüs, gruppiert in Hauptbereiche, kontextbezogene Aktionen, persönlichen Bereich und Extras" width="2400" height="1350" loading="lazy"><figcaption>Navigationsarchitektur</figcaption></figure>
+    </div>
+
+    <section class="block g4">
+      <h2 class="label mono">Die Startup-Seite</h2>
+      <p class="statement">Wer beim kleinen Bildschirm anfängt, muss eine Hierarchie festlegen. Was diese Einschränkung übersteht, ist das, was wirklich zählt.</p>
+    </section>
+    <section class="block g4" style="padding-top:0">
+      <h2 class="label mono mute">Drei Bereiche</h2>
+      <div class="body">
+        <p>Jedes Startup liest sich in drei Schritten: ein Überblick, die Abwägung von Potenzial und Risiko, die Bewertung.</p>
+      </div>
+    </section>
+
+    <section class="block g4" style="padding-bottom:4vh">
+      <h2 class="label mono">Potenzial und Risiko</h2>
+      <div class="body">
+        <p>Potenzial, Risiko und Investitionsreife werden zu Werten, die man auf einen Blick erfasst. Der Vergleich von bis zu drei Startups erscheint genau hier, im Kontext von Risiko und Potenzial, mit einer KI-generierten Zusammenfassung.</p>
+      </div>
+    </section>
+    <div class="media">
+      <figure><img src="../../img/club-deal/potenziale-rischio.jpg" alt="Screens zu Potenzial und Risiko und ein Vergleich zweier Startups mit KI-Zusammenfassung" width="2400" height="1350" loading="lazy"></figure>
+    </div>
+
+    <section class="block g4" style="padding-bottom:4vh">
+      <h2 class="label mono">Bewertung</h2>
+      <div class="body">
+        <p>Die Pre-Money-Bewertung wird mit mehreren Methoden berechnet und als Spanne zwischen Minimum und Maximum gezeigt. Die Investitionssimulation mit pessimistischem, Basis- und optimistischem Szenario hilft, die mögliche Rendite schon beim Entdecken des Startups einzuschätzen.</p>
+      </div>
+    </section>
+    <div class="media">
+      <figure><img src="../../img/club-deal/valutazione.jpg" alt="Screens zur Pre-Money-Bewertung und zur Investitionssimulation" width="2400" height="1350" loading="lazy"></figure>
+    </div>
+
+    <a class="next" href="videogioco.html">
+      <span class="mono">Nächstes Projekt</span>
+      <h2>Videospiel →</h2>
+    </a>
+  </main>
+
+  <footer class="foot g4" id="contatti">
+    <span class="mono mute">Schreib mir</span>
+    <a class="mail" href="mailto:oberto.stefano.job@gmail.com">oberto.stefano.job@gmail.com</a>
+    <ul class="mono"><li><a href="https://www.linkedin.com/in/stefano-oberto-4177b5260/" target="_blank" rel="noopener">LinkedIn</a></li></ul>
+    <a class="mono" href="../../cv.pdf">Lebenslauf herunterladen ↓</a>
+    <span></span>
+    <span class="mono r">© <span id="year">2026</span></span>
+  </footer>
+
+  <script src="../../script.js"></script>
+</body>
+</html>

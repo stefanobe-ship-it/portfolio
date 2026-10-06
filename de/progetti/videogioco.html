@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- TODO: quando avrà un nome, sostituisci "Videogioco" in tutta la pagina e in index.html -->
+  <title>Videospiel — Stefano Oberto</title>
+  <meta name="description" content="Ein Videospiel, das Stefano Oberto allein entwickelt: Konzept, Spiel-Interface und Entwicklungstagebuch.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%23ff4f00'/><text x='50%' y='56%' text-anchor='middle' dominant-baseline='middle' font-family='Arial,sans-serif' font-weight='700' font-size='30' fill='%23fff'>SO</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    // Applica il tema scelto prima del disegno della pagina, per evitare il lampo di colore
+    try { var t = localStorage.getItem('theme'); if (t === 'dark' || t === 'light') document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Zum Inhalt springen</a>
+
+  <header class="top g4 mono">
+    <a class="brand" href="../index.html"><span class="full">Stefano Oberto</span><span class="short" aria-hidden="true">S.O.</span></a>
+    <span class="hide-m">UI/UX Designer</span>
+    <div class="tools">
+      <nav aria-label="Hauptmenü"><a href="../index.html#lavori" aria-current="true">Projekte</a><a href="../chi-sono.html">Über mich</a><a href="#contatti">Kontakt</a></nav>
+      <ul class="langs" aria-label="Sprache"><li><a href="../../progetti/videogioco.html" lang="it" hreflang="it" title="Italiano">IT</a></li><li><a href="../../en/progetti/videogioco.html" lang="en" hreflang="en" title="English">EN</a></li><li><a href="videogioco.html" lang="de" hreflang="de" title="Deutsch" aria-current="true">DE</a></li></ul>
+      <button class="theme" type="button" aria-label="Dunkles Design" aria-pressed="false"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M8 1.5a6.5 6.5 0 0 1 0 13z" fill="currentColor"/></svg></button>
+    </div>
+  </header>
+
+  <!-- MODELLO: PROGETTO PERSONALE IN CORSO
+       Non è un caso studio chiuso: è un cantiere aperto. Il diario di sviluppo
+       mostra costanza, e la sezione sull'interfaccia di gioco collega la passione
+       al lavoro UI/UX che cerchi. -->
+  <main id="main">
+    <section class="case-head">
+      <p class="crumb mono mute"><a href="../index.html#lavori">Projekte</a><span>/</span><span>Persönlich</span></p>
+      <p class="status mono" style="margin-bottom:2vh">In Entwicklung</p>
+      <h1 class="case-title">Videospiel</h1>
+      <div class="g4">
+        <p class="case-sub lead">Ein Spiel, das ich allein entwickle, inklusive Interface. <span>Das Spiel in einem Satz: Genre, Hauptfigur, was du tust.</span></p>
+      </div>
+      <dl class="meta g4 mono">
+        <div><dt>Genre</dt><dd>Z. B. Adventure, Puzzle</dd></div>
+        <div><dt>Plattform</dt><dd>Z. B. PC</dd></div>
+        <div><dt>Engine · Tools</dt><dd>Z. B. Godot, Aseprite, Figma</dd></div>
+        <div><dt>Begonnen</dt><dd>Monat Jahr</dd></div>
+      </dl>
+    </section>
+
+    <div class="media" style="margin-top:6vh">
+      <figure><div class="ph wide" data-label="Key Visual des Spiels · Screenshot oder Illustration"></div></figure>
+    </div>
+
+    <section class="block g4">
+      <h2 class="label mono">Die Idee</h2>
+      <div class="body">
+        <p>Woher das Spiel kommt und was die Spielenden fühlen sollen. Erzähl die Grundidee so, wie du sie einem Freund erzählen würdest.</p>
+      </div>
+    </section>
+
+    <section class="block g4">
+      <h2 class="label mono">So wird gespielt</h2>
+      <div class="body">
+        <p>Die wichtigsten Mechaniken, in wenigen Zeilen.</p>
+        <ul>
+          <li>Mechanik 1: was die Spielenden tun.</li>
+          <li>Mechanik 2: was es besonders macht.</li>
+          <li>Mechanik 3: wie man vorankommt.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="block g4" style="padding-bottom:4vh">
+      <h2 class="label mono">Welt und Stil</h2>
+      <div class="body"><p>Visuelle Referenzen, Farbpalette, Atmosphäre.</p></div>
+    </section>
+    <div class="figs g4 three">
+      <figure class="fig"><div class="ph square" data-label="Konzept / Skizze"></div></figure>
+      <figure class="fig"><div class="ph square" data-label="Figur"></div></figure>
+      <figure class="fig"><div class="ph square" data-label="Umgebung"></div></figure>
+    </div>
+
+    <section class="block g4">
+      <h2 class="label mono">Spiel-Interface</h2>
+      <!-- La sezione più importante per chi ti valuta come UI/UX designer -->
+      <div class="body">
+        <p>Wie du HUD, Menüs und Tutorial gestaltet hast: welche Informationen die Spielenden wann brauchen und wie du sie führst, ohne alles zu erklären.</p>
+        <p>Wenn du das Spiel von anderen testen lassen hast, erzähl, was du nach der Beobachtung geändert hast.</p>
+      </div>
+    </section>
+    <div class="figs g4 two">
+      <figure class="fig"><div class="ph" data-label="HUD im Spiel"></div><figcaption>HUD: nur das, was gerade gebraucht wird</figcaption></figure>
+      <figure class="fig"><div class="ph" data-label="Menü / Inventar"></div><figcaption>Hauptmenü und Inventar</figcaption></figure>
+    </div>
+    <div class="media">
+      <figure><div class="ph" data-label="Menü-Wireframes → finale Version"></div><figcaption>Von Wireframes zur Spielgrafik</figcaption></figure>
+    </div>
+
+    <section class="block g4">
+      <h2 class="label mono">Entwicklungstagebuch</h2>
+      <!-- TODO: aggiungi una riga ogni volta che raggiungi un traguardo, la più recente in alto -->
+      <ol class="body log">
+        <li><span class="mono mute">Monat 2026</span><span>Erster Test mit fünf Personen: Tutorial neu geschrieben.</span></li>
+        <li><span class="mono mute">Monat 2026</span><span>Spielbarer Prototyp des ersten Levels.</span></li>
+        <li><span class="mono mute">Monat 2025</span><span>Visueller Stil festgelegt, erste Animationen.</span></li>
+        <li><span class="mono mute">Monat 2025</span><span>Idee, Designdokument und erste Skizzen.</span></li>
+      </ol>
+    </section>
+
+    <section class="block g4">
+      <h2 class="label mono">Nächste Schritte</h2>
+      <div class="body">
+        <p>Was noch fehlt und wann du es veröffentlichen willst, auch nur als Demo.</p>
+        <p><a href="#">Die Entwicklung verfolgen →</a></p><!-- TODO: link a itch.io, Instagram o newsletter, oppure elimina -->
+      </div>
+    </section>
+
+    <a class="next" href="ventinove-fest.html">
+      <span class="mono">Nächstes Projekt</span>
+      <h2>Ventinove Fest →</h2>
+    </a>
+  </main>
+
+  <footer class="foot g4" id="contatti">
+    <span class="mono mute">Schreib mir</span>
+    <a class="mail" href="mailto:oberto.stefano.job@gmail.com">oberto.stefano.job@gmail.com</a>
+    <ul class="mono"><li><a href="https://www.linkedin.com/in/stefano-oberto-4177b5260/" target="_blank" rel="noopener">LinkedIn</a></li></ul>
+    <a class="mono" href="../../cv.pdf">Lebenslauf herunterladen ↓</a>
+    <span></span>
+    <span class="mono r">© <span id="year">2026</span></span>
+  </footer>
+
+  <script src="../../script.js"></script>
+</body>
+</html>

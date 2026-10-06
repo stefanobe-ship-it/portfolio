@@ -1,0 +1,1132 @@
+{
+ "// nota": "Chiave = testo italiano esatto. Valore = stessa stringa per tutte le lingue, oppure {en, de}.",
+ "IT": "IT",
+ "EN": "EN",
+ "DE": "DE",
+ "Italiano": "Italiano",
+ "English": "English",
+ "Deutsch": "Deutsch",
+ "SO": "SO",
+ "website": "website",
+ "Stefano Oberto": "Stefano Oberto",
+ "S.O.": "S.O.",
+ "UI/UX Designer": "UI/UX Designer",
+ "UI/UX": "UI/UX",
+ "Branding": "Branding",
+ "Hoomie": "Hoomie",
+ "Club Deal": "Club Deal",
+ "Ventinove Fest": "Ventinove Fest",
+ "SI.EL.": "SI.EL.",
+ "oberto.stefano.job@gmail.com": "oberto.stefano.job@gmail.com",
+ "LinkedIn": "LinkedIn",
+ "Cuneo": "Cuneo",
+ "Politecnico di Milano": "Politecnico di Milano",
+ "Politecnico di Torino": "Politecnico di Torino",
+ "InnoVentureLab": "InnoVentureLab",
+ "Figma": "Figma",
+ "Claude": "Claude",
+ "Claude Code": "Claude Code",
+ "Brief": "Brief",
+ "Design system": "Design system",
+ "30×": "30×",
+ "Lorenzo Dutto, William Fazzari": "Lorenzo Dutto, William Fazzari",
+ "Ventinove Fest 2024 · Cuneo": "Ventinove Fest 2024 · Cuneo",
+ "UI/UX · App": "UI/UX · App",
+ "UI/UX · Branding": "UI/UX · Branding",
+ "Branding · Logo": "Branding · Logo",
+ "Creative Director · Hoomie": "Creative Director · Hoomie",
+ "Creative Director, UI/UX": "Creative Director, UI/UX",
+ "Branding, UI/UX": "Branding, UI/UX",
+ "Tirocinio · Isao Hosoe Design": {
+  "en": "Internship · Isao Hosoe Design",
+  "de": "Praktikum · Isao Hosoe Design"
+ },
+ "Vai al contenuto": {
+  "en": "Skip to content",
+  "de": "Zum Inhalt springen"
+ },
+ "Lavori": {
+  "en": "Work",
+  "de": "Projekte"
+ },
+ "Chi sono": {
+  "en": "About",
+  "de": "Über mich"
+ },
+ "Contatti": {
+  "en": "Contact",
+  "de": "Kontakt"
+ },
+ "Principale": {
+  "en": "Main",
+  "de": "Hauptmenü"
+ },
+ "Lingua": {
+  "en": "Language",
+  "de": "Sprache"
+ },
+ "Tema scuro": {
+  "en": "Dark theme",
+  "de": "Dunkles Design"
+ },
+ "Scrivimi": {
+  "en": "Write to me",
+  "de": "Schreib mir"
+ },
+ "Scarica il CV ↓": {
+  "en": "Download CV ↓",
+  "de": "Lebenslauf herunterladen ↓"
+ },
+ "Progetto successivo": {
+  "en": "Next project",
+  "de": "Nächstes Projekt"
+ },
+ "Videogioco": {
+  "en": "Video game",
+  "de": "Videospiel"
+ },
+ "Videogioco →": {
+  "en": "Video game →",
+  "de": "Videospiel →"
+ },
+ "Hoomie →": {
+  "en": "Hoomie →",
+  "de": "Hoomie →"
+ },
+ "Club Deal →": {
+  "en": "Club Deal →",
+  "de": "Club Deal →"
+ },
+ "SI.EL. →": {
+  "en": "SI.EL. →",
+  "de": "SI.EL. →"
+ },
+ "Ventinove Fest →": {
+  "en": "Ventinove Fest →",
+  "de": "Ventinove Fest →"
+ },
+ "Vedi il progetto →": {
+  "en": "See the project →",
+  "de": "Zum Projekt →"
+ },
+ "Ruolo": {
+  "en": "Role",
+  "de": "Rolle"
+ },
+ "Anno": {
+  "en": "Year",
+  "de": "Jahr"
+ },
+ "Obiettivo": {
+  "en": "Goal",
+  "de": "Ziel"
+ },
+ "Contesto": {
+  "en": "Context",
+  "de": "Kontext"
+ },
+ "Applicazioni": {
+  "en": "Applications",
+  "de": "Anwendungen"
+ },
+ "Idea": {
+  "en": "Idea",
+  "de": "Idee"
+ },
+ "Risultati": {
+  "en": "Results",
+  "de": "Ergebnisse"
+ },
+ "Piattaforma": {
+  "en": "Platform",
+  "de": "Plattform"
+ },
+ "Stefano Oberto — UI/UX Designer": {
+  "en": "Stefano Oberto — UI/UX Designer",
+  "de": "Stefano Oberto — UI/UX Designer"
+ },
+ "Portfolio di Stefano Oberto, UI/UX designer con un passato nel branding: casi studio, progetti di identità visiva e un videogioco in sviluppo.": {
+  "en": "Portfolio of Stefano Oberto, a UI/UX designer with a background in branding: case studies, visual identity projects and a video game in development.",
+  "de": "Portfolio von Stefano Oberto, UI/UX-Designer mit Hintergrund im Branding: Case Studies, Corporate-Design-Projekte und ein Videospiel in Entwicklung."
+ },
+ "Casi studio di UI/UX, branding e grafica.": {
+  "en": "UI/UX, branding and graphic design case studies.",
+  "de": "Case Studies zu UI/UX, Branding und Grafikdesign."
+ },
+ "Progetto interfacce chiare per prodotti digitali, dal problema al prototipo testato.": {
+  "en": "I design clear interfaces for digital products, from the problem to the tested prototype.",
+  "de": "Ich gestalte klare Interfaces für digitale Produkte, vom Problem bis zum getesteten Prototyp."
+ },
+ "Vengo dal branding: so dare a un prodotto una voce riconoscibile.": {
+  "en": "I come from branding: I know how to give a product a recognisable voice.",
+  "de": "Ich komme aus dem Branding: Ich weiß, wie man einem Produkt eine unverwechselbare Stimme gibt."
+ },
+ "UI/UX · Branding · Grafica": {
+  "en": "UI/UX · Branding · Graphic design",
+  "de": "UI/UX · Branding · Grafikdesign"
+ },
+ "Tutti": {
+  "en": "All",
+  "de": "Alle"
+ },
+ "Personale": {
+  "en": "Personal",
+  "de": "Persönlich"
+ },
+ "Progetto": {
+  "en": "Project",
+  "de": "Projekt"
+ },
+ "In una riga": {
+  "en": "In one line",
+  "de": "In einem Satz"
+ },
+ "Disciplina": {
+  "en": "Discipline",
+  "de": "Disziplin"
+ },
+ "Filtra per disciplina": {
+  "en": "Filter by discipline",
+  "de": "Nach Disziplin filtern"
+ },
+ "Trovare casa e coinquilini giusti, con le persone prima delle case.": {
+  "en": "Finding a home and the right flatmates, with people before places.",
+  "de": "Eine Wohnung und die passenden Mitbewohner finden, mit den Menschen vor den Wohnungen."
+ },
+ "Investire in startup anche senza venire da quel mondo.": {
+  "en": "Investing in startups without coming from that world.",
+  "de": "In Startups investieren, auch ohne aus dieser Welt zu kommen."
+ },
+ "In corso": {
+  "en": "Ongoing",
+  "de": "Laufend"
+ },
+ "Un gioco che sto costruendo da solo, interfaccia compresa.": {
+  "en": "A game I'm building on my own, interface included.",
+  "de": "Ein Spiel, das ich allein entwickle, inklusive Interface."
+ },
+ "Personale · Game UI": {
+  "en": "Personal · Game UI",
+  "de": "Persönlich · Game UI"
+ },
+ "Il festival di Cuneo, contro l'idea che in città non ci sia niente da fare.": {
+  "en": "Cuneo's festival, against the idea that there's nothing to do in town.",
+  "de": "Das Festival von Cuneo, gegen die Vorstellung, dass in der Stadt nichts los ist."
+ },
+ "Branding · Comunicazione": {
+  "en": "Branding · Communication",
+  "de": "Branding · Kommunikation"
+ },
+ "Rinnovare un logo di quindici anni senza confondere nessuno.": {
+  "en": "Renewing a fifteen-year-old logo without confusing anyone.",
+  "de": "Ein fünfzehn Jahre altes Logo erneuern, ohne jemanden zu verwirren."
+ },
+ "Sono Stefano, UI/UX designer. Ho iniziato disegnando identità visive e ora progetto prodotti digitali: parto dalle persone, arrivo a interfacce che si capiscono al primo sguardo.": {
+  "en": "I'm Stefano, a UI/UX designer. I started out designing visual identities and now I design digital products: I start from people and arrive at interfaces you understand at first glance.",
+  "de": "Ich bin Stefano, UI/UX-Designer. Angefangen habe ich mit visuellen Identitäten, heute gestalte ich digitale Produkte: Ich beginne bei den Menschen und lande bei Interfaces, die man auf den ersten Blick versteht."
+ },
+ "Nel tempo libero sto costruendo un videogioco, dalla storia ai menu.": {
+  "en": "In my free time I'm building a video game, from the story to the menus.",
+  "de": "In meiner Freizeit entwickle ich ein Videospiel, von der Geschichte bis zu den Menüs."
+ },
+ "Più su di me →": {
+  "en": "More about me →",
+  "de": "Mehr über mich →"
+ },
+ "Chi sono — Stefano Oberto": {
+  "en": "About — Stefano Oberto",
+  "de": "Über mich — Stefano Oberto"
+ },
+ "Stefano Oberto, UI/UX designer con un passato nel branding: percorso, metodo, strumenti e passioni.": {
+  "en": "Stefano Oberto, a UI/UX designer with a background in branding: experience, education, tools and interests.",
+  "de": "Stefano Oberto, UI/UX-Designer mit Hintergrund im Branding: Werdegang, Ausbildung, Tools und Interessen."
+ },
+ "Sono Stefano. Progetto interfacce, ma ho iniziato dal branding": {
+  "en": "I'm Stefano. I design interfaces, but I started in branding",
+  "de": "Ich bin Stefano. Ich gestalte Interfaces, habe aber im Branding angefangen"
+ },
+ "e porto con me l'abitudine a dare a ogni prodotto una voce sua.": {
+  "en": "and I bring along the habit of giving every product a voice of its own.",
+  "de": "und bringe die Gewohnheit mit, jedem Produkt eine eigene Stimme zu geben."
+ },
+ "Base": {
+  "en": "Based in",
+  "de": "Wohnort"
+ },
+ "Città, Italia": {
+  "en": "City, Italy",
+  "de": "Stadt, Italien"
+ },
+ "Cerco": {
+  "en": "Looking for",
+  "de": "Ich suche"
+ },
+ "Un ruolo UI/UX": {
+  "en": "A UI/UX role",
+  "de": "Eine UI/UX-Stelle"
+ },
+ "Lavoro": {
+  "en": "Work setup",
+  "de": "Arbeitsmodell"
+ },
+ "In sede, ibrido o da remoto": {
+  "en": "On-site, hybrid or remote",
+  "de": "Vor Ort, hybrid oder remote"
+ },
+ "Lingue": {
+  "en": "Languages",
+  "de": "Sprachen"
+ },
+ "Italiano, Inglese": {
+  "en": "Italian, English",
+  "de": "Italienisch, Englisch"
+ },
+ "In breve": {
+  "en": "In short",
+  "de": "Kurz gesagt"
+ },
+ "Mi sono laureato prima al Politecnico di Torino e poi al Politecnico di Milano. Dalle due realtà ho imparato un po' dei loro opposti e delle loro contraddizioni: dal rigore e tecnicismo sabaudo alla vendibilità ed estetica meneghina. Cerco di combinarli al meglio che posso.": {
+  "en": "I graduated first from the Politecnico di Torino and then from the Politecnico di Milano. From the two I picked up some of their opposites and contradictions: Turin's rigour and technical focus, Milan's commercial sense and eye for aesthetics. I try to combine them as best I can.",
+  "de": "Ich habe zuerst am Politecnico di Torino und dann am Politecnico di Milano studiert. Von beiden habe ich etwas von ihren Gegensätzen und Widersprüchen mitgenommen: die Strenge und Technik Turins, den Sinn für Vermarktung und Ästhetik Mailands. Ich versuche, beides so gut wie möglich zu verbinden."
+ },
+ "Ritratto di Stefano Oberto, sorridente, con cappellino e occhiali": {
+  "en": "Portrait of Stefano Oberto, smiling, wearing a cap and glasses",
+  "de": "Porträt von Stefano Oberto, lächelnd, mit Kappe und Brille"
+ },
+ "Poi il passaggio dal branding alla UI/UX: cosa ti ha spinto e cosa ti sei portato dietro. È la parte che ti distingue da chi arriva solo da uno dei due mondi.": {
+  "en": "Then the move from branding to UI/UX: what pushed you and what you brought along. It's what sets you apart from people who come from only one of the two worlds.",
+  "de": "Dann der Wechsel vom Branding zu UI/UX: was dich angetrieben hat und was du mitgenommen hast. Das unterscheidet dich von denen, die nur aus einer der beiden Welten kommen."
+ },
+ "Esperienze": {
+  "en": "Experience",
+  "de": "Berufserfahrung"
+ },
+ "Startup che aiuta studenti e fuorisede a trovare casa e coinquilini più facilmente.": {
+  "en": "A startup that helps students and people moving to a new city find a home and flatmates more easily.",
+  "de": "Ein Startup, das Studierenden und Zugezogenen hilft, leichter eine Wohnung und Mitbewohner zu finden."
+ },
+ "Restyling del logo · SI.EL. srl": {
+  "en": "Logo redesign · SI.EL. srl",
+  "de": "Logo-Redesign · SI.EL. srl"
+ },
+ "Azienda di impiantistica elettrica, automazione e servizi per l'energia.": {
+  "en": "A company working in electrical systems, automation and energy services.",
+  "de": "Ein Unternehmen für Elektroanlagen, Automatisierung und Energiedienstleistungen."
+ },
+ "Co-organizzatore · Ventinove Fest": {
+  "en": "Co-organiser · Ventinove Fest",
+  "de": "Mitorganisator · Ventinove Fest"
+ },
+ "Festival musicale e culturale di Cuneo, la mia città natale. Oltre all'organizzazione ho curato la comunicazione a 360°: brand identity, ADV digitali e fisici, social media.": {
+  "en": "A music and culture festival in Cuneo, my home town. Besides the organisation, I handled all of its communication: brand identity, digital and print advertising, social media.",
+  "de": "Ein Musik- und Kulturfestival in Cuneo, meiner Heimatstadt. Neben der Organisation habe ich die gesamte Kommunikation betreut: Markenidentität, digitale und gedruckte Werbung, Social Media."
+ },
+ "Studio fondato da Isao Hosoe nel 1985. Mi sono occupato di brand integration per un'importante azienda italiana: branding, generazione di concept, modelli 3D e rendering.": {
+  "en": "A studio founded by Isao Hosoe in 1985. I worked on brand integration for a major Italian company: branding, concept generation, 3D modelling and rendering.",
+  "de": "Ein 1985 von Isao Hosoe gegründetes Studio. Ich habe an der Markenintegration für ein bedeutendes italienisches Unternehmen gearbeitet: Branding, Konzeptentwicklung, 3D-Modelle und Renderings."
+ },
+ "Milano": {
+  "en": "Milan",
+  "de": "Mailand"
+ },
+ "Torino": {
+  "en": "Turin",
+  "de": "Turin"
+ },
+ "Formazione": {
+  "en": "Education",
+  "de": "Ausbildung"
+ },
+ "Laurea Magistrale in Integrated Product Design": {
+  "en": "MSc in Integrated Product Design",
+  "de": "Master in Integrated Product Design"
+ },
+ "Corso di pre-accelerazione per startup": {
+  "en": "Startup pre-acceleration programme",
+  "de": "Pre-Accelerator-Programm für Startups"
+ },
+ "Laurea in Design e Comunicazione Visiva": {
+  "en": "BSc in Design and Visual Communication",
+  "de": "Bachelor in Design und Visueller Kommunikation"
+ },
+ "Percorso Giovani Talenti": {
+  "en": "Young Talents Programme",
+  "de": "Programm „Giovani Talenti“ für junge Talente"
+ },
+ "Strumenti": {
+  "en": "Tools",
+  "de": "Tools"
+ },
+ "Fuori dal lavoro": {
+  "en": "Outside work",
+  "de": "Außerhalb der Arbeit"
+ },
+ "Sto costruendo un videogioco da solo: storia, grafica e interfaccia. È il posto dove sperimento quello che poi porto nel lavoro.": {
+  "en": "I'm building a video game on my own: story, art and interface. It's where I experiment with what I later bring to my work.",
+  "de": "Ich entwickle allein ein Videospiel: Geschichte, Grafik und Interface. Dort probiere ich aus, was ich später in meine Arbeit einbringe."
+ },
+ "Guarda a che punto è →": {
+  "en": "See how it's going →",
+  "de": "Zum aktuellen Stand →"
+ },
+ "Ho una fortissima passione per il design industriale, che cerco di coltivare ancora oggi.": {
+  "en": "I have a strong passion for industrial design, which I still try to cultivate today.",
+  "de": "Ich habe eine große Leidenschaft für Industriedesign, die ich bis heute pflege."
+ },
+ "Continua": {
+  "en": "Continue",
+  "de": "Weiter"
+ },
+ "Guarda i lavori →": {
+  "en": "See the work →",
+  "de": "Zu den Projekten →"
+ },
+ "Foto passione 1": {
+  "en": "Hobby photo 1",
+  "de": "Foto Hobby 1"
+ },
+ "Foto passione 2": {
+  "en": "Hobby photo 2",
+  "de": "Foto Hobby 2"
+ },
+ "Foto passione 3": {
+  "en": "Hobby photo 3",
+  "de": "Foto Hobby 3"
+ },
+ "Club Deal — Stefano Oberto": {
+  "en": "Club Deal — Stefano Oberto",
+  "de": "Club Deal — Stefano Oberto"
+ },
+ "Caso studio UI/UX: Club Deal, la piattaforma che mette in contatto imprenditori privati e startup del Nord Italia.": {
+  "en": "UI/UX case study: Club Deal, the platform connecting private entrepreneurs with startups in Northern Italy.",
+  "de": "UI/UX-Case-Study: Club Deal, die Plattform, die private Unternehmer mit Startups aus Norditalien zusammenbringt."
+ },
+ "Aiutare imprenditori che non vengono dal mondo delle startup a capire in cosa stanno investendo.": {
+  "en": "Helping entrepreneurs who don't come from the startup world understand what they're investing in.",
+  "de": "Unternehmern, die nicht aus der Startup-Welt kommen, verständlich machen, worin sie investieren."
+ },
+ "Una piattaforma che li mette in contatto con startup del Nord Italia, in particolare del Piemonte.": {
+  "en": "A platform that connects them with startups in Northern Italy, especially in Piedmont.",
+  "de": "Eine Plattform, die sie mit Startups aus Norditalien zusammenbringt, vor allem aus dem Piemont."
+ },
+ "Web e mobile": {
+  "en": "Web and mobile",
+  "de": "Web und Mobile"
+ },
+ "Utenti": {
+  "en": "Users",
+  "de": "Nutzer"
+ },
+ "Imprenditori privati che investono in startup": {
+  "en": "Private entrepreneurs investing in startups",
+  "de": "Private Unternehmer, die in Startups investieren"
+ },
+ "Rendere l'interfaccia facile da navigare.": {
+  "en": "Make the interface easy to navigate.",
+  "de": "Das Interface leicht navigierbar machen."
+ },
+ "Semplificare il giudizio su un progetto.": {
+  "en": "Make it simpler to assess a project.",
+  "de": "Die Bewertung eines Projekts vereinfachen."
+ },
+ "Rendere leggibili le informazioni per chi conosce le dinamiche di un'azienda ma non è esperto del mondo delle startup.": {
+  "en": "Make the information readable for people who understand how a company works but aren't experts in startups.",
+  "de": "Die Informationen für Menschen lesbar machen, die Unternehmen verstehen, aber keine Startup-Experten sind."
+ },
+ "Navigazione": {
+  "en": "Navigation",
+  "de": "Navigation"
+ },
+ "Aree principali.": {
+  "en": "Main areas.",
+  "de": "Hauptbereiche."
+ },
+ "Una dashboard generale per seguire l'andamento degli investimenti e scoprire i progetti più interessanti secondo la piattaforma, l'elenco dei progetti e il portfolio.": {
+  "en": "A general dashboard to follow how investments are doing and discover the projects the platform rates most interesting, the list of projects, and the portfolio.",
+  "de": "Ein allgemeines Dashboard, um die Entwicklung der Investitionen zu verfolgen und die laut Plattform interessantesten Projekte zu entdecken, die Projektliste und das Portfolio."
+ },
+ "Azioni contestuali.": {
+  "en": "Contextual actions.",
+  "de": "Kontextbezogene Aktionen."
+ },
+ "Confrontare e investire sono azioni importantissime, ma hanno senso dentro un progetto: metterle tra le voci principali crea confusione.": {
+  "en": "Comparing and investing are key actions, but they only make sense within a project: putting them in the main menu creates confusion.",
+  "de": "Vergleichen und Investieren sind zentrale Aktionen, ergeben aber nur innerhalb eines Projekts Sinn: Im Hauptmenü würden sie verwirren."
+ },
+ "Ambito personale.": {
+  "en": "Personal area.",
+  "de": "Persönlicher Bereich."
+ },
+ "Preferiti e amministrazione appartengono al profilo dell'utente.": {
+  "en": "Favourites and account settings belong in the user's profile.",
+  "de": "Favoriten und Verwaltung gehören ins Nutzerprofil."
+ },
+ "In un secondo momento.": {
+  "en": "Later on.",
+  "de": "Später."
+ },
+ "Le funzioni che oggi non servono restano fuori: per ora l'interesse è la scoperta.": {
+  "en": "Features that aren't needed yet stay out: for now the focus is on discovery.",
+  "de": "Funktionen, die heute nicht gebraucht werden, bleiben draußen: Im Moment geht es ums Entdecken."
+ },
+ "Architettura della navigazione": {
+  "en": "Navigation architecture",
+  "de": "Navigationsarchitektur"
+ },
+ "La scheda startup": {
+  "en": "The startup page",
+  "de": "Die Startup-Seite"
+ },
+ "Partire dallo schermo piccolo obbliga a stabilire una gerarchia. Quello che sopravvive al vincolo è ciò che conta davvero.": {
+  "en": "Starting from the small screen forces you to set a hierarchy. Whatever survives the constraint is what really matters.",
+  "de": "Wer beim kleinen Bildschirm anfängt, muss eine Hierarchie festlegen. Was diese Einschränkung übersteht, ist das, was wirklich zählt."
+ },
+ "Tre sezioni": {
+  "en": "Three sections",
+  "de": "Drei Bereiche"
+ },
+ "Ogni startup si legge in tre passaggi: una panoramica, il bilancio tra potenziale e rischio, la valutazione economica.": {
+  "en": "Each startup reads in three steps: an overview, the balance between potential and risk, and the valuation.",
+  "de": "Jedes Startup liest sich in drei Schritten: ein Überblick, die Abwägung von Potenzial und Risiko, die Bewertung."
+ },
+ "Potenziale e rischio": {
+  "en": "Potential and risk",
+  "de": "Potenzial und Risiko"
+ },
+ "Potenziale, rischio e prontezza all'investimento diventano punteggi leggibili a colpo d'occhio. Il confronto tra più startup, fino a tre, compare proprio qui, nel contesto del rischio e del potenziale, con una sintesi generata dall'AI.": {
+  "en": "Potential, risk and investment readiness become scores you can read at a glance. Comparing startups, up to three at a time, appears right here, in the context of risk and potential, with an AI-generated summary.",
+  "de": "Potenzial, Risiko und Investitionsreife werden zu Werten, die man auf einen Blick erfasst. Der Vergleich von bis zu drei Startups erscheint genau hier, im Kontext von Risiko und Potenzial, mit einer KI-generierten Zusammenfassung."
+ },
+ "Valutazione": {
+  "en": "Valuation",
+  "de": "Bewertung"
+ },
+ "La valutazione pre-money è calcolata con più metodi e mostrata come forbice tra minimo e massimo. La simulazione dell'investimento, con scenari pessimistico, di base e ottimistico, aiuta a capire il possibile ritorno già mentre si scopre la startup.": {
+  "en": "The pre-money valuation is calculated with several methods and shown as a range between minimum and maximum. The investment simulation, with pessimistic, base and optimistic scenarios, helps you understand the possible return while you're still discovering the startup.",
+  "de": "Die Pre-Money-Bewertung wird mit mehreren Methoden berechnet und als Spanne zwischen Minimum und Maximum gezeigt. Die Investitionssimulation mit pessimistischem, Basis- und optimistischem Szenario hilft, die mögliche Rendite schon beim Entdecken des Startups einzuschätzen."
+ },
+ "Cinque schermate dell'app mobile di Club Deal: portfolio, scheda startup, confronto e simulazione": {
+  "en": "Five screens of the Club Deal mobile app: portfolio, startup page, comparison and simulation",
+  "de": "Fünf Screens der Club-Deal-App: Portfolio, Startup-Seite, Vergleich und Simulation"
+ },
+ "Schema della navigazione: le voci del menu laterale raggruppate in aree principali, azioni contestuali, ambito personale ed extra": {
+  "en": "Navigation diagram: side menu items grouped into main areas, contextual actions, personal area and extras",
+  "de": "Navigationsschema: die Einträge des Seitenmenüs, gruppiert in Hauptbereiche, kontextbezogene Aktionen, persönlichen Bereich und Extras"
+ },
+ "Schermate di potenziale e rischio e del confronto tra due startup con sintesi AI": {
+  "en": "Potential and risk screens and a comparison of two startups with an AI summary",
+  "de": "Screens zu Potenzial und Risiko und ein Vergleich zweier Startups mit KI-Zusammenfassung"
+ },
+ "Schermate della valutazione pre-money e della simulazione di un investimento": {
+  "en": "Pre-money valuation and investment simulation screens",
+  "de": "Screens zur Pre-Money-Bewertung und zur Investitionssimulation"
+ },
+ "Hoomie — Stefano Oberto": {
+  "en": "Hoomie — Stefano Oberto",
+  "de": "Hoomie — Stefano Oberto"
+ },
+ "Caso studio UI/UX: Hoomie, l'app che aiuta studenti e fuorisede a trovare casa e coinquilini.": {
+  "en": "UI/UX case study: Hoomie, the app that helps students and newcomers find a home and flatmates.",
+  "de": "UI/UX-Case-Study: Hoomie, die App, die Studierenden und Zugezogenen hilft, eine Wohnung und Mitbewohner zu finden."
+ },
+ "Trovare casa e le persone giuste con cui viverci, spendendo il 95% in meno che con un'agenzia.": {
+  "en": "Finding a home and the right people to share it with, for 95% less than an agency would cost.",
+  "de": "Eine Wohnung und die richtigen Menschen zum Zusammenleben finden, für 95 % weniger als mit einer Agentur."
+ },
+ "L'app per studenti e fuorisede, oggi su store e web.": {
+  "en": "The app for students and newcomers, now on the app stores and the web.",
+  "de": "Die App für Studierende und Zugezogene, heute in den App-Stores und im Web."
+ },
+ "Prodotto": {
+  "en": "Product",
+  "de": "Produkt"
+ },
+ "App a due lati: proprietari e fuorisede": {
+  "en": "Two-sided app: landlords and newcomers",
+  "de": "Zweiseitige App: Vermieter und Zugezogene"
+ },
+ "Stato": {
+  "en": "Status",
+  "de": "Status"
+ },
+ "Online, su store e web": {
+  "en": "Live, on the app stores and the web",
+  "de": "Live, in den App-Stores und im Web"
+ },
+ "Hoomie è un servizio a due lati: semplifica la ricerca della casa e mette in contatto le persone giuste per trovare una soluzione insieme. Rispetto alla commissione tipica di un'agenzia (651 €), il costo della ricerca si riduce del 95%.": {
+  "en": "Hoomie is a two-sided service: it simplifies the search for a home and matches the right people so they can find a place together. Compared with a typical agency fee (€651), it cuts the cost of searching by 95%.",
+  "de": "Hoomie ist ein zweiseitiger Service: Er vereinfacht die Wohnungssuche und bringt die richtigen Menschen zusammen, damit sie gemeinsam eine Lösung finden. Gegenüber einer typischen Maklerprovision (651 €) sinken die Suchkosten um 95 %."
+ },
+ "Due tipi di utenti": {
+  "en": "Two kinds of users",
+  "de": "Zwei Nutzergruppen"
+ },
+ "Proprietari.": {
+  "en": "Landlords.",
+  "de": "Vermieter."
+ },
+ "Pubblicano alloggi interi o stanze singole e cercano coinquilini, sia gruppi sia singoli.": {
+  "en": "They list whole flats or single rooms and look for tenants, both groups and individuals.",
+  "de": "Sie inserieren ganze Wohnungen oder einzelne Zimmer und suchen Mieter, als Gruppe oder einzeln."
+ },
+ "Fuorisede.": {
+  "en": "Newcomers.",
+  "de": "Zugezogene."
+ },
+ "Vedono gli annunci ordinati per affinità e ricevono suggerimenti di gruppi di persone con cui andare a vivere.": {
+  "en": "They see listings sorted by compatibility and get suggestions of groups of people to move in with.",
+  "de": "Sie sehen Angebote nach Passung sortiert und erhalten Vorschläge für Gruppen, mit denen sie zusammenziehen können."
+ },
+ "La home del proprietario e quella del fuorisede": {
+  "en": "The landlord's home screen and the newcomer's",
+  "de": "Der Startbildschirm für Vermieter und der für Zugezogene"
+ },
+ "Mappa del sistema": {
+  "en": "System map",
+  "de": "System-Map"
+ },
+ "Per i fuorisede la complessità sta nell'interazione e nell'esplorazione delle soluzioni dentro l'app.": {
+  "en": "For newcomers, the complexity lies in interacting with and exploring the options inside the app.",
+  "de": "Für Zugezogene liegt die Komplexität in der Interaktion mit den Angeboten und ihrer Erkundung in der App."
+ },
+ "Per i proprietari il flusso è progettato per essere il più semplice possibile, spostando il focus da \"devo trovare\" a \"mi faccio trovare\".": {
+  "en": "For landlords, the flow is designed to be as simple as possible, shifting the focus from \"I have to find\" to \"I get found\".",
+  "de": "Für Vermieter ist der Ablauf so einfach wie möglich gestaltet: Der Fokus verschiebt sich von „ich muss finden“ zu „ich werde gefunden“."
+ },
+ "Mappa dei flussi": {
+  "en": "Flow map",
+  "de": "Flow-Map"
+ },
+ "La funzione principale": {
+  "en": "The main feature",
+  "de": "Die Hauptfunktion"
+ },
+ "Le persone vengono prima delle case.": {
+  "en": "People come before places.",
+  "de": "Die Menschen kommen vor den Wohnungen."
+ },
+ "Crew, aka Ciurma": {
+  "en": "Crew",
+  "de": "Crew"
+ },
+ "Cosa comunicare.": {
+  "en": "What to communicate.",
+  "de": "Was kommuniziert werden soll."
+ },
+ "La sfida più importante è stata rendere comprensibile un'idea semplice: ci sono persone che potrebbero vivere benissimo insieme a te, in determinate case.": {
+  "en": "The biggest challenge was making a simple idea easy to grasp: there are people you could live with really well, in certain homes.",
+  "de": "Die größte Herausforderung war, eine einfache Idee verständlich zu machen: Es gibt Menschen, mit denen du in bestimmten Wohnungen sehr gut zusammenleben könntest."
+ },
+ "La scelta.": {
+  "en": "The choice.",
+  "de": "Die Entscheidung."
+ },
+ "Le persone vengono prima delle case. A colpo d'occhio emergono le affinità, che si possono approfondire nella sezione dedicata.": {
+  "en": "People come before places. What you have in common stands out at a glance, and you can explore it further in a dedicated section.",
+  "de": "Die Menschen kommen vor den Wohnungen. Gemeinsamkeiten fallen auf einen Blick auf und lassen sich in einem eigenen Bereich vertiefen."
+ },
+ "Il carosello delle case.": {
+  "en": "The homes carousel.",
+  "de": "Das Wohnungs-Karussell."
+ },
+ "Mostrare subito le soluzioni possibili permette di validare il secondo punto della scelta. L'obiettivo era mostrare in una sola schermata entrambi i punti cardine della decisione.": {
+  "en": "Showing the possible homes straight away lets you check the second part of the choice. The goal was to show both key elements of the decision on a single screen.",
+  "de": "Mögliche Wohnungen sofort zu zeigen, hilft, den zweiten Teil der Entscheidung zu prüfen. Ziel war es, beide zentralen Punkte der Entscheidung auf einem einzigen Screen zu zeigen."
+ },
+ "I profili": {
+  "en": "The profiles",
+  "de": "Die Profile"
+ },
+ "Gli archetipi rendono confrontabile un'informazione che di solito resta vaga: non solo \"sono ordinato\", ma \"vai d'accordo con chi tiene in ordine\".": {
+  "en": "Archetypes make comparable a kind of information that usually stays vague: not just \"I'm tidy\", but \"you get along with people who keep things tidy\".",
+  "de": "Archetypen machen Informationen vergleichbar, die sonst vage bleiben: nicht nur „ich bin ordentlich“, sondern „du verstehst dich mit Menschen, die Ordnung halten“."
+ },
+ "Il rischio è ridurre le persone a sei caselle. Puntando sugli aspetti positivi di ogni archetipo, però, la decisione diventa più veloce mentre si esplora.": {
+  "en": "The risk is reducing people to six boxes. By focusing on the positive side of each archetype, though, deciding gets faster while you explore.",
+  "de": "Das Risiko ist, Menschen in sechs Schubladen zu stecken. Wer aber die positiven Seiten jedes Archetyps betont, entscheidet beim Erkunden schneller."
+ },
+ "Sei archetipi di personalità": {
+  "en": "Six personality archetypes",
+  "de": "Sechs Persönlichkeits-Archetypen"
+ },
+ "Per i proprietari": {
+  "en": "For landlords",
+  "de": "Für Vermieter"
+ },
+ "Per ridurre la dipendenza dalle agenzie immobiliari servono strumenti che valorizzino l'immobile. Abbiamo puntato sui video tour, raccolti in un feed verticale dedicato, e su un riepilogo rapido e diretto delle persone che si candidano.": {
+  "en": "Reducing reliance on estate agents takes tools that show a property at its best. We focused on video tours, collected in a dedicated vertical feed, and on a quick, direct summary of the people who apply.",
+  "de": "Um die Abhängigkeit von Maklern zu verringern, braucht es Werkzeuge, die eine Immobilie zur Geltung bringen. Wir haben auf Video-Touren in einem eigenen vertikalen Feed gesetzt und auf eine schnelle, direkte Übersicht der Bewerber."
+ },
+ "In sviluppo, con partner esterni: i contratti in app, con la scelta del contratto adatto, l'inserimento dei dati e la revisione completa prima della firma.": {
+  "en": "In development with external partners: in-app contracts, with choosing the right contract, entering the details and a full review before signing.",
+  "de": "In Entwicklung mit externen Partnern: Verträge in der App, mit Auswahl des passenden Vertrags, Dateneingabe und vollständiger Prüfung vor der Unterschrift."
+ },
+ "Video tour, candidature e contratti": {
+  "en": "Video tours, applications and contracts",
+  "de": "Video-Touren, Bewerbungen und Verträge"
+ },
+ "Un solo sistema di componenti per entrambi i lati del prodotto: schede degli annunci, profili, gruppi, filtri e domande dell'onboarding.": {
+  "en": "A single component system for both sides of the product: listing cards, profiles, groups, filters and onboarding questions.",
+  "de": "Ein einziges Komponentensystem für beide Seiten des Produkts: Inseratskarten, Profile, Gruppen, Filter und Onboarding-Fragen."
+ },
+ "L'app è online. Nei primi mesi:": {
+  "en": "The app is live. In the first months:",
+  "de": "Die App ist live. In den ersten Monaten:"
+ },
+ "Utenti nei primi quattro mesi": {
+  "en": "Users in the first four months",
+  "de": "Nutzer in den ersten vier Monaten"
+ },
+ "Candidature nei primi tre mesi, da 6 a 181": {
+  "en": "Applications in the first three months, from 6 to 181",
+  "de": "Bewerbungen in den ersten drei Monaten, von 6 auf 181"
+ },
+ "Candidature accettate (23 su 38)": {
+  "en": "Applications accepted (23 of 38)",
+  "de": "Angenommene Bewerbungen (23 von 38)"
+ },
+ "Crew create": {
+  "en": "Crews created",
+  "de": "Erstellte Crews"
+ },
+ "Nuovi profili al giorno, tra store e web": {
+  "en": "New profiles a day, across app stores and web",
+  "de": "Neue Profile pro Tag, über App-Stores und Web"
+ },
+ "Profili completati": {
+  "en": "Profiles completed",
+  "de": "Vollständig ausgefüllte Profile"
+ },
+ "Tempo medio per sessione": {
+  "en": "Average time per session",
+  "de": "Durchschnittliche Zeit pro Sitzung"
+ },
+ "Tre schermate dell'app: il gruppo Crew suggerito, i motivi dell'affinità tra i coinquilini e le case adatte al gruppo": {
+  "en": "Three app screens: the suggested Crew, why the flatmates are a good match, and the homes that suit the group",
+  "de": "Drei App-Screens: die vorgeschlagene Crew, warum die Mitbewohner zusammenpassen, und die passenden Wohnungen für die Gruppe"
+ },
+ "Le due home dell'app: quella del proprietario con il suo annuncio e quella del fuorisede con le case consigliate": {
+  "en": "The app's two home screens: the landlord's with their listing and the newcomer's with recommended homes",
+  "de": "Die beiden Startbildschirme der App: der des Vermieters mit seinem Inserat und der des Zugezogenen mit empfohlenen Wohnungen"
+ },
+ "Mappa dei flussi dell'app: introduzione, ricerca, funnel di registrazione e profilo": {
+  "en": "The app's flow map: intro, search, sign-up funnel and profile",
+  "de": "Flow-Map der App: Intro, Suche, Registrierungs-Funnel und Profil"
+ },
+ "Il profilo di un utente con il suo archetipo e le schede dei sei archetipi illustrati": {
+  "en": "A user profile with its archetype and the cards of the six illustrated archetypes",
+  "de": "Ein Nutzerprofil mit seinem Archetyp und die Karten der sechs illustrierten Archetypen"
+ },
+ "Schermate del video tour, delle candidature ricevute e della creazione del contratto": {
+  "en": "Screens for the video tour, received applications and contract creation",
+  "de": "Screens zu Video-Tour, eingegangenen Bewerbungen und Vertragserstellung"
+ },
+ "Componenti del design system di Hoomie": {
+  "en": "Components of the Hoomie design system",
+  "de": "Komponenten des Hoomie-Designsystems"
+ },
+ "SI.EL. — Stefano Oberto": {
+  "en": "SI.EL. — Stefano Oberto",
+  "de": "SI.EL. — Stefano Oberto"
+ },
+ "Restyling del logo di SI.EL. srl, azienda di impianti elettrici, automazione e servizi per l'energia.": {
+  "en": "Logo redesign for SI.EL. srl, a company working in electrical systems, automation and energy services.",
+  "de": "Logo-Redesign für SI.EL. srl, ein Unternehmen für Elektroanlagen, Automatisierung und Energiedienstleistungen."
+ },
+ "Rinnovare un logo in uso da quindici anni senza confondere clienti e fornitori.": {
+  "en": "Renewing a logo used for fifteen years without confusing clients and suppliers.",
+  "de": "Ein seit fünfzehn Jahren genutztes Logo erneuern, ohne Kunden und Lieferanten zu verwirren."
+ },
+ "Cliente": {
+  "en": "Client",
+  "de": "Kunde"
+ },
+ "SI.EL. srl · Gruppo Bonetto": {
+  "en": "SI.EL. srl · Bonetto Group",
+  "de": "SI.EL. srl · Bonetto-Gruppe"
+ },
+ "Restyling del logo, immagine coordinata": {
+  "en": "Logo redesign, corporate identity",
+  "de": "Logo-Redesign, Corporate Design"
+ },
+ "Settore": {
+  "en": "Sector",
+  "de": "Branche"
+ },
+ "Impianti elettrici, automazione, energia": {
+  "en": "Electrical systems, automation, energy",
+  "de": "Elektroanlagen, Automatisierung, Energie"
+ },
+ "SI.EL. fa parte del gruppo Bonetto e lavora in Italia e all'estero come fornitore di impianti e servizi per i principali settori dell'industria e del terziario.": {
+  "en": "SI.EL. is part of the Bonetto group and works in Italy and abroad, supplying systems and services to the main industrial and service sectors.",
+  "de": "SI.EL. gehört zur Bonetto-Gruppe und ist in Italien und im Ausland als Anbieter von Anlagen und Dienstleistungen für die wichtigsten Industrie- und Dienstleistungsbranchen tätig."
+ },
+ "Il logo era lo stesso da quindici anni. La richiesta era di non stravolgerlo, per non creare confusione con clienti e fornitori.": {
+  "en": "The logo had been the same for fifteen years. The brief was not to overhaul it, so as not to confuse clients and suppliers.",
+  "de": "Das Logo war seit fünfzehn Jahren unverändert. Die Vorgabe war, es nicht grundlegend zu verändern, um Kunden und Lieferanten nicht zu verwirren."
+ },
+ "Prima e dopo": {
+  "en": "Before and after",
+  "de": "Vorher und nachher"
+ },
+ "Cosa è cambiato": {
+  "en": "What changed",
+  "de": "Was sich geändert hat"
+ },
+ "Il nuovo logo SI.EL. su fondo verde chiaro": {
+  "en": "The new SI.EL. logo on a light green background",
+  "de": "Das neue SI.EL.-Logo auf hellgrünem Hintergrund"
+ },
+ "Confronto tra il logo precedente, a sinistra, e quello nuovo, a destra": {
+  "en": "The previous logo on the left compared with the new one on the right",
+  "de": "Das bisherige Logo links im Vergleich zum neuen rechts"
+ },
+ "Cosa hai tenuto del logo originale, cosa hai cambiato e perché: il simbolo, il carattere, i colori.": {
+  "en": "What you kept from the original logo, what you changed and why: the symbol, the typeface, the colours.",
+  "de": "Was du vom ursprünglichen Logo behalten hast, was du geändert hast und warum: Symbol, Schrift, Farben."
+ },
+ "Versioni del logo": {
+  "en": "Logo versions",
+  "de": "Logo-Varianten"
+ },
+ "Il simbolo": {
+  "en": "The symbol",
+  "de": "Das Symbol"
+ },
+ "Carta intestata, biglietti da visita, abbigliamento da lavoro e dispositivi di sicurezza.": {
+  "en": "Letterhead, business cards, workwear and safety equipment.",
+  "de": "Briefpapier, Visitenkarten, Arbeitskleidung und Schutzausrüstung."
+ },
+ "Immagine coordinata": {
+  "en": "Corporate identity",
+  "de": "Corporate Design"
+ },
+ "Abbigliamento da lavoro": {
+  "en": "Workwear",
+  "de": "Arbeitskleidung"
+ },
+ "Casco da cantiere": {
+  "en": "Hard hat",
+  "de": "Bauhelm"
+ },
+ "Le quattro versioni del logo su fondi verde scuro, verde acceso e chiaro": {
+  "en": "The four logo versions on dark green, bright green and light backgrounds",
+  "de": "Die vier Logo-Varianten auf dunkelgrünem, hellgrünem und hellem Hintergrund"
+ },
+ "Il simbolo da solo nelle quattro combinazioni di colore": {
+  "en": "The symbol on its own in the four colour combinations",
+  "de": "Das Symbol allein in den vier Farbkombinationen"
+ },
+ "Carta intestata, biglietti da visita e busta con il nuovo logo": {
+  "en": "Letterhead, business cards and envelope with the new logo",
+  "de": "Briefpapier, Visitenkarten und Umschlag mit dem neuen Logo"
+ },
+ "Polo verde scuro con il logo ricamato": {
+  "en": "Dark green polo shirt with the embroidered logo",
+  "de": "Dunkelgrünes Poloshirt mit gesticktem Logo"
+ },
+ "Casco da cantiere bianco con logo e simbolo": {
+  "en": "White hard hat with logo and symbol",
+  "de": "Weißer Bauhelm mit Logo und Symbol"
+ },
+ "Ventinove Fest — Stefano Oberto": {
+  "en": "Ventinove Fest — Stefano Oberto",
+  "de": "Ventinove Fest — Stefano Oberto"
+ },
+ "Identità visiva e comunicazione del Ventinove Fest 2024, il festival gratuito della città di Cuneo.": {
+  "en": "Visual identity and communication for Ventinove Fest 2024, the free festival of the city of Cuneo.",
+  "de": "Visuelle Identität und Kommunikation für das Ventinove Fest 2024, das kostenlose Festival der Stadt Cuneo."
+ },
+ "Il festival gratuito di Cuneo, raccontato a chi pensa che in città non ci sia mai niente da fare.": {
+  "en": "Cuneo's free festival, told to people who think there's never anything to do in town.",
+  "de": "Das kostenlose Festival von Cuneo, erzählt für alle, die glauben, dass in der Stadt nie etwas los ist."
+ },
+ "Identità visiva e comunicazione dell'edizione 2024.": {
+  "en": "Visual identity and communication for the 2024 edition.",
+  "de": "Visuelle Identität und Kommunikation der Ausgabe 2024."
+ },
+ "Co-organizzatore, identità visiva, comunicazione": {
+  "en": "Co-organiser, visual identity, communication",
+  "de": "Mitorganisator, visuelle Identität, Kommunikation"
+ },
+ "Cosa ho fatto": {
+  "en": "What I did",
+  "de": "Was ich gemacht habe"
+ },
+ "Brand identity, ADV digitali e fisici, social media": {
+  "en": "Brand identity, digital and print advertising, social media",
+  "de": "Markenidentität, digitale und gedruckte Werbung, Social Media"
+ },
+ "Foto": {
+  "en": "Photos",
+  "de": "Fotos"
+ },
+ "Patrocinato dal Comune di Cuneo, il Ventinove Fest è il festival gratuito della città in occasione della festa patronale. I temi dell'edizione 2024 erano la valorizzazione del territorio cuneese, l'ambiente e il modo in cui la ricerca della sostenibilità sta cambiando la nostra realtà.": {
+  "en": "Supported by the City of Cuneo, Ventinove Fest is the town's free festival held for its patron saint's day. The 2024 edition focused on the local area around Cuneo, the environment and how the pursuit of sustainability is changing our lives.",
+  "de": "Das Ventinove Fest, unterstützt von der Stadt Cuneo, ist das kostenlose Festival der Stadt zum Patronatsfest. Die Themen 2024 waren die Region um Cuneo, die Umwelt und die Frage, wie das Streben nach Nachhaltigkeit unseren Alltag verändert."
+ },
+ "Il mio ruolo": {
+  "en": "My role",
+  "de": "Meine Rolle"
+ },
+ "Sono stato uno degli organizzatori del festival e ne ho curato la comunicazione a 360°: la definizione del tono di voce, l'analisi del pubblico, i testi, la produzione e la gestione dei contenuti social.": {
+  "en": "I was one of the festival's organisers and handled all of its communication: defining the tone of voice, audience analysis, copywriting, and producing and managing social content.",
+  "de": "Ich war einer der Organisatoren des Festivals und habe die gesamte Kommunikation verantwortet: Tonalität, Zielgruppenanalyse, Texte sowie Produktion und Betreuung der Social-Media-Inhalte."
+ },
+ "Un'identità vibrante e umana, che attacca la convinzione che a Cuneo non ci sia mai niente da fare.": {
+  "en": "A vibrant, human identity that takes on the belief that there's never anything to do in Cuneo.",
+  "de": "Eine lebendige, menschliche Identität, die gegen die Überzeugung angeht, dass in Cuneo nie etwas los ist."
+ },
+ "Affissione: \"Mai niente da fare? Muovi il Cuneo\"": {
+  "en": "Billboard: \"Mai niente da fare? Muovi il Cuneo\" (\"Nothing to do? Move Cuneo\")",
+  "de": "Plakat: „Mai niente da fare? Muovi il Cuneo“ („Nichts zu tun? Beweg Cuneo“)"
+ },
+ "Dalle affissioni in città al programma cartaceo, fino ai contenuti per Instagram.": {
+  "en": "From billboards around town to the printed programme and Instagram content.",
+  "de": "Von Plakaten in der Stadt über das gedruckte Programm bis zu Inhalten für Instagram."
+ },
+ "Locandina del programma": {
+  "en": "Programme poster",
+  "de": "Programmplakat"
+ },
+ "Pieghevole": {
+  "en": "Folded leaflet",
+  "de": "Faltblatt"
+ },
+ "Profilo Instagram": {
+  "en": "Instagram profile",
+  "de": "Instagram-Profil"
+ },
+ "Storie per talk, eventi e concerti": {
+  "en": "Stories for talks, events and concerts",
+  "de": "Stories für Talks, Events und Konzerte"
+ },
+ "Il festival": {
+  "en": "The festival",
+  "de": "Das Festival"
+ },
+ "Concerti, talk e workshop nei giorni della festa patronale.": {
+  "en": "Concerts, talks and workshops over the patron saint's day weekend.",
+  "de": "Konzerte, Talks und Workshops an den Tagen des Patronatsfests."
+ },
+ "Foto di Lorenzo Dutto e William Fazzari": {
+  "en": "Photos by Lorenzo Dutto and William Fazzari",
+  "de": "Fotos von Lorenzo Dutto und William Fazzari"
+ },
+ "Immagine chiave del Ventinove Fest: il pubblico a un concerto all'aperto con gli adesivi grafici del festival": {
+  "en": "Ventinove Fest key visual: the audience at an open-air concert with the festival's graphic stickers",
+  "de": "Key Visual des Ventinove Fest: Publikum bei einem Open-Air-Konzert mit den grafischen Stickern des Festivals"
+ },
+ "Manifesto stradale con una mucca al pascolo e la scritta: Mai niente da fare? Muovi il Cuneo": {
+  "en": "Street billboard with a grazing cow and the line: Mai niente da fare? Muovi il Cuneo",
+  "de": "Straßenplakat mit einer grasenden Kuh und dem Satz: Mai niente da fare? Muovi il Cuneo"
+ },
+ "Locandina verde in una bacheca: Abbiamo fatto trenta, facciamo ventinove": {
+  "en": "Green poster in a display case: Abbiamo fatto trenta, facciamo ventinove",
+  "de": "Grünes Plakat in einem Schaukasten: Abbiamo fatto trenta, facciamo ventinove"
+ },
+ "Pieghevole del programma aperto": {
+  "en": "The open programme leaflet",
+  "de": "Das aufgeklappte Programmfaltblatt"
+ },
+ "Due smartphone con il profilo Instagram del festival e un post dedicato a un talk": {
+  "en": "Two smartphones showing the festival's Instagram profile and a post about a talk",
+  "de": "Zwei Smartphones mit dem Instagram-Profil des Festivals und einem Post zu einem Talk"
+ },
+ "Tre storie Instagram per un talk, una festa dello scambio e un concerto": {
+  "en": "Three Instagram stories for a talk, a swap party and a concert",
+  "de": "Drei Instagram-Stories für einen Talk, eine Tauschparty und ein Konzert"
+ },
+ "Un concerto sul palco, con luci arancioni": {
+  "en": "A concert on stage with orange lights",
+  "de": "Ein Konzert auf der Bühne mit orangefarbenem Licht"
+ },
+ "Un talk all'aperto davanti a un palazzo storico": {
+  "en": "An open-air talk in front of a historic building",
+  "de": "Ein Open-Air-Talk vor einem historischen Gebäude"
+ },
+ "Persone che ballano e ridono tra il pubblico": {
+  "en": "People dancing and laughing in the crowd",
+  "de": "Menschen, die im Publikum tanzen und lachen"
+ },
+ "Partecipanti a un workshop all'aperto": {
+  "en": "Participants at an outdoor workshop",
+  "de": "Teilnehmende an einem Workshop im Freien"
+ },
+ "Persone a tavola durante una serata del festival": {
+  "en": "People at the table during a festival evening",
+  "de": "Menschen am Tisch während eines Festivalabends"
+ },
+ "Videogioco — Stefano Oberto": {
+  "en": "Video game — Stefano Oberto",
+  "de": "Videospiel — Stefano Oberto"
+ },
+ "Un videogioco che Stefano Oberto sta sviluppando da solo: concept, interfaccia di gioco e diario di sviluppo.": {
+  "en": "A video game Stefano Oberto is developing on his own: concept, game interface and development log.",
+  "de": "Ein Videospiel, das Stefano Oberto allein entwickelt: Konzept, Spiel-Interface und Entwicklungstagebuch."
+ },
+ "In sviluppo": {
+  "en": "In development",
+  "de": "In Entwicklung"
+ },
+ "Il gioco in una frase: genere, protagonista, cosa fai.": {
+  "en": "The game in one sentence: genre, main character, what you do.",
+  "de": "Das Spiel in einem Satz: Genre, Hauptfigur, was du tust."
+ },
+ "Genere": {
+  "en": "Genre",
+  "de": "Genre"
+ },
+ "Es. avventura, puzzle": {
+  "en": "E.g. adventure, puzzle",
+  "de": "Z. B. Adventure, Puzzle"
+ },
+ "Es. PC": {
+  "en": "E.g. PC",
+  "de": "Z. B. PC"
+ },
+ "Motore · Strumenti": {
+  "en": "Engine · Tools",
+  "de": "Engine · Tools"
+ },
+ "Es. Godot, Aseprite, Figma": {
+  "en": "E.g. Godot, Aseprite, Figma",
+  "de": "Z. B. Godot, Aseprite, Figma"
+ },
+ "Iniziato": {
+  "en": "Started",
+  "de": "Begonnen"
+ },
+ "Mese anno": {
+  "en": "Month year",
+  "de": "Monat Jahr"
+ },
+ "L'idea": {
+  "en": "The idea",
+  "de": "Die Idee"
+ },
+ "Da dove nasce il gioco e cosa vuoi che provi chi lo gioca. Racconta la premessa come la racconteresti a un amico.": {
+  "en": "Where the game comes from and what you want players to feel. Tell the premise the way you'd tell a friend.",
+  "de": "Woher das Spiel kommt und was die Spielenden fühlen sollen. Erzähl die Grundidee so, wie du sie einem Freund erzählen würdest."
+ },
+ "Come si gioca": {
+  "en": "How it plays",
+  "de": "So wird gespielt"
+ },
+ "Le meccaniche principali, in poche righe.": {
+  "en": "The main mechanics, in a few lines.",
+  "de": "Die wichtigsten Mechaniken, in wenigen Zeilen."
+ },
+ "Meccanica 1: cosa fa il giocatore.": {
+  "en": "Mechanic 1: what the player does.",
+  "de": "Mechanik 1: was die Spielenden tun."
+ },
+ "Meccanica 2: cosa lo rende diverso.": {
+  "en": "Mechanic 2: what makes it different.",
+  "de": "Mechanik 2: was es besonders macht."
+ },
+ "Meccanica 3: come si progredisce.": {
+  "en": "Mechanic 3: how you progress.",
+  "de": "Mechanik 3: wie man vorankommt."
+ },
+ "Mondo e stile": {
+  "en": "World and style",
+  "de": "Welt und Stil"
+ },
+ "Riferimenti visivi, palette, atmosfera.": {
+  "en": "Visual references, palette, mood.",
+  "de": "Visuelle Referenzen, Farbpalette, Atmosphäre."
+ },
+ "Interfaccia di gioco": {
+  "en": "Game interface",
+  "de": "Spiel-Interface"
+ },
+ "Immagine chiave del gioco · schermata o illustrazione": {
+  "en": "Key image of the game · screenshot or illustration",
+  "de": "Key Visual des Spiels · Screenshot oder Illustration"
+ },
+ "Concept / bozzetto": {
+  "en": "Concept / sketch",
+  "de": "Konzept / Skizze"
+ },
+ "Personaggio": {
+  "en": "Character",
+  "de": "Figur"
+ },
+ "Ambiente": {
+  "en": "Environment",
+  "de": "Umgebung"
+ },
+ "Come hai progettato HUD, menu e tutorial: quali informazioni servono al giocatore e quando, come lo guidi senza spiegargli tutto.": {
+  "en": "How you designed the HUD, menus and tutorial: what information the player needs and when, and how you guide them without explaining everything.",
+  "de": "Wie du HUD, Menüs und Tutorial gestaltet hast: welche Informationen die Spielenden wann brauchen und wie du sie führst, ohne alles zu erklären."
+ },
+ "Se hai fatto provare il gioco ad altre persone, racconta cosa hai cambiato dopo averle osservate.": {
+  "en": "If you had other people try the game, describe what you changed after watching them.",
+  "de": "Wenn du das Spiel von anderen testen lassen hast, erzähl, was du nach der Beobachtung geändert hast."
+ },
+ "HUD: solo quello che serve nel momento": {
+  "en": "HUD: only what you need in the moment",
+  "de": "HUD: nur das, was gerade gebraucht wird"
+ },
+ "Menu principale e inventario": {
+  "en": "Main menu and inventory",
+  "de": "Hauptmenü und Inventar"
+ },
+ "Dai wireframe alla grafica di gioco": {
+  "en": "From wireframes to game art",
+  "de": "Von Wireframes zur Spielgrafik"
+ },
+ "Diario di sviluppo": {
+  "en": "Development log",
+  "de": "Entwicklungstagebuch"
+ },
+ "HUD in gioco": {
+  "en": "In-game HUD",
+  "de": "HUD im Spiel"
+ },
+ "Menu / inventario": {
+  "en": "Menu / inventory",
+  "de": "Menü / Inventar"
+ },
+ "Wireframe dei menu → versione finale": {
+  "en": "Menu wireframes → final version",
+  "de": "Menü-Wireframes → finale Version"
+ },
+ "Mese 2026": {
+  "en": "Month 2026",
+  "de": "Monat 2026"
+ },
+ "Mese 2025": {
+  "en": "Month 2025",
+  "de": "Monat 2025"
+ },
+ "Primo test con cinque persone: riscritto il tutorial.": {
+  "en": "First test with five people: rewrote the tutorial.",
+  "de": "Erster Test mit fünf Personen: Tutorial neu geschrieben."
+ },
+ "Prototipo giocabile del primo livello.": {
+  "en": "Playable prototype of the first level.",
+  "de": "Spielbarer Prototyp des ersten Levels."
+ },
+ "Stile visivo definito e prime animazioni.": {
+  "en": "Visual style defined, first animations.",
+  "de": "Visueller Stil festgelegt, erste Animationen."
+ },
+ "Idea, documento di design e primi schizzi.": {
+  "en": "Idea, design document and first sketches.",
+  "de": "Idee, Designdokument und erste Skizzen."
+ },
+ "Prossimi passi": {
+  "en": "Next steps",
+  "de": "Nächste Schritte"
+ },
+ "Cosa manca e quando pensi di pubblicarlo, anche solo una demo.": {
+  "en": "What's missing and when you plan to release it, even just a demo.",
+  "de": "Was noch fehlt und wann du es veröffentlichen willst, auch nur als Demo."
+ },
+ "Segui lo sviluppo →": {
+  "en": "Follow the development →",
+  "de": "Die Entwicklung verfolgen →"
+ }
+}

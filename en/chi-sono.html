@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About — Stefano Oberto</title>
+  <meta name="description" content="Stefano Oberto, a UI/UX designer with a background in branding: experience, education, tools and interests.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%23ff4f00'/><text x='50%' y='56%' text-anchor='middle' dominant-baseline='middle' font-family='Arial,sans-serif' font-weight='700' font-size='30' fill='%23fff'>SO</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    // Applica il tema scelto prima del disegno della pagina, per evitare il lampo di colore
+    try { var t = localStorage.getItem('theme'); if (t === 'dark' || t === 'light') document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="top g4 mono">
+    <a class="brand" href="index.html"><span class="full">Stefano Oberto</span><span class="short" aria-hidden="true">S.O.</span></a>
+    <span class="hide-m">UI/UX Designer</span>
+    <div class="tools">
+      <nav aria-label="Main"><a href="index.html#lavori">Work</a><a href="chi-sono.html" aria-current="page">About</a><a href="#contatti">Contact</a></nav>
+      <ul class="langs" aria-label="Language"><li><a href="../chi-sono.html" lang="it" hreflang="it" title="Italiano">IT</a></li><li><a href="chi-sono.html" lang="en" hreflang="en" title="English" aria-current="true">EN</a></li><li><a href="../de/chi-sono.html" lang="de" hreflang="de" title="Deutsch">DE</a></li></ul>
+      <button class="theme" type="button" aria-label="Dark theme" aria-pressed="false"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M8 1.5a6.5 6.5 0 0 1 0 13z" fill="currentColor"/></svg></button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="about-head g4">
+      <!-- TODO: la tua presentazione in una o due frasi -->
+      <h1 class="lead">I'm Stefano. I design interfaces, but I started in branding <span>and I bring along the habit of giving every product a voice of its own.</span></h1>
+      <figure class="portrait"><img src="../img/ritratto.jpg" alt="Portrait of Stefano Oberto, smiling, wearing a cap and glasses" width="1024" height="1280"></figure>
+    </section>
+
+    <dl class="meta g4 mono" style="margin: 0 var(--gut)">
+      <div><dt>Based in</dt><dd>City, Italy</dd></div>
+      <div><dt>Looking for</dt><dd>A UI/UX role</dd></div>
+      <div><dt>Work setup</dt><dd>On-site, hybrid or remote</dd></div>
+      <div><dt>Languages</dt><dd>Italian, English</dd></div>
+    </dl>
+
+    <section class="block g4">
+      <h2 class="label mono">In short</h2>
+      <div class="body">
+        <p>I graduated first from the Politecnico di Torino and then from the Politecnico di Milano. From the two I picked up some of their opposites and contradictions: Turin's rigour and technical focus, Milan's commercial sense and eye for aesthetics. I try to combine them as best I can.</p>
+        <!-- TODO: il passaggio dal branding alla UI/UX -->
+        <p>Then the move from branding to UI/UX: what pushed you and what you brought along. It's what sets you apart from people who come from only one of the two worlds.</p>
+      </div>
+      <p class="side"><a class="mono more" href="../cv.pdf">Download CV ↓</a></p>
+    </section>
+
+
+    <section class="block g4">
+      <h2 class="label mono">Experience</h2>
+      <div class="body list" style="grid-column: 2 / span 3">
+        <div class="item"><span class="mono mute">2024</span><div><h3>Creative Director · Hoomie</h3><p>A startup that helps students and people moving to a new city find a home and flatmates more easily. <a href="progetti/hoomie.html">See the project →</a></p></div><span class="mono mute"></span></div>
+        <div class="item"><span class="mono mute">2024</span><div><h3>Logo redesign · SI.EL. srl</h3><p>A company working in electrical systems, automation and energy services. <a href="progetti/siel.html">See the project →</a></p></div><span class="mono mute"></span></div>
+        <div class="item"><span class="mono mute">2023 — 2024</span><div><h3>Co-organiser · Ventinove Fest</h3><p>A music and culture festival in Cuneo, my home town. Besides the organisation, I handled all of its communication: brand identity, digital and print advertising, social media. <a href="progetti/ventinove-fest.html">See the project →</a></p></div><span class="mono mute">Cuneo</span></div>
+        <div class="item"><span class="mono mute">2023</span><div><h3>Internship · Isao Hosoe Design</h3><p>A studio founded by Isao Hosoe in 1985. I worked on brand integration for a major Italian company: branding, concept generation, 3D modelling and rendering.</p></div><span class="mono mute">Milan</span></div>
+      </div>
+    </section>
+
+    <section class="block g4">
+      <h2 class="label mono">Education</h2>
+      <div class="body list" style="grid-column: 2 / span 3">
+        <div class="item"><span class="mono mute">2021 — 2023</span><div><h3>MSc in Integrated Product Design</h3><p>Politecnico di Milano</p></div><span class="mono mute">Milan</span></div>
+        <div class="item"><span class="mono mute">2020 — 2021</span><div><h3>Startup pre-acceleration programme</h3><p>InnoVentureLab</p></div><span class="mono mute"></span></div>
+        <div class="item"><span class="mono mute">2018 — 2021</span><div><h3>BSc in Design and Visual Communication</h3><p>Politecnico di Torino</p></div><span class="mono mute">Turin</span></div>
+        <div class="item"><span class="mono mute">2018 — 2019</span><div><h3>Young Talents Programme</h3><p>Politecnico di Torino</p></div><span class="mono mute">Turin</span></div>
+      </div>
+    </section>
+
+    <section class="block g4">
+      <h2 class="label mono">Tools</h2>
+      <ul class="body">
+        <li>Figma</li>
+        <li>Claude</li>
+        <li>Claude Code</li>
+      </ul>
+    </section>
+
+    <section class="block g4">
+      <h2 class="label mono">Outside work</h2>
+      <div class="body">
+        <p>I'm building a video game on my own: story, art and interface. It's where I experiment with what I later bring to my work. <a href="progetti/videogioco.html">See how it's going →</a></p>
+        <!-- TODO: altre passioni, una riga ciascuna -->
+        <p>I have a strong passion for industrial design, which I still try to cultivate today.</p>
+      </div>
+    </section>
+    <div class="figs g4 three">
+      <figure class="fig"><div class="ph square" data-label="Hobby photo 1"></div></figure>
+      <figure class="fig"><div class="ph square" data-label="Hobby photo 2"></div></figure>
+      <figure class="fig"><div class="ph square" data-label="Hobby photo 3"></div></figure>
+    </div>
+
+    <a class="next" href="index.html#lavori">
+      <span class="mono">Continue</span>
+      <h2>See the work →</h2>
+    </a>
+  </main>
+
+  <footer class="foot g4" id="contatti">
+    <span class="mono mute">Write to me</span>
+    <a class="mail" href="mailto:oberto.stefano.job@gmail.com">oberto.stefano.job@gmail.com</a>
+    <ul class="mono"><li><a href="https://www.linkedin.com/in/stefano-oberto-4177b5260/" target="_blank" rel="noopener">LinkedIn</a></li></ul>
+    <a class="mono" href="../cv.pdf">Download CV ↓</a>
+    <span></span>
+    <span class="mono r">© <span id="year">2026</span></span>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>

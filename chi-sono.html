@@ -10,14 +10,23 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    // Applica il tema scelto prima del disegno della pagina, per evitare il lampo di colore
+    try { var t = localStorage.getItem('theme'); if (t === 'dark' || t === 'light') document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
 </head>
 <body>
   <a class="skip" href="#main">Vai al contenuto</a>
 
   <header class="top g4 mono">
-    <a href="index.html">Stefano Oberto</a>
+    <a class="brand" href="index.html"><span class="full">Stefano Oberto</span><span class="short" aria-hidden="true">S.O.</span></a>
     <span class="hide-m">UI/UX Designer</span>
-    <nav aria-label="Principale"><a href="index.html#lavori">Lavori</a><a href="chi-sono.html" aria-current="page">Chi sono</a><a href="#contatti">Contatti</a></nav>
+    <div class="tools">
+      <nav aria-label="Principale"><a href="index.html#lavori">Lavori</a><a href="chi-sono.html" aria-current="page">Chi sono</a><a href="#contatti">Contatti</a></nav>
+      <ul class="langs" aria-label="Lingua"><li><a href="chi-sono.html" lang="it" hreflang="it" title="Italiano" aria-current="true">IT</a></li><li><a href="en/chi-sono.html" lang="en" hreflang="en" title="English">EN</a></li><li><a href="de/chi-sono.html" lang="de" hreflang="de" title="Deutsch">DE</a></li></ul>
+      <button class="theme" type="button" aria-label="Tema scuro" aria-pressed="false"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M8 1.5a6.5 6.5 0 0 1 0 13z" fill="currentColor"/></svg></button>
+    </div>
   </header>
 
   <main id="main">

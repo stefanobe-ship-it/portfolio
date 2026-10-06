@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hoomie — Stefano Oberto</title>
+  <meta name="description" content="UI/UX-Case-Study: Hoomie, die App, die Studierenden und Zugezogenen hilft, eine Wohnung und Mitbewohner zu finden.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%23ff4f00'/><text x='50%' y='56%' text-anchor='middle' dominant-baseline='middle' font-family='Arial,sans-serif' font-weight='700' font-size='30' fill='%23fff'>SO</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    // Applica il tema scelto prima del disegno della pagina, per evitare il lampo di colore
+    try { var t = localStorage.getItem('theme'); if (t === 'dark' || t === 'light') document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Zum Inhalt springen</a>
+
+  <header class="top g4 mono">
+    <a class="brand" href="../index.html"><span class="full">Stefano Oberto</span><span class="short" aria-hidden="true">S.O.</span></a>
+    <span class="hide-m">UI/UX Designer</span>
+    <div class="tools">
+      <nav aria-label="Hauptmenü"><a href="../index.html#lavori" aria-current="true">Projekte</a><a href="../chi-sono.html">Über mich</a><a href="#contatti">Kontakt</a></nav>
+      <ul class="langs" aria-label="Sprache"><li><a href="../../progetti/hoomie.html" lang="it" hreflang="it" title="Italiano">IT</a></li><li><a href="../../en/progetti/hoomie.html" lang="en" hreflang="en" title="English">EN</a></li><li><a href="hoomie.html" lang="de" hreflang="de" title="Deutsch" aria-current="true">DE</a></li></ul>
+      <button class="theme" type="button" aria-label="Dunkles Design" aria-pressed="false"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M8 1.5a6.5 6.5 0 0 1 0 13z" fill="currentColor"/></svg></button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="case-head">
+      <p class="crumb mono mute"><a href="../index.html#lavori">Projekte</a><span>/</span><span>UI/UX</span></p>
+      <h1 class="case-title">Hoomie</h1>
+      <div class="g4">
+        <p class="case-sub lead">Eine Wohnung und die richtigen Menschen zum Zusammenleben finden, für 95 % weniger als mit einer Agentur. <span>Die App für Studierende und Zugezogene, heute in den App-Stores und im Web.</span></p>
+      </div>
+      <dl class="meta g4 mono">
+        <div><dt>Rolle</dt><dd>Creative Director, UI/UX</dd></div>
+        <div><dt>Jahr</dt><dd>2024</dd></div><!-- TODO: verifica -->
+        <div><dt>Produkt</dt><dd>Zweiseitige App: Vermieter und Zugezogene</dd></div>
+        <div><dt>Status</dt><dd>Live, in den App-Stores und im Web</dd></div>
+      </dl>
+    </section>
+
+    <div class="media" style="margin-top:6vh">
+      <figure><img src="../../img/hoomie/crew.jpg" alt="Drei App-Screens: die vorgeschlagene Crew, warum die Mitbewohner zusammenpassen, und die passenden Wohnungen für die Gruppe" width="2300" height="1470"></figure>
+    </div>
+
+    <section class="block g4">
+      <h2 class="label mono">Ziel</h2>
+      <div class="body">
+        <p>Hoomie ist ein zweiseitiger Service: Er vereinfacht die Wohnungssuche und bringt die richtigen Menschen zusammen, damit sie gemeinsam eine Lösung finden. Gegenüber einer typischen Maklerprovision (651 €) sinken die Suchkosten um 95 %.</p>
+      </div>
+    </section>
+
+    <section class="block g4">
+      <h2 class="label mono">Zwei Nutzergruppen</h2>
+      <div class="body">
+        <p><strong>Vermieter.</strong> Sie inserieren ganze Wohnungen oder einzelne Zimmer und suchen Mieter, als Gruppe oder einzeln.</p>
+        <p><strong>Zugezogene.</strong> Sie sehen Angebote nach Passung sortiert und erhalten Vorschläge für Gruppen, mit denen sie zusammenziehen können.</p>
+      </div>
+    </section>
+    <div class="media">
+      <figure><img src="../../img/hoomie/due-lati.jpg" alt="Die beiden Startbildschirme der App: der des Vermieters mit seinem Inserat und der des Zugezogenen mit empfohlenen Wohnungen" width="1650" height="1180" loading="lazy"><figcaption>Der Startbildschirm für Vermieter und der für Zugezogene</figcaption></figure>
+    </div>
+
+    <section class="block g4">
+      <h2 class="label mono">System-Map</h2>
+      <div class="body">
+        <p>Für Zugezogene liegt die Komplexität in der Interaktion mit den Angeboten und ihrer Erkundung in der App.</p>
+        <p>Für Vermieter ist der Ablauf so einfach wie möglich gestaltet: Der Fokus verschiebt sich von „ich muss finden“ zu „ich werde gefunden“.</p>
+      </div>
+    </section>
+    <div class="media">
+      <figure><img src="../../img/hoomie/mappa.jpg" alt="Flow-Map der App: Intro, Suche, Registrierungs-Funnel und Profil" width="2050" height="1520" loading="lazy"><figcaption>Flow-Map</figcaption></figure>
+    </div>
+
+    <section class="block g4">
+      <h2 class="label mono">Die Hauptfunktion</h2>
+      <p class="statement">Die Menschen kommen vor den Wohnungen.</p>
+    </section>
+    <section class="block g4" style="padding-top:0">
+      <h2 class="label mono mute">Crew</h2>
+      <div class="body">
+        <p><strong>Was kommuniziert werden soll.</strong> Die größte Herausforderung war, eine einfache Idee verständlich zu machen: Es gibt Menschen, mit denen du in bestimmten Wohnungen sehr gut zusammenleben könntest.</p>
+        <p><strong>Die Entscheidung.</strong> Die Menschen kommen vor den Wohnungen. Gemeinsamkeiten fallen auf einen Blick auf und lassen sich in einem eigenen Bereich vertiefen.</p>
+        <p><strong>Das Wohnungs-Karussell.</strong> Mögliche Wohnungen sofort zu zeigen, hilft, den zweiten Teil der Entscheidung zu prüfen. Ziel war es, beide zentralen Punkte der Entscheidung auf einem einzigen Screen zu zeigen.</p>
+      </div>
+    </section>
+
+    <section class="block g4">
+      <h2 class="label mono">Die Profile</h2>
+      <div class="body">
+        <p>Archetypen machen Informationen vergleichbar, die sonst vage bleiben: nicht nur „ich bin ordentlich“, sondern „du verstehst dich mit Menschen, die Ordnung halten“.</p>
+        <p>Das Risiko ist, Menschen in sechs Schubladen zu stecken. Wer aber die positiven Seiten jedes Archetyps betont, entscheidet beim Erkunden schneller.</p>
+      </div>
+    </section>
+    <div class="media">
+      <figure><img src="../../img/hoomie/profili.jpg" alt="Ein Nutzerprofil mit seinem Archetyp und die Karten der sechs illustrierten Archetypen" width="2400" height="803" loading="lazy"><figcaption>Sechs Persönlichkeits-Archetypen</figcaption></figure>
+    </div>
+
+    <section class="block g4">
+      <h2 class="label mono">Für Vermieter</h2>
+      <div class="body">
+        <p>Um die Abhängigkeit von Maklern zu verringern, braucht es Werkzeuge, die eine Immobilie zur Geltung bringen. Wir haben auf Video-Touren in einem eigenen vertikalen Feed gesetzt und auf eine schnelle, direkte Übersicht der Bewerber.</p>
+        <p>In Entwicklung mit externen Partnern: Verträge in der App, mit Auswahl des passenden Vertrags, Dateneingabe und vollständiger Prüfung vor der Unterschrift.</p>
+      </div>
+    </section>
+    <div class="media">
+      <figure><img src="../../img/hoomie/proprietari.jpg" alt="Screens zu Video-Tour, eingegangenen Bewerbungen und Vertragserstellung" width="2400" height="867" loading="lazy"><figcaption>Video-Touren, Bewerbungen und Verträge</figcaption></figure>
+    </div>
+
+    <section class="block g4">
+      <h2 class="label mono">Design system</h2>
+      <div class="body"><p>Ein einziges Komponentensystem für beide Seiten des Produkts: Inseratskarten, Profile, Gruppen, Filter und Onboarding-Fragen.</p></div>
+    </section>
+    <div class="media">
+      <figure><img src="../../img/hoomie/design-system.jpg" alt="Komponenten des Hoomie-Designsystems" width="2400" height="1350" loading="lazy"></figure>
+    </div>
+
+    <section class="block g4" style="padding-bottom:2vh">
+      <h2 class="label mono">Ergebnisse</h2>
+      <div class="body"><p>Die App ist live. In den ersten Monaten:</p></div>
+    </section>
+    <div class="stats g4">
+      <div class="stat"><b>2.500+</b><p class="mono mute">Nutzer in den ersten vier Monaten</p></div>
+      <div class="stat"><b>30×</b><p class="mono mute">Bewerbungen in den ersten drei Monaten, von 6 auf 181</p></div>
+      <div class="stat"><b>60,5%</b><p class="mono mute">Angenommene Bewerbungen (23 von 38)</p></div>
+      <div class="stat"><b>147</b><p class="mono mute">Erstellte Crews</p></div>
+    </div>
+    <div class="stats g4" style="padding-top:0">
+      <div class="stat"><b>+15</b><p class="mono mute">Neue Profile pro Tag, über App-Stores und Web</p></div>
+      <div class="stat"><b>80%+</b><p class="mono mute">Vollständig ausgefüllte Profile</p></div>
+      <div class="stat"><b>3′48″</b><p class="mono mute">Durchschnittliche Zeit pro Sitzung</p></div>
+      <div></div>
+    </div>
+
+    <a class="next" href="club-deal.html">
+      <span class="mono">Nächstes Projekt</span>
+      <h2>Club Deal →</h2>
+    </a>
+  </main>
+
+  <footer class="foot g4" id="contatti">
+    <span class="mono mute">Schreib mir</span>
+    <a class="mail" href="mailto:oberto.stefano.job@gmail.com">oberto.stefano.job@gmail.com</a>
+    <ul class="mono"><li><a href="https://www.linkedin.com/in/stefano-oberto-4177b5260/" target="_blank" rel="noopener">LinkedIn</a></li></ul>
+    <a class="mono" href="../../cv.pdf">Lebenslauf herunterladen ↓</a>
+    <span></span>
+    <span class="mono r">© <span id="year">2026</span></span>
+  </footer>
+
+  <script src="../../script.js"></script>
+</body>
+</html>

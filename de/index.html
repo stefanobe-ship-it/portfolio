@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- TODO: titolo e descrizione: sono quello che appare su Google e quando condividi il link -->
+  <title>Stefano Oberto — UI/UX Designer</title>
+  <meta name="description" content="Portfolio von Stefano Oberto, UI/UX-Designer mit Hintergrund im Branding: Case Studies, Corporate-Design-Projekte und ein Videospiel in Entwicklung.">
+  <meta property="og:title" content="Stefano Oberto — UI/UX Designer">
+  <meta property="og:description" content="Case Studies zu UI/UX, Branding und Grafikdesign.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%23ff4f00'/><text x='50%' y='56%' text-anchor='middle' dominant-baseline='middle' font-family='Arial,sans-serif' font-weight='700' font-size='30' fill='%23fff'>SO</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    // Applica il tema scelto prima del disegno della pagina, per evitare il lampo di colore
+    try { var t = localStorage.getItem('theme'); if (t === 'dark' || t === 'light') document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Zum Inhalt springen</a>
+
+  <header class="top g4 mono">
+    <a class="brand" href="index.html"><span class="full">Stefano Oberto</span><span class="short" aria-hidden="true">S.O.</span></a>
+    <span class="hide-m">UI/UX Designer</span>
+    <div class="tools">
+      <nav aria-label="Hauptmenü"><a href="#lavori">Projekte</a><a href="chi-sono.html">Über mich</a><a href="#contatti">Kontakt</a></nav>
+      <ul class="langs" aria-label="Sprache"><li><a href="../index.html" lang="it" hreflang="it" title="Italiano">IT</a></li><li><a href="../en/index.html" lang="en" hreflang="en" title="English">EN</a></li><li><a href="index.html" lang="de" hreflang="de" title="Deutsch" aria-current="true">DE</a></li></ul>
+      <button class="theme" type="button" aria-label="Dunkles Design" aria-pressed="false"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M8 1.5a6.5 6.5 0 0 1 0 13z" fill="currentColor"/></svg></button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="hero__intro g4">
+        <!-- TODO: la frase che ti definisce. Corta, concreta, senza aggettivi vuoti. -->
+        <p>Ich gestalte klare Interfaces für digitale Produkte, vom Problem bis zum getesteten Prototyp. <span>Ich komme aus dem Branding: Ich weiß, wie man einem Produkt eine unverwechselbare Stimme gibt.</span></p>
+      </div>
+      <div class="hero__meta g4 mono">
+        <span>UI/UX · Branding · Grafikdesign</span>
+      </div>
+      <h1 class="name" aria-label="Stefano Oberto"></h1>
+    </section>
+
+    <section class="index" id="lavori" aria-labelledby="lavori-title">
+      <h2 id="lavori-title" class="mono mute" style="margin-bottom:2vh">Projekte</h2>
+      <div class="filters" role="group" aria-label="Nach Disziplin filtern">
+        <button type="button" data-f="all" aria-pressed="true">Alle</button>
+        <button type="button" data-f="ux" aria-pressed="false">UI/UX</button>
+        <button type="button" data-f="brand" aria-pressed="false">Branding</button>
+        <button type="button" data-f="personale" aria-pressed="false">Persönlich</button>
+      </div>
+      <div class="index__head mono mute" aria-hidden="true"><span>Jahr</span><span>Projekt</span><span>In einem Satz</span><span>Disziplin</span><span></span></div>
+      <!-- Un <a class="row"> per progetto.
+           data-cat = ux | brand | personale (serve ai filtri)
+           data-img = copertina mostrata al passaggio del cursore (es. "img/hoomie/cover.jpg")
+           data-c   = colore del segnaposto finché non c'è la copertina -->
+      <div class="rows">
+        <a class="row" href="progetti/hoomie.html" data-cat="ux" data-img="../img/hoomie/cover.jpg"><span class="mono">2024</span><h3>Hoomie</h3><p>Eine Wohnung und die passenden Mitbewohner finden, mit den Menschen vor den Wohnungen.</p><span class="role mono">UI/UX · App</span><span class="arrow" aria-hidden="true">→</span></a>
+        <a class="row" href="progetti/club-deal.html" data-cat="ux" data-img="../img/club-deal/cover.jpg"><span class="mono">—</span><h3>Club Deal</h3><p>In Startups investieren, auch ohne aus dieser Welt zu kommen.</p><span class="role mono">UI/UX · Branding</span><span class="arrow" aria-hidden="true">→</span></a>
+        <a class="row" href="progetti/videogioco.html" data-cat="personale" data-c="#ff4f00"><span class="mono">Laufend</span><h3>Videospiel</h3><p>Ein Spiel, das ich allein entwickle, inklusive Interface.</p><span class="role mono">Persönlich · Game UI</span><span class="arrow" aria-hidden="true">→</span></a>
+        <a class="row" href="progetti/ventinove-fest.html" data-cat="brand" data-img="../img/ventinove-fest/cover.jpg"><span class="mono">2024</span><h3>Ventinove Fest</h3><p>Das Festival von Cuneo, gegen die Vorstellung, dass in der Stadt nichts los ist.</p><span class="role mono">Branding · Kommunikation</span><span class="arrow" aria-hidden="true">→</span></a>
+        <a class="row" href="progetti/siel.html" data-cat="brand" data-img="../img/siel/cover.jpg"><span class="mono">2024</span><h3>SI.EL.</h3><p>Ein fünfzehn Jahre altes Logo erneuern, ohne jemanden zu verwirren.</p><span class="role mono">Branding · Logo</span><span class="arrow" aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <section class="about g4" id="chi-sono" aria-labelledby="about-title">
+      <h2 id="about-title" class="mono">Über mich</h2>
+      <div class="txt">
+        <!-- TODO: due frasi di bio. La versione lunga è in chi-sono.html -->
+        <p>Ich bin Stefano, UI/UX-Designer. Angefangen habe ich mit visuellen Identitäten, heute gestalte ich digitale Produkte: Ich beginne bei den Menschen und lande bei Interfaces, die man auf den ersten Blick versteht.</p>
+        <p>In meiner Freizeit entwickle ich ein Videospiel, von der Geschichte bis zu den Menüs.</p>
+        <a class="more" href="chi-sono.html">Mehr über mich →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot g4" id="contatti">
+    <span class="mono mute">Schreib mir</span>
+    <a class="mail" href="mailto:oberto.stefano.job@gmail.com">oberto.stefano.job@gmail.com</a>
+    <ul class="mono"><li><a href="https://www.linkedin.com/in/stefano-oberto-4177b5260/" target="_blank" rel="noopener">LinkedIn</a></li></ul>
+    <a class="mono" href="../cv.pdf">Lebenslauf herunterladen ↓</a><!-- TODO: aggiungi cv.pdf nella cartella principale -->
+    <span></span>
+    <span class="mono r">© <span id="year">2026</span></span>
+  </footer>
+
+  <div class="preview" aria-hidden="true"></div>
+  <script src="../script.js"></script>
+</body>
+</html>
