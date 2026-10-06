@@ -1,5 +1,12 @@
 const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+// Ogni pagina si apre dall'inizio, senza riprendere lo scorrimento precedente
+// (tranne i link a una sezione, come #contatti)
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+const toTop = () => { if (!location.hash) window.scrollTo({ top: 0, left: 0, behavior: 'instant' }); };
+toTop();
+addEventListener('load', () => { toTop(); setTimeout(toTop, 100); });
+
 // Ora locale nella testata
 const clock = document.getElementById('clock');
 if (clock) {
@@ -43,18 +50,27 @@ filters.forEach((btn) => {
   });
 });
 
-// Home: anteprima del progetto che insegue il cursore
+// Home: copertina del progetto. Su telefono è fissa dentro ogni riga,
+// con il mouse compare al passaggio e segue il cursore.
+const cover = (r) => r.dataset.img
+  ? `url("${r.dataset.img}") center / cover`
+  : `linear-gradient(160deg, ${r.dataset.c || '#ff4f00'} 0 62%, #0b0b0c 62%)`;
+rows.forEach((r) => {
+  const t = document.createElement('span');
+  t.className = 'thumb mono';
+  t.setAttribute('aria-hidden', 'true');
+  t.style.background = cover(r);
+  if (!r.dataset.img) t.textContent = 'Copertina';
+  r.prepend(t);
+});
+
 const pv = document.querySelector('.preview');
 if (pv && rows.length && matchMedia('(hover: hover)').matches) {
   rows.forEach((r, i) => {
     const card = document.createElement('i');
     card.className = 'mono';
-    if (r.dataset.img) {
-      card.style.backgroundImage = `url("${r.dataset.img}")`;
-    } else {
-      card.style.background = `linear-gradient(160deg, ${r.dataset.c || '#2f3bff'} 0 62%, #0b0b0c 62%)`;
-      card.textContent = 'Copertina · ' + r.querySelector('h3').textContent;
-    }
+    card.style.background = cover(r);
+    if (!r.dataset.img) card.textContent = 'Copertina · ' + r.querySelector('h3').textContent;
     pv.appendChild(card);
     r.addEventListener('mouseenter', () => {
       pv.classList.add('on');

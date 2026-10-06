@@ -1,6 +1,6 @@
 /* =========================================================
    Stefano Oberto — identità "Indice"
-   Il lavoro come archivio preciso: bianco, nero, un solo blu
+   Il lavoro come archivio preciso: bianco, nero, un solo arancione
    che compare quando interagisci.
    ========================================================= */
 
@@ -11,7 +11,7 @@
   --soft: #c4c4c8;
   --line: #e3e3e6;
   --tint: #f4f4f6;              /* fondo dei segnaposto immagine */
-  --accent: #2f3bff;            /* blu oltremare: unico colore del sistema */
+  --accent: #ff4f00;            /* arancio segnale: unico colore del sistema */
   --sans: "Instrument Sans", "Inter", system-ui, -apple-system, sans-serif;
   --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
   --ease: cubic-bezier(.19, 1, .22, 1);
@@ -38,8 +38,8 @@ ul, ol { list-style: none; }
 .wrap { padding-inline: var(--gut); }
 
 /* ---------- Testata ---------- */
-.top { position: fixed; inset: 0 0 auto; z-index: 10; padding: 18px var(--gut); mix-blend-mode: difference; color: #fff; }
-.top a:hover { opacity: .6; }
+.top { position: fixed; inset: 0 0 auto; z-index: 10; padding: 18px var(--gut); color: var(--ink); background: rgba(255, 255, 255, .72); -webkit-backdrop-filter: blur(16px) saturate(1.4); backdrop-filter: blur(16px) saturate(1.4); }
+.top a:hover { color: var(--accent); }
 .top nav { display: flex; gap: 18px; }
 .top .r { text-align: right; }
 .top [aria-current] { text-decoration: underline; text-underline-offset: 3px; }
@@ -65,6 +65,7 @@ ul, ol { list-style: none; }
 .rows { border-bottom: 1px solid var(--line); }
 .row { position: relative; display: grid; grid-template-columns: 1fr 3fr 3fr 2fr 1fr; gap: var(--gut); align-items: baseline; padding: 22px 0 20px; border-top: 1px solid var(--line); transition: color .4s var(--ease); }
 .row[hidden] { display: none; }
+.thumb { display: none; }
 .row h3 { font-size: clamp(26px, 3.4vw, 52px); font-weight: 500; letter-spacing: -.035em; line-height: 1; transition: transform .6s var(--ease); }
 .row p { color: var(--mute); transition: color .4s var(--ease); }
 .row .arrow { text-align: right; transition: transform .6s var(--ease); }
@@ -188,6 +189,7 @@ figcaption { font-family: var(--mono); font-size: 12px; letter-spacing: .02em; t
   .row { grid-template-columns: 1fr; row-gap: 6px; }
   .row > * { grid-column: 1; }
   .row .arrow, .preview { display: none; }
+  .thumb { display: flex; align-items: flex-end; aspect-ratio: 16 / 10; max-width: 100%; padding: 10px; margin-bottom: 8px; color: #fff; }
   .block { padding-block: 5vh; }
   .block > .label { margin-bottom: -4px; }
   .meta { grid-template-columns: 1fr 1fr; }
