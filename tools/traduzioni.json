@@ -1276,5 +1276,13 @@
  "Dieci icone in metallo con bordo perlinato su fondo bordeaux: mano, anfora, teschio, freccia, maniglia ad anello, occhio, tempio, dadi, mappa e sacchetto di monete": {
   "en": "Ten metal icons with beaded borders on a burgundy background: hand, amphora, skull, arrow, ring handle, eye, temple, dice, map and coin pouch",
   "de": "Zehn Metall-Icons mit Perlrand auf bordeauxfarbenem Grund: Hand, Amphore, Totenkopf, Pfeil, Ringgriff, Auge, Tempel, Würfel, Karte und Münzbeutel"
+ },
+ "Schermata di gioco su un monitor: una strada tra edifici romani, la bussola in alto con i punti cardinali e le icone, un'icona col teschio al centro in basso": {
+  "en": "In-game screenshot on a monitor: a street between Roman buildings, the compass at the top with cardinal points and icons, a skull icon at the bottom centre",
+  "de": "Spielszene auf einem Monitor: eine Straße zwischen römischen Gebäuden, oben der Kompass mit Himmelsrichtungen und Icons, unten in der Mitte ein Totenkopf-Icon"
+ },
+ "Prima prova in gioco: la bussola e le icone sull'interfaccia": {
+  "en": "First in-game test: the compass and icons on the interface",
+  "de": "Erster Test im Spiel: Kompass und Icons im Interface"
  }
 }
