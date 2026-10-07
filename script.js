@@ -28,6 +28,19 @@ if (themeBtn) {
   sysDark.addEventListener('change', syncTheme);
 }
 
+// Menu delle lingue: si apre dal globo, si chiude cliccando fuori o con Esc
+const langBtn = document.querySelector('.lang-btn');
+const langList = document.getElementById('langs');
+if (langBtn && langList) {
+  const setOpen = (open) => { langList.hidden = !open; langBtn.setAttribute('aria-expanded', String(open)); };
+  langBtn.addEventListener('click', () => {
+    setOpen(langList.hidden);
+    if (!langList.hidden) (langList.querySelector('[aria-current]') || langList.querySelector('a')).focus();
+  });
+  document.addEventListener('click', (e) => { if (!e.target.closest('.lang')) setOpen(false); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !langList.hidden) { setOpen(false); langBtn.focus(); } });
+}
+
 // Home: il nome sale lettera per lettera e riempie esattamente la larghezza
 const name = document.querySelector('.name');
 if (name) {

@@ -23,8 +23,11 @@
     <a class="brand" href="../index.html"><span class="full">Stefano Oberto</span><span class="short" aria-hidden="true">S.O.</span></a>
     <div class="tools">
       <nav aria-label="Principale"><a href="../index.html#lavori" aria-current="true">Lavori</a><a href="../chi-sono.html">Chi sono</a><a href="#contatti">Contatti</a></nav>
-      <ul class="langs" aria-label="Lingua"><li><a href="coniuratio.html" lang="it" hreflang="it" title="Italiano" aria-current="true">IT</a></li><li><a href="../en/progetti/coniuratio.html" lang="en" hreflang="en" title="English">EN</a></li><li><a href="../de/progetti/coniuratio.html" lang="de" hreflang="de" title="Deutsch">DE</a></li></ul>
-      <button class="theme" type="button" aria-label="Tema scuro" aria-pressed="false"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M8 1.5a6.5 6.5 0 0 1 0 13z" fill="currentColor"/></svg></button>
+      <div class="lang">
+        <button class="icon-btn lang-btn" type="button" aria-label="Lingua" aria-expanded="false" aria-controls="langs"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.4 2.5 3.6 5.5 3.6 9s-1.2 6.5-3.6 9c-2.4-2.5-3.6-5.5-3.6-9S9.6 5.5 12 3z"/></svg></button>
+        <ul class="langs" id="langs" aria-label="Lingua" hidden><li><a href="coniuratio.html" lang="it" hreflang="it" aria-current="true">Italiano</a></li><li><a href="../en/progetti/coniuratio.html" lang="en" hreflang="en">English</a></li><li><a href="../de/progetti/coniuratio.html" lang="de" hreflang="de">Deutsch</a></li></ul>
+      </div>
+      <button class="icon-btn theme" type="button" aria-label="Tema scuro" aria-pressed="false"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></svg></button>
     </div>
   </header>
 
@@ -38,13 +41,13 @@
       <p class="status mono" style="margin-bottom:2vh">In sviluppo</p>
       <h1 class="case-title">Coniuratio</h1>
       <div class="g4">
-        <p class="case-sub lead">Un gioco che sto costruendo da solo, interfaccia compresa. <span class="todo">Il gioco in una frase: genere, protagonista, cosa fai.</span></p>
+        <p class="case-sub lead">Un gioco che sto costruendo da solo, interfaccia compresa. <span>Antica Roma, 63 a.C.: la congiura di Catilina.</span></p>
       </div>
       <dl class="meta g4 mono">
         <div><dt>Cliente</dt><dd>Progetto personale</dd></div>
         <div><dt>Anno</dt><dd>In corso</dd></div>
         <div><dt>Ruolo</dt><dd>Da solo: game design, grafica, interfaccia</dd></div>
-        <div class="todo"><dt>Cosa ho fatto</dt><dd>Es. Godot, Aseprite, Figma</dd></div>
+        <div><dt>Cosa ho fatto</dt><dd>Concept, workflow con Claude, Gemini e Blender</dd></div>
       </dl>
     </section>
 
@@ -52,10 +55,11 @@
       <figure><img src="../img/coniuratio/titolo.jpg" alt="Schermata del titolo di Coniuratio: la scritta su un cumulo di macerie, tegole e travi bruciate" width="1408" height="768"></figure>
     </div>
 
-    <section class="block g4 todo">
+    <section class="block g4">
       <h2 class="label mono">L'idea</h2>
       <div class="body">
-        <p>Da dove nasce il gioco e cosa vuoi che provi chi lo gioca. Racconta la premessa come la racconteresti a un amico.</p>
+        <p>Coniuratio vuole essere un gioco come Kingdom Come: Deliverance II, ma ambientato nell'antica Roma: nel I secolo a.C., durante la congiura di Catilina del 63 a.C.</p>
+        <p class="todo">Da dove nasce il gioco e cosa vuoi che provi chi lo gioca. Racconta la premessa come la racconteresti a un amico.</p>
       </div>
     </section>
 
@@ -73,8 +77,10 @@
 
     <section class="block g4" style="padding-bottom:4vh">
       <h2 class="label mono">Mondo e stile</h2>
-      <!-- TODO: due righe sull'ambientazione e sullo stile visivo -->
-      <div class="body"><p>Ambienti, oggetti e materiali del mondo di gioco.</p></div>
+      <div class="body">
+        <p>Queste immagini sono strumenti di lavoro. L'idea è un flusso in tre passaggi: un agente storico costruito su Claude controlla lo sviluppo del gioco e mi fornisce i prompt, Gemini genera le immagini di riferimento, poi ambienti e oggetti vengono modellati in Blender.</p>
+        <p>Ambienti, oggetti e materiali del mondo di gioco.</p>
+      </div>
     </section>
     <div class="media">
       <figure><img src="../img/coniuratio/facciata.jpg" alt="Facciata di un edificio a più piani con botteghe al piano terra, panni stesi e tetto di tegole" width="1408" height="768" loading="lazy"><figcaption>Facciata con botteghe</figcaption></figure>
@@ -100,7 +106,7 @@
       </div>
     </section>
     <div class="media">
-      <figure><img src="../img/coniuratio/icone.png" alt="Quattro icone in metallo con bordo perlinato su fondi bordeaux scuro, rosso, avorio e verde acido: un disco vuoto, una maniglia ad anello, una mano aperta e un occhio" width="1080" height="270" loading="lazy"><figcaption>Icone, ipotesi</figcaption></figure>
+      <figure><img src="../img/coniuratio/icone.png" alt="Dieci icone in metallo con bordo perlinato su fondo bordeaux: mano, anfora, teschio, freccia, maniglia ad anello, occhio, tempio, dadi, mappa e sacchetto di monete" width="875" height="540" loading="lazy" style="max-width:875px"><figcaption>Icone, ipotesi</figcaption></figure>
     </div>
     <div class="figs g4 two todo">
       <figure class="fig"><div class="ph" data-label="HUD in gioco"></div><figcaption>HUD: solo quello che serve nel momento</figcaption></figure>

@@ -39,7 +39,7 @@ def langs_block(page, lang):
         target = page if l == 'it' else os.path.join(l, page)
         href = os.path.relpath(os.path.join(ROOT, target), os.path.join(ROOT, here))
         cur = ' aria-current="true"' if l == lang else ''
-        items.append(f'<li><a href="{href}" lang="{l}" hreflang="{l}" title="{LABELS[l]}"{cur}>{l.upper()}</a></li>')
+        items.append(f'<li><a href="{href}" lang="{l}" hreflang="{l}"{cur}>{LABELS[l]}</a></li>')
     return ''.join(items)
 
 

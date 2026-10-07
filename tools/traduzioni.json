@@ -1256,5 +1256,25 @@
  "Icone, ipotesi": {
   "en": "Icons, early ideas",
   "de": "Icons, erste Ideen"
+ },
+ "Antica Roma, 63 a.C.: la congiura di Catilina.": {
+  "en": "Ancient Rome, 63 BC: the Catilinarian conspiracy.",
+  "de": "Antikes Rom, 63 v. Chr.: die Catilinarische Verschwörung."
+ },
+ "Concept, workflow con Claude, Gemini e Blender": {
+  "en": "Concept, workflow with Claude, Gemini and Blender",
+  "de": "Konzept, Workflow mit Claude, Gemini und Blender"
+ },
+ "Coniuratio vuole essere un gioco come Kingdom Come: Deliverance II, ma ambientato nell'antica Roma: nel I secolo a.C., durante la congiura di Catilina del 63 a.C.": {
+  "en": "Coniuratio aims to be a game like Kingdom Come: Deliverance II, but set in ancient Rome: in the 1st century BC, during Catiline's conspiracy of 63 BC.",
+  "de": "Coniuratio soll ein Spiel wie Kingdom Come: Deliverance II werden, aber im antiken Rom spielen: im 1. Jahrhundert v. Chr., während der Catilinarischen Verschwörung von 63 v. Chr."
+ },
+ "Queste immagini sono strumenti di lavoro. L'idea è un flusso in tre passaggi: un agente storico costruito su Claude controlla lo sviluppo del gioco e mi fornisce i prompt, Gemini genera le immagini di riferimento, poi ambienti e oggetti vengono modellati in Blender.": {
+  "en": "These images are working tools. The idea is a three-step workflow: a history agent built on Claude checks the game's development and gives me the prompts, Gemini generates the reference images, then places and objects are modelled in Blender.",
+  "de": "Diese Bilder sind Arbeitswerkzeuge. Die Idee ist ein Ablauf in drei Schritten: Ein auf Claude aufgebauter Geschichts-Agent prüft die Entwicklung des Spiels und liefert mir die Prompts, Gemini erzeugt die Referenzbilder, danach werden Orte und Objekte in Blender modelliert."
+ },
+ "Dieci icone in metallo con bordo perlinato su fondo bordeaux: mano, anfora, teschio, freccia, maniglia ad anello, occhio, tempio, dadi, mappa e sacchetto di monete": {
+  "en": "Ten metal icons with beaded borders on a burgundy background: hand, amphora, skull, arrow, ring handle, eye, temple, dice, map and coin pouch",
+  "de": "Zehn Metall-Icons mit Perlrand auf bordeauxfarbenem Grund: Hand, Amphore, Totenkopf, Pfeil, Ringgriff, Auge, Tempel, Würfel, Karte und Münzbeutel"
  }
 }
