@@ -1284,5 +1284,21 @@
  "Prima prova in gioco: la bussola e le icone sull'interfaccia": {
   "en": "First in-game test: the compass and icons on the interface",
   "de": "Erster Test im Spiel: Kompass und Icons im Interface"
+ },
+ "La scheda della startup Mectronica su un portatile: menu laterale, informazioni generali, metriche chiave, allegati e coerenza dei dati": {
+  "en": "The Mectronica startup page on a laptop: side menu, general information, key metrics, attachments and data consistency",
+  "de": "Die Startup-Seite von Mectronica auf einem Laptop: Seitenmenü, allgemeine Informationen, Kennzahlen, Anhänge und Datenkonsistenz"
+ },
+ "La scheda startup su desktop": {
+  "en": "The startup page on desktop",
+  "de": "Die Startup-Seite auf dem Desktop"
+ },
+ "Brand e UI/UX designer · Club Deal": {
+  "en": "Brand and UI/UX designer · Club Deal",
+  "de": "Brand- und UI/UX-Designer · Club Deal"
+ },
+ "Piattaforma che mette in contatto imprenditori privati e startup del Nord Italia.": {
+  "en": "A platform connecting private entrepreneurs with startups in Northern Italy.",
+  "de": "Eine Plattform, die private Unternehmer mit Startups aus Norditalien zusammenbringt."
  }
 }

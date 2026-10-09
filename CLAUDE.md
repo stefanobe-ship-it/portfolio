@@ -22,7 +22,7 @@ https://stefanobe-ship-it.github.io/portfolio/
 
 ## Da completare (al momento)
 
-- Club Deal: slide senza l'etichetta "SCHIAVO" (copertina, scheda startup desktop, multi-dispositivo).
+- Testi dentro le immagini: restano in italiano in EN/DE (vedi navigazione Club Deal, slide di potenziale/valutazione, design system Hoomie). Soluzione concordata in sospeso: immagini senza testo + testi in HTML.
 - SI.EL.: testo "Cosa è cambiato" nel logo.
 - Profilo: passaggio dal branding alla UI/UX, foto delle passioni, `cv.pdf`.
 - Coniuratio: meccaniche, diario di sviluppo, prossimi passi.
