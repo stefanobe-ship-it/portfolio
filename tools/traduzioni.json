@@ -1879,5 +1879,43 @@
  "Il modo di dire sarebbe \"abbiamo fatto trenta, facciamo trentuno\". Sulla locandina \"trentuno\" è barrato e al suo posto c'è il nome del festival.": {
   "en": "The Italian saying goes \"we've done thirty, let's do thirty-one\", meaning let's go the extra mile. On the poster \"thirty-one\" is crossed out and replaced by the festival's name.",
   "de": "Die italienische Redewendung lautet \"wir haben dreißig geschafft, machen wir einunddreißig\", also: jetzt auch noch das letzte Stück. Auf dem Plakat ist \"einunddreißig\" durchgestrichen und durch den Namen des Festivals ersetzt."
+ },
+ "Queste immagini sono strumenti di lavoro. Nascono da un flusso in tre passaggi, un esempio concreto di come uso l'AI.": {
+  "en": "These images are working tools. They come from a three-step workflow, a concrete example of how I use AI.",
+  "de": "Diese Bilder sind Arbeitswerkzeuge. Sie entstehen in einem Ablauf aus drei Schritten, ein konkretes Beispiel dafür, wie ich KI nutze."
+ },
+ "Come uso l'AI →": {
+  "en": "How I use AI →",
+  "de": "Wie ich KI nutze →"
+ },
+ "Il flusso di lavoro": {
+  "en": "The workflow",
+  "de": "Der Arbeitsablauf"
+ },
+ "1 · Prompt": {
+  "en": "1 · Prompts",
+  "de": "1 · Prompts"
+ },
+ "Un agente storico controlla lo sviluppo del gioco e mi fornisce i prompt.": {
+  "en": "A history agent oversees the game's development and gives me the prompts.",
+  "de": "Ein Geschichts-Agent begleitet die Entwicklung des Spiels und liefert mir die Prompts."
+ },
+ "2 · Riferimenti": {
+  "en": "2 · References",
+  "de": "2 · Referenzen"
+ },
+ "Gemini": "Gemini",
+ "Genera le immagini di riferimento.": {
+  "en": "Generates the reference images.",
+  "de": "Erzeugt die Referenzbilder."
+ },
+ "3 · Modelli 3D": {
+  "en": "3 · 3D models",
+  "de": "3 · 3D-Modelle"
+ },
+ "Blender": "Blender",
+ "Ambienti e oggetti vengono modellati in Blender.": {
+  "en": "Environments and objects are modelled in Blender.",
+  "de": "Umgebungen und Objekte werden in Blender modelliert."
  }
 }

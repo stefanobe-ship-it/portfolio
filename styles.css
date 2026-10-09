@@ -213,7 +213,7 @@ figcaption { font-family: var(--mono); font-size: 12px; letter-spacing: .02em; t
 .process__switch { grid-column: 1; display: flex; flex-wrap: wrap; gap: 6px 22px; }
 .process__switch button { font-size: 12px; letter-spacing: .02em; text-transform: uppercase; color: var(--mute); padding: 4px 0; transition: color .3s; }
 .process__switch button:hover { color: var(--ink); }
-.process__switch button[aria-pressed="true"] { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
+.process__switch button[aria-pressed="true"] { color: var(--accent); text-decoration: underline; text-underline-offset: 4px; }
 .process__chart { grid-column: 2 / span 3; display: grid; gap: 26px; }
 .process__row, .process__axis { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 3fr); column-gap: var(--gut); align-items: center; }
 .process__name { font-size: 12px; letter-spacing: .02em; text-transform: uppercase; }
