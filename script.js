@@ -289,7 +289,7 @@ document.querySelectorAll('[data-carousel]').forEach((box) => {
   };
   box.querySelectorAll('.carousel__btn').forEach((btn) => btn.addEventListener('click', () => {
     const card = track.querySelector('.fig');
-    const step = card.offsetWidth + parseFloat(getComputedStyle(track).columnGap || 0);
+    const step = card ? card.offsetWidth + parseFloat(getComputedStyle(track).columnGap || 0) : track.clientWidth * 0.8;
     track.scrollBy({ left: step * +btn.dataset.dir, behavior: reduceMotion ? 'auto' : 'smooth' });
   }));
   track.addEventListener('scroll', update, { passive: true });

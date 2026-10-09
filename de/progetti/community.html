@@ -33,7 +33,8 @@
 
   <main id="main">
     <section class="case-head">
-      <p class="crumb mono mute"><a href="../index.html#lavori">Projekte</a><span>/</span><span>UI/UX</span><span class="crumb__tag">In Entwicklung</span></p>
+      <p class="crumb mono mute"><a href="../index.html#lavori">Projekte</a><span>/</span><span>UI/UX</span></p>
+      <p class="status mono" style="margin-bottom:2vh">In Entwicklung</p>
       <h1 class="case-title">Hoomie Community</h1>
       <div class="g4">
         <p class="case-sub lead">Nach der Wohnungssuche: das Wohnen. <span>Die Web-App von Hoomie für WG-Ausgaben, Putzpläne und das Leben in der Stadt.</span></p>
@@ -71,10 +72,16 @@
     <section class="block g4 features-head">
       <h2 class="label mono">Was sie macht</h2>
     </section>
-    <div class="figs g4 three features">
-      <figure class="fig"><figcaption>Zuhause</figcaption><p>Ganz oben steht die Aufgabe des Tages. Darunter: Putzplan, Einkaufsliste und der Kontakt zum Vermieter.</p><img src="../../img/community/casa.webp" alt="Bildschirm Your home: die Aufgabe des Tages, die Karten Chores und Shopping list und der Verweis auf Hoomie für alle, die ihr Zimmer verlassen" width="970" height="2000" loading="lazy"></figure>
-      <figure class="fig"><figcaption>Ausgaben</figcaption><p>Was du ausgegeben hast und die Summe der WG, mit wer was bezahlt hat. Abos und Salden stehen auf demselben Bildschirm.</p><img src="../../img/community/spese.webp" alt="Bildschirm Expenses: die eigenen Ausgaben, die Summe der WG und die Liste der Ausgaben mit den Personen, die sie bezahlt haben" width="970" height="2000" loading="lazy"></figure>
-      <figure class="fig"><figcaption>Events</figcaption><p>Bars, Lernräume und Konzerte in der Stadt, mit den Interessierten und von Freunden vorgeschlagenen Events. Jede und jeder kann eines erstellen.</p><img src="../../img/community/eventi.webp" alt="Bildschirm Events: Kategorien Bars, Lernräume und Konzerte, Events mit den Interessierten und ein von einem Freund vorgeschlagenes Event" width="970" height="2000" loading="lazy"></figure>
+    <div class="carousel" data-carousel>
+      <div class="carousel__track features">
+        <figure class="fig"><figcaption>Zuhause</figcaption><p>Ganz oben steht die Aufgabe des Tages. Darunter: Putzplan, Einkaufsliste und der Kontakt zum Vermieter.</p><img src="../../img/community/casa.webp" alt="Bildschirm Your home: die Aufgabe des Tages, die Karten Chores und Shopping list und der Verweis auf Hoomie für alle, die ihr Zimmer verlassen" width="970" height="2000" loading="lazy"></figure>
+        <figure class="fig"><figcaption>Ausgaben</figcaption><p>Was du ausgegeben hast und die Summe der WG, mit wer was bezahlt hat. Abos und Salden stehen auf demselben Bildschirm.</p><img src="../../img/community/spese.webp" alt="Bildschirm Expenses: die eigenen Ausgaben, die Summe der WG und die Liste der Ausgaben mit den Personen, die sie bezahlt haben" width="970" height="2000" loading="lazy"></figure>
+        <figure class="fig"><figcaption>Events</figcaption><p>Bars, Lernräume und Konzerte in der Stadt, mit den Interessierten und von Freunden vorgeschlagenen Events. Jede und jeder kann eines erstellen.</p><img src="../../img/community/eventi.webp" alt="Bildschirm Events: Kategorien Bars, Lernräume und Konzerte, Events mit den Interessierten und ein von einem Freund vorgeschlagenes Event" width="970" height="2000" loading="lazy"></figure>
+      </div>
+      <div class="carousel__nav">
+        <button class="carousel__btn" type="button" data-dir="-1" aria-label="Vorheriger Bildschirm">←</button>
+        <button class="carousel__btn" type="button" data-dir="1" aria-label="Nächster Bildschirm">→</button>
+      </div>
     </div>
 
     <section class="block g4">

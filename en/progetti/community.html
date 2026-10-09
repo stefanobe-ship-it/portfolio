@@ -33,7 +33,8 @@
 
   <main id="main">
     <section class="case-head">
-      <p class="crumb mono mute"><a href="../index.html#lavori">Work</a><span>/</span><span>UI/UX</span><span class="crumb__tag">In development</span></p>
+      <p class="crumb mono mute"><a href="../index.html#lavori">Work</a><span>/</span><span>UI/UX</span></p>
+      <p class="status mono" style="margin-bottom:2vh">In development</p>
       <h1 class="case-title">Hoomie Community</h1>
       <div class="g4">
         <p class="case-sub lead">After finding a home, living in it. <span>Hoomie's web app for household expenses, chores and city life.</span></p>
@@ -71,10 +72,16 @@
     <section class="block g4 features-head">
       <h2 class="label mono">What it does</h2>
     </section>
-    <div class="figs g4 three features">
-      <figure class="fig"><figcaption>Home</figcaption><p>Today's task comes first. Below it: chores, the shopping list and contact with the landlord.</p><img src="../../img/community/casa.webp" alt="Your home screen: today's task, the Chores and Shopping list cards, and the link to Hoomie for anyone leaving their room" width="970" height="2000" loading="lazy"></figure>
-      <figure class="fig"><figcaption>Expenses</figcaption><p>How much you've spent and the household total, with who paid for what. Subscriptions and balances are on the same screen.</p><img src="../../img/community/spese.webp" alt="Expenses screen: personal spending, the household total and the list of expenses with who paid for them" width="970" height="2000" loading="lazy"></figure>
-      <figure class="fig"><figcaption>Events</figcaption><p>Bars, study rooms and concerts in the city, with the people interested and events suggested by friends. Anyone can create one.</p><img src="../../img/community/eventi.webp" alt="Events screen: bar, study room and concert categories, events with the people interested and an event suggested by a friend" width="970" height="2000" loading="lazy"></figure>
+    <div class="carousel" data-carousel>
+      <div class="carousel__track features">
+        <figure class="fig"><figcaption>Home</figcaption><p>Today's task comes first. Below it: chores, the shopping list and contact with the landlord.</p><img src="../../img/community/casa.webp" alt="Your home screen: today's task, the Chores and Shopping list cards, and the link to Hoomie for anyone leaving their room" width="970" height="2000" loading="lazy"></figure>
+        <figure class="fig"><figcaption>Expenses</figcaption><p>How much you've spent and the household total, with who paid for what. Subscriptions and balances are on the same screen.</p><img src="../../img/community/spese.webp" alt="Expenses screen: personal spending, the household total and the list of expenses with who paid for them" width="970" height="2000" loading="lazy"></figure>
+        <figure class="fig"><figcaption>Events</figcaption><p>Bars, study rooms and concerts in the city, with the people interested and events suggested by friends. Anyone can create one.</p><img src="../../img/community/eventi.webp" alt="Events screen: bar, study room and concert categories, events with the people interested and an event suggested by a friend" width="970" height="2000" loading="lazy"></figure>
+      </div>
+      <div class="carousel__nav">
+        <button class="carousel__btn" type="button" data-dir="-1" aria-label="Previous screen">←</button>
+        <button class="carousel__btn" type="button" data-dir="1" aria-label="Next screen">→</button>
+      </div>
     </div>
 
     <section class="block g4">

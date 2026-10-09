@@ -109,28 +109,34 @@
         <p><strong>The homes carousel.</strong> Showing the possible homes straight away lets you check the second part of the choice. The goal was to show both key elements of the decision on a single screen.</p>
       </div>
     </section>
-    <div class="media media--crew">
-      <figure>
-        <!-- Frecce in SVG sopra le schermate: prendono il colore del tema. Coordinate nello spazio dell'immagine (1920 × 1260) -->
-        <div class="flow">
-          <img src="../../img/hoomie/crew.webp" alt="Three app screens: the suggested Crew, why the flatmates are a good match, and the homes that suit the group" width="1920" height="1260" loading="lazy" style="background:none">
-          <svg class="flow__arrows" viewBox="0 0 1920 1260" aria-hidden="true">
-            <g class="flow__halo">
-              <path d="M500 425 H668 a12 12 0 0 1 24 0 H808"/>
-              <path d="M472 778 H664 Q680 778 680 762 V66 Q680 50 696 50 H1601 Q1617 50 1617 66 V132"/>
-            </g>
-            <g class="flow__line">
-              <path d="M500 425 H668 a12 12 0 0 1 24 0 H808"/>
-              <path d="M796 413 L810 425 L796 437"/>
-              <path d="M472 778 H664 Q680 778 680 762 V66 Q680 50 696 50 H1601 Q1617 50 1617 66 V132"/>
-              <path d="M1605 120 L1617 134 L1629 120"/>
-            </g>
-            <circle class="flow__dot" cx="500" cy="425" r="9"/>
-            <circle class="flow__dot" cx="472" cy="778" r="9"/>
-          </svg>
-        </div>
-        <figcaption>From the Crew to the homes</figcaption>
-      </figure>
+    <div class="carousel carousel--crew" data-carousel>
+      <div class="carousel__track">
+        <figure>
+          <!-- Frecce in SVG sopra le schermate: prendono il colore del tema. Coordinate nello spazio dell'immagine (1920 × 1260) -->
+          <div class="flow">
+            <img src="../../img/hoomie/crew.webp" alt="Three app screens: the suggested Crew, why the flatmates are a good match, and the homes that suit the group" width="1920" height="1260" loading="lazy" style="background:none">
+            <svg class="flow__arrows" viewBox="0 0 1920 1260" aria-hidden="true">
+              <g class="flow__halo">
+                <path d="M500 425 H668 a12 12 0 0 1 24 0 H808"/>
+                <path d="M472 778 H664 Q680 778 680 762 V66 Q680 50 696 50 H1601 Q1617 50 1617 66 V132"/>
+              </g>
+              <g class="flow__line">
+                <path d="M500 425 H668 a12 12 0 0 1 24 0 H808"/>
+                <path d="M796 413 L810 425 L796 437"/>
+                <path d="M472 778 H664 Q680 778 680 762 V66 Q680 50 696 50 H1601 Q1617 50 1617 66 V132"/>
+                <path d="M1605 120 L1617 134 L1629 120"/>
+              </g>
+              <circle class="flow__dot" cx="500" cy="425" r="9"/>
+              <circle class="flow__dot" cx="472" cy="778" r="9"/>
+            </svg>
+          </div>
+          <figcaption>From the Crew to the homes</figcaption>
+        </figure>
+      </div>
+      <div class="carousel__nav">
+        <button class="carousel__btn" type="button" data-dir="-1" aria-label="Previous screen">←</button>
+        <button class="carousel__btn" type="button" data-dir="1" aria-label="Next screen">→</button>
+      </div>
     </div>
 
     <section class="block g4">
@@ -160,7 +166,6 @@
         <p>To reduce reliance on estate agencies, landlords need more tools and patterns that show a property at its best. We chose to focus on video tours, which show how the place is laid out, with a dedicated vertical feed. Incoming applications are designed to give a quick, direct overview of the people interested.</p>
       </div>
     </section>
-    <!-- Carosello semplice: scorre col dito o col trackpad; le frecce compaiono solo se le schermate non ci stanno tutte -->
     <div class="carousel" data-carousel>
       <div class="carousel__track features">
         <figure class="fig"><figcaption>Listing</figcaption><img src="../../img/hoomie/proprietario-annuncio.webp" alt="Landlord home, Listing tab: drafts and active listings, a lease takeover at €500 per month on Corso Regio Parco in Turin" width="970" height="2001" loading="lazy"></figure>
@@ -179,9 +184,15 @@
         <p>Through partnerships with external partners, in-app contracts are about to be introduced: choosing the right contract, entering the details and a full review of the final contract.</p>
       </div>
     </section>
-    <div class="figs g4 three features">
-      <figure class="fig"><figcaption>New contract</figcaption><img src="../../img/hoomie/contratto-nuovo.webp" alt="New contract screen: choosing between apartment, room and bed space and between 4+4, temporary, agreed-rent and student contracts, with term and flat-rate tax" width="720" height="1484" loading="lazy"></figure>
-      <figure class="fig"><figcaption>Contract preview</figcaption><img src="../../img/hoomie/contratto-anteprima.webp" alt="Preview of the 4+4 contract with missing details highlighted in red and a reminder to have it reviewed by a professional before signing" width="720" height="1484" loading="lazy"></figure>
+    <div class="carousel" data-carousel>
+      <div class="carousel__track features">
+        <figure class="fig"><figcaption>New contract</figcaption><img src="../../img/hoomie/contratto-nuovo.webp" alt="New contract screen: choosing between apartment, room and bed space and between 4+4, temporary, agreed-rent and student contracts, with term and flat-rate tax" width="720" height="1484" loading="lazy"></figure>
+        <figure class="fig"><figcaption>Contract preview</figcaption><img src="../../img/hoomie/contratto-anteprima.webp" alt="Preview of the 4+4 contract with missing details highlighted in red and a reminder to have it reviewed by a professional before signing" width="720" height="1484" loading="lazy"></figure>
+      </div>
+      <div class="carousel__nav">
+        <button class="carousel__btn" type="button" data-dir="-1" aria-label="Previous screen">←</button>
+        <button class="carousel__btn" type="button" data-dir="1" aria-label="Next screen">→</button>
+      </div>
     </div>
 
     <section class="block g4">

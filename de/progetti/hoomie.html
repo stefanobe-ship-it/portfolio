@@ -109,28 +109,34 @@
         <p><strong>Das Wohnungs-Karussell.</strong> Mögliche Wohnungen sofort zu zeigen, hilft, den zweiten Teil der Entscheidung zu prüfen. Ziel war es, beide zentralen Punkte der Entscheidung auf einem einzigen Screen zu zeigen.</p>
       </div>
     </section>
-    <div class="media media--crew">
-      <figure>
-        <!-- Frecce in SVG sopra le schermate: prendono il colore del tema. Coordinate nello spazio dell'immagine (1920 × 1260) -->
-        <div class="flow">
-          <img src="../../img/hoomie/crew.webp" alt="Drei App-Screens: die vorgeschlagene Crew, warum die Mitbewohner zusammenpassen, und die passenden Wohnungen für die Gruppe" width="1920" height="1260" loading="lazy" style="background:none">
-          <svg class="flow__arrows" viewBox="0 0 1920 1260" aria-hidden="true">
-            <g class="flow__halo">
-              <path d="M500 425 H668 a12 12 0 0 1 24 0 H808"/>
-              <path d="M472 778 H664 Q680 778 680 762 V66 Q680 50 696 50 H1601 Q1617 50 1617 66 V132"/>
-            </g>
-            <g class="flow__line">
-              <path d="M500 425 H668 a12 12 0 0 1 24 0 H808"/>
-              <path d="M796 413 L810 425 L796 437"/>
-              <path d="M472 778 H664 Q680 778 680 762 V66 Q680 50 696 50 H1601 Q1617 50 1617 66 V132"/>
-              <path d="M1605 120 L1617 134 L1629 120"/>
-            </g>
-            <circle class="flow__dot" cx="500" cy="425" r="9"/>
-            <circle class="flow__dot" cx="472" cy="778" r="9"/>
-          </svg>
-        </div>
-        <figcaption>Von der Crew zu den Wohnungen</figcaption>
-      </figure>
+    <div class="carousel carousel--crew" data-carousel>
+      <div class="carousel__track">
+        <figure>
+          <!-- Frecce in SVG sopra le schermate: prendono il colore del tema. Coordinate nello spazio dell'immagine (1920 × 1260) -->
+          <div class="flow">
+            <img src="../../img/hoomie/crew.webp" alt="Drei App-Screens: die vorgeschlagene Crew, warum die Mitbewohner zusammenpassen, und die passenden Wohnungen für die Gruppe" width="1920" height="1260" loading="lazy" style="background:none">
+            <svg class="flow__arrows" viewBox="0 0 1920 1260" aria-hidden="true">
+              <g class="flow__halo">
+                <path d="M500 425 H668 a12 12 0 0 1 24 0 H808"/>
+                <path d="M472 778 H664 Q680 778 680 762 V66 Q680 50 696 50 H1601 Q1617 50 1617 66 V132"/>
+              </g>
+              <g class="flow__line">
+                <path d="M500 425 H668 a12 12 0 0 1 24 0 H808"/>
+                <path d="M796 413 L810 425 L796 437"/>
+                <path d="M472 778 H664 Q680 778 680 762 V66 Q680 50 696 50 H1601 Q1617 50 1617 66 V132"/>
+                <path d="M1605 120 L1617 134 L1629 120"/>
+              </g>
+              <circle class="flow__dot" cx="500" cy="425" r="9"/>
+              <circle class="flow__dot" cx="472" cy="778" r="9"/>
+            </svg>
+          </div>
+          <figcaption>Von der Crew zu den Wohnungen</figcaption>
+        </figure>
+      </div>
+      <div class="carousel__nav">
+        <button class="carousel__btn" type="button" data-dir="-1" aria-label="Vorheriger Bildschirm">←</button>
+        <button class="carousel__btn" type="button" data-dir="1" aria-label="Nächster Bildschirm">→</button>
+      </div>
     </div>
 
     <section class="block g4">
@@ -160,7 +166,6 @@
         <p>Um die Abhängigkeit von Maklern zu verringern, braucht es mehr Werkzeuge und Muster, die eine Immobilie zur Geltung bringen. Wir haben auf Videotouren gesetzt, die den Grundriss des Angebots zeigen, mit einem eigenen vertikalen Feed. Die eingehenden Bewerbungen sollen einen schnellen, direkten Überblick über die Interessierten geben.</p>
       </div>
     </section>
-    <!-- Carosello semplice: scorre col dito o col trackpad; le frecce compaiono solo se le schermate non ci stanno tutte -->
     <div class="carousel" data-carousel>
       <div class="carousel__track features">
         <figure class="fig"><figcaption>Inserat</figcaption><img src="../../img/hoomie/proprietario-annuncio.webp" alt="Startbildschirm für Vermieter, Tab Listing: Entwürfe und aktive Inserate, eine Mietübernahme für 500 € im Monat am Corso Regio Parco in Turin" width="970" height="2001" loading="lazy"></figure>
@@ -179,9 +184,15 @@
         <p>Durch Kooperationen mit externen Partnern kommen bald Mietverträge in der App: die Wahl des passenden Vertrags, die Eingabe der Daten und eine vollständige Prüfung des fertigen Vertrags.</p>
       </div>
     </section>
-    <div class="figs g4 three features">
-      <figure class="fig"><figcaption>Neuer Vertrag</figcaption><img src="../../img/hoomie/contratto-nuovo.webp" alt="Bildschirm New contract: Auswahl zwischen Wohnung, Zimmer und Bettplatz sowie zwischen den Vertragsarten 4+4, befristet, Mietspiegel und Studierende, mit Laufzeit und Pauschalsteuer" width="720" height="1484" loading="lazy"></figure>
-      <figure class="fig"><figcaption>Vertragsvorschau</figcaption><img src="../../img/hoomie/contratto-anteprima.webp" alt="Vorschau des 4+4-Vertrags mit fehlenden Angaben in Rot und dem Hinweis, ihn vor der Unterschrift von einer Fachperson prüfen zu lassen" width="720" height="1484" loading="lazy"></figure>
+    <div class="carousel" data-carousel>
+      <div class="carousel__track features">
+        <figure class="fig"><figcaption>Neuer Vertrag</figcaption><img src="../../img/hoomie/contratto-nuovo.webp" alt="Bildschirm New contract: Auswahl zwischen Wohnung, Zimmer und Bettplatz sowie zwischen den Vertragsarten 4+4, befristet, Mietspiegel und Studierende, mit Laufzeit und Pauschalsteuer" width="720" height="1484" loading="lazy"></figure>
+        <figure class="fig"><figcaption>Vertragsvorschau</figcaption><img src="../../img/hoomie/contratto-anteprima.webp" alt="Vorschau des 4+4-Vertrags mit fehlenden Angaben in Rot und dem Hinweis, ihn vor der Unterschrift von einer Fachperson prüfen zu lassen" width="720" height="1484" loading="lazy"></figure>
+      </div>
+      <div class="carousel__nav">
+        <button class="carousel__btn" type="button" data-dir="-1" aria-label="Vorheriger Bildschirm">←</button>
+        <button class="carousel__btn" type="button" data-dir="1" aria-label="Nächster Bildschirm">→</button>
+      </div>
     </div>
 
     <section class="block g4">

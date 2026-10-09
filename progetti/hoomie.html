@@ -109,28 +109,34 @@
         <p><strong>Il carosello delle case.</strong> Mostrare subito le soluzioni possibili permette di validare il secondo punto della scelta. L'obiettivo era mostrare in una sola schermata entrambi i punti cardine della decisione.</p>
       </div>
     </section>
-    <div class="media media--crew">
-      <figure>
-        <!-- Frecce in SVG sopra le schermate: prendono il colore del tema. Coordinate nello spazio dell'immagine (1920 × 1260) -->
-        <div class="flow">
-          <img src="../img/hoomie/crew.webp" alt="Tre schermate dell'app: il gruppo Crew suggerito, i motivi dell'affinità tra i coinquilini e le case adatte al gruppo" width="1920" height="1260" loading="lazy" style="background:none">
-          <svg class="flow__arrows" viewBox="0 0 1920 1260" aria-hidden="true">
-            <g class="flow__halo">
-              <path d="M500 425 H668 a12 12 0 0 1 24 0 H808"/>
-              <path d="M472 778 H664 Q680 778 680 762 V66 Q680 50 696 50 H1601 Q1617 50 1617 66 V132"/>
-            </g>
-            <g class="flow__line">
-              <path d="M500 425 H668 a12 12 0 0 1 24 0 H808"/>
-              <path d="M796 413 L810 425 L796 437"/>
-              <path d="M472 778 H664 Q680 778 680 762 V66 Q680 50 696 50 H1601 Q1617 50 1617 66 V132"/>
-              <path d="M1605 120 L1617 134 L1629 120"/>
-            </g>
-            <circle class="flow__dot" cx="500" cy="425" r="9"/>
-            <circle class="flow__dot" cx="472" cy="778" r="9"/>
-          </svg>
-        </div>
-        <figcaption>Dalla Ciurma alle case</figcaption>
-      </figure>
+    <div class="carousel carousel--crew" data-carousel>
+      <div class="carousel__track">
+        <figure>
+          <!-- Frecce in SVG sopra le schermate: prendono il colore del tema. Coordinate nello spazio dell'immagine (1920 × 1260) -->
+          <div class="flow">
+            <img src="../img/hoomie/crew.webp" alt="Tre schermate dell'app: il gruppo Crew suggerito, i motivi dell'affinità tra i coinquilini e le case adatte al gruppo" width="1920" height="1260" loading="lazy" style="background:none">
+            <svg class="flow__arrows" viewBox="0 0 1920 1260" aria-hidden="true">
+              <g class="flow__halo">
+                <path d="M500 425 H668 a12 12 0 0 1 24 0 H808"/>
+                <path d="M472 778 H664 Q680 778 680 762 V66 Q680 50 696 50 H1601 Q1617 50 1617 66 V132"/>
+              </g>
+              <g class="flow__line">
+                <path d="M500 425 H668 a12 12 0 0 1 24 0 H808"/>
+                <path d="M796 413 L810 425 L796 437"/>
+                <path d="M472 778 H664 Q680 778 680 762 V66 Q680 50 696 50 H1601 Q1617 50 1617 66 V132"/>
+                <path d="M1605 120 L1617 134 L1629 120"/>
+              </g>
+              <circle class="flow__dot" cx="500" cy="425" r="9"/>
+              <circle class="flow__dot" cx="472" cy="778" r="9"/>
+            </svg>
+          </div>
+          <figcaption>Dalla Ciurma alle case</figcaption>
+        </figure>
+      </div>
+      <div class="carousel__nav">
+        <button class="carousel__btn" type="button" data-dir="-1" aria-label="Schermata precedente">←</button>
+        <button class="carousel__btn" type="button" data-dir="1" aria-label="Schermata successiva">→</button>
+      </div>
     </div>
 
     <section class="block g4">
@@ -160,7 +166,6 @@
         <p>Se si vuole ridurre la dipendenza dalle agenzie immobiliari, occorre fornire più strumenti e creare pattern che valorizzino l'immobile. Abbiamo deciso di puntare sui video tour, permettendo di mostrare la disposizione dell'offerta, integrando un feed verticale dedicato. La ricezione delle candidature punta a fornire un riepilogo rapido e diretto delle persone interessate.</p>
       </div>
     </section>
-    <!-- Carosello semplice: scorre col dito o col trackpad; le frecce compaiono solo se le schermate non ci stanno tutte -->
     <div class="carousel" data-carousel>
       <div class="carousel__track features">
         <figure class="fig"><figcaption>Annuncio</figcaption><img src="../img/hoomie/proprietario-annuncio.webp" alt="Home del proprietario, scheda Listing: bozze e annunci attivi, l'annuncio in subentro a 500 € al mese in Corso Regio Parco a Torino" width="970" height="2001" loading="lazy"></figure>
@@ -179,9 +184,15 @@
         <p>Attraverso collaborazioni con partner esterni, stanno per essere introdotti i contratti in app, con possibilità di selezione del contratto ideale, inserimento dei dati e revisione totale sul contratto finale.</p>
       </div>
     </section>
-    <div class="figs g4 three features">
-      <figure class="fig"><figcaption>Nuovo contratto</figcaption><img src="../img/hoomie/contratto-nuovo.webp" alt="Schermata New contract: scelta tra appartamento, stanza e posto letto e tra i tipi di contratto 4+4, transitorio, a canone concordato e per studenti, con durata e cedolare" width="720" height="1484" loading="lazy"></figure>
-      <figure class="fig"><figcaption>Anteprima del contratto</figcaption><img src="../img/hoomie/contratto-anteprima.webp" alt="Anteprima del contratto 4+4 con i dati mancanti evidenziati in rosso e l'avviso di farlo rivedere da un professionista prima della firma" width="720" height="1484" loading="lazy"></figure>
+    <div class="carousel" data-carousel>
+      <div class="carousel__track features">
+        <figure class="fig"><figcaption>Nuovo contratto</figcaption><img src="../img/hoomie/contratto-nuovo.webp" alt="Schermata New contract: scelta tra appartamento, stanza e posto letto e tra i tipi di contratto 4+4, transitorio, a canone concordato e per studenti, con durata e cedolare" width="720" height="1484" loading="lazy"></figure>
+        <figure class="fig"><figcaption>Anteprima del contratto</figcaption><img src="../img/hoomie/contratto-anteprima.webp" alt="Anteprima del contratto 4+4 con i dati mancanti evidenziati in rosso e l'avviso di farlo rivedere da un professionista prima della firma" width="720" height="1484" loading="lazy"></figure>
+      </div>
+      <div class="carousel__nav">
+        <button class="carousel__btn" type="button" data-dir="-1" aria-label="Schermata precedente">←</button>
+        <button class="carousel__btn" type="button" data-dir="1" aria-label="Schermata successiva">→</button>
+      </div>
     </div>
 
     <section class="block g4">
