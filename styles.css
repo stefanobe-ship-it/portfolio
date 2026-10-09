@@ -391,11 +391,12 @@ a.srow:hover { color: var(--accent); }
 .arch__small { margin: 1.5cqw 0 0; font-size: 4.03cqw; line-height: 5.29cqw; color: #85858a; }
 .arch__hint { position: absolute; left: 0; right: 0; bottom: 6px; text-align: center; font-size: 12px; letter-spacing: .02em; text-transform: uppercase; color: var(--mute); }
 
-/* Community: le schermate di "Cosa fa", ognuna con il suo testo */
+/* Schermate senza sfondo in colonna, con titolo (e testo) sopra: "Cosa fa" in Community, "Per i proprietari" in Hoomie */
 .features-head { padding-bottom: 3vh; }
 .features .fig { align-content: start; }
+.features .fig img { background: none; width: min(100%, 300px); }
 .features .fig p { font-size: clamp(16px, 1.2vw, 18px); line-height: 1.45; max-width: 36ch; min-height: 4.4em; margin-bottom: 14px; }
 @media (max-width: 760px) {
   .features { row-gap: 7vh; }
-  .features .fig img { width: min(300px, 85%); }
+  .features .fig img { width: min(260px, 75%); }
 }

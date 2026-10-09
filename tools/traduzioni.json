@@ -1787,5 +1787,33 @@
   "en": "The same Hoomie design system components in the dark theme",
   "de": "Dieselben Komponenten des Hoomie-Designsystems im dunklen Design"
  },
- "Hoomie Community →": "Hoomie Community →"
+ "Hoomie Community →": "Hoomie Community →",
+ "Se si vuole ridurre la dipendenza dalle agenzie immobiliari, occorre fornire più strumenti e creare pattern che valorizzino l'immobile. Abbiamo deciso di puntare sui video tour, permettendo di mostrare la disposizione dell'offerta, integrando un feed verticale dedicato. La ricezione delle candidature punta a fornire un riepilogo rapido e diretto delle persone interessate.": {
+  "en": "To reduce reliance on estate agencies, landlords need more tools and patterns that show a property at its best. We chose to focus on video tours, which show how the place is laid out, with a dedicated vertical feed. Incoming applications are designed to give a quick, direct overview of the people interested.",
+  "de": "Um die Abhängigkeit von Maklern zu verringern, braucht es mehr Werkzeuge und Muster, die eine Immobilie zur Geltung bringen. Wir haben auf Videotouren gesetzt, die den Grundriss des Angebots zeigen, mit einem eigenen vertikalen Feed. Die eingehenden Bewerbungen sollen einen schnellen, direkten Überblick über die Interessierten geben."
+ },
+ "Annuncio": {
+  "en": "Listing",
+  "de": "Inserat"
+ },
+ "Candidature": {
+  "en": "Applications",
+  "de": "Bewerbungen"
+ },
+ "Contratto": {
+  "en": "Contract",
+  "de": "Vertrag"
+ },
+ "Home del proprietario, scheda Listing: bozze e annunci attivi, l'annuncio in subentro a 500 € al mese in Corso Regio Parco a Torino": {
+  "en": "Landlord home, Listing tab: drafts and active listings, a lease takeover at €500 per month on Corso Regio Parco in Turin",
+  "de": "Startbildschirm für Vermieter, Tab Listing: Entwürfe und aktive Inserate, eine Mietübernahme für 500 € im Monat am Corso Regio Parco in Turin"
+ },
+ "Home del proprietario, scheda Applications: le persone che hanno chiesto una visita, con giorno, orario e stato accettato": {
+  "en": "Landlord home, Applications tab: the people who asked for a viewing, with day, time and accepted status",
+  "de": "Startbildschirm für Vermieter, Tab Applications: die Personen, die eine Besichtigung angefragt haben, mit Tag, Uhrzeit und Status angenommen"
+ },
+ "Home del proprietario, scheda Contract: l'invito a creare il contratto in meno di 4 minuti con i nuovi modelli": {
+  "en": "Landlord home, Contract tab: the prompt to create a contract in under 4 minutes with the new templates",
+  "de": "Startbildschirm für Vermieter, Tab Contract: die Einladung, mit den neuen Vorlagen in unter 4 Minuten einen Vertrag zu erstellen"
+ }
 }
