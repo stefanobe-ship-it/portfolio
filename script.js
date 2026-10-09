@@ -66,15 +66,20 @@ if (name) {
 // Home: filtri per disciplina
 const filters = document.querySelectorAll('.filters button');
 const rows = [...document.querySelectorAll('.row')];
+const applyFilter = (btn) => {
+  const f = btn.dataset.f;
+  filters.forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
+  rows.forEach(r => { r.hidden = f !== 'all' && r.dataset.cat !== f; });
+};
 filters.forEach((btn) => {
   const f = btn.dataset.f;
   const n = f === 'all' ? rows.length : rows.filter(r => r.dataset.cat === f).length;
   btn.insertAdjacentHTML('beforeend', `<sup>${n}</sup>`);
-  btn.addEventListener('click', () => {
-    filters.forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
-    rows.forEach(r => { r.hidden = f !== 'all' && r.dataset.cat !== f; });
-  });
+  btn.addEventListener('click', () => applyFilter(btn));
 });
+// Filtro attivo all'apertura: quello con aria-pressed="true" nell'HTML (oggi UI/UX)
+const startFilter = [...filters].find(b => b.getAttribute('aria-pressed') === 'true');
+if (startFilter) applyFilter(startFilter);
 
 // Home: copertina del progetto. Su telefono è fissa dentro ogni riga,
 // con il mouse compare al passaggio e segue il cursore.
