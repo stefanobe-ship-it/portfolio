@@ -445,3 +445,21 @@ figcaption { font-family: var(--mono); font-size: 12px; letter-spacing: .02em; t
   .carousel.is-static .carousel__nav { display: none; }
 }
 
+
+/* Coniuratio, dal prompt al modello: tre colonne della stessa altezza (16:10); sul telefono ogni riga è un carosello */
+.pipeline { margin: 0 var(--gut); padding: 2vh 0 8vh; display: grid; gap: 5vh; }
+.pipeline .path__title { margin-bottom: 0; }
+.pipeline__row { display: grid; gap: 12px; }
+.pipeline > *, .pipeline__row > * { min-width: 0; }
+.pipeline__name { font-size: 12px; letter-spacing: .02em; text-transform: uppercase; }
+.pipeline .carousel { margin: 0; }
+.carousel--pipeline .carousel__track .fig { flex: 1 1 0; align-content: start; }
+.pipeline__prompts, .pipeline__img, .pipeline__todo { width: 100%; aspect-ratio: 16 / 10; }
+.pipeline__prompts { overflow: auto; padding: 14px 16px; border: 1px solid var(--line); display: grid; gap: 1.2em; align-content: start; }
+.pipeline__prompts:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.pipeline__prompt { margin: 0; white-space: pre-wrap; font-family: var(--mono); font-size: 11px; line-height: 1.6; color: var(--mute); }
+.pipeline__img { object-fit: cover; }
+.pipeline__todo { display: grid; place-items: center; border: 1px dashed var(--mute); color: var(--mute); font-size: 12px; letter-spacing: .02em; text-transform: uppercase; }
+@media (max-width: 760px) {
+  .carousel--pipeline .carousel__track .fig { flex: 0 0 85vw; }
+}
