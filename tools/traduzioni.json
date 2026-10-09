@@ -1970,5 +1970,60 @@
  "Render in arrivo": {
   "en": "Render coming soon",
   "de": "Rendering folgt"
+ },
+ "Photorealistic close view of a low-pitched (about 20 degrees) Roman roof in Rome, 63 BC, afternoon light: rows of flat tegulae with raised flanges, each row overlapping the one below, semi-cylindrical imbrices covering the joints between the flanges, larger imbrices along the ridge; the eaves overhang the wall by about half a meter with wooden rafter ends visible underneath; tiles of slightly different tones, some newer and brighter, a few cracked or displaced, lichen and dirt near the eaves. No gutters, no chimneys, no antefixes, no modern tiles.": "Photorealistic close view of a low-pitched (about 20 degrees) Roman roof in Rome, 63 BC, afternoon light: rows of flat tegulae with raised flanges, each row overlapping the one below, semi-cylindrical imbrices covering the joints between the flanges, larger imbrices along the ridge; the eaves overhang the wall by about half a meter with wooden rafter ends visible underneath; tiles of slightly different tones, some newer and brighter, a few cracked or displaced, lichen and dirt near the eaves. No gutters, no chimneys, no antefixes, no modern tiles.",
+ "La tettoia": {
+  "en": "The canopy roof",
+  "de": "Das Vordach"
+ },
+ "Insula": "Insula",
+ "Domus": "Domus",
+ "Via della Suburra": {
+  "en": "A street in the Subura",
+  "de": "Eine Straße in der Subura"
+ },
+ "Carretto": {
+  "en": "Handcart",
+  "de": "Karren"
+ },
+ "Render in Blender della porta, aperta, su fondo neutro": {
+  "en": "Blender render of the door, open, on a neutral background",
+  "de": "Blender-Rendering der Tür, geöffnet, vor neutralem Hintergrund"
+ },
+ "Render in Blender del carro a due ruote piene, su fondo neutro": {
+  "en": "Blender render of the cart with two solid wheels, on a neutral background",
+  "de": "Blender-Rendering des Karrens mit zwei Scheibenrädern, vor neutralem Hintergrund"
+ },
+ "Render in Blender di tegole e coppi montati su un tratto di tetto, con alcune tegole sparse": {
+  "en": "Blender render of tegulae and imbrices laid on a section of roof, with a few loose tiles",
+  "de": "Blender-Rendering von Leisten- und Hohlziegeln auf einem Dachstück, daneben einzelne Ziegel"
+ },
+ "Riferimento di Gemini: un tetto romano poco inclinato, con file di tegole e coppi, la gronda sporgente e le teste delle travi sotto": {
+  "en": "Gemini reference: a low-pitched Roman roof with rows of tegulae and imbrices, overhanging eaves and rafter ends underneath",
+  "de": "Gemini-Referenz: ein flach geneigtes römisches Dach mit Reihen von Leisten- und Hohlziegeln, überstehender Traufe und Balkenköpfen darunter"
+ },
+ "Render in Blender di una tettoia di tegole su un tratto di muro": {
+  "en": "Blender render of a tiled canopy roof on a section of wall",
+  "de": "Blender-Rendering eines Ziegelvordachs an einem Mauerstück"
+ },
+ "Render in Blender della tenda di tela tesa davanti a un tratto di muro, su due pali": {
+  "en": "Blender render of the canvas awning stretched in front of a section of wall, on two poles",
+  "de": "Blender-Rendering des Stoffsegels vor einem Mauerstück, auf zwei Stangen"
+ },
+ "Render in Blender di un'insula: un caseggiato a più piani con tetto di tegole, finestre con scuri e botteghe al piano terra, alcune con la tenda": {
+  "en": "Blender render of an insula: a multi-storey block with a tiled roof, shuttered windows and shops on the ground floor, some with awnings",
+  "de": "Blender-Rendering einer Insula: ein mehrstöckiges Wohnhaus mit Ziegeldach, Fensterläden und Läden im Erdgeschoss, einige mit Sonnensegel"
+ },
+ "Render in Blender di una domus: facciata in blocchi di tufo e intonaco, tetto di tegole e botteghe illuminate al piano terra": {
+  "en": "Blender render of a domus: a façade of tufa blocks and plaster, a tiled roof and lit shops on the ground floor",
+  "de": "Blender-Rendering einer Domus: Fassade aus Tuffblöcken und Putz, Ziegeldach und beleuchtete Läden im Erdgeschoss"
+ },
+ "Render in Blender di una via stretta della Suburra, lastricata di pietre poligonali, tra edifici in tufo e intonaco": {
+  "en": "Blender render of a narrow street in the Subura, paved with polygonal stones, between tufa and plaster buildings",
+  "de": "Blender-Rendering einer engen Gasse der Subura, mit polygonalen Steinen gepflastert, zwischen Gebäuden aus Tuff und Putz"
+ },
+ "Render in Blender del carretto fermo su una strada lastricata, davanti alle botteghe": {
+  "en": "Blender render of the handcart standing on a paved street in front of the shops",
+  "de": "Blender-Rendering des Karrens auf einer gepflasterten Straße vor den Läden"
  }
 }

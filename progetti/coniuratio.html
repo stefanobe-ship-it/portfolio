@@ -84,7 +84,7 @@
       </div>
     </section>
     <!-- Dal prompt al modello: per ogni oggetto, il prompt dell'agente storico, il riferimento di Gemini e il modello in Blender.
-         Sul telefono ogni riga è un carosello. PROVA: i render di Blender sono ancora segnaposto -->
+         Sul telefono ogni riga è un carosello. -->
     <section class="pipeline" aria-label="Dal prompt al modello">
       <p class="path__title mono">Dal prompt al modello</p>
       <div class="pipeline__row">
@@ -96,8 +96,56 @@ The leaf: three vertical fir planks of slightly different widths (25-30 cm each,
 The frame: rough oak jambs and lintel, with a stop strip nailed on the landing side that covers the edge of the leaf, so no hinge and no pivot is visible from outside. A worn raised wooden threshold, with a gap of about 1 cm under the leaf. Smoke-darkened wood at the top from the lamp, chipped and worn bottom edge, a few woodworm holes. Around the door, cracked and flaking whitewashed plaster on a rubble wall.
 Avoid: hinges of any kind, doorknob, lever handle, modern keyhole shape (circle with slot), house number, paint or varnish, raised panels, Z-shaped braces, decorative studs, peephole, glass, medieval or fantasy style.</pre><pre class="pipeline__prompt">Now the SAME door seen from inside the room, straight-on, eye level, soft light from a small window on the right. Show: three horizontal battens (12-15 cm wide, 3-4 cm thick) across the inside of the planks, top, middle and bottom; the nail tips coming through the battens, bent over like hooks and hammered flat into the wood (clinched). On the hinge side, a thicker vertical post (scapus) with a rounded edge, ending top and bottom in round iron pivot pins held by iron collars: the bottom pin turns in a small iron cup set into the wooden threshold, the top pin goes up into a hole in the wooden lintel. On the middle batten, a plain rectangular oak lock box (about 28 x 12 x 5 cm) nailed to the door, with a wooden bolt sticking out of its end toward the jamb. Higher up, a simple wooden slide bolt (pessulus) running in two small iron staples. A wooden stick leaning against the wall beside the door (used to prop it shut).
 Avoid: hinges or strap hinges, screws, a metal box lock, spring latch, doorknob, paint, Z braces, panels.</pre></div></figure>
-            <figure class="fig"><figcaption>2 · Riferimento (Gemini)</figcaption><img class="pipeline__img" src="../img/coniuratio/porta.jpg" alt="Porta di assi di legno con chiavistello in una stanza dai muri scrostati" width="1408" height="768" loading="lazy"></figure>
-            <figure class="fig"><figcaption>3 · Modello (Blender)</figcaption><div class="pipeline__todo mono">Render in arrivo</div></figure>
+            <figure class="fig"><figcaption>2 · Riferimento (Gemini)</figcaption><img class="pipeline__img" src="../img/coniuratio/porta.jpg" alt="Porta di assi di legno con chiavistello in una stanza dai muri scrostati" loading="lazy"></figure>
+            <figure class="fig"><figcaption>3 · Modello (Blender)</figcaption><img class="pipeline__img" src="../img/coniuratio/render/porta.jpg" alt="Render in Blender della porta, aperta, su fondo neutro" width="1600" height="900" loading="lazy"></figure>
+          </div>
+          <div class="carousel__nav">
+            <button class="carousel__btn" type="button" data-dir="-1" aria-label="Immagine precedente">←</button>
+            <button class="carousel__btn" type="button" data-dir="1" aria-label="Immagine successiva">→</button>
+          </div>
+        </div>
+      </div>
+      <div class="pipeline__row">
+        <p class="pipeline__name mono">Il carro</p>
+        <div class="carousel carousel--pipeline" data-carousel>
+          <div class="carousel__track">
+            <figure class="fig"><figcaption>1 · Agente storico (Claude): il prompt</figcaption><div class="pipeline__prompts" tabindex="0"><pre class="pipeline__prompt">Photorealistic reference image of an ancient Roman two-wheeled work cart (plaustrum), Rome, 63 BC, standing empty on packed earth, three-quarter view from the front left, eye level, soft overcast daylight, plain light-grey studio background, no animals, no people, no text.
+The cart: a flat bed of rough oak planks about 2.2 m long and 1.2 m wide, with low side boards about 20 cm high and a few vertical wooden stakes; two SOLID disc wheels about 90 cm in diameter and 9 cm thick, each made of three thick wooden planks held by two cross battens, with a smooth plain iron tyre; the wheels are fixed to a thick wooden axle that turns with them inside wooden bearing blocks under the bed; a single straight central wooden pole about 2.8 m long, ending in a simple wooden ox yoke with two neck bows and leather straps.
+Materials: unpainted oak and elm, sun-bleached grey, cracked and splintered edges, rounded worn corners, dried mud on the wheels, black grease around the axle, frayed hemp ropes coiled on the bed.
+Avoid: spoked wheels, metal studs or rivets, bolts and nuts, brakes, springs, a turning front axle, a canvas cover, shafts for a horse, horse collar, paint, decorations, medieval or American wagon style.</pre></div></figure>
+            <figure class="fig"><figcaption>2 · Riferimento (Gemini)</figcaption><img class="pipeline__img" src="../img/coniuratio/carro.jpg" alt="Carro di legno a due ruote piene con il giogo" loading="lazy"></figure>
+            <figure class="fig"><figcaption>3 · Modello (Blender)</figcaption><img class="pipeline__img" src="../img/coniuratio/render/carro.jpg" alt="Render in Blender del carro a due ruote piene, su fondo neutro" width="1600" height="900" loading="lazy"></figure>
+          </div>
+          <div class="carousel__nav">
+            <button class="carousel__btn" type="button" data-dir="-1" aria-label="Immagine precedente">←</button>
+            <button class="carousel__btn" type="button" data-dir="1" aria-label="Immagine successiva">→</button>
+          </div>
+        </div>
+      </div>
+      <div class="pipeline__row">
+        <p class="pipeline__name mono">Le tegole</p>
+        <div class="carousel carousel--pipeline" data-carousel>
+          <div class="carousel__track">
+            <figure class="fig"><figcaption>1 · Agente storico (Claude): il prompt</figcaption><div class="pipeline__prompts" tabindex="0"><pre class="pipeline__prompt">Photorealistic product reference of two ancient Roman roof tiles from the 1st century BC, isolated on plain light-grey background, soft studio light:
+1) a tegula: flat rectangular fired-clay tile about 60 x 45 cm, slightly tapered toward the top, with two raised flanges along the long sides (about 5 cm high), and small cut-outs at the corners of the flanges so tiles can overlap, rough handmade surface, finger marks, uneven orange-red to brownish firing.
+2) an imbrex: semi-cylindrical cover tile the same length, tapered (wider at one end), handmade, same clay.
+Show them side by side, three-quarter view. No glaze, no stamps, no modern curved "coppo" tiles, no interlocking modern tiles.</pre></div></figure>
+            <figure class="fig"><figcaption>2 · Riferimento (Gemini)</figcaption><img class="pipeline__img" src="../img/coniuratio/tegole.jpg" alt="Due tegole di terracotta, una piatta con i bordi rialzati e una curva" loading="lazy"></figure>
+            <figure class="fig"><figcaption>3 · Modello (Blender)</figcaption><img class="pipeline__img" src="../img/coniuratio/render/tegole.jpg" alt="Render in Blender di tegole e coppi montati su un tratto di tetto, con alcune tegole sparse" width="1600" height="900" loading="lazy"></figure>
+          </div>
+          <div class="carousel__nav">
+            <button class="carousel__btn" type="button" data-dir="-1" aria-label="Immagine precedente">←</button>
+            <button class="carousel__btn" type="button" data-dir="1" aria-label="Immagine successiva">→</button>
+          </div>
+        </div>
+      </div>
+      <div class="pipeline__row">
+        <p class="pipeline__name mono">La tettoia</p>
+        <div class="carousel carousel--pipeline" data-carousel>
+          <div class="carousel__track">
+            <figure class="fig"><figcaption>1 · Agente storico (Claude): il prompt</figcaption><div class="pipeline__prompts" tabindex="0"><pre class="pipeline__prompt">Photorealistic close view of a low-pitched (about 20 degrees) Roman roof in Rome, 63 BC, afternoon light: rows of flat tegulae with raised flanges, each row overlapping the one below, semi-cylindrical imbrices covering the joints between the flanges, larger imbrices along the ridge; the eaves overhang the wall by about half a meter with wooden rafter ends visible underneath; tiles of slightly different tones, some newer and brighter, a few cracked or displaced, lichen and dirt near the eaves. No gutters, no chimneys, no antefixes, no modern tiles.</pre></div></figure>
+            <figure class="fig"><figcaption>2 · Riferimento (Gemini)</figcaption><img class="pipeline__img" src="../img/coniuratio/tetto.jpg" alt="Riferimento di Gemini: un tetto romano poco inclinato, con file di tegole e coppi, la gronda sporgente e le teste delle travi sotto" loading="lazy"></figure>
+            <figure class="fig"><figcaption>3 · Modello (Blender)</figcaption><img class="pipeline__img" src="../img/coniuratio/render/tettoia.jpg" alt="Render in Blender di una tettoia di tegole su un tratto di muro" width="1600" height="900" loading="lazy"></figure>
           </div>
           <div class="carousel__nav">
             <button class="carousel__btn" type="button" data-dir="-1" aria-label="Immagine precedente">←</button>
@@ -114,42 +162,8 @@ In front of the wide shop opening hangs a sunshade of coarse undyed linen canvas
 The canvas is old and used: greyish off-white, sun-bleached in the middle, water stains and faint mildew along the edges, one or two sewn patches of a slightly different fabric with coarse stitches, frayed hems, dust. Hemp cords darkened by dirt.
 Behind: a tufa-block pier, a dark shop interior with a counter, plaster wall above with peeling patches.
 Avoid: stripes, bright colours, printed patterns, metal frames, roller or crank mechanisms, folding arms, modern awnings, plastic, signs with text, people.</pre></div></figure>
-            <figure class="fig"><figcaption>2 · Riferimento (Gemini)</figcaption><img class="pipeline__img" src="../img/coniuratio/tenda.jpg" alt="Tenda di tela rattoppata tesa davanti a una bottega" width="1408" height="768" loading="lazy"></figure>
-            <figure class="fig"><figcaption>3 · Modello (Blender)</figcaption><div class="pipeline__todo mono">Render in arrivo</div></figure>
-          </div>
-          <div class="carousel__nav">
-            <button class="carousel__btn" type="button" data-dir="-1" aria-label="Immagine precedente">←</button>
-            <button class="carousel__btn" type="button" data-dir="1" aria-label="Immagine successiva">→</button>
-          </div>
-        </div>
-      </div>
-      <div class="pipeline__row">
-        <p class="pipeline__name mono">Le tegole</p>
-        <div class="carousel carousel--pipeline" data-carousel>
-          <div class="carousel__track">
-            <figure class="fig"><figcaption>1 · Agente storico (Claude): il prompt</figcaption><div class="pipeline__prompts" tabindex="0"><pre class="pipeline__prompt">Photorealistic product reference of two ancient Roman roof tiles from the 1st century BC, isolated on plain light-grey background, soft studio light:
-1) a tegula: flat rectangular fired-clay tile about 60 x 45 cm, slightly tapered toward the top, with two raised flanges along the long sides (about 5 cm high), and small cut-outs at the corners of the flanges so tiles can overlap, rough handmade surface, finger marks, uneven orange-red to brownish firing.
-2) an imbrex: semi-cylindrical cover tile the same length, tapered (wider at one end), handmade, same clay.
-Show them side by side, three-quarter view. No glaze, no stamps, no modern curved "coppo" tiles, no interlocking modern tiles.</pre></div></figure>
-            <figure class="fig"><figcaption>2 · Riferimento (Gemini)</figcaption><img class="pipeline__img" src="../img/coniuratio/tegole.jpg" alt="Due tegole di terracotta, una piatta con i bordi rialzati e una curva" width="1408" height="768" loading="lazy"></figure>
-            <figure class="fig"><figcaption>3 · Modello (Blender)</figcaption><div class="pipeline__todo mono">Render in arrivo</div></figure>
-          </div>
-          <div class="carousel__nav">
-            <button class="carousel__btn" type="button" data-dir="-1" aria-label="Immagine precedente">←</button>
-            <button class="carousel__btn" type="button" data-dir="1" aria-label="Immagine successiva">→</button>
-          </div>
-        </div>
-      </div>
-      <div class="pipeline__row">
-        <p class="pipeline__name mono">Il carro</p>
-        <div class="carousel carousel--pipeline" data-carousel>
-          <div class="carousel__track">
-            <figure class="fig"><figcaption>1 · Agente storico (Claude): il prompt</figcaption><div class="pipeline__prompts" tabindex="0"><pre class="pipeline__prompt">Photorealistic reference image of an ancient Roman two-wheeled work cart (plaustrum), Rome, 63 BC, standing empty on packed earth, three-quarter view from the front left, eye level, soft overcast daylight, plain light-grey studio background, no animals, no people, no text.
-The cart: a flat bed of rough oak planks about 2.2 m long and 1.2 m wide, with low side boards about 20 cm high and a few vertical wooden stakes; two SOLID disc wheels about 90 cm in diameter and 9 cm thick, each made of three thick wooden planks held by two cross battens, with a smooth plain iron tyre; the wheels are fixed to a thick wooden axle that turns with them inside wooden bearing blocks under the bed; a single straight central wooden pole about 2.8 m long, ending in a simple wooden ox yoke with two neck bows and leather straps.
-Materials: unpainted oak and elm, sun-bleached grey, cracked and splintered edges, rounded worn corners, dried mud on the wheels, black grease around the axle, frayed hemp ropes coiled on the bed.
-Avoid: spoked wheels, metal studs or rivets, bolts and nuts, brakes, springs, a turning front axle, a canvas cover, shafts for a horse, horse collar, paint, decorations, medieval or American wagon style.</pre></div></figure>
-            <figure class="fig"><figcaption>2 · Riferimento (Gemini)</figcaption><img class="pipeline__img" src="../img/coniuratio/carro.jpg" alt="Carro di legno a due ruote piene con il giogo" width="1408" height="768" loading="lazy"></figure>
-            <figure class="fig"><figcaption>3 · Modello (Blender)</figcaption><div class="pipeline__todo mono">Render in arrivo</div></figure>
+            <figure class="fig"><figcaption>2 · Riferimento (Gemini)</figcaption><img class="pipeline__img" src="../img/coniuratio/tenda.jpg" alt="Tenda di tela rattoppata tesa davanti a una bottega" loading="lazy"></figure>
+            <figure class="fig"><figcaption>3 · Modello (Blender)</figcaption><img class="pipeline__img" src="../img/coniuratio/render/tenda.jpg" alt="Render in Blender della tenda di tela tesa davanti a un tratto di muro, su due pali" width="1600" height="900" loading="lazy"></figure>
           </div>
           <div class="carousel__nav">
             <button class="carousel__btn" type="button" data-dir="-1" aria-label="Immagine precedente">←</button>
@@ -160,13 +174,10 @@ Avoid: spoked wheels, metal studs or rivets, bolts and nuts, brakes, springs, a 
     </section>
     <div class="carousel carousel--always carousel--wide" data-carousel>
       <div class="carousel__track">
-        <figure class="fig"><img src="../img/coniuratio/facciata.jpg" alt="Facciata di un edificio a più piani con botteghe al piano terra, panni stesi e tetto di tegole" width="1408" height="768" loading="lazy"><figcaption>Facciata con botteghe</figcaption></figure>
-        <figure class="fig"><img src="../img/coniuratio/carro.jpg" alt="Carro di legno a due ruote piene con il giogo" width="1408" height="768" loading="lazy"><figcaption>Carro</figcaption></figure>
-        <figure class="fig"><img src="../img/coniuratio/porta.jpg" alt="Porta di assi di legno con chiavistello in una stanza dai muri scrostati" width="1408" height="768" loading="lazy"><figcaption>Porta</figcaption></figure>
-        <figure class="fig"><img src="../img/coniuratio/tenda.jpg" alt="Tenda di tela rattoppata tesa davanti a una bottega" width="1408" height="768" loading="lazy"><figcaption>Tenda di una bottega</figcaption></figure>
-        <figure class="fig"><img src="../img/coniuratio/tenda-dettaglio.jpg" alt="Dettaglio della tela sfilacciata legata a un palo con una corda" width="1408" height="768" loading="lazy"><figcaption>Tela, dettaglio</figcaption></figure>
-        <figure class="fig"><img src="../img/coniuratio/tegole.jpg" alt="Due tegole di terracotta, una piatta con i bordi rialzati e una curva" width="1376" height="768" loading="lazy"><figcaption>Tegole</figcaption></figure>
-        <figure class="fig"><img src="../img/coniuratio/pavimento.jpg" alt="Assi di legno scuro consumate, viste dall'alto" width="1408" height="768" loading="lazy"><figcaption>Pavimento in legno</figcaption></figure>
+        <figure class="fig"><img src="../img/coniuratio/mondo/insula.jpg" alt="Render in Blender di un'insula: un caseggiato a più piani con tetto di tegole, finestre con scuri e botteghe al piano terra, alcune con la tenda" width="2400" height="1350" loading="lazy"><figcaption>Insula</figcaption></figure>
+        <figure class="fig"><img src="../img/coniuratio/mondo/domus.jpg" alt="Render in Blender di una domus: facciata in blocchi di tufo e intonaco, tetto di tegole e botteghe illuminate al piano terra" width="2400" height="1350" loading="lazy"><figcaption>Domus</figcaption></figure>
+        <figure class="fig"><img src="../img/coniuratio/mondo/via.jpg" alt="Render in Blender di una via stretta della Suburra, lastricata di pietre poligonali, tra edifici in tufo e intonaco" width="2400" height="1350" loading="lazy"><figcaption>Via della Suburra</figcaption></figure>
+        <figure class="fig"><img src="../img/coniuratio/mondo/carretto.jpg" alt="Render in Blender del carretto fermo su una strada lastricata, davanti alle botteghe" width="2400" height="1350" loading="lazy"><figcaption>Carretto</figcaption></figure>
       </div>
       <div class="carousel__nav">
         <button class="carousel__btn" type="button" data-dir="-1" aria-label="Immagine precedente">←</button>
