@@ -1332,5 +1332,37 @@
  "La scheda della startup Mectronica su telefono, con le schede Overview, Potential &amp; Risk e Valuation": {
   "en": "The Mectronica startup page on a phone, with the Overview, Potential &amp; Risk and Valuation tabs",
   "de": "Die Startup-Seite von Mectronica auf dem Smartphone, mit den Tabs Overview, Potential &amp; Risk und Valuation"
+ },
+ "Panoramica": {
+  "en": "Overview",
+  "de": "Überblick"
+ },
+ "Il quadro d'insieme: settore, fase, team, metriche chiave, allegati e coerenza dei dati.": {
+  "en": "The big picture: sector, stage, team, key metrics, attachments and data consistency.",
+  "de": "Das Gesamtbild: Branche, Phase, Team, Kennzahlen, Anhänge und Datenkonsistenz."
+ },
+ "Punteggi di potenziale, rischio e prontezza all'investimento, leggibili a colpo d'occhio.": {
+  "en": "Scores for potential, risk and investment readiness, readable at a glance.",
+  "de": "Werte für Potenzial, Risiko und Investitionsreife, auf einen Blick lesbar."
+ },
+ "La valutazione pre-money calcolata con più metodi e la simulazione dell'investimento.": {
+  "en": "The pre-money valuation calculated with several methods, plus the investment simulation.",
+  "de": "Die Pre-Money-Bewertung nach mehreren Methoden und die Investitionssimulation."
+ },
+ "Responsiveness": {
+  "en": "Responsiveness",
+  "de": "Responsiveness"
+ },
+ "La pagina della startup per intero, in miniatura, divisa nelle tre sezioni": {
+  "en": "The whole startup page in miniature, split into its three sections",
+  "de": "Die gesamte Startup-Seite als Miniatur, in ihre drei Bereiche gegliedert"
+ },
+ "La scheda della startup Mectronica su un portatile": {
+  "en": "The Mectronica startup page on a laptop",
+  "de": "Die Startup-Seite von Mectronica auf einem Laptop"
+ },
+ "La scheda della startup Mectronica su telefono e su portatile, affiancati": {
+  "en": "The Mectronica startup page on a phone and a laptop, side by side",
+  "de": "Die Startup-Seite von Mectronica auf Smartphone und Laptop, nebeneinander"
  }
 }

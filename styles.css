@@ -160,20 +160,23 @@ figcaption { font-family: var(--mono); font-size: 12px; letter-spacing: .02em; t
 .figs.three { grid-template-columns: repeat(3, 1fr); }
 .figs + .figs, .media + .figs, .figs + .media { margin-top: var(--gut); }
 
-/* Telefono e portatile affiancati (stessa schermata su due dispositivi) */
-.devices { display: grid; grid-template-columns: 1fr 3.3fr; align-items: end; gap: 0; }
-.devices img:last-child { margin-left: -4%; }
-.media .devices img { background: none; }
-
-/* Schema della navigazione: testi veri + linee disegnate in script.js */
-.navmap { --nav-bg: #0f1115; position: relative; margin: 0 var(--gut); padding: clamp(24px, 4vw, 56px) 0 clamp(24px, 4vw, 56px) clamp(20px, 3vw, 48px);
-  display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 1.4fr) minmax(0, 8fr); align-items: start; background: var(--nav-bg); color: #fff; overflow: hidden; }
+/* Schema con etichette, testi veri e linee disegnate in script.js (Club Deal) */
+.navmap { position: relative; margin: 0 var(--gut); padding: clamp(8px, 2vw, 32px) 0;
+  display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 1.4fr) minmax(0, 8fr); align-items: start; }
 .navmap__groups { grid-column: 1; display: grid; gap: clamp(28px, 3.4vw, 52px); padding-top: 4%; }
 .navmap__pill { display: inline-block; padding: .38em .7em .42em; border-radius: 10px; font-size: clamp(16px, 1.45vw, 22px); font-weight: 600; letter-spacing: -.01em; line-height: 1.1; color: #0f1115; background: var(--c); }
+.navmap__group[data-color="ink"] .navmap__pill { color: var(--bg); }
 .navmap__group[data-color="#136cfc"] .navmap__pill, .navmap__group[data-color="#ff4ed8"] .navmap__pill { color: #fff; }
-.navmap__group p { margin-top: .9em; max-width: 34ch; color: rgba(255, 255, 255, .58); font-size: clamp(14px, 1.15vw, 17px); line-height: 1.45; }
+.navmap__group p { margin-top: .9em; max-width: 34ch; color: var(--mute); font-size: clamp(14px, 1.15vw, 17px); line-height: 1.45; }
 .navmap__shot { grid-column: 3; }
 .navmap__shot img { width: 100%; height: auto; background: none; }
+/* Sfumatura sui bordi destro e inferiore dello screenshot, come nelle slide */
+.navmap__fade { -webkit-mask-image: linear-gradient(to right, #000 62%, transparent 98%), linear-gradient(to bottom, #000 70%, transparent 99%);
+  -webkit-mask-composite: source-in; mask-image: linear-gradient(to right, #000 62%, transparent 98%), linear-gradient(to bottom, #000 70%, transparent 99%); mask-composite: intersect; }
+.navmap--sd { grid-template-columns: minmax(0, 3.4fr) minmax(0, .8fr) minmax(0, 9.8fr); }
+.navmap--sd .navmap__shot { display: grid; grid-template-columns: 1fr 5.4fr; gap: clamp(24px, 4vw, 64px); align-items: start; }
+.navmap--sd .navmap__fade { -webkit-mask-image: linear-gradient(to right, #000 80%, transparent 99%), linear-gradient(to bottom, #000 82%, transparent 99%);
+  mask-image: linear-gradient(to right, #000 80%, transparent 99%), linear-gradient(to bottom, #000 82%, transparent 99%); }
 .navmap__lines { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
 
 /* Numeri chiave */
@@ -262,12 +265,10 @@ figcaption { font-family: var(--mono); font-size: 12px; letter-spacing: .02em; t
   .stats.g4 { grid-template-columns: 1fr 1fr; }
   .stats.g4 > * { grid-column: auto !important; }
   .swatches { grid-template-columns: 1fr 1fr; }
-  .devices { grid-template-columns: 1fr; gap: 24px; }
-  .devices img:first-child { width: 68%; }
-  .devices img:last-child { margin-left: 0; }
-  .navmap { grid-template-columns: 1fr; padding: 20px 0 24px 16px; margin: 0; }
-  .navmap__shot { grid-column: 1; grid-row: 1; margin-bottom: 28px; }
-  .navmap__groups { grid-column: 1; padding: 0 16px 0 0; gap: 26px; }
+  .navmap, .navmap--sd { grid-template-columns: 1fr; padding: 8px 0 16px; }
+  .navmap__shot { grid-column: 1; grid-row: 1; margin-bottom: 28px; padding-left: 12px; }
+  .navmap--sd .navmap__shot { gap: 20px; }
+  .navmap__groups { grid-column: 1; padding: 0; gap: 26px; }
   .log li, .list .item { grid-template-columns: 1fr; gap: 4px; }
   .about-head .portrait { max-width: 60%; }
   .foot .r { text-align: left; }

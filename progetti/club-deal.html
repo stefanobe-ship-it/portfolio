@@ -69,33 +69,41 @@
          data-dots = posizione verticale dei pallini sul menu, in % dell'altezza dell'immagine -->
     <figure class="navmap" data-navmap>
       <div class="navmap__groups">
-        <div class="navmap__group" data-color="#ffffff" data-dots="11.14 16.41 32.61"><span class="navmap__pill">Aree principali</span><p>Una dashboard generale per seguire l'andamento degli investimenti e scoprire i progetti più interessanti secondo la piattaforma, l'elenco dei progetti e il portfolio.</p></div>
+        <div class="navmap__group" data-color="ink" data-dots="11.14 16.41 32.61"><span class="navmap__pill">Aree principali</span><p>Una dashboard generale per seguire l'andamento degli investimenti e scoprire i progetti più interessanti secondo la piattaforma, l'elenco dei progetti e il portfolio.</p></div>
         <div class="navmap__group" data-color="#136cfc" data-dots="21.74 38.15"><span class="navmap__pill">Azioni contestuali</span><p>Confrontare e investire sono azioni importantissime, ma hanno senso dentro un progetto: metterle tra le voci principali crea confusione.</p></div>
         <div class="navmap__group" data-color="#a3ff83" data-dots="27.07 48.80"><span class="navmap__pill">Ambito personale</span><p>Preferiti e amministrazione appartengono al profilo dell'utente.</p></div>
         <div class="navmap__group" data-color="#ff4ed8" data-dots="43.59" data-dashed><span class="navmap__pill">Extra</span><p>Le funzioni che oggi non servono restano fuori: per ora l'interesse è la scoperta.</p></div>
       </div>
-      <div class="navmap__shot"><img src="../img/club-deal/navigazione-ui.webp" alt="La dashboard di Club Deal con il menu laterale: Dashboard, Progetti, Confronta, Preferiti, Portfolio, Simulatore, Candida progetto, Amministrazione" width="1600" height="1241" loading="lazy"></div>
+      <div class="navmap__shot"><img data-target class="navmap__fade" src="../img/club-deal/navigazione-ui.webp" alt="La dashboard di Club Deal con il menu laterale: Dashboard, Progetti, Confronta, Preferiti, Portfolio, Simulatore, Candida progetto, Amministrazione" width="1600" height="1241" loading="lazy"></div>
       <svg class="navmap__lines" aria-hidden="true"></svg>
     </figure>
 
     <section class="block g4">
       <h2 class="label mono">La scheda startup</h2>
-      <p class="statement">Partire dallo schermo piccolo obbliga a stabilire una gerarchia. Quello che sopravvive al vincolo è ciò che conta davvero.</p>
-    </section>
-    <section class="block g4" style="padding-top:0">
-      <h2 class="label mono mute">Tre sezioni</h2>
       <div class="body">
         <p>Ogni startup si legge in tre passaggi: una panoramica, il bilancio tra potenziale e rischio, la valutazione economica.</p>
       </div>
     </section>
+    <!-- Schema ricostruito dalla slide "Startup Details": colonna = la pagina intera in miniatura -->
+    <figure class="navmap navmap--sd" data-navmap data-dot-x="-15.9">
+      <div class="navmap__groups">
+        <div class="navmap__group" data-color="#a3ff83" data-dots="6.8 52.68 94.65"><span class="navmap__pill">Panoramica</span><p>Il quadro d'insieme: settore, fase, team, metriche chiave, allegati e coerenza dei dati.</p></div>
+        <div class="navmap__group" data-color="ink" data-dots="33 59.64"><span class="navmap__pill">Potenziale e rischio</span><p>Punteggi di potenziale, rischio e prontezza all'investimento, leggibili a colpo d'occhio.</p></div>
+        <div class="navmap__group" data-color="#136cfc" data-dots="75.62"><span class="navmap__pill">Valutazione</span><p>La valutazione pre-money calcolata con più metodi e la simulazione dell'investimento.</p></div>
+      </div>
+      <div class="navmap__shot">
+        <img data-target src="../img/club-deal/scheda-sezioni.webp" alt="La pagina della startup per intero, in miniatura, divisa nelle tre sezioni" width="300" height="1843" loading="lazy">
+        <img class="navmap__fade" src="../img/club-deal/scheda-desktop-crop.webp" alt="La scheda della startup Mectronica su un portatile" width="1040" height="1070" loading="lazy">
+      </div>
+      <svg class="navmap__lines" aria-hidden="true"></svg>
+    </figure>
+
+    <section class="block g4">
+      <h2 class="label mono">Responsiveness</h2>
+      <p class="statement">Partire dallo schermo piccolo obbliga a stabilire una gerarchia. Quello che sopravvive al vincolo è ciò che conta davvero.</p>
+    </section>
     <div class="media">
-      <figure>
-        <div class="devices">
-          <img src="../img/club-deal/scheda-telefono.webp" alt="La scheda della startup Mectronica su telefono, con le schede Overview, Potential &amp; Risk e Valuation" width="896" height="1092" loading="lazy">
-          <img src="../img/club-deal/scheda-desktop.webp" alt="La scheda della startup Mectronica su un portatile: menu laterale, informazioni generali, metriche chiave, allegati e coerenza dei dati" width="2000" height="1300" loading="lazy">
-        </div>
-        <figcaption>La stessa scheda su telefono e su desktop</figcaption>
-      </figure>
+      <figure><img src="../img/club-deal/dispositivi.webp" alt="La scheda della startup Mectronica su telefono e su portatile, affiancati" width="2000" height="1146" loading="lazy" style="background:none"><figcaption>La stessa scheda su telefono e su desktop</figcaption></figure>
     </div>
 
     <section class="block g4" style="padding-bottom:4vh">
