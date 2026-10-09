@@ -14,7 +14,7 @@ import json, os, re, sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LANGS = ['it', 'en', 'de']
 LABELS = {'it': 'Italiano', 'en': 'English', 'de': 'Deutsch'}
-ASSET = re.compile(r'((?:href|src|data-img)=")((?:\.\./)*)(styles\.css|script\.js|img/|cv\.pdf)')
+ASSET = re.compile(r'((?:href|src|data-img|data-thumb)=")((?:\.\./)*)(styles\.css|script\.js|img/|cv\.pdf)')
 TEXT = re.compile(r'>([^<>]+)<')
 ATTR = re.compile(r'\b(alt|aria-label|title|content|data-label)="([^"]*)"')
 SKIP_BLOCK = re.compile(r'(<script\b.*?</script>|<style\b.*?</style>|<!--.*?-->)', re.S)
