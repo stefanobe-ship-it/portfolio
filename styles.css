@@ -445,11 +445,3 @@ figcaption { font-family: var(--mono); font-size: 12px; letter-spacing: .02em; t
   .carousel.is-static .carousel__nav { display: none; }
 }
 
-/* Cursore: un pallino arancione al posto della freccia (solo con il mouse).
-   Sopra qualcosa di arancione prende il colore di fondo e lo "buca"; su link e pulsanti si ingrandisce */
-html.has-cursor, html.has-cursor * { cursor: none !important; }
-.cursor { position: fixed; left: 0; top: 0; z-index: 100; pointer-events: none; opacity: 0; transition: opacity .2s; }
-.cursor.is-on { opacity: 1; }
-.cursor__dot { display: block; width: 12px; height: 12px; margin: -6px 0 0 -6px; border-radius: 50%; background: var(--accent); transition: transform .25s var(--ease), background-color .15s; }
-.cursor.is-link .cursor__dot { transform: scale(2.2); }
-.cursor.is-void .cursor__dot { background: var(--bg); }
