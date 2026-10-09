@@ -1300,5 +1300,37 @@
  "Piattaforma che mette in contatto imprenditori privati e startup del Nord Italia.": {
   "en": "A platform connecting private entrepreneurs with startups in Northern Italy.",
   "de": "Eine Plattform, die private Unternehmer mit Startups aus Norditalien zusammenbringt."
+ },
+ "Come sono raggruppate le voci del menu laterale.": {
+  "en": "How the side menu items are grouped.",
+  "de": "Wie die Einträge des Seitenmenüs gruppiert sind."
+ },
+ "Aree principali": {
+  "en": "Main areas",
+  "de": "Hauptbereiche"
+ },
+ "Azioni contestuali": {
+  "en": "Contextual actions",
+  "de": "Kontextbezogene Aktionen"
+ },
+ "Ambito personale": {
+  "en": "Personal area",
+  "de": "Persönlicher Bereich"
+ },
+ "Extra": {
+  "en": "Extras",
+  "de": "Extras"
+ },
+ "La stessa scheda su telefono e su desktop": {
+  "en": "The same page on phone and desktop",
+  "de": "Dieselbe Seite auf Smartphone und Desktop"
+ },
+ "La dashboard di Club Deal con il menu laterale: Dashboard, Progetti, Confronta, Preferiti, Portfolio, Simulatore, Candida progetto, Amministrazione": {
+  "en": "The Club Deal dashboard with its side menu: Dashboard, Projects, Compare, Favourites, Portfolio, Simulator, Submit a project, Settings",
+  "de": "Das Club-Deal-Dashboard mit Seitenmenü: Dashboard, Projekte, Vergleichen, Favoriten, Portfolio, Simulator, Projekt einreichen, Verwaltung"
+ },
+ "La scheda della startup Mectronica su telefono, con le schede Overview, Potential &amp; Risk e Valuation": {
+  "en": "The Mectronica startup page on a phone, with the Overview, Potential &amp; Risk and Valuation tabs",
+  "de": "Die Startup-Seite von Mectronica auf dem Smartphone, mit den Tabs Overview, Potential &amp; Risk und Valuation"
  }
 }

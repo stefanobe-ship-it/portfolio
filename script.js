@@ -116,6 +116,55 @@ if (pv && rows.length && matchMedia('(hover: hover)').matches) {
   })();
 }
 
+// Schema della navigazione (Club Deal): le linee collegano ogni etichetta ai pallini
+// sul menu dello screenshot. Si ridisegnano quando cambiano dimensioni o lingua,
+// così seguono la lunghezza dei testi. Su telefono restano solo i pallini colorati.
+document.querySelectorAll('[data-navmap]').forEach((map) => {
+  const svg = map.querySelector('.navmap__lines');
+  const shot = map.querySelector('.navmap__shot img');
+  const groups = [...map.querySelectorAll('.navmap__group')];
+  const NS = 'http://www.w3.org/2000/svg';
+  const DOT_X = 1.35;                       // % della larghezza dell'immagine
+  const BUS = [0.3, 0.55, 0.8, 0.55];       // posizione della linea verticale nello spazio libero
+  groups.forEach((g) => g.querySelector('.navmap__pill').style.setProperty('--c', g.dataset.color));
+  const draw = () => {
+    const box = map.getBoundingClientRect();
+    const img = shot.getBoundingClientRect();
+    const stacked = matchMedia('(max-width: 760px)').matches;
+    const textRight = Math.max(...groups.map((g) => g.getBoundingClientRect().right)) - box.left;
+    const gap = img.left - box.left - textRight;
+    svg.setAttribute('viewBox', `0 0 ${box.width} ${box.height}`);
+    svg.replaceChildren();
+    groups.forEach((g, i) => {
+      const color = g.dataset.color;
+      const pill = g.querySelector('.navmap__pill').getBoundingClientRect();
+      const sx = pill.right - box.left + 10, sy = pill.top + pill.height / 2 - box.top;
+      const bx = img.left - box.left - gap * BUS[i];
+      g.dataset.dots.split(' ').map(Number).forEach((pct) => {
+        const dx = img.left - box.left + img.width * DOT_X / 100;
+        const dy = img.top - box.top + img.height * pct / 100;
+        if (!stacked) {
+          const path = document.createElementNS(NS, 'path');
+          path.setAttribute('d', `M${sx} ${sy} H${bx} V${dy} H${dx}`);
+          path.setAttribute('fill', 'none');
+          path.setAttribute('stroke', color);
+          path.setAttribute('stroke-width', '1.6');
+          path.setAttribute('stroke-linejoin', 'round');
+          if (g.hasAttribute('data-dashed')) path.setAttribute('stroke-dasharray', '6 5');
+          svg.appendChild(path);
+        }
+        const dot = document.createElementNS(NS, 'circle');
+        dot.setAttribute('cx', dx); dot.setAttribute('cy', dy); dot.setAttribute('r', stacked ? 3.5 : 4.5);
+        dot.setAttribute('fill', color);
+        svg.appendChild(dot);
+      });
+    });
+  };
+  if (shot.complete) draw(); else shot.addEventListener('load', draw);
+  document.fonts && document.fonts.ready.then(draw);
+  new ResizeObserver(draw).observe(map);
+});
+
 // Comparsa morbida di blocchi e immagini
 if ('IntersectionObserver' in window && !reduceMotion) {
   const io = new IntersectionObserver((entries) => {

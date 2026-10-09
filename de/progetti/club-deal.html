@@ -63,16 +63,20 @@
 
     <section class="block g4">
       <h2 class="label mono">Navigation</h2>
-      <div class="body">
-        <p><strong>Hauptbereiche.</strong> Ein allgemeines Dashboard, um die Entwicklung der Investitionen zu verfolgen und die laut Plattform interessantesten Projekte zu entdecken, die Projektliste und das Portfolio.</p>
-        <p><strong>Kontextbezogene Aktionen.</strong> Vergleichen und Investieren sind zentrale Aktionen, ergeben aber nur innerhalb eines Projekts Sinn: Im Hauptmenü würden sie verwirren.</p>
-        <p><strong>Persönlicher Bereich.</strong> Favoriten und Verwaltung gehören ins Nutzerprofil.</p>
-        <p><strong>Später.</strong> Funktionen, die heute nicht gebraucht werden, bleiben draußen: Im Moment geht es ums Entdecken.</p>
-      </div>
+      <div class="body"><p>Wie die Einträge des Seitenmenüs gruppiert sind.</p></div>
     </section>
-    <div class="media">
-      <figure><img src="../../img/club-deal/navigazione.jpg" alt="Navigationsschema: die Einträge des Seitenmenüs, gruppiert in Hauptbereiche, kontextbezogene Aktionen, persönlichen Bereich und Extras" width="2400" height="1350" loading="lazy"><figcaption>Navigationsarchitektur</figcaption></figure>
-    </div>
+    <!-- Schema ricostruito dalla slide: testi veri (tradotti), linee disegnate da script.js.
+         data-dots = posizione verticale dei pallini sul menu, in % dell'altezza dell'immagine -->
+    <figure class="navmap" data-navmap>
+      <div class="navmap__groups">
+        <div class="navmap__group" data-color="#ffffff" data-dots="11.14 16.41 32.61"><span class="navmap__pill">Hauptbereiche</span><p>Ein allgemeines Dashboard, um die Entwicklung der Investitionen zu verfolgen und die laut Plattform interessantesten Projekte zu entdecken, die Projektliste und das Portfolio.</p></div>
+        <div class="navmap__group" data-color="#136cfc" data-dots="21.74 38.15"><span class="navmap__pill">Kontextbezogene Aktionen</span><p>Vergleichen und Investieren sind zentrale Aktionen, ergeben aber nur innerhalb eines Projekts Sinn: Im Hauptmenü würden sie verwirren.</p></div>
+        <div class="navmap__group" data-color="#a3ff83" data-dots="27.07 48.80"><span class="navmap__pill">Persönlicher Bereich</span><p>Favoriten und Verwaltung gehören ins Nutzerprofil.</p></div>
+        <div class="navmap__group" data-color="#ff4ed8" data-dots="43.59" data-dashed><span class="navmap__pill">Extras</span><p>Funktionen, die heute nicht gebraucht werden, bleiben draußen: Im Moment geht es ums Entdecken.</p></div>
+      </div>
+      <div class="navmap__shot"><img src="../../img/club-deal/navigazione-ui.webp" alt="Das Club-Deal-Dashboard mit Seitenmenü: Dashboard, Projekte, Vergleichen, Favoriten, Portfolio, Simulator, Projekt einreichen, Verwaltung" width="1600" height="1241" loading="lazy"></div>
+      <svg class="navmap__lines" aria-hidden="true"></svg>
+    </figure>
 
     <section class="block g4">
       <h2 class="label mono">Die Startup-Seite</h2>
@@ -85,7 +89,13 @@
       </div>
     </section>
     <div class="media">
-      <figure><img src="../../img/club-deal/scheda-desktop.webp" alt="Die Startup-Seite von Mectronica auf einem Laptop: Seitenmenü, allgemeine Informationen, Kennzahlen, Anhänge und Datenkonsistenz" width="2000" height="1300" loading="lazy" style="background:none"><figcaption>Die Startup-Seite auf dem Desktop</figcaption></figure>
+      <figure>
+        <div class="devices">
+          <img src="../../img/club-deal/scheda-telefono.webp" alt="Die Startup-Seite von Mectronica auf dem Smartphone, mit den Tabs Overview, Potential &amp; Risk und Valuation" width="896" height="1092" loading="lazy">
+          <img src="../../img/club-deal/scheda-desktop.webp" alt="Die Startup-Seite von Mectronica auf einem Laptop: Seitenmenü, allgemeine Informationen, Kennzahlen, Anhänge und Datenkonsistenz" width="2000" height="1300" loading="lazy">
+        </div>
+        <figcaption>Dieselbe Seite auf Smartphone und Desktop</figcaption>
+      </figure>
     </div>
 
     <section class="block g4" style="padding-bottom:4vh">

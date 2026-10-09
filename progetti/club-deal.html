@@ -63,16 +63,20 @@
 
     <section class="block g4">
       <h2 class="label mono">Navigazione</h2>
-      <div class="body">
-        <p><strong>Aree principali.</strong> Una dashboard generale per seguire l'andamento degli investimenti e scoprire i progetti più interessanti secondo la piattaforma, l'elenco dei progetti e il portfolio.</p>
-        <p><strong>Azioni contestuali.</strong> Confrontare e investire sono azioni importantissime, ma hanno senso dentro un progetto: metterle tra le voci principali crea confusione.</p>
-        <p><strong>Ambito personale.</strong> Preferiti e amministrazione appartengono al profilo dell'utente.</p>
-        <p><strong>In un secondo momento.</strong> Le funzioni che oggi non servono restano fuori: per ora l'interesse è la scoperta.</p>
-      </div>
+      <div class="body"><p>Come sono raggruppate le voci del menu laterale.</p></div>
     </section>
-    <div class="media">
-      <figure><img src="../img/club-deal/navigazione.jpg" alt="Schema della navigazione: le voci del menu laterale raggruppate in aree principali, azioni contestuali, ambito personale ed extra" width="2400" height="1350" loading="lazy"><figcaption>Architettura della navigazione</figcaption></figure>
-    </div>
+    <!-- Schema ricostruito dalla slide: testi veri (tradotti), linee disegnate da script.js.
+         data-dots = posizione verticale dei pallini sul menu, in % dell'altezza dell'immagine -->
+    <figure class="navmap" data-navmap>
+      <div class="navmap__groups">
+        <div class="navmap__group" data-color="#ffffff" data-dots="11.14 16.41 32.61"><span class="navmap__pill">Aree principali</span><p>Una dashboard generale per seguire l'andamento degli investimenti e scoprire i progetti più interessanti secondo la piattaforma, l'elenco dei progetti e il portfolio.</p></div>
+        <div class="navmap__group" data-color="#136cfc" data-dots="21.74 38.15"><span class="navmap__pill">Azioni contestuali</span><p>Confrontare e investire sono azioni importantissime, ma hanno senso dentro un progetto: metterle tra le voci principali crea confusione.</p></div>
+        <div class="navmap__group" data-color="#a3ff83" data-dots="27.07 48.80"><span class="navmap__pill">Ambito personale</span><p>Preferiti e amministrazione appartengono al profilo dell'utente.</p></div>
+        <div class="navmap__group" data-color="#ff4ed8" data-dots="43.59" data-dashed><span class="navmap__pill">Extra</span><p>Le funzioni che oggi non servono restano fuori: per ora l'interesse è la scoperta.</p></div>
+      </div>
+      <div class="navmap__shot"><img src="../img/club-deal/navigazione-ui.webp" alt="La dashboard di Club Deal con il menu laterale: Dashboard, Progetti, Confronta, Preferiti, Portfolio, Simulatore, Candida progetto, Amministrazione" width="1600" height="1241" loading="lazy"></div>
+      <svg class="navmap__lines" aria-hidden="true"></svg>
+    </figure>
 
     <section class="block g4">
       <h2 class="label mono">La scheda startup</h2>
@@ -85,7 +89,13 @@
       </div>
     </section>
     <div class="media">
-      <figure><img src="../img/club-deal/scheda-desktop.webp" alt="La scheda della startup Mectronica su un portatile: menu laterale, informazioni generali, metriche chiave, allegati e coerenza dei dati" width="2000" height="1300" loading="lazy" style="background:none"><figcaption>La scheda startup su desktop</figcaption></figure>
+      <figure>
+        <div class="devices">
+          <img src="../img/club-deal/scheda-telefono.webp" alt="La scheda della startup Mectronica su telefono, con le schede Overview, Potential &amp; Risk e Valuation" width="896" height="1092" loading="lazy">
+          <img src="../img/club-deal/scheda-desktop.webp" alt="La scheda della startup Mectronica su un portatile: menu laterale, informazioni generali, metriche chiave, allegati e coerenza dei dati" width="2000" height="1300" loading="lazy">
+        </div>
+        <figcaption>La stessa scheda su telefono e su desktop</figcaption>
+      </figure>
     </div>
 
     <section class="block g4" style="padding-bottom:4vh">

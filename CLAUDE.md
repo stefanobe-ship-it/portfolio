@@ -22,7 +22,7 @@ https://stefanobe-ship-it.github.io/portfolio/
 
 ## Da completare (al momento)
 
-- Testi dentro le immagini: restano in italiano in EN/DE (vedi navigazione Club Deal, slide di potenziale/valutazione, design system Hoomie). Soluzione concordata in sospeso: immagini senza testo + testi in HTML.
+- Testi dentro le immagini: restano in italiano in EN/DE le slide di potenziale/valutazione di Club Deal e il design system di Hoomie. Metodo concordato: Stefano manda la slide come PDF, si estrae lo screenshot (con la sua maschera/sfumatura) e si ricostruiscono etichette, testi e linee in HTML, come lo schema "Navigazione" di Club Deal (`.navmap` in `styles.css`, disegno delle linee in `script.js`).
 - SI.EL.: testo "Cosa è cambiato" nel logo.
 - Profilo: passaggio dal branding alla UI/UX, foto delle passioni, `cv.pdf`.
 - Coniuratio: meccaniche, diario di sviluppo, prossimi passi.

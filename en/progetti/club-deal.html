@@ -63,16 +63,20 @@
 
     <section class="block g4">
       <h2 class="label mono">Navigation</h2>
-      <div class="body">
-        <p><strong>Main areas.</strong> A general dashboard to follow how investments are doing and discover the projects the platform rates most interesting, the list of projects, and the portfolio.</p>
-        <p><strong>Contextual actions.</strong> Comparing and investing are key actions, but they only make sense within a project: putting them in the main menu creates confusion.</p>
-        <p><strong>Personal area.</strong> Favourites and account settings belong in the user's profile.</p>
-        <p><strong>Later on.</strong> Features that aren't needed yet stay out: for now the focus is on discovery.</p>
-      </div>
+      <div class="body"><p>How the side menu items are grouped.</p></div>
     </section>
-    <div class="media">
-      <figure><img src="../../img/club-deal/navigazione.jpg" alt="Navigation diagram: side menu items grouped into main areas, contextual actions, personal area and extras" width="2400" height="1350" loading="lazy"><figcaption>Navigation architecture</figcaption></figure>
-    </div>
+    <!-- Schema ricostruito dalla slide: testi veri (tradotti), linee disegnate da script.js.
+         data-dots = posizione verticale dei pallini sul menu, in % dell'altezza dell'immagine -->
+    <figure class="navmap" data-navmap>
+      <div class="navmap__groups">
+        <div class="navmap__group" data-color="#ffffff" data-dots="11.14 16.41 32.61"><span class="navmap__pill">Main areas</span><p>A general dashboard to follow how investments are doing and discover the projects the platform rates most interesting, the list of projects, and the portfolio.</p></div>
+        <div class="navmap__group" data-color="#136cfc" data-dots="21.74 38.15"><span class="navmap__pill">Contextual actions</span><p>Comparing and investing are key actions, but they only make sense within a project: putting them in the main menu creates confusion.</p></div>
+        <div class="navmap__group" data-color="#a3ff83" data-dots="27.07 48.80"><span class="navmap__pill">Personal area</span><p>Favourites and account settings belong in the user's profile.</p></div>
+        <div class="navmap__group" data-color="#ff4ed8" data-dots="43.59" data-dashed><span class="navmap__pill">Extras</span><p>Features that aren't needed yet stay out: for now the focus is on discovery.</p></div>
+      </div>
+      <div class="navmap__shot"><img src="../../img/club-deal/navigazione-ui.webp" alt="The Club Deal dashboard with its side menu: Dashboard, Projects, Compare, Favourites, Portfolio, Simulator, Submit a project, Settings" width="1600" height="1241" loading="lazy"></div>
+      <svg class="navmap__lines" aria-hidden="true"></svg>
+    </figure>
 
     <section class="block g4">
       <h2 class="label mono">The startup page</h2>
@@ -85,7 +89,13 @@
       </div>
     </section>
     <div class="media">
-      <figure><img src="../../img/club-deal/scheda-desktop.webp" alt="The Mectronica startup page on a laptop: side menu, general information, key metrics, attachments and data consistency" width="2000" height="1300" loading="lazy" style="background:none"><figcaption>The startup page on desktop</figcaption></figure>
+      <figure>
+        <div class="devices">
+          <img src="../../img/club-deal/scheda-telefono.webp" alt="The Mectronica startup page on a phone, with the Overview, Potential &amp; Risk and Valuation tabs" width="896" height="1092" loading="lazy">
+          <img src="../../img/club-deal/scheda-desktop.webp" alt="The Mectronica startup page on a laptop: side menu, general information, key metrics, attachments and data consistency" width="2000" height="1300" loading="lazy">
+        </div>
+        <figcaption>The same page on phone and desktop</figcaption>
+      </figure>
     </div>
 
     <section class="block g4" style="padding-bottom:4vh">
