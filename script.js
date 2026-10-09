@@ -86,7 +86,7 @@ rows.forEach((r) => {
   const t = document.createElement('span');
   t.className = 'thumb mono';
   t.setAttribute('aria-hidden', 'true');
-  t.style.background = cover(r);
+  t.style.background = r.dataset.thumb ? `url("${r.dataset.thumb}") center / cover` : cover(r);
   if (!r.dataset.img) t.textContent = coverLabel;
   r.prepend(t);
 });

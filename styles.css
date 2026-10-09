@@ -170,13 +170,8 @@ figcaption { font-family: var(--mono); font-size: 12px; letter-spacing: .02em; t
 .navmap__group p { margin-top: .9em; max-width: 34ch; color: var(--mute); font-size: clamp(14px, 1.15vw, 17px); line-height: 1.45; }
 .navmap__shot { grid-column: 3; }
 .navmap__shot img { width: 100%; height: auto; background: none; }
-/* Sfumatura sui bordi destro e inferiore dello screenshot, come nelle slide */
-.navmap__fade { -webkit-mask-image: linear-gradient(to right, #000 62%, transparent 98%), linear-gradient(to bottom, #000 70%, transparent 99%);
-  -webkit-mask-composite: source-in; mask-image: linear-gradient(to right, #000 62%, transparent 98%), linear-gradient(to bottom, #000 70%, transparent 99%); mask-composite: intersect; }
 .navmap--sd { grid-template-columns: minmax(0, 3.4fr) minmax(0, .8fr) minmax(0, 9.8fr); }
 .navmap--sd .navmap__shot { display: grid; grid-template-columns: 1fr 5.4fr; gap: clamp(24px, 4vw, 64px); align-items: start; }
-.navmap--sd .navmap__fade { -webkit-mask-image: linear-gradient(to right, #000 80%, transparent 99%), linear-gradient(to bottom, #000 82%, transparent 99%);
-  mask-image: linear-gradient(to right, #000 80%, transparent 99%), linear-gradient(to bottom, #000 82%, transparent 99%); }
 .navmap__lines { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
 
 /* Numeri chiave */
