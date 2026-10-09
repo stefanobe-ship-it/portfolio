@@ -1815,5 +1815,25 @@
  "Home del proprietario, scheda Contract: l'invito a creare il contratto in meno di 4 minuti con i nuovi modelli": {
   "en": "Landlord home, Contract tab: the prompt to create a contract in under 4 minutes with the new templates",
   "de": "Startbildschirm für Vermieter, Tab Contract: die Einladung, mit den neuen Vorlagen in unter 4 Minuten einen Vertrag zu erstellen"
+ },
+ "Attraverso collaborazioni con partner esterni, stanno per essere introdotti i contratti in app, con possibilità di selezione del contratto ideale, inserimento dei dati e revisione totale sul contratto finale.": {
+  "en": "Through partnerships with external partners, in-app contracts are about to be introduced: choosing the right contract, entering the details and a full review of the final contract.",
+  "de": "Durch Kooperationen mit externen Partnern kommen bald Mietverträge in der App: die Wahl des passenden Vertrags, die Eingabe der Daten und eine vollständige Prüfung des fertigen Vertrags."
+ },
+ "Nuovo contratto": {
+  "en": "New contract",
+  "de": "Neuer Vertrag"
+ },
+ "Anteprima del contratto": {
+  "en": "Contract preview",
+  "de": "Vertragsvorschau"
+ },
+ "Schermata New contract: scelta tra appartamento, stanza e posto letto e tra i tipi di contratto 4+4, transitorio, a canone concordato e per studenti, con durata e cedolare": {
+  "en": "New contract screen: choosing between apartment, room and bed space and between 4+4, temporary, agreed-rent and student contracts, with term and flat-rate tax",
+  "de": "Bildschirm New contract: Auswahl zwischen Wohnung, Zimmer und Bettplatz sowie zwischen den Vertragsarten 4+4, befristet, Mietspiegel und Studierende, mit Laufzeit und Pauschalsteuer"
+ },
+ "Anteprima del contratto 4+4 con i dati mancanti evidenziati in rosso e l'avviso di farlo rivedere da un professionista prima della firma": {
+  "en": "Preview of the 4+4 contract with missing details highlighted in red and a reminder to have it reviewed by a professional before signing",
+  "de": "Vorschau des 4+4-Vertrags mit fehlenden Angaben in Rot und dem Hinweis, ihn vor der Unterschrift von einer Fachperson prüfen zu lassen"
  }
 }
