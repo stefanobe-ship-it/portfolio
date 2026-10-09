@@ -26,5 +26,6 @@ https://stefanobe-ship-it.github.io/portfolio/
 - Copertine dei progetti in home: anteprima al passaggio del cursore in 4:5 (`data-img`), facoltativa una versione 16:10 per il telefono (`data-thumb`).
 - SI.EL.: testo "Cosa è cambiato" nel logo.
 - Profilo: passaggio dal branding alla UI/UX, foto delle passioni, `cv.pdf`.
+- Profilo, sezione "Come uso l'AI" (`chi-sono.html#ai`): Stefano sta ancora definendo cosa non delega all'AI. Le barre dello schema sono indicative (variabili `--p0/--p1/--a0/--a1`).
 - Coniuratio: meccaniche, diario di sviluppo, prossimi passi.
 - Dominio personale (da comprare e collegare in Settings → Pages).

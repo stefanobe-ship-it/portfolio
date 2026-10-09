@@ -168,6 +168,26 @@ document.querySelectorAll('[data-navmap]').forEach((map) => {
   new ResizeObserver(draw).observe(map);
 });
 
+// Schema "Come uso l'AI": interruttore Prima / Con l'AI.
+// La prima volta che entra nello schermo parte da "Prima" e si trasforma da solo in "Con l'AI"
+document.querySelectorAll('[data-process]').forEach((fig) => {
+  const buttons = fig.querySelectorAll('.process__switch button');
+  let touched = false;
+  const set = (mode) => {
+    fig.dataset.mode = mode;
+    buttons.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.mode === mode)));
+  };
+  buttons.forEach(b => b.addEventListener('click', () => { touched = true; set(b.dataset.mode); }));
+  if (reduceMotion || !('IntersectionObserver' in window)) return;
+  set('prima');
+  const io = new IntersectionObserver((entries) => {
+    if (!entries[0].isIntersecting) return;
+    io.disconnect();
+    setTimeout(() => { if (!touched) set('ai'); }, 900);
+  }, { threshold: 0.5 });
+  io.observe(fig.querySelector('.process__chart'));
+});
+
 // Comparsa morbida di blocchi e immagini
 if ('IntersectionObserver' in window && !reduceMotion) {
   const io = new IntersectionObserver((entries) => {

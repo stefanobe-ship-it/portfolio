@@ -1364,5 +1364,73 @@
  "La scheda della startup Mectronica su telefono e su portatile, affiancati": {
   "en": "The Mectronica startup page on a phone and a laptop, side by side",
   "de": "Die Startup-Seite von Mectronica auf Smartphone und Laptop, nebeneinander"
+ },
+ "Come uso l'AI": {
+  "en": "How I use AI",
+  "de": "Wie ich KI nutze"
+ },
+ "L'AI per me è un addetto. Io faccio il project manager.": {
+  "en": "To me, AI is an assistant. I'm the project manager.",
+  "de": "Für mich ist KI ein Assistent. Ich bin der Projektmanager."
+ },
+ "Sto ancora capendo dove passa il confine, ma per ora la vedo così: le affido i compiti, controllo il lavoro e decido cosa tenere.": {
+  "en": "I'm still working out where the line is, but for now this is how I see it: I hand it tasks, check the work and decide what to keep.",
+  "de": "Ich finde noch heraus, wo die Grenze verläuft, aber im Moment sehe ich es so: Ich gebe ihr Aufgaben, prüfe die Arbeit und entscheide, was bleibt."
+ },
+ "In Figma la uso per le parti ripetitive: generare componenti e varianti, passare un sistema da chiaro a scuro, ritoccare immagini senza aprire Photoshop.": {
+  "en": "In Figma I use it for the repetitive parts: generating components and variants, switching a system from light to dark, retouching images without opening Photoshop.",
+  "de": "In Figma nutze ich sie für die repetitiven Teile: Komponenten und Varianten erzeugen, ein System von hell auf dunkel umstellen, Bilder bearbeiten, ohne Photoshop zu öffnen."
+ },
+ "L'effetto più grande però è sul processo: arrivare a un mock-up interattivo oggi è molto più veloce, la rifinitura no.": {
+  "en": "The biggest effect, though, is on the process: getting to an interactive mock-up is much faster today, refining it is not.",
+  "de": "Die größte Wirkung hat sie aber auf den Prozess: Zu einem interaktiven Mock-up kommt man heute viel schneller, die Feinarbeit dauert weiterhin."
+ },
+ "Confronta il processo": {
+  "en": "Compare the process",
+  "de": "Prozess vergleichen"
+ },
+ "Prima": {
+  "en": "Before",
+  "de": "Vorher"
+ },
+ "Con l'AI": {
+  "en": "With AI",
+  "de": "Mit KI"
+ },
+ "Ricerca": {
+  "en": "Research",
+  "de": "Recherche"
+ },
+ "Mock-up interattivo": {
+  "en": "Interactive mock-up",
+  "de": "Interaktives Mock-up"
+ },
+ "Rifinitura": {
+  "en": "Refinement",
+  "de": "Feinschliff"
+ },
+ "Più veloce, ma con il rischio di perdere il contatto con la materia e saltare le euristiche tipiche di chi fa ricerca.": {
+  "en": "Faster, but with the risk of losing touch with the subject and skipping the heuristics a design researcher relies on.",
+  "de": "Schneller, aber mit dem Risiko, den Kontakt zur Materie zu verlieren und die typischen Heuristiken der Designforschung zu überspringen."
+ },
+ "Si arriva in fretta a qualcosa da provare.": {
+  "en": "You quickly get to something you can try out.",
+  "de": "Man hat schnell etwas zum Ausprobieren."
+ },
+ "Dura ancora a lungo: è qui che passa la maggior parte del tempo.": {
+  "en": "Still takes a long time: this is where most of the time goes.",
+  "de": "Dauert weiterhin lange: Hier steckt der Großteil der Zeit."
+ },
+ "Tempo": {
+  "en": "Time",
+  "de": "Zeit"
+ },
+ "Proporzioni indicative, non misurate.": {
+  "en": "Indicative proportions, not measured.",
+  "de": "Proportionen zur Orientierung, nicht gemessen."
+ },
+ "Questo sito ne è un esempio: l'ho costruito con Claude Code. La prima versione è arrivata in fretta, poi sono venuti i giri di rifinitura: ricostruire in HTML i testi delle slide perché si potessero tradurre, togliere effetti che non funzionavano, sistemare le copertine.": {
+  "en": "This site is an example: I built it with Claude Code. The first version came together quickly, then came the rounds of refinement: rebuilding the slide text in HTML so it could be translated, removing effects that didn't work, fixing the covers.",
+  "de": "Diese Website ist ein Beispiel dafür: Ich habe sie mit Claude Code gebaut. Die erste Version stand schnell, dann kamen die Runden der Feinarbeit: die Texte der Folien in HTML nachbauen, damit sie übersetzbar sind, Effekte entfernen, die nicht funktionierten, die Titelbilder anpassen."
  }
 }

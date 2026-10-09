@@ -208,6 +208,29 @@ figcaption { font-family: var(--mono); font-size: 12px; letter-spacing: .02em; t
 .list p { color: var(--mute); margin-top: 4px; }
 .list p a { color: var(--ink); white-space: nowrap; }
 
+/* Schema "Come uso l'AI": tempi del processo, prima e con l'AI */
+.process { padding: 0 var(--gut) 6vh; align-items: start; row-gap: 18px; }
+.process__switch { grid-column: 1; display: flex; flex-wrap: wrap; gap: 6px 22px; }
+.process__switch button { font-size: 12px; letter-spacing: .02em; text-transform: uppercase; color: var(--mute); padding: 4px 0; transition: color .3s; }
+.process__switch button:hover { color: var(--ink); }
+.process__switch button[aria-pressed="true"] { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
+.process__chart { grid-column: 2 / span 3; display: grid; gap: 26px; }
+.process__row, .process__axis { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 3fr); column-gap: var(--gut); align-items: center; }
+.process__name { font-size: 12px; letter-spacing: .02em; text-transform: uppercase; }
+.process[data-mode="ai"] .process__row { --s: var(--a0); --e: var(--a1); --gs: var(--p0); --ge: var(--p1); }
+.process[data-mode="prima"] .process__row { --s: var(--p0); --e: var(--p1); --gs: var(--a0); --ge: var(--a1); }
+.process__track { position: relative; height: 34px; border-left: 1px solid var(--ink); }
+.process__track i { position: absolute; top: 0; bottom: 0; transition: left .9s var(--ease), width .9s var(--ease); }
+.process__bar { left: calc(var(--s) * 1%); width: calc((var(--e) - var(--s)) * 1%); background: var(--ink); }
+.process__row--key .process__bar { background: var(--accent); }
+.process__ghost { left: calc(var(--gs) * 1%); width: calc((var(--ge) - var(--gs)) * 1%); border: 1px dashed var(--mute); opacity: .7; }
+.process__note { grid-column: 2; margin-top: 10px; max-width: 52ch; color: var(--mute); font-size: 14px; line-height: 1.45; transition: opacity .5s; }
+.process[data-mode="prima"] .process__note { opacity: 0; }
+.process__axis { font-size: 12px; letter-spacing: .02em; text-transform: uppercase; color: var(--mute); }
+.process__axis span { grid-column: 2; grid-row: 1; }
+.process__axis span:last-child { justify-self: end; }
+.process figcaption { grid-column: 2 / span 3; }
+
 /* Teaser "chi sono" in home */
 .about { padding: 6vh var(--gut) 16vh; }
 .about h2 { grid-column: 1; }
@@ -266,6 +289,8 @@ figcaption { font-family: var(--mono); font-size: 12px; letter-spacing: .02em; t
   .navmap__groups { grid-column: 1; padding: 0; gap: 26px; }
   .log li, .list .item { grid-template-columns: 1fr; gap: 4px; }
   .about-head .portrait { max-width: 60%; }
+  .process__row, .process__axis { grid-template-columns: 1fr; row-gap: 8px; }
+  .process__note, .process__axis span { grid-column: 1; }
   .foot .r { text-align: left; }
 }
 

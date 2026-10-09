@@ -84,6 +84,50 @@
       </ul>
     </section>
 
+    <section class="block g4" id="ai">
+      <h2 class="label mono">Wie ich KI nutze</h2>
+      <p class="statement">Für mich ist KI ein Assistent. Ich bin der Projektmanager.</p>
+    </section>
+    <section class="block g4" style="padding-top:0">
+      <div class="body">
+        <p>Ich finde noch heraus, wo die Grenze verläuft, aber im Moment sehe ich es so: Ich gebe ihr Aufgaben, prüfe die Arbeit und entscheide, was bleibt.</p>
+        <p>In Figma nutze ich sie für die repetitiven Teile: Komponenten und Varianten erzeugen, ein System von hell auf dunkel umstellen, Bilder bearbeiten, ohne Photoshop zu öffnen.</p>
+        <p>Die größte Wirkung hat sie aber auf den Prozess: Zu einem interaktiven Mock-up kommt man heute viel schneller, die Feinarbeit dauert weiterhin.</p>
+      </div>
+    </section>
+    <!-- Schema interattivo: --p0/--p1 = inizio e fine della fase "prima", --a0/--a1 = con l'AI (in % del tempo).
+         Proporzioni indicative. Il pulsante cambia data-mode; script.js lo anima la prima volta che entra nello schermo -->
+    <figure class="process g4" data-process data-mode="ai">
+      <div class="process__switch mono" role="group" aria-label="Prozess vergleichen">
+        <button type="button" data-mode="prima" aria-pressed="false">Vorher</button>
+        <button type="button" data-mode="ai" aria-pressed="true">Mit KI</button>
+      </div>
+      <div class="process__chart">
+        <div class="process__row" style="--p0:0;--p1:30;--a0:0;--a1:15">
+          <span class="process__name mono">Recherche</span>
+          <div class="process__track"><i class="process__ghost"></i><i class="process__bar"></i></div>
+          <p class="process__note">Schneller, aber mit dem Risiko, den Kontakt zur Materie zu verlieren und die typischen Heuristiken der Designforschung zu überspringen.</p>
+        </div>
+        <div class="process__row" style="--p0:30;--p1:70;--a0:15;--a1:23">
+          <span class="process__name mono">Interaktives Mock-up</span>
+          <div class="process__track"><i class="process__ghost"></i><i class="process__bar"></i></div>
+          <p class="process__note">Man hat schnell etwas zum Ausprobieren.</p>
+        </div>
+        <div class="process__row process__row--key" style="--p0:70;--p1:100;--a0:23;--a1:53">
+          <span class="process__name mono">Feinschliff</span>
+          <div class="process__track"><i class="process__ghost"></i><i class="process__bar"></i></div>
+          <p class="process__note">Dauert weiterhin lange: Hier steckt der Großteil der Zeit.</p>
+        </div>
+        <p class="process__axis mono"><span>Zeit</span><span>→</span></p>
+      </div>
+      <figcaption>Proportionen zur Orientierung, nicht gemessen.</figcaption>
+    </figure>
+    <section class="block g4">
+      <div class="body">
+        <p>Diese Website ist ein Beispiel dafür: Ich habe sie mit Claude Code gebaut. Die erste Version stand schnell, dann kamen die Runden der Feinarbeit: die Texte der Folien in HTML nachbauen, damit sie übersetzbar sind, Effekte entfernen, die nicht funktionierten, die Titelbilder anpassen.</p>
+      </div>
+    </section>
+
     <section class="block g4">
       <h2 class="label mono">Außerhalb der Arbeit</h2>
       <div class="body">
