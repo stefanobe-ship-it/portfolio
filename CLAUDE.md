@@ -32,8 +32,9 @@ https://stefanobe-ship-it.github.io/portfolio/
 - Hoomie: lato proprietario (Stefano manda il materiale); eventuale versione scura della mappa del sistema
   (`mappa-sistema.jpg` ha sfondo grigio chiaro: se arriva, farla cambiare col tema come il design system, `.only-light` / `.only-dark`).
 - Hoomie, archetipi: l'inglese è quello originale dei PDF, l'italiano è tradotto da Claude, da far confermare a Stefano.
-- Hoomie Community (`progetti/community.html`): anno, ruolo e "Cosa ho fatto" (nascosti con `todo`, in home l'anno è "—");
-  testi del problema, da Hoomie alla Community, i flussi, a che punto è; copertina 4:5 / 16:10 (ora provvisoria = schermata Casa).
+- Hoomie Community (`progetti/community.html`): fa parte dell'esperienza Hoomie, non è un progetto a sé, quindi
+  Cliente/Anno/Ruolo/Cosa ho fatto sono gli stessi di Hoomie. Mancano: la copertina (la manda Stefano; in home ora c'è
+  la schermata Casa) e i testi del problema, da Hoomie alla Community, i flussi, a che punto è (nascosti con `todo`).
 
 ## Eccezioni già decise
 
