@@ -308,37 +308,42 @@ figcaption { font-family: var(--mono); font-size: 12px; letter-spacing: .02em; t
 .index__group--more { margin-top: 12vh; color: var(--mute); }
 .rows--minor .row h3 { font-size: clamp(24px, 2.6vw, 40px); }
 
-/* Schema del servizio: stesse righe della lista dei lavori */
-.service { margin: 0 var(--gut); padding: 2vh 0 8vh; }
-.service__title { font-size: 12px; letter-spacing: .02em; text-transform: uppercase; color: var(--mute); margin-bottom: 2vh; }
-.srows { border-bottom: 1px solid var(--line); }
-.srow { display: grid; grid-template-columns: 1fr 3fr 3fr 2fr 1fr; gap: var(--gut); align-items: center; padding: 18px 0; border-top: 1px solid var(--line); color: var(--soft); transition: color .4s var(--ease); }
-.srow--head { border-top: 0; padding: 0 0 12px; }
-.srow h3 { font-size: clamp(24px, 2.6vw, 40px); font-weight: 500; letter-spacing: -.03em; line-height: 1.05; }
-.srow p { color: inherit; }
-.srow .mono { font-size: 12px; letter-spacing: .02em; text-transform: uppercase; }
-.srow.is-here { color: var(--ink); }
-.srow.is-here p { color: var(--mute); }
-.srow__tag { justify-self: end; color: var(--accent); }
-.srow__arrow { justify-self: end; font-size: 20px; }
-a.srow:hover { color: var(--accent); }
+/* Da fuorisede a local: tre gradini, uno dopo l'altro (Hoomie e Community). Il gradino della pagina corrente è arancione */
+.path { margin: 0 var(--gut); padding: 2vh 0 10vh; }
+.path__title { font-size: 12px; letter-spacing: .02em; text-transform: uppercase; color: var(--mute); margin-bottom: 4vh; }
+.path__steps { --rise: clamp(40px, 8vh, 88px); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; }
+.path__step { position: relative; display: grid; gap: 10px; align-content: start; padding: 18px var(--gut) 0 0; border-top: 2px solid var(--soft); color: var(--mute); }
+.path__step:nth-child(1) { margin-top: calc(var(--rise) * 2); }
+.path__step:nth-child(2) { margin-top: var(--rise); }
+.path__step + .path__step::before { content: ""; position: absolute; left: -2px; top: -2px; height: calc(var(--rise) + 2px); border-left: 2px solid var(--soft); }
+.path__step h3 { font-size: clamp(24px, 2.6vw, 40px); font-weight: 500; letter-spacing: -.03em; line-height: 1.05; }
+.path__step .mono { font-size: 12px; letter-spacing: .02em; text-transform: uppercase; }
+.path__step.is-here { color: var(--ink); border-top-color: var(--accent); }
+.path__step.is-here::before { border-left-color: var(--accent); }
+.path__step.is-here p { color: var(--mute); }
+.path__tag { color: var(--accent); }
+.path__link { display: grid; gap: 10px; transition: color .4s var(--ease); }
+.path__link:hover { color: var(--accent); }
 @media (max-width: 760px) {
-  .srow { grid-template-columns: 1fr; row-gap: 4px; }
-  .srow--head { display: none; }
-  .srow__tag, .srow__arrow { justify-self: start; }
-  .srow__arrow { display: none; }
+  .path__steps { grid-template-columns: 1fr; }
+  .path__step:nth-child(n) { margin-top: 0; padding: 16px 0 28px; }
+  .path__step:nth-child(2) { margin-left: 24px; }
+  .path__step:nth-child(3) { margin-left: 48px; }
+  .path__step + .path__step::before { display: none; }
   .sources { margin-top: -2vh; }
   .index__group--more { margin-top: 8vh; }
 }
 
 /* Hoomie: cursore proprietario / fuorisede */
-.users { grid-column: 2 / span 3; display: grid; grid-template-columns: minmax(0, 1fr) minmax(220px, 340px) minmax(0, 1fr); gap: var(--gut); align-items: center; }
+.users { grid-column: 2 / span 3; display: grid; grid-template-columns: 1fr 1fr; gap: var(--gut); }
+.users__side[data-side="owner"] { grid-column: 1; grid-row: 1; }
+.users__side[data-side="out"] { grid-column: 2; grid-row: 1; }
 .users__side { align-self: start; display: grid; gap: 10px; color: var(--mute); transition: color .4s var(--ease); }
 .users__side[data-side="out"] { text-align: left; }
 .users__side.is-on { color: var(--ink); }
 .users__tag { font-size: 12px; letter-spacing: .02em; text-transform: uppercase; }
 .users__side.is-on .users__tag { color: var(--accent); }
-.users__shot { position: relative; aspect-ratio: 802 / 1654; max-width: 100%; touch-action: pan-y; }
+.users__shot { grid-column: 1 / -1; grid-row: 2; justify-self: center; width: min(300px, 80%); margin-top: 3vh; position: relative; aspect-ratio: 802 / 1654; max-width: 100%; touch-action: pan-y; }
 .users__img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; background: none; }
 .users__img--top { clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
 .users__line { position: absolute; top: -12px; bottom: -12px; left: var(--pos); width: 0; border-left: 1px solid var(--ink); pointer-events: none; }
@@ -349,8 +354,8 @@ a.srow:hover { color: var(--accent); }
 .users__range { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: ew-resize; }
 .users__shot:has(.users__range:focus-visible) .users__knob { outline: 2px solid var(--accent); outline-offset: 3px; }
 @media (max-width: 760px) {
-  .users { grid-column: 1; grid-template-columns: 1fr 1fr; }
-  .users__shot { grid-column: 1 / -1; grid-row: 1; width: min(280px, 80%); justify-self: center; margin-bottom: 8px; }
+  .users { grid-column: 1; }
+  .users__shot { width: min(260px, 75%); }
 }
 
 /* Hoomie: frecce del flusso disegnate sopra le schermate */
@@ -401,24 +406,41 @@ a.srow:hover { color: var(--accent); }
 }
 
 
-/* Carosello orizzontale: tutte le serie di schermate (Hoomie: Ciurma, proprietario, contratti; Community: Cosa fa).
-   Le frecce compaiono solo se le schermate non ci stanno tutte */
+/* Serie di immagini. Su computer stanno ferme e centrate; sul telefono diventano un carosello con le frecce
+   (Hoomie: Ciurma, proprietario, contratti; Community: Cosa fa; Ventinove Fest: foto dell'evento).
+   .carousel--always è un carosello anche su computer (i luoghi di Coniuratio). Le frecce spariscono se tutto ci sta */
 .carousel { margin: 0 var(--gut); }
-.carousel__track { display: flex; gap: var(--gut); overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain; }
+.carousel__track { display: flex; gap: var(--gut); justify-content: center; scrollbar-width: none; overscroll-behavior-x: contain; }
 .carousel__track::-webkit-scrollbar { display: none; }
-.carousel__track .fig { flex: 0 0 300px; scroll-snap-align: start; }
+.carousel__track .fig { flex: 0 1 300px; min-width: 0; }
 /* Titoli, testi e schermate sulla stessa riga in tutte le card, anche quando un testo va a capo più degli altri */
-.carousel__track.features { display: grid; grid-auto-flow: column; grid-auto-columns: 300px; grid-template-rows: auto auto auto; row-gap: 10px; }
+.carousel__track.features { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 300px); grid-template-rows: auto auto auto; row-gap: 10px; }
 .carousel__track.features .fig { grid-row: 1 / -1; display: grid; grid-template-rows: subgrid; gap: inherit; }
 .carousel .features .fig img { width: 100%; }
-.carousel__nav { display: flex; gap: 8px; margin-top: 18px; }
-.carousel.is-static .carousel__nav { display: none; }
+.carousel--crew figure { width: min(100%, 1120px); }  /* così ogni telefono è largo circa 300 px */
+.carousel--photos .carousel__track { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); }
+.carousel--photos .fig:nth-child(-n+3) { grid-column: span 2; }
+.carousel--photos .fig:nth-child(n+4) { grid-column: span 3; }
+.carousel__nav { display: none; gap: 8px; margin-top: 18px; }
 .carousel__btn { width: 44px; height: 44px; border: 1px solid var(--soft); font-size: 18px; transition: color .3s, border-color .3s; }
 .carousel__btn:hover:not(:disabled) { color: var(--accent); border-color: currentColor; }
 .carousel__btn:disabled { color: var(--soft); cursor: default; }
 .carousel__btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-@media (max-width: 760px) { .carousel__track .fig { flex-basis: 260px; } .carousel__track.features { grid-auto-columns: 260px; } }
-
-.carousel--crew .carousel__track { scroll-snap-type: none; }
-.carousel--crew figure { flex: 0 0 auto; width: min(100%, 1120px); }  /* così ogni telefono è largo circa 300 px */
-@media (max-width: 760px) { .carousel--crew figure { width: 970px; } }  /* circa 260 px, come le altre schermate */
+.carousel--always .carousel__track { justify-content: flex-start; overflow-x: auto; scroll-snap-type: x mandatory; }
+.carousel--always .carousel__track .fig { scroll-snap-align: start; }
+.carousel--wide .carousel__track .fig { flex: 0 0 clamp(280px, 44vw, 640px); }
+.carousel--always .carousel__nav { display: flex; }
+.carousel--always.is-static .carousel__nav { display: none; }
+@media (max-width: 760px) {
+  .carousel__track, .carousel__track.features { justify-content: start; overflow-x: auto; scroll-snap-type: x mandatory; }
+  .carousel__track .fig { flex: 0 0 260px; scroll-snap-align: start; }
+  .carousel__track.features { grid-auto-columns: 260px; }
+  .carousel--crew .carousel__track { scroll-snap-type: none; }
+  .carousel--crew figure { flex: 0 0 970px; width: 970px; }  /* telefoni di circa 260 px, come le altre schermate */
+  .carousel--photos .carousel__track { display: flex; }
+  .carousel--photos .carousel__track .fig { flex-basis: 78vw; }
+  .carousel--photos .fig img { aspect-ratio: 4 / 5; object-fit: cover; }
+  .carousel--wide .carousel__track .fig { flex-basis: 85vw; }
+  .carousel__nav { display: flex; }
+  .carousel.is-static .carousel__nav { display: none; }
+}

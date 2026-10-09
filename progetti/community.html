@@ -58,15 +58,14 @@
         <p>Così la Community si può usare anche senza cercare casa, da chi una sistemazione ce l'ha già.</p>
       </div>
     </section>
-    <!-- Schema del servizio: un piccolo indice, come la lista dei lavori in home. La riga della pagina corrente è in nero -->
-    <section class="service" aria-label="Da fuorisede a local">
-      <p class="service__title mono">Da fuorisede a local</p>
-      <div class="srow srow--head mono mute" aria-hidden="true"><span>Fase</span><span>Prodotto</span><span>Cosa fa</span><span>Uso</span><span></span></div>
-      <div class="srows">
-        <div class="srow"><span class="mono">Università</span><h3>Hooniversità</h3><p>Scegliere l'università e capire l'ISEE</p><span class="mono">Sul sito</span><span></span></div>
-        <a class="srow" href="hoomie.html"><span class="mono">Scelta della casa · Coinquilini</span><h3>Hoomie</h3><p>Trovare casa e le persone giuste con cui viverci</p><span class="mono">App · una volta ogni qualche anno</span><span class="srow__arrow" aria-hidden="true">→</span></a>
-        <div class="srow is-here" aria-current="page"><span class="mono">Vita nella città</span><h3>Hoomie Community</h3><p>Spese di casa, turni ed eventi in città</p><span class="mono">Web app · ogni giorno</span><span class="mono srow__tag">Questa pagina</span></div>
-      </div>
+    <!-- Da fuorisede a local: tre gradini, uno dopo l'altro. Il gradino della pagina corrente è evidenziato -->
+    <section class="path" aria-label="Da fuorisede a local">
+      <p class="path__title mono">Da fuorisede a local</p>
+      <ol class="path__steps">
+        <li class="path__step"><span class="mono">Università</span><h3>Hooniversità</h3><p>Scegliere l'università e capire l'ISEE</p><span class="mono path__use">Sul sito</span></li>
+        <li class="path__step"><a class="path__link" href="hoomie.html"><span class="mono">Scelta della casa · Coinquilini</span><h3>Hoomie →</h3><p>Trovare casa e le persone giuste con cui viverci</p><span class="mono path__use">App · una volta ogni qualche anno</span></a></li>
+        <li class="path__step is-here" aria-current="page"><span class="mono">Vita nella città</span><h3>Hoomie Community</h3><p>Spese di casa, turni ed eventi in città</p><span class="mono path__use">Web app · ogni giorno</span><span class="mono path__tag">Questa pagina</span></li>
+      </ol>
     </section>
 
     <section class="block g4 features-head">

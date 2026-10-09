@@ -232,15 +232,14 @@
         <p>Finding a home is just one piece. Hoomie's goal is to support newcomers along the whole journey, until they feel like locals in their new city.</p>
       </div>
     </section>
-    <!-- Schema del servizio: un piccolo indice, come la lista dei lavori in home. La riga della pagina corrente è in nero -->
-    <section class="service" aria-label="From newcomer to local">
-      <p class="service__title mono">From newcomer to local</p>
-      <div class="srow srow--head mono mute" aria-hidden="true"><span>Stage</span><span>Product</span><span>What it does</span><span>Use</span><span></span></div>
-      <div class="srows">
-        <div class="srow"><span class="mono">University</span><h3>Hooniversità</h3><p>Choosing a university and understanding the ISEE (Italy's family income indicator)</p><span class="mono">On the website</span><span></span></div>
-        <div class="srow is-here" aria-current="page"><span class="mono">Choosing a home · Flatmates</span><h3>Hoomie</h3><p>Finding a home and the right people to live with</p><span class="mono">App · once every few years</span><span class="mono srow__tag">This page</span></div>
-        <a class="srow" href="community.html"><span class="mono">Life in the city</span><h3>Hoomie Community</h3><p>Household expenses, chores and events in the city</p><span class="mono">Web app · every day</span><span class="srow__arrow" aria-hidden="true">→</span></a>
-      </div>
+    <!-- Da fuorisede a local: tre gradini, uno dopo l'altro. Il gradino della pagina corrente è evidenziato -->
+    <section class="path" aria-label="From newcomer to local">
+      <p class="path__title mono">From newcomer to local</p>
+      <ol class="path__steps">
+        <li class="path__step"><span class="mono">University</span><h3>Hooniversità</h3><p>Choosing a university and understanding the ISEE (Italy's family income indicator)</p><span class="mono path__use">On the website</span></li>
+        <li class="path__step is-here" aria-current="page"><span class="mono">Choosing a home · Flatmates</span><h3>Hoomie</h3><p>Finding a home and the right people to live with</p><span class="mono path__use">App · once every few years</span><span class="mono path__tag">This page</span></li>
+        <li class="path__step"><a class="path__link" href="community.html"><span class="mono">Life in the city</span><h3>Hoomie Community →</h3><p>Household expenses, chores and events in the city</p><span class="mono path__use">Web app · every day</span></a></li>
+      </ol>
     </section>
 
     <a class="next" href="community.html">

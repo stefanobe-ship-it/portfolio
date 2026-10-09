@@ -58,15 +58,14 @@
         <p>So können die Community auch Menschen nutzen, die schon eine Unterkunft haben und keine suchen.</p>
       </div>
     </section>
-    <!-- Schema del servizio: un piccolo indice, come la lista dei lavori in home. La riga della pagina corrente è in nero -->
-    <section class="service" aria-label="Von zugezogen zu einheimisch">
-      <p class="service__title mono">Von zugezogen zu einheimisch</p>
-      <div class="srow srow--head mono mute" aria-hidden="true"><span>Phase</span><span>Produkt</span><span>Was sie macht</span><span>Nutzung</span><span></span></div>
-      <div class="srows">
-        <div class="srow"><span class="mono">Universität</span><h3>Hooniversità</h3><p>Die Uni wählen und den ISEE verstehen (Italiens Einkommensnachweis für Familien)</p><span class="mono">Auf der Website</span><span></span></div>
-        <a class="srow" href="hoomie.html"><span class="mono">Wohnungswahl · Mitbewohner</span><h3>Hoomie</h3><p>Eine Wohnung finden und die richtigen Menschen, um dort zu wohnen</p><span class="mono">App · alle paar Jahre</span><span class="srow__arrow" aria-hidden="true">→</span></a>
-        <div class="srow is-here" aria-current="page"><span class="mono">Leben in der Stadt</span><h3>Hoomie Community</h3><p>WG-Ausgaben, Putzpläne und Events in der Stadt</p><span class="mono">Web-App · jeden Tag</span><span class="mono srow__tag">Diese Seite</span></div>
-      </div>
+    <!-- Da fuorisede a local: tre gradini, uno dopo l'altro. Il gradino della pagina corrente è evidenziato -->
+    <section class="path" aria-label="Von zugezogen zu einheimisch">
+      <p class="path__title mono">Von zugezogen zu einheimisch</p>
+      <ol class="path__steps">
+        <li class="path__step"><span class="mono">Universität</span><h3>Hooniversità</h3><p>Die Uni wählen und den ISEE verstehen (Italiens Einkommensnachweis für Familien)</p><span class="mono path__use">Auf der Website</span></li>
+        <li class="path__step"><a class="path__link" href="hoomie.html"><span class="mono">Wohnungswahl · Mitbewohner</span><h3>Hoomie →</h3><p>Eine Wohnung finden und die richtigen Menschen, um dort zu wohnen</p><span class="mono path__use">App · alle paar Jahre</span></a></li>
+        <li class="path__step is-here" aria-current="page"><span class="mono">Leben in der Stadt</span><h3>Hoomie Community</h3><p>WG-Ausgaben, Putzpläne und Events in der Stadt</p><span class="mono path__use">Web-App · jeden Tag</span><span class="mono path__tag">Diese Seite</span></li>
+      </ol>
     </section>
 
     <section class="block g4 features-head">

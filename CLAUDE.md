@@ -18,6 +18,13 @@ https://stefanobe-ship-it.github.io/portfolio/
   chiedi a Stefano.
 - Immagini in `img/<progetto>/`, JPG/PNG larghi al massimo circa 2400 px.
 - Prima di pubblicare controlla le pagine anche a larghezza telefono (circa 390 px).
+- Coerenza tra pagine: prima di aggiungere un elemento guarda come è già fatto altrove e riusalo ovunque serva.
+  - Progetto in corso: nella pagina `<p class="status mono">In sviluppo</p>` (pallino che lampeggia), in home "In corso" nella colonna dell'anno.
+  - Serie di immagini: componente `.carousel` (`data-carousel`). Su computer le immagini stanno ferme e centrate, sul telefono
+    diventano un carosello con le frecce. Carosello anche su computer solo con `.carousel--always` (i luoghi di Coniuratio).
+  - Schermate di app: senza sfondo, larghe circa 300 px su computer e 260 px sul telefono, titolo (e testo) sopra.
+- Anteprima per Stefano: artifact https://claude.ai/artifact/SVrcJgV7RUMSrzhDmmadZx (copia del sito, `index.html` senza doctype/head).
+  Il push su `main` si fa quando lo chiede Stefano; pusha `main` da solo, altrimenti GitHub Pages può saltare la pubblicazione.
 - Per mettere online: commit, poi porta le modifiche su `main` (il sito si aggiorna in 1–2 minuti).
 
 ## Da completare (al momento)
