@@ -8,7 +8,7 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%23ff4f00'/><text x='50%' y='56%' text-anchor='middle' dominant-baseline='middle' font-family='Arial,sans-serif' font-weight='700' font-size='30' fill='%23fff'>SO</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../styles.css">
   <meta name="color-scheme" content="light dark">
   <script>
@@ -47,8 +47,22 @@
     </section>
 
     <div class="media" style="margin-top:6vh">
-      <figure><img src="../img/hoomie/crew.jpg" alt="Tre schermate dell'app: il gruppo Crew suggerito, i motivi dell'affinità tra i coinquilini e le case adatte al gruppo" width="2300" height="1470"></figure>
+      <figure><img src="../img/hoomie/copertina.jpg" alt="Il logo di Hoomie tra quattro personaggi illustrati, uniti da un percorso che li collega" width="2000" height="1125"></figure>
     </div>
+
+    <section class="block g4">
+      <h2 class="label mono">Il problema</h2>
+      <div class="body">
+        <p>Per cercare casa un fuorisede salta tra due o tre piattaforme di annunci e almeno quattro social, nessuno pensato per farlo. E se alla fine trova casa tramite un'agenzia, paga in media una mensilità di commissione.</p>
+      </div>
+    </section>
+    <div class="stats g4">
+      <div class="stat"><b>81%</b><p class="mono mute">Fuorisede con difficoltà significative nel trovare un alloggio</p></div>
+      <div class="stat"><b>1 su 2</b><p class="mono mute">Ha fretta o molta fretta di trovarlo</p></div>
+      <div class="stat"><b>651 €</b><p class="mono mute">Costo medio di un'agenzia immobiliare</p></div>
+      <div></div>
+    </div>
+    <p class="sources mono mute">Fonti: "Senza Casa Senza Futuro", UDU · Ministero dell'Università e della Ricerca · 4° Rapporto Federproprietà, Censis e Federproprietà</p>
 
     <section class="block g4">
       <h2 class="label mono">Obiettivo</h2>
@@ -59,14 +73,18 @@
 
     <section class="block g4">
       <h2 class="label mono">Due tipi di utenti</h2>
-      <div class="body">
-        <p><strong>Proprietari.</strong> Pubblicano alloggi interi o stanze singole e cercano coinquilini, sia gruppi sia singoli.</p>
-        <p><strong>Fuorisede.</strong> Vedono gli annunci ordinati per affinità e ricevono suggerimenti di gruppi di persone con cui andare a vivere.</p>
+      <!-- Cursore prima/dopo: a sinistra della linea il proprietario, a destra il fuorisede. Le due schermate hanno la stessa cornice e si sovrappongono -->
+      <div class="users" data-users>
+        <div class="users__side" data-side="owner"><span class="users__tag mono">Proprietari</span><p>Pubblicano alloggi interi o stanze singole e cercano coinquilini, sia gruppi sia singoli.</p></div>
+        <div class="users__shot" style="--pos:50%">
+          <img class="users__img" src="../img/hoomie/fuorisede.webp" alt="La home del fuorisede, Per te: le case consigliate a Torino con la percentuale di affinità" width="802" height="1654" loading="lazy">
+          <img class="users__img users__img--top" src="../img/hoomie/proprietario.webp" alt="La home del proprietario, Ciao Anna: il suo annuncio attivo, le candidature e il contratto" width="802" height="1654" loading="lazy">
+          <span class="users__line" aria-hidden="true"><span class="users__knob"></span></span>
+          <input class="users__range" type="range" min="0" max="100" value="50" aria-label="Sposta la linea: verso destra il proprietario, verso sinistra il fuorisede">
+        </div>
+        <div class="users__side" data-side="out"><span class="users__tag mono">Fuorisede</span><p>Vedono gli annunci ordinati per affinità e ricevono suggerimenti di gruppi di persone con cui andare a vivere.</p></div>
       </div>
     </section>
-    <div class="media">
-      <figure><img src="../img/hoomie/due-lati.jpg" alt="Le due home dell'app: quella del proprietario con il suo annuncio e quella del fuorisede con le case consigliate" width="1650" height="1180" loading="lazy"><figcaption>La home del proprietario e quella del fuorisede</figcaption></figure>
-    </div>
 
     <section class="block g4">
       <h2 class="label mono">Mappa del sistema</h2>
@@ -76,7 +94,7 @@
       </div>
     </section>
     <div class="media">
-      <figure><img src="../img/hoomie/mappa.jpg" alt="Mappa dei flussi dell'app: introduzione, ricerca, funnel di registrazione e profilo" width="2050" height="1520" loading="lazy"><figcaption>Mappa dei flussi</figcaption></figure>
+      <figure><img src="../img/hoomie/mappa-sistema.jpg" alt="Mappa dei flussi dell'app: intro, ricerca, home, annuncio, Ciurma, chat e profilo; sotto, il funnel di registrazione con informazioni generali, luoghi e prezzi, identikit e riepilogo" width="2000" height="1066" loading="lazy"><figcaption>Mappa dei flussi</figcaption></figure>
     </div>
 
     <section class="block g4">
@@ -91,6 +109,29 @@
         <p><strong>Il carosello delle case.</strong> Mostrare subito le soluzioni possibili permette di validare il secondo punto della scelta. L'obiettivo era mostrare in una sola schermata entrambi i punti cardine della decisione.</p>
       </div>
     </section>
+    <div class="media">
+      <figure>
+        <!-- Frecce in SVG sopra le schermate: prendono il colore del tema. Coordinate nello spazio dell'immagine (1920 × 1260) -->
+        <div class="flow">
+          <img src="../img/hoomie/crew.webp" alt="Tre schermate dell'app: il gruppo Crew suggerito, i motivi dell'affinità tra i coinquilini e le case adatte al gruppo" width="1920" height="1260" loading="lazy" style="background:none">
+          <svg class="flow__arrows" viewBox="0 0 1920 1260" aria-hidden="true">
+            <g class="flow__halo">
+              <path d="M500 425 H668 a12 12 0 0 1 24 0 H808"/>
+              <path d="M472 778 H664 Q680 778 680 762 V66 Q680 50 696 50 H1601 Q1617 50 1617 66 V132"/>
+            </g>
+            <g class="flow__line">
+              <path d="M500 425 H668 a12 12 0 0 1 24 0 H808"/>
+              <path d="M796 413 L810 425 L796 437"/>
+              <path d="M472 778 H664 Q680 778 680 762 V66 Q680 50 696 50 H1601 Q1617 50 1617 66 V132"/>
+              <path d="M1605 120 L1617 134 L1629 120"/>
+            </g>
+            <circle class="flow__dot" cx="500" cy="425" r="9"/>
+            <circle class="flow__dot" cx="472" cy="778" r="9"/>
+          </svg>
+        </div>
+        <figcaption>Dalla Ciurma alle case</figcaption>
+      </figure>
+    </div>
 
     <section class="block g4">
       <h2 class="label mono">I profili</h2>
@@ -99,15 +140,25 @@
         <p>Il rischio è ridurre le persone a sei caselle. Puntando sugli aspetti positivi di ogni archetipo, però, la decisione diventa più veloce mentre si esplora.</p>
       </div>
     </section>
-    <div class="media">
-      <figure><img src="../img/hoomie/profili.jpg" alt="Il profilo di un utente con il suo archetipo e le schede dei sei archetipi illustrati" width="2400" height="803" loading="lazy"><figcaption>Sei archetipi di personalità</figcaption></figure>
+    <!-- Carosello degli archetipi: le carte scorrono da sole da sinistra a destra e si possono trascinare.
+         Illustrazioni dai PDF senza testo; i testi sono veri, così si traducono. Font della carta: Bricolage Grotesque, come nell'app -->
+    <div class="arch" data-arch tabindex="0" role="region" aria-roledescription="carosello" aria-label="I sei archetipi di personalità">
+      <ul class="arch__track">
+        <li class="arch__card"><img src="../img/hoomie/archetipi/creativa.webp" alt="" width="794" height="1156" loading="lazy" draggable="false"><div class="arch__txt"><h3>Creativa</h3><p class="arch__lead">Hai una mente visionaria: ami le idee nuove e le relazioni dinamiche.</p><p class="arch__small">Ti trovi bene con coinquilini flessibili e intellettualmente stimolanti.</p></div></li>
+        <li class="arch__card"><img src="../img/hoomie/archetipi/empatica.webp" alt="" width="794" height="1156" loading="lazy" draggable="false"><div class="arch__txt"><h3>Empatica</h3><p class="arch__lead">Ami la pace e cerchi legami profondi e ambienti tranquilli.</p><p class="arch__small">Vai d'accordo con le persone sensibili che danno valore all'empatia.</p></div></li>
+        <li class="arch__card"><img src="../img/hoomie/archetipi/leader.webp" alt="" width="794" height="1156" loading="lazy" draggable="false"><div class="arch__txt"><h3>Leader</h3><p class="arch__lead">Sei una persona organizzata, decisa e orientata agli obiettivi.</p><p class="arch__small">Vai d'accordo con chi collabora e rispetta le regole.</p></div></li>
+        <li class="arch__card"><img src="../img/hoomie/archetipi/ottimista.webp" alt="" width="794" height="1156" loading="lazy" draggable="false"><div class="arch__txt"><h3>Ottimista</h3><p class="arch__lead">Sei una persona estroversa ed entusiasta, e ami divertirti.</p><p class="arch__small">Ti trovi benissimo con persone socievoli e positive.</p></div></li>
+        <li class="arch__card"><img src="../img/hoomie/archetipi/pragmatica.webp" alt="" width="794" height="1156" loading="lazy" draggable="false"><div class="arch__txt"><h3>Pragmatica</h3><p class="arch__lead">Sei una persona affidabile: per te contano stabilità e rispetto reciproco.</p><p class="arch__small">Vai d'accordo con chi è ordinato e ama la tranquillità.</p></div></li>
+        <li class="arch__card"><img src="../img/hoomie/archetipi/stratega.webp" alt="" width="794" height="1156" loading="lazy" draggable="false"><div class="arch__txt"><h3>Stratega</h3><p class="arch__lead">Sei una persona analitica e introversa, ami la logica e l'ordine mentale.</p><p class="arch__small">Ti trovi bene con persone calme che rispettano gli spazi personali.</p></div></li>
+      </ul>
+      <p class="arch__hint mono">Trascina per sfogliare</p>
     </div>
 
     <section class="block g4">
       <h2 class="label mono">Per i proprietari</h2>
       <div class="body">
         <p>Per ridurre la dipendenza dalle agenzie immobiliari servono strumenti che valorizzino l'immobile. Abbiamo puntato sui video tour, raccolti in un feed verticale dedicato, e su un riepilogo rapido e diretto delle persone che si candidano.</p>
-        <p>In sviluppo, con partner esterni: i contratti in app, con la scelta del contratto adatto, l'inserimento dei dati e la revisione completa prima della firma.</p>
+        <p>In test, con Locare come partner: i contratti in app, con la scelta del contratto adatto, l'inserimento dei dati e la revisione completa prima della firma.</p>
       </div>
     </section>
     <div class="media">
@@ -119,7 +170,10 @@
       <div class="body"><p>Un solo sistema di componenti per entrambi i lati del prodotto: schede degli annunci, profili, gruppi, filtri e domande dell'onboarding.</p></div>
     </section>
     <div class="media">
-      <figure><img src="../img/hoomie/design-system.jpg" alt="Componenti del design system di Hoomie" width="2400" height="1350" loading="lazy"></figure>
+      <figure><div class="soft-edges">
+        <img class="only-light" src="../img/hoomie/design-system-light.webp" alt="Componenti del design system di Hoomie: schede degli annunci, profili della Ciurma, pulsanti, servizi della casa, candidature e domande dell'onboarding" width="2000" height="1125" loading="lazy" style="background:none">
+        <img class="only-dark" src="../img/hoomie/design-system-dark.webp" alt="Gli stessi componenti del design system di Hoomie nel tema scuro" width="2000" height="1125" loading="lazy" style="background:none">
+      </div></figure>
     </div>
 
     <section class="block g4" style="padding-bottom:2vh">
@@ -136,12 +190,33 @@
       <div class="stat"><b>+15</b><p class="mono mute">Nuovi profili al giorno, tra store e web</p></div>
       <div class="stat"><b>80%+</b><p class="mono mute">Profili completati</p></div>
       <div class="stat"><b>3′48″</b><p class="mono mute">Tempo medio per sessione</p></div>
-      <div></div>
+      <div class="stat"><b>11%</b><p class="mono mute">Proprietari sul totale degli utenti, dall'8% di giugno 2026</p></div>
+    </div>
+    <div class="stats g4" style="padding-top:0">
+      <div class="stat"><b>10,7×</b><p class="mono mute">Persone in cerca per ogni posto letto (462 su 43)</p></div>
+      <div></div><div></div><div></div>
     </div>
 
-    <a class="next" href="coniuratio.html">
+    <section class="block g4">
+      <h2 class="label mono">Oltre la ricerca</h2>
+      <div class="body">
+        <p>La ricerca della casa è solo un tassello. L'obiettivo di Hoomie è accompagnare i fuorisede in tutto il percorso, fino a farli sentire dei local nella nuova città.</p>
+      </div>
+    </section>
+    <!-- Schema del servizio: un piccolo indice, come la lista dei lavori in home. La riga della pagina corrente è in nero -->
+    <section class="service" aria-label="Da fuorisede a local">
+      <p class="service__title mono">Da fuorisede a local</p>
+      <div class="srow srow--head mono mute" aria-hidden="true"><span>Fase</span><span>Prodotto</span><span>Cosa fa</span><span>Uso</span><span></span></div>
+      <div class="srows">
+        <div class="srow"><span class="mono">Università</span><h3>Hooniversità</h3><p>Scegliere l'università e capire l'ISEE</p><span class="mono">Sul sito</span><span></span></div>
+        <div class="srow is-here" aria-current="page"><span class="mono">Scelta della casa · Coinquilini</span><h3>Hoomie</h3><p>Trovare casa e le persone giuste con cui viverci</p><span class="mono">App · una volta ogni qualche anno</span><span class="mono srow__tag">Questa pagina</span></div>
+        <a class="srow" href="community.html"><span class="mono">Vita nella città</span><h3>Hoomie Community</h3><p>Spese di casa, turni ed eventi in città</p><span class="mono">Web app · ogni giorno</span><span class="srow__arrow" aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <a class="next" href="community.html">
       <span class="mono">Progetto successivo</span>
-      <h2>Coniuratio →</h2>
+      <h2>Hoomie Community →</h2>
     </a>
   </main>
 

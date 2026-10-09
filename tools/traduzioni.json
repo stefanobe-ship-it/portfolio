@@ -1432,5 +1432,360 @@
  "Questo sito ne è un esempio: l'ho costruito con Claude Code. La prima versione è arrivata in fretta, poi sono venuti i giri di rifinitura: ricostruire in HTML i testi delle slide perché si potessero tradurre, togliere effetti che non funzionavano, sistemare le copertine.": {
   "en": "This site is an example: I built it with Claude Code. The first version came together quickly, then came the rounds of refinement: rebuilding the slide text in HTML so it could be translated, removing effects that didn't work, fixing the covers.",
   "de": "Diese Website ist ein Beispiel dafür: Ich habe sie mit Claude Code gebaut. Die erste Version stand schnell, dann kamen die Runden der Feinarbeit: die Texte der Folien in HTML nachbauen, damit sie übersetzbar sind, Effekte entfernen, die nicht funktionierten, die Titelbilder anpassen."
- }
+ },
+ "Hoomie Community": "Hoomie Community",
+ "Dopo aver trovato casa, viverci: spese, turni e vita in città.": {
+  "en": "After finding a home, living in it: expenses, chores and city life.",
+  "de": "Nach der Wohnungssuche das Wohnen: Ausgaben, Putzpläne und Stadtleben."
+ },
+ "UI/UX · Web app": "UI/UX · Web app",
+ "Branding e progetti personali": {
+  "en": "Branding and personal projects",
+  "de": "Branding und persönliche Projekte"
+ },
+ "Hoomie Community — Stefano Oberto": "Hoomie Community — Stefano Oberto",
+ "Caso studio UI/UX: Hoomie Community, la web app per la vita in casa e in città dei fuorisede.": {
+  "en": "UI/UX case study: Hoomie Community, the web app for newcomers' life at home and in the city.",
+  "de": "UI/UX-Case-Study: Hoomie Community, die Web-App für das Leben von Zugezogenen in der WG und in der Stadt."
+ },
+ "Dopo aver trovato casa, viverci.": {
+  "en": "After finding a home, living in it.",
+  "de": "Nach der Wohnungssuche: das Wohnen."
+ },
+ "La web app di Hoomie per le spese di casa, i turni e la vita in città.": {
+  "en": "Hoomie's web app for household expenses, chores and city life.",
+  "de": "Die Web-App von Hoomie für WG-Ausgaben, Putzpläne und das Leben in der Stadt."
+ },
+ "Da confermare": {
+  "en": "To be confirmed",
+  "de": "Noch offen"
+ },
+ "Co-founder, CDO &amp; CMO?": "Co-founder, CDO &amp; CMO?",
+ "Casa": {
+  "en": "Home",
+  "de": "Zuhause"
+ },
+ "Spese": {
+  "en": "Expenses",
+  "de": "Ausgaben"
+ },
+ "Eventi": {
+  "en": "Events",
+  "de": "Events"
+ },
+ "La scelta": {
+  "en": "The choice",
+  "de": "Die Entscheidung"
+ },
+ "Trovare casa succede una volta ogni qualche anno. Viverci, ogni giorno.": {
+  "en": "You look for a home once every few years. You live in it every day.",
+  "de": "Eine Wohnung sucht man alle paar Jahre. Darin wohnt man jeden Tag."
+ },
+ "Abbiamo discusso a lungo se mettere tutto in un'unica app. Alla fine l'abbiamo tenuta separata: la ricerca della casa ha una frequenza d'uso completamente diversa da quella della vita quotidiana in casa e in città.": {
+  "en": "We debated for a long time whether to put everything into a single app. In the end we kept it separate: searching for a home is used at a completely different frequency from everyday life at home and in the city.",
+  "de": "Wir haben lange diskutiert, ob alles in eine einzige App gehört. Am Ende haben wir sie getrennt gehalten: Die Wohnungssuche wird ganz anders häufig genutzt als der Alltag in der WG und in der Stadt."
+ },
+ "Così la Community si può usare anche senza cercare casa, da chi una sistemazione ce l'ha già.": {
+  "en": "This way the Community can also be used by people who already have a place and aren't looking for one.",
+  "de": "So können die Community auch Menschen nutzen, die schon eine Unterkunft haben und keine suchen."
+ },
+ "Schermata Your home: il compito di oggi, le schede Chores e Shopping list, il rimando a Hoomie per chi lascia la stanza": {
+  "en": "Your home screen: today's task, the Chores and Shopping list cards, and the link to Hoomie for anyone leaving their room",
+  "de": "Bildschirm Your home: die Aufgabe des Tages, die Karten Chores und Shopping list und der Verweis auf Hoomie für alle, die ihr Zimmer verlassen"
+ },
+ "Schermata Expenses: la spesa personale, il totale della casa e l'elenco delle spese con chi le ha pagate": {
+  "en": "Expenses screen: personal spending, the household total and the list of expenses with who paid for them",
+  "de": "Bildschirm Expenses: die eigenen Ausgaben, die Summe der WG und die Liste der Ausgaben mit den Personen, die sie bezahlt haben"
+ },
+ "Schermata Events: categorie bar, aule studio e concerti, eventi con le persone interessate e un evento suggerito da un amico": {
+  "en": "Events screen: bar, study room and concert categories, events with the people interested and an event suggested by a friend",
+  "de": "Bildschirm Events: Kategorien Bars, Lernräume und Konzerte, Events mit den Interessierten und ein von einem Freund vorgeschlagenes Event"
+ },
+ "Da fuorisede a local": {
+  "en": "From newcomer to local",
+  "de": "Von zugezogen zu einheimisch"
+ },
+ "Fase": {
+  "en": "Stage",
+  "de": "Phase"
+ },
+ "Cosa fa": {
+  "en": "What it does",
+  "de": "Was sie macht"
+ },
+ "Uso": {
+  "en": "Use",
+  "de": "Nutzung"
+ },
+ "Università": {
+  "en": "University",
+  "de": "Universität"
+ },
+ "Hooniversità": "Hooniversità",
+ "Scegliere l'università e capire l'ISEE": {
+  "en": "Choosing a university and understanding the ISEE (Italy's family income indicator)",
+  "de": "Die Uni wählen und den ISEE verstehen (Italiens Einkommensnachweis für Familien)"
+ },
+ "Sul sito": {
+  "en": "On the website",
+  "de": "Auf der Website"
+ },
+ "Scelta della casa · Coinquilini": {
+  "en": "Choosing a home · Flatmates",
+  "de": "Wohnungswahl · Mitbewohner"
+ },
+ "Trovare casa e le persone giuste con cui viverci": {
+  "en": "Finding a home and the right people to live with",
+  "de": "Eine Wohnung finden und die richtigen Menschen, um dort zu wohnen"
+ },
+ "App · una volta ogni qualche anno": {
+  "en": "App · once every few years",
+  "de": "App · alle paar Jahre"
+ },
+ "Vita nella città": {
+  "en": "Life in the city",
+  "de": "Leben in der Stadt"
+ },
+ "Spese di casa, turni ed eventi in città": {
+  "en": "Household expenses, chores and events in the city",
+  "de": "WG-Ausgaben, Putzpläne und Events in der Stadt"
+ },
+ "Web app · ogni giorno": {
+  "en": "Web app · every day",
+  "de": "Web-App · jeden Tag"
+ },
+ "Questa pagina": {
+  "en": "This page",
+  "de": "Diese Seite"
+ },
+ "Casa.": {
+  "en": "Home.",
+  "de": "Zuhause."
+ },
+ "In primo piano c'è il compito di oggi. Sotto, i turni, la lista della spesa e il contatto con il proprietario.": {
+  "en": "Today's task comes first. Below it: chores, the shopping list and contact with the landlord.",
+  "de": "Ganz oben steht die Aufgabe des Tages. Darunter: Putzplan, Einkaufsliste und der Kontakt zum Vermieter."
+ },
+ "Spese.": {
+  "en": "Expenses.",
+  "de": "Ausgaben."
+ },
+ "Quanto hai speso tu e il totale della casa, con chi ha pagato cosa. Abbonamenti e saldi stanno nella stessa schermata.": {
+  "en": "How much you've spent and the household total, with who paid for what. Subscriptions and balances are on the same screen.",
+  "de": "Was du ausgegeben hast und die Summe der WG, mit wer was bezahlt hat. Abos und Salden stehen auf demselben Bildschirm."
+ },
+ "Eventi.": {
+  "en": "Events.",
+  "de": "Events."
+ },
+ "Bar, aule studio e concerti in città, con le persone interessate e gli eventi suggeriti dagli amici. Chiunque può crearne uno.": {
+  "en": "Bars, study rooms and concerts in the city, with the people interested and events suggested by friends. Anyone can create one.",
+  "de": "Bars, Lernräume und Konzerte in der Stadt, mit den Interessierten und von Freunden vorgeschlagenen Events. Jede und jeder kann eines erstellen."
+ },
+ "Tra le due app": {
+  "en": "Between the two apps",
+  "de": "Zwischen den beiden Apps"
+ },
+ "Le app restano separate, ma si parlano. Quando qualcuno deve lasciare la stanza, la Community rimanda a Hoomie per trovare chi subentra.": {
+  "en": "The apps stay separate, but they talk to each other. When someone has to leave their room, the Community points to Hoomie to find who takes over.",
+  "de": "Die Apps bleiben getrennt, sprechen aber miteinander. Wenn jemand das Zimmer verlassen muss, verweist die Community auf Hoomie, um einen Nachmieter zu finden."
+ },
+ "Il problema": {
+  "en": "The problem",
+  "de": "Das Problem"
+ },
+ "Cosa succede in una casa condivisa dopo la firma del contratto: cosa avete osservato, cosa vi hanno detto i coinquilini.": {
+  "en": "What happens in a shared home after the contract is signed: what you observed, what flatmates told you.",
+  "de": "Was in einer WG nach der Vertragsunterzeichnung passiert: was ihr beobachtet habt, was euch die Mitbewohner erzählt haben."
+ },
+ "Da Hoomie alla Community": {
+  "en": "From Hoomie to the Community",
+  "de": "Von Hoomie zur Community"
+ },
+ "L'altro verso: cosa succede quando una Ciurma trova casa, e come arriva nella Community.": {
+  "en": "The other direction: what happens when a Crew finds a home, and how it reaches the Community.",
+  "de": "Die andere Richtung: was passiert, wenn eine Crew eine Wohnung findet, und wie sie in die Community kommt."
+ },
+ "Due o tre flussi": {
+  "en": "Two or three flows",
+  "de": "Zwei oder drei Abläufe"
+ },
+ "I flussi principali, mostrati con le schermate: per esempio aggiungere una spesa e organizzare i turni.": {
+  "en": "The main flows, shown with screens: for example adding an expense and organising chores.",
+  "de": "Die wichtigsten Abläufe mit Screens: zum Beispiel eine Ausgabe hinzufügen und den Putzplan organisieren."
+ },
+ "A che punto è": {
+  "en": "Where it stands",
+  "de": "Aktueller Stand"
+ },
+ "Concept, prototipo o online, e cosa avete imparato finora.": {
+  "en": "Concept, prototype or live, and what you've learned so far.",
+  "de": "Konzept, Prototyp oder live, und was ihr bisher gelernt habt."
+ },
+ "Per cercare casa un fuorisede salta tra due o tre piattaforme di annunci e almeno quattro social, nessuno pensato per farlo. E se alla fine trova casa tramite un'agenzia, paga in media una mensilità di commissione.": {
+  "en": "To find a home, a newcomer jumps between two or three listing platforms and at least four social networks, none of them designed for it. And if they end up finding a place through an agency, they pay on average one month's rent in fees.",
+  "de": "Auf Wohnungssuche springen Zugezogene zwischen zwei oder drei Inseratsportalen und mindestens vier sozialen Netzwerken hin und her, von denen keines dafür gemacht ist. Und wer am Ende über einen Makler fündig wird, zahlt im Schnitt eine Monatsmiete Provision."
+ },
+ "Fuorisede con difficoltà significative nel trovare un alloggio": {
+  "en": "Newcomers with significant difficulty finding accommodation",
+  "de": "Zugezogene mit erheblichen Schwierigkeiten bei der Wohnungssuche"
+ },
+ "1 su 2": {
+  "en": "1 in 2",
+  "de": "1 von 2"
+ },
+ "Ha fretta o molta fretta di trovarlo": {
+  "en": "Are in a hurry or a great hurry to find one",
+  "de": "Haben es eilig oder sehr eilig, eine zu finden"
+ },
+ "Costo medio di un'agenzia immobiliare": {
+  "en": "Average cost of an estate agency",
+  "de": "Durchschnittliche Maklerkosten"
+ },
+ "Fonti: \"Senza Casa Senza Futuro\", UDU · Ministero dell'Università e della Ricerca · 4° Rapporto Federproprietà, Censis e Federproprietà": {
+  "en": "Sources: \"Senza Casa Senza Futuro\", UDU · Italian Ministry of University and Research · 4th Federproprietà Report, Censis and Federproprietà",
+  "de": "Quellen: „Senza Casa Senza Futuro“, UDU · Italienisches Ministerium für Universität und Forschung · 4. Federproprietà-Bericht, Censis und Federproprietà"
+ },
+ "Il logo di Hoomie tra quattro personaggi illustrati, uniti da un percorso che li collega": {
+  "en": "The Hoomie logo among four illustrated characters, joined by a path that connects them",
+  "de": "Das Hoomie-Logo zwischen vier illustrierten Figuren, verbunden durch einen gemeinsamen Weg"
+ },
+ "Proprietari": {
+  "en": "Landlords",
+  "de": "Vermieter"
+ },
+ "Fuorisede": {
+  "en": "Newcomers",
+  "de": "Zugezogene"
+ },
+ "La home del fuorisede, Per te: le case consigliate a Torino con la percentuale di affinità": {
+  "en": "The newcomer's home screen, For you: recommended homes in Turin with their match percentage",
+  "de": "Der Startbildschirm für Zugezogene, Für dich: empfohlene Wohnungen in Turin mit Übereinstimmung in Prozent"
+ },
+ "La home del proprietario, Ciao Anna: il suo annuncio attivo, le candidature e il contratto": {
+  "en": "The landlord's home screen, Hi Anna: her active listing, the applications and the contract",
+  "de": "Der Startbildschirm für Vermieter, Hallo Anna: ihr aktives Inserat, die Bewerbungen und der Vertrag"
+ },
+ "Sposta la linea: verso destra il proprietario, verso sinistra il fuorisede": {
+  "en": "Move the line: to the right for the landlord, to the left for the newcomer",
+  "de": "Linie verschieben: nach rechts für Vermieter, nach links für Zugezogene"
+ },
+ "Mappa dei flussi dell'app: intro, ricerca, home, annuncio, Ciurma, chat e profilo; sotto, il funnel di registrazione con informazioni generali, luoghi e prezzi, identikit e riepilogo": {
+  "en": "Map of the app's flows: intro, search, home, listing, Crew, chat and profile; below, the sign-up funnel with general information, places and prices, profile and summary",
+  "de": "Karte der App-Abläufe: Intro, Suche, Home, Inserat, Crew, Chat und Profil; darunter der Registrierungs-Funnel mit allgemeinen Angaben, Orten und Preisen, Steckbrief und Zusammenfassung"
+ },
+ "Dalla Ciurma alle case": {
+  "en": "From the Crew to the homes",
+  "de": "Von der Crew zu den Wohnungen"
+ },
+ "Creativa": {
+  "en": "Creative",
+  "de": "Kreativ"
+ },
+ "Hai una mente visionaria: ami le idee nuove e le relazioni dinamiche.": {
+  "en": "You’re a visionary who loves new ideas and dynamic relationships.",
+  "de": "Du bist visionär und liebst neue Ideen und lebendige Beziehungen."
+ },
+ "Ti trovi bene con coinquilini flessibili e intellettualmente stimolanti.": {
+  "en": "You thrive with flexible, intellectually stimulating roommates.",
+  "de": "Du fühlst dich wohl mit flexiblen, geistig anregenden Mitbewohnern."
+ },
+ "Empatica": {
+  "en": "Empathetic",
+  "de": "Empathisch"
+ },
+ "Ami la pace e cerchi legami profondi e ambienti tranquilli.": {
+  "en": "You’re peace-loving and seek deep connections and calm environments.",
+  "de": "Du liebst Harmonie und suchst tiefe Verbindungen und eine ruhige Umgebung."
+ },
+ "Vai d'accordo con le persone sensibili che danno valore all'empatia.": {
+  "en": "You get along well with sensitive people who value empathy.",
+  "de": "Du verstehst dich gut mit feinfühligen Menschen, denen Empathie wichtig ist."
+ },
+ "Leader": "Leader",
+ "Sei una persona organizzata, decisa e orientata agli obiettivi.": {
+  "en": "You’re organized, decisive and goal-oriented.",
+  "de": "Du bist organisiert, entschlossen und zielorientiert."
+ },
+ "Vai d'accordo con chi collabora e rispetta le regole.": {
+  "en": "You get along well with collaborative people who respect the rules.",
+  "de": "Du verstehst dich gut mit Menschen, die mitanpacken und Regeln respektieren."
+ },
+ "Ottimista": {
+  "en": "Optimist",
+  "de": "Optimistisch"
+ },
+ "Sei una persona estroversa ed entusiasta, e ami divertirti.": {
+  "en": "You’re outgoing, enthusiastic and love having fun.",
+  "de": "Du bist kontaktfreudig, begeisterungsfähig und hast gern Spaß."
+ },
+ "Ti trovi benissimo con persone socievoli e positive.": {
+  "en": "You’re a great match for sociable, positive people.",
+  "de": "Du passt perfekt zu geselligen, positiven Menschen."
+ },
+ "Pragmatica": {
+  "en": "Pragmatic",
+  "de": "Pragmatisch"
+ },
+ "Sei una persona affidabile: per te contano stabilità e rispetto reciproco.": {
+  "en": "You’re reliable, you value stability and mutual respect.",
+  "de": "Du bist zuverlässig, dir sind Stabilität und gegenseitiger Respekt wichtig."
+ },
+ "Vai d'accordo con chi è ordinato e ama la tranquillità.": {
+  "en": "You get along well with tidy people who value peace and quiet.",
+  "de": "Du verstehst dich gut mit ordentlichen Menschen, die Ruhe schätzen."
+ },
+ "Stratega": {
+  "en": "Strategist",
+  "de": "Strategisch"
+ },
+ "Sei una persona analitica e introversa, ami la logica e l'ordine mentale.": {
+  "en": "You’re analytical and introverted, with a love of logic and mental order.",
+  "de": "Du bist analytisch und introvertiert und liebst Logik und gedankliche Ordnung."
+ },
+ "Ti trovi bene con persone calme che rispettano gli spazi personali.": {
+  "en": "You thrive with calm people who respect personal space.",
+  "de": "Du fühlst dich wohl mit ruhigen Menschen, die persönliche Freiräume respektieren."
+ },
+ "Trascina per sfogliare": {
+  "en": "Drag to browse",
+  "de": "Zum Blättern ziehen"
+ },
+ "In test, con Locare come partner: i contratti in app, con la scelta del contratto adatto, l'inserimento dei dati e la revisione completa prima della firma.": {
+  "en": "In testing, with Locare as a partner: in-app contracts, with choosing the right contract, entering the details and a full review before signing.",
+  "de": "In der Testphase, mit Locare als Partner: Mietverträge in der App, mit der Wahl des passenden Vertrags, der Eingabe der Daten und einer vollständigen Prüfung vor der Unterschrift."
+ },
+ "Proprietari sul totale degli utenti, dall'8% di giugno 2026": {
+  "en": "Landlords as a share of all users, up from 8% in June 2026",
+  "de": "Anteil der Vermieter an allen Nutzern, nach 8 % im Juni 2026"
+ },
+ "10,7×": {
+  "en": "10.7×",
+  "de": "10,7×"
+ },
+ "Persone in cerca per ogni posto letto (462 su 43)": {
+  "en": "People searching for every bed available (462 for 43)",
+  "de": "Suchende pro verfügbarem Bett (462 auf 43)"
+ },
+ "Oltre la ricerca": {
+  "en": "Beyond the search",
+  "de": "Über die Suche hinaus"
+ },
+ "La ricerca della casa è solo un tassello. L'obiettivo di Hoomie è accompagnare i fuorisede in tutto il percorso, fino a farli sentire dei local nella nuova città.": {
+  "en": "Finding a home is just one piece. Hoomie's goal is to support newcomers along the whole journey, until they feel like locals in their new city.",
+  "de": "Die Wohnungssuche ist nur ein Baustein. Ziel von Hoomie ist es, Zugezogene auf dem ganzen Weg zu begleiten, bis sie sich in der neuen Stadt wie Einheimische fühlen."
+ },
+ "I sei archetipi di personalità": {
+  "en": "The six personality archetypes",
+  "de": "Die sechs Persönlichkeitsarchetypen"
+ },
+ "Componenti del design system di Hoomie: schede degli annunci, profili della Ciurma, pulsanti, servizi della casa, candidature e domande dell'onboarding": {
+  "en": "Components of the Hoomie design system: listing cards, Crew profiles, buttons, home amenities, applications and onboarding questions",
+  "de": "Komponenten des Hoomie-Designsystems: Inseratskarten, Crew-Profile, Buttons, Ausstattung der Wohnung, Bewerbungen und Onboarding-Fragen"
+ },
+ "Gli stessi componenti del design system di Hoomie nel tema scuro": {
+  "en": "The same Hoomie design system components in the dark theme",
+  "de": "Dieselben Komponenten des Hoomie-Designsystems im dunklen Design"
+ },
+ "Hoomie Community →": "Hoomie Community →"
 }

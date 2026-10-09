@@ -29,7 +29,13 @@ https://stefanobe-ship-it.github.io/portfolio/
 - Profilo, sezione "Come uso l'AI" (`chi-sono.html#ai`): Stefano sta ancora definendo cosa non delega all'AI. Le barre dello schema sono indicative (variabili `--p0/--p1/--a0/--a1`).
 - Coniuratio: meccaniche, diario di sviluppo, prossimi passi.
 - Dominio personale (da comprare e collegare in Settings → Pages).
+- Hoomie: lato proprietario (Stefano manda il materiale); eventuale versione scura della mappa del sistema
+  (`mappa-sistema.jpg` ha sfondo grigio chiaro: se arriva, farla cambiare col tema come il design system, `.only-light` / `.only-dark`).
+- Hoomie, archetipi: l'inglese è quello originale dei PDF, l'italiano è tradotto da Claude, da far confermare a Stefano.
+- Hoomie Community (`progetti/community.html`): anno, ruolo e "Cosa ho fatto" (nascosti con `todo`, in home l'anno è "—");
+  testi del problema, da Hoomie alla Community, i flussi, a che punto è; copertina 4:5 / 16:10 (ora provvisoria = schermata Casa).
 
-## Lavoro in corso
+## Eccezioni già decise
 
-- `anteprima/`: copia di prova con Hoomie rifatto e la nuova pagina Hoomie Community, non ancora online. Leggi `anteprima/LEGGIMI.md` per cosa cambia e come portarla sul sito.
+- Design system di Hoomie: la leggera sfumatura del colore di fondo sopra e sotto (`.soft-edges`) l'ha chiesta Stefano.
+- Hoomie: niente sezione "Quanto costa" (prezzi in validazione) e niente immagine social/siti di annunci nel problema.

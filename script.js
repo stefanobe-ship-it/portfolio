@@ -209,3 +209,69 @@ if ('IntersectionObserver' in window && !reduceMotion) {
 // Anno nel footer
 const year = document.getElementById('year');
 if (year) year.textContent = new Date().getFullYear();
+
+
+
+// Hoomie: cursore tra la schermata del proprietario e quella del fuorisede
+document.querySelectorAll('[data-users]').forEach((box) => {
+  const shot = box.querySelector('.users__shot');
+  const range = box.querySelector('.users__range');
+  const sides = box.querySelectorAll('.users__side');
+  const set = (v) => {
+    shot.style.setProperty('--pos', v + '%');
+    sides.forEach(s => s.classList.toggle('is-on', s.dataset.side === 'owner' ? v >= 60 : v <= 40));
+  };
+  range.addEventListener('input', () => set(+range.value));
+  set(+range.value);
+});
+
+
+// Hoomie: carosello degli archetipi. Scorre piano da sinistra a destra; si trascina col dito o col mouse.
+// Le carte lontane dal centro si rimpiccioliscono e spariscono dietro.
+document.querySelectorAll('[data-arch]').forEach((box) => {
+  const cards = [...box.querySelectorAll('.arch__card')];
+  const n = cards.length;
+  let t = 0, vel = 0, dragging = false, hover = false, lastX = 0, lastT = 0, resumeAt = 0, visible = true;
+  const speed = reduceMotion ? 0 : 0.22;           // carte al secondo
+  const wrap = (d) => ((d % n) + n) % n > n / 2 ? ((d % n) + n) % n - n : ((d % n) + n) % n;
+  const layout = () => {
+    const w = cards[0].offsetWidth, gap = w * 0.66;
+    cards.forEach((c, i) => {
+      const d = wrap(i - t), a = Math.abs(d);
+      const x = Math.sign(d) * gap * (a <= 1 ? a : 1 + (a - 1) * 0.72);
+      const s = 1 - 0.17 * Math.min(a, 3);
+      c.style.transform = `translateX(calc(-50% + ${x}px)) scale(${s})`;
+      c.style.opacity = a < 1.9 ? 1 : Math.max(0, 1 - (a - 1.9) * 1.8);
+      c.style.zIndex = 100 - Math.round(a * 10);
+      c.setAttribute('aria-hidden', a > 0.5 ? 'true' : 'false');
+    });
+  };
+  let prev = performance.now();
+  const tick = (now) => {
+    const dt = Math.min(0.05, (now - prev) / 1000); prev = now;
+    if (!dragging) {
+      if (Math.abs(vel) > 0.01) { t += vel * dt; vel *= Math.pow(0.04, dt); }
+      else if (!hover && visible && now > resumeAt) t -= speed * dt;
+    }
+    layout();
+    requestAnimationFrame(tick);
+  };
+  box.addEventListener('pointerdown', (e) => { dragging = true; vel = 0; lastX = e.clientX; lastT = performance.now(); box.setPointerCapture(e.pointerId); });
+  box.addEventListener('pointermove', (e) => {
+    if (!dragging) return;
+    const gap = cards[0].offsetWidth * 0.66, now = performance.now();
+    const dx = e.clientX - lastX; t -= dx / gap;
+    vel = -dx / gap / Math.max(0.016, (now - lastT) / 1000);
+    lastX = e.clientX; lastT = now;
+  });
+  const end = () => { if (!dragging) return; dragging = false; resumeAt = performance.now() + 1500; };
+  box.addEventListener('pointerup', end); box.addEventListener('pointercancel', end);
+  box.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') hover = true; });
+  box.addEventListener('pointerleave', () => { hover = false; });
+  box.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') { vel = 4; resumeAt = performance.now() + 3000; }
+    if (e.key === 'ArrowRight') { vel = -4; resumeAt = performance.now() + 3000; }
+  });
+  if ('IntersectionObserver' in window) new IntersectionObserver((en) => { visible = en[0].isIntersecting; }).observe(box);
+  layout(); requestAnimationFrame(tick);
+});
