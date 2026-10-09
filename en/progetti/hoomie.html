@@ -109,7 +109,7 @@
         <p><strong>The homes carousel.</strong> Showing the possible homes straight away lets you check the second part of the choice. The goal was to show both key elements of the decision on a single screen.</p>
       </div>
     </section>
-    <div class="media">
+    <div class="media media--crew">
       <figure>
         <!-- Frecce in SVG sopra le schermate: prendono il colore del tema. Coordinate nello spazio dell'immagine (1920 × 1260) -->
         <div class="flow">
@@ -160,10 +160,17 @@
         <p>To reduce reliance on estate agencies, landlords need more tools and patterns that show a property at its best. We chose to focus on video tours, which show how the place is laid out, with a dedicated vertical feed. Incoming applications are designed to give a quick, direct overview of the people interested.</p>
       </div>
     </section>
-    <div class="figs g4 three features">
-      <figure class="fig"><figcaption>Listing</figcaption><img src="../../img/hoomie/proprietario-annuncio.webp" alt="Landlord home, Listing tab: drafts and active listings, a lease takeover at €500 per month on Corso Regio Parco in Turin" width="970" height="2001" loading="lazy"></figure>
-      <figure class="fig"><figcaption>Applications</figcaption><img src="../../img/hoomie/proprietario-candidature.webp" alt="Landlord home, Applications tab: the people who asked for a viewing, with day, time and accepted status" width="970" height="2001" loading="lazy"></figure>
-      <figure class="fig"><figcaption>Contract</figcaption><img src="../../img/hoomie/proprietario-contratto.webp" alt="Landlord home, Contract tab: the prompt to create a contract in under 4 minutes with the new templates" width="970" height="2001" loading="lazy"></figure>
+    <!-- Carosello semplice: scorre col dito o col trackpad; le frecce compaiono solo se le schermate non ci stanno tutte -->
+    <div class="carousel" data-carousel>
+      <div class="carousel__track features">
+        <figure class="fig"><figcaption>Listing</figcaption><img src="../../img/hoomie/proprietario-annuncio.webp" alt="Landlord home, Listing tab: drafts and active listings, a lease takeover at €500 per month on Corso Regio Parco in Turin" width="970" height="2001" loading="lazy"></figure>
+        <figure class="fig"><figcaption>Applications</figcaption><img src="../../img/hoomie/proprietario-candidature.webp" alt="Landlord home, Applications tab: the people who asked for a viewing, with day, time and accepted status" width="970" height="2001" loading="lazy"></figure>
+        <figure class="fig"><figcaption>Contract</figcaption><img src="../../img/hoomie/proprietario-contratto.webp" alt="Landlord home, Contract tab: the prompt to create a contract in under 4 minutes with the new templates" width="970" height="2001" loading="lazy"></figure>
+      </div>
+      <div class="carousel__nav">
+        <button class="carousel__btn" type="button" data-dir="-1" aria-label="Previous screen">←</button>
+        <button class="carousel__btn" type="button" data-dir="1" aria-label="Next screen">→</button>
+      </div>
     </div>
 
     <section class="block g4">

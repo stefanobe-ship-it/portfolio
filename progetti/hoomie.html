@@ -109,7 +109,7 @@
         <p><strong>Il carosello delle case.</strong> Mostrare subito le soluzioni possibili permette di validare il secondo punto della scelta. L'obiettivo era mostrare in una sola schermata entrambi i punti cardine della decisione.</p>
       </div>
     </section>
-    <div class="media">
+    <div class="media media--crew">
       <figure>
         <!-- Frecce in SVG sopra le schermate: prendono il colore del tema. Coordinate nello spazio dell'immagine (1920 × 1260) -->
         <div class="flow">
@@ -160,10 +160,17 @@
         <p>Se si vuole ridurre la dipendenza dalle agenzie immobiliari, occorre fornire più strumenti e creare pattern che valorizzino l'immobile. Abbiamo deciso di puntare sui video tour, permettendo di mostrare la disposizione dell'offerta, integrando un feed verticale dedicato. La ricezione delle candidature punta a fornire un riepilogo rapido e diretto delle persone interessate.</p>
       </div>
     </section>
-    <div class="figs g4 three features">
-      <figure class="fig"><figcaption>Annuncio</figcaption><img src="../img/hoomie/proprietario-annuncio.webp" alt="Home del proprietario, scheda Listing: bozze e annunci attivi, l'annuncio in subentro a 500 € al mese in Corso Regio Parco a Torino" width="970" height="2001" loading="lazy"></figure>
-      <figure class="fig"><figcaption>Candidature</figcaption><img src="../img/hoomie/proprietario-candidature.webp" alt="Home del proprietario, scheda Applications: le persone che hanno chiesto una visita, con giorno, orario e stato accettato" width="970" height="2001" loading="lazy"></figure>
-      <figure class="fig"><figcaption>Contratto</figcaption><img src="../img/hoomie/proprietario-contratto.webp" alt="Home del proprietario, scheda Contract: l'invito a creare il contratto in meno di 4 minuti con i nuovi modelli" width="970" height="2001" loading="lazy"></figure>
+    <!-- Carosello semplice: scorre col dito o col trackpad; le frecce compaiono solo se le schermate non ci stanno tutte -->
+    <div class="carousel" data-carousel>
+      <div class="carousel__track features">
+        <figure class="fig"><figcaption>Annuncio</figcaption><img src="../img/hoomie/proprietario-annuncio.webp" alt="Home del proprietario, scheda Listing: bozze e annunci attivi, l'annuncio in subentro a 500 € al mese in Corso Regio Parco a Torino" width="970" height="2001" loading="lazy"></figure>
+        <figure class="fig"><figcaption>Candidature</figcaption><img src="../img/hoomie/proprietario-candidature.webp" alt="Home del proprietario, scheda Applications: le persone che hanno chiesto una visita, con giorno, orario e stato accettato" width="970" height="2001" loading="lazy"></figure>
+        <figure class="fig"><figcaption>Contratto</figcaption><img src="../img/hoomie/proprietario-contratto.webp" alt="Home del proprietario, scheda Contract: l'invito a creare il contratto in meno di 4 minuti con i nuovi modelli" width="970" height="2001" loading="lazy"></figure>
+      </div>
+      <div class="carousel__nav">
+        <button class="carousel__btn" type="button" data-dir="-1" aria-label="Schermata precedente">←</button>
+        <button class="carousel__btn" type="button" data-dir="1" aria-label="Schermata successiva">→</button>
+      </div>
     </div>
 
     <section class="block g4">

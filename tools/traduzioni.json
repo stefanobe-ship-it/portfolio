@@ -1835,5 +1835,17 @@
  "Anteprima del contratto 4+4 con i dati mancanti evidenziati in rosso e l'avviso di farlo rivedere da un professionista prima della firma": {
   "en": "Preview of the 4+4 contract with missing details highlighted in red and a reminder to have it reviewed by a professional before signing",
   "de": "Vorschau des 4+4-Vertrags mit fehlenden Angaben in Rot und dem Hinweis, ihn vor der Unterschrift von einer Fachperson prüfen zu lassen"
+ },
+ "UI/UX · Web app · In sviluppo": {
+  "en": "UI/UX · Web app · In development",
+  "de": "UI/UX · Web-App · In Entwicklung"
+ },
+ "Schermata precedente": {
+  "en": "Previous screen",
+  "de": "Vorheriger Bildschirm"
+ },
+ "Schermata successiva": {
+  "en": "Next screen",
+  "de": "Nächster Bildschirm"
  }
 }

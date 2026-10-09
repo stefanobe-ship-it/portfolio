@@ -275,3 +275,24 @@ document.querySelectorAll('[data-arch]').forEach((box) => {
   if ('IntersectionObserver' in window) new IntersectionObserver((en) => { visible = en[0].isIntersecting; }).observe(box);
   layout(); requestAnimationFrame(tick);
 });
+
+
+// Carosello orizzontale: le frecce spostano di una schermata; spariscono se le schermate ci stanno tutte
+document.querySelectorAll('[data-carousel]').forEach((box) => {
+  const track = box.querySelector('.carousel__track');
+  const [prev, next] = box.querySelectorAll('.carousel__btn');
+  const update = () => {
+    const max = track.scrollWidth - track.clientWidth;
+    box.classList.toggle('is-static', max <= 1);
+    prev.disabled = track.scrollLeft <= 1;
+    next.disabled = track.scrollLeft >= max - 1;
+  };
+  box.querySelectorAll('.carousel__btn').forEach((btn) => btn.addEventListener('click', () => {
+    const card = track.querySelector('.fig');
+    const step = card.offsetWidth + parseFloat(getComputedStyle(track).columnGap || 0);
+    track.scrollBy({ left: step * +btn.dataset.dir, behavior: reduceMotion ? 'auto' : 'smooth' });
+  }));
+  track.addEventListener('scroll', update, { passive: true });
+  addEventListener('resize', update);
+  update();
+});

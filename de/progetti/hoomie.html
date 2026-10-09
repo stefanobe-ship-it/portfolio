@@ -109,7 +109,7 @@
         <p><strong>Das Wohnungs-Karussell.</strong> Mögliche Wohnungen sofort zu zeigen, hilft, den zweiten Teil der Entscheidung zu prüfen. Ziel war es, beide zentralen Punkte der Entscheidung auf einem einzigen Screen zu zeigen.</p>
       </div>
     </section>
-    <div class="media">
+    <div class="media media--crew">
       <figure>
         <!-- Frecce in SVG sopra le schermate: prendono il colore del tema. Coordinate nello spazio dell'immagine (1920 × 1260) -->
         <div class="flow">
@@ -160,10 +160,17 @@
         <p>Um die Abhängigkeit von Maklern zu verringern, braucht es mehr Werkzeuge und Muster, die eine Immobilie zur Geltung bringen. Wir haben auf Videotouren gesetzt, die den Grundriss des Angebots zeigen, mit einem eigenen vertikalen Feed. Die eingehenden Bewerbungen sollen einen schnellen, direkten Überblick über die Interessierten geben.</p>
       </div>
     </section>
-    <div class="figs g4 three features">
-      <figure class="fig"><figcaption>Inserat</figcaption><img src="../../img/hoomie/proprietario-annuncio.webp" alt="Startbildschirm für Vermieter, Tab Listing: Entwürfe und aktive Inserate, eine Mietübernahme für 500 € im Monat am Corso Regio Parco in Turin" width="970" height="2001" loading="lazy"></figure>
-      <figure class="fig"><figcaption>Bewerbungen</figcaption><img src="../../img/hoomie/proprietario-candidature.webp" alt="Startbildschirm für Vermieter, Tab Applications: die Personen, die eine Besichtigung angefragt haben, mit Tag, Uhrzeit und Status angenommen" width="970" height="2001" loading="lazy"></figure>
-      <figure class="fig"><figcaption>Vertrag</figcaption><img src="../../img/hoomie/proprietario-contratto.webp" alt="Startbildschirm für Vermieter, Tab Contract: die Einladung, mit den neuen Vorlagen in unter 4 Minuten einen Vertrag zu erstellen" width="970" height="2001" loading="lazy"></figure>
+    <!-- Carosello semplice: scorre col dito o col trackpad; le frecce compaiono solo se le schermate non ci stanno tutte -->
+    <div class="carousel" data-carousel>
+      <div class="carousel__track features">
+        <figure class="fig"><figcaption>Inserat</figcaption><img src="../../img/hoomie/proprietario-annuncio.webp" alt="Startbildschirm für Vermieter, Tab Listing: Entwürfe und aktive Inserate, eine Mietübernahme für 500 € im Monat am Corso Regio Parco in Turin" width="970" height="2001" loading="lazy"></figure>
+        <figure class="fig"><figcaption>Bewerbungen</figcaption><img src="../../img/hoomie/proprietario-candidature.webp" alt="Startbildschirm für Vermieter, Tab Applications: die Personen, die eine Besichtigung angefragt haben, mit Tag, Uhrzeit und Status angenommen" width="970" height="2001" loading="lazy"></figure>
+        <figure class="fig"><figcaption>Vertrag</figcaption><img src="../../img/hoomie/proprietario-contratto.webp" alt="Startbildschirm für Vermieter, Tab Contract: die Einladung, mit den neuen Vorlagen in unter 4 Minuten einen Vertrag zu erstellen" width="970" height="2001" loading="lazy"></figure>
+      </div>
+      <div class="carousel__nav">
+        <button class="carousel__btn" type="button" data-dir="-1" aria-label="Vorheriger Bildschirm">←</button>
+        <button class="carousel__btn" type="button" data-dir="1" aria-label="Nächster Bildschirm">→</button>
+      </div>
     </div>
 
     <section class="block g4">
