@@ -29,3 +29,7 @@ https://stefanobe-ship-it.github.io/portfolio/
 - Profilo, sezione "Come uso l'AI" (`chi-sono.html#ai`): Stefano sta ancora definendo cosa non delega all'AI. Le barre dello schema sono indicative (variabili `--p0/--p1/--a0/--a1`).
 - Coniuratio: meccaniche, diario di sviluppo, prossimi passi.
 - Dominio personale (da comprare e collegare in Settings → Pages).
+
+## Lavoro in corso
+
+- `anteprima/`: copia di prova con Hoomie rifatto e la nuova pagina Hoomie Community, non ancora online. Leggi `anteprima/LEGGIMI.md` per cosa cambia e come portarla sul sito.
