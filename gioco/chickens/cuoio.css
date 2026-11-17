@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Original+Surfer&display=swap');
+/* =====================================================================================================
+   Kit «cuoio» dell'interfaccia (16/11/2026) — Chickens don't fly
+   Font (scelti da Stefano): Original Surfer per i testi, Bagel Fat One per i titoli.
+   Le forme (supercerchi), il cuoio, l'imbottitura e le cuciture le disegna cuoio.js alla misura di ogni elemento.
+   Qui: misure, testo, comportamento al tocco. Si usa con data-cu="…" (vedi cuoio.js).
+   ===================================================================================================== */
+/* font del kit */
+:root { --cu-font: 'Original Surfer', ui-rounded, system-ui, sans-serif; --cu-titolo: 'Bagel Fat One', ui-rounded, system-ui, sans-serif; }
+.cu-titolo { font-family: var(--cu-titolo); font-weight: 400; }
+[data-cu] {
+  position: relative; box-sizing: border-box; border: 0; margin: 0;
+  background: var(--cu-bg) no-repeat 0 0 / 100% 100%;
+  padding-bottom: var(--cu-fianco, 0px);
+  display: inline-flex; align-items: center; justify-content: center; gap: .4em;
+  color: #5a3418; font: 400 18px/1 var(--cu-font);
+  -webkit-tap-highlight-color: transparent; touch-action: manipulation;
+}
+button[data-cu] { cursor: pointer; }
+[data-cu^="pulsante"]:active, [data-cu^="tondo"]:active, [data-cu^="tasto"]:active,
+[data-cu^="pulsante"].premuto, [data-cu^="tondo"].premuto, [data-cu^="tasto"].premuto {
+  background-image: var(--cu-bg-premuto, var(--cu-bg));
+  padding-top: calc(var(--cu-fianco, 0px) * .75); padding-bottom: calc(var(--cu-fianco, 0px) * .25);
+}
+[data-cu]:disabled { cursor: default; }
+
+/* pulsante a pillola: altezza con --h (le proporzioni seguono) */
+[data-cu^="pulsante"] { --h: 64px; height: var(--h); min-width: calc(var(--h) * 3.2); padding-left: calc(var(--h) * .6); padding-right: calc(var(--h) * .6);
+  font-size: calc(var(--h) * .36); color: #fff; text-shadow: 0 2px 0 rgba(90, 40, 10, .45); }
+[data-cu^="pulsante"] img { height: 1.3em; }
+
+/* tondo (solo Negozio e Sfide): diametro con --d */
+[data-cu^="tondo"] { --d: 78px; width: var(--d); height: calc(var(--d) * 1.07); padding-left: 0; padding-right: 0; }   /* spessore sotto sottile */
+[data-cu^="tondo"] > img { width: 60%; height: 60%; object-fit: contain; }
+[data-cu^="tondo"] > [data-cu="pallino"] { position: absolute; right: -4%; bottom: 0; }
+
+/* pallino rosso con numero */
+[data-cu="pallino"] { width: 28px; height: 28px; font-size: 15px; color: #fff; text-shadow: 0 1px 0 rgba(90, 10, 5, .5); z-index: 2; }
+
+/* tasto grande del play: larghezza con --d */
+[data-cu="tasto"] { --d: 150px; width: var(--d); height: calc(var(--d) * .88); }
+[data-cu="tasto"] > .play { width: 30%; height: 34%; margin-left: 6%;
+  background: linear-gradient(180deg, rgba(255,255,255,.45), rgba(255,255,255,0) 55%), linear-gradient(180deg, #ffc27a, #f08a2c 55%, #d4651a);
+  clip-path: polygon(8% 4%, 96% 46%, 96% 54%, 8% 96%, 0 88%, 0 12%); filter: drop-shadow(0 2px 0 rgba(150, 60, 15, .5)); }
+
+/* riquadri: si adattano al contenuto, il disegno segue */
+/* riquadri: margine interno UGUALE su tutti i lati = bordo di cuoio + spazio (scheda 12 + 20, sottile 8 + 12); sotto si aggiunge lo spessore */
+[data-cu^="riquadro"] { display: block; padding: 32px 32px calc(32px + var(--cu-fianco, 0px)); font-size: 17px; line-height: 1.22; }
+[data-cu="riquadro sottile"] { display: inline-block; padding: 20px 20px calc(20px + var(--cu-fianco, 0px)); }
+
+/* contatore (monete, gemme): icona che esce a sinistra, numero, «+» a destra */
+[data-cu="contatore"] { --h: 38px; height: var(--h); min-width: calc(var(--h) * 2.6); padding: 0 calc(var(--h) * 1) var(--cu-fianco, 0px) calc(var(--h) * 1.05);
+  margin-left: calc(var(--h) * .4); font-size: calc(var(--h) * .48); justify-content: flex-start; }
+[data-cu="contatore"] > img { position: absolute; left: calc(var(--h) * -.45); top: 46%; height: calc(var(--h) * 1.3); transform: translateY(-50%); filter: drop-shadow(0 2px 1px rgba(40,20,5,.3)); }
+[data-cu="contatore"] > [data-cu="piu"] { position: absolute; right: calc(var(--h) * -.3); top: 44%; transform: translateY(-50%); }
+[data-cu="piu"] { width: 32px; height: 32px; font-size: 22px; color: #fff; text-shadow: 0 1px 0 rgba(120, 50, 10, .5); }
+
+/* barra (--pieno da 0 a 1) e interruttore */
+[data-cu="barra"] { --pieno: .6; display: block; height: 22px; }
+[data-cu="interruttore"] { width: 66px; height: 38px; }
+
+/* pulsanti con sola icona (tutti tranne Negozio e Sfide): l'immagine e basta */
+.cu-icona { position: relative; border: 0; padding: 0; background: none; cursor: pointer; width: 46px; height: 46px; -webkit-tap-highlight-color: transparent; touch-action: manipulation; transition: transform .08s; }
+.cu-icona > img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 3px 2px rgba(40, 20, 5, .3)); }
+.cu-icona:active { transform: translateY(2px) scale(.94); }
+.cu-icona:disabled { opacity: .45; filter: saturate(.3); }
+
+/* titolo delle schede (per ora testo semplice; il nastro è stato tolto, 16/11) */
+.cu-h { margin: 0; font: 400 26px/1.05 var(--cu-titolo); color: #6a3a1c; text-align: center; }
+/* separatore */
+.cu-separatore { height: 9px; border-radius: 5px; background: linear-gradient(180deg, #fff8ea, #e5cfa6); box-shadow: 0 1px 0 rgba(90,40,10,.25), inset 0 -1px 2px rgba(120,70,30,.2); position: relative; }
+.cu-separatore::after { content: ""; position: absolute; left: 6px; right: 6px; top: 3.5px; border-top: 1.4px dashed #c98c5c; }

@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chickens don't fly — Stefano Oberto</title>
+  <meta name="description" content="Chickens don't fly, a small mobile game by Stefano Oberto: an exploration of how to work with AI on graphics, interface and character design, with Claude and Gemini.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%23ff4f00'/><text x='50%' y='56%' text-anchor='middle' dominant-baseline='middle' font-family='Arial,sans-serif' font-weight='700' font-size='30' fill='%23fff'>SO</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    // Applica il tema scelto prima del disegno della pagina, per evitare il lampo di colore
+    try { var t = localStorage.getItem('theme'); if (t === 'dark' || t === 'light') document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="top g4 mono">
+    <a class="brand" href="../index.html"><span class="full">Stefano Oberto</span><span class="short" aria-hidden="true">S.O.</span></a>
+    <div class="tools">
+      <nav aria-label="Main"><a href="../index.html#lavori" aria-current="true">Work</a><a href="../chi-sono.html">About</a><a href="#contatti">Contact</a></nav>
+      <div class="lang">
+        <button class="icon-btn lang-btn" type="button" aria-label="Language" aria-expanded="false" aria-controls="langs"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.4 2.5 3.6 5.5 3.6 9s-1.2 6.5-3.6 9c-2.4-2.5-3.6-5.5-3.6-9S9.6 5.5 12 3z"/></svg></button>
+        <ul class="langs" id="langs" aria-label="Language" hidden><li><a href="../../progetti/chickens.html" lang="it" hreflang="it">Italiano</a></li><li><a href="chickens.html" lang="en" hreflang="en" aria-current="true">English</a></li><li><a href="../../de/progetti/chickens.html" lang="de" hreflang="de">Deutsch</a></li></ul>
+      </div>
+      <button class="icon-btn theme" type="button" aria-label="Dark theme" aria-pressed="false"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></svg></button>
+    </div>
+  </header>
+
+  <!-- PROGETTO PERSONALE IN CORSO: il gioco vero gira dentro il telefono finto (copia in gioco/chickens/,
+       si aggiorna con python3 tools/copia-gioco.py). -->
+  <main id="main">
+    <section class="case-head">
+      <p class="crumb mono mute"><a href="../index.html#lavori">Work</a><span>/</span><span>Personal</span></p>
+      <p class="status mono" style="margin-bottom:2vh">In development</p>
+      <h1 class="case-title">Chickens don't fly</h1>
+      <div class="g4">
+        <p class="case-sub lead">A small mobile game, to explore how to work with AI. <span>Graphics, interface and characters generated with Gemini, code written by Claude.</span></p>
+      </div>
+      <dl class="meta g4 mono">
+        <div><dt>Client</dt><dd>Personal project</dd></div>
+        <div><dt>Year</dt><dd>Ongoing</dd></div>
+        <div><dt>Role</dt><dd>Solo: game design, art direction, interface</dd></div>
+        <div><dt>What I did</dt><dd>Exploration with Claude and Gemini: UI, character design, graphic elements</dd></div>
+      </dl>
+    </section>
+
+    <!-- Il telefono finto: su computer il gioco parte dentro la cornice; sul telefono si apre a schermo intero -->
+    <section class="play" aria-labelledby="play-title">
+      <div class="phone">
+        <div class="phone__screen" data-game>
+          <a class="phone__start" href="../../gioco/chickens/index.html" target="_blank" rel="noopener">
+            <img src="../../img/chickens/avvio.jpg" alt="The aviator chicken in free fall among coins, with flying goggles and a leather helmet" width="1024" height="1024">
+            <span class="phone__play mono">▶ Play</span>
+          </a>
+        </div>
+      </div>
+      <div class="play__txt">
+        <h2 id="play-title" class="label mono">Try it</h2>
+        <p>The game runs right here, inside the phone. Drag to move, push up and hold to open the parachute.</p>
+        <p class="mono mute">With sound · made for phones</p>
+        <a class="more" href="../../gioco/chickens/index.html" target="_blank" rel="noopener">Open full screen ↗</a>
+      </div>
+    </section>
+
+    <section class="block g4">
+      <h2 class="label mono">The idea</h2>
+      <div class="body">
+        <p>Chickens don't fly is first of all an exploration: a game small enough to finish, to find out how far you can get working with AI on graphic elements, interface and character design.</p>
+        <p>Characters, enemies, obstacles, icons and interface elements are generated with Gemini. The code is written by Claude, following my directions. I decide the direction, the style and what to keep, and I play the game at every step.</p>
+        <p><a href="../chi-sono.html#ai">How I use AI →</a></p>
+      </div>
+    </section>
+
+    <section class="block g4">
+      <h2 class="label mono">How it plays</h2>
+      <div class="body">
+        <p>An aviator chicken falls into the void and can't fly. The goal is to get as far down as possible.</p>
+        <ul>
+          <li>You drag your finger to dodge obstacles and animals and collect coins.</li>
+          <li>Push up and hold to open the parachute and slow down.</li>
+          <li>Coins buy power-ups; challenges give gems.</li>
+          <li>As you fall you cross five worlds: Sky, Sunset, Night, Cave and Abyss.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- I mondi: schermate di gioco, titolo sopra (come le schermate di app) -->
+    <div class="carousel" data-carousel>
+      <div class="carousel__track features">
+        <figure class="fig"><figcaption>Sky</figcaption><img src="../../img/chickens/biplano.jpg" alt="The chicken falls through a blue sky among storm clouds; below, a biplane flown by a hawk drops bombs on parachutes" width="720" height="1279" loading="lazy"></figure>
+        <figure class="fig"><figcaption>Sunset</figcaption><img src="../../img/chickens/tramonto.jpg" alt="Orange sunset sky with pink clouds, kites carried by the wind and coins" width="720" height="1279" loading="lazy"></figure>
+        <figure class="fig"><figcaption>Night</figcaption><img src="../../img/chickens/notte.jpg" alt="Night sky with a sleeping moon, floating rocks, an owl and a row of coins" width="720" height="1279" loading="lazy"></figure>
+        <figure class="fig"><figcaption>Cave</figcaption><img src="../../img/chickens/caverna.jpg" alt="Cave with rock walls, a wooden beam and a mole wearing a miner's helmet" width="720" height="1279" loading="lazy"></figure>
+        <figure class="fig"><figcaption>Abyss</figcaption><img src="../../img/chickens/abisso.jpg" alt="Dark seabed with bubbles, wooden wrecks and pufferfish" width="720" height="1279" loading="lazy"></figure>
+      </div>
+      <div class="carousel__nav">
+        <button class="carousel__btn" type="button" data-dir="-1" aria-label="Previous screen">←</button>
+        <button class="carousel__btn" type="button" data-dir="1" aria-label="Next screen">→</button>
+      </div>
+    </div>
+
+    <section class="block g4">
+      <h2 class="label mono">Characters</h2>
+      <div class="body">
+        <p>The main character came out of a series of tries with Gemini. Once I had picked him, I had a T-pose generated to attach as a reference to every following prompt, so poses, animals and objects stay in the same soft 3D style.</p>
+        <p>Each element is generated on its own on a solid green background, then cut out and put into the game.</p>
+      </div>
+    </section>
+    <div class="carousel carousel--always carousel--wide" data-carousel>
+      <div class="carousel__track">
+        <figure class="fig"><img src="../../img/chickens/pers-tpose.jpg" alt="The aviator chicken in T-pose seen from the front, back and side, on a green background" width="1376" height="768" loading="lazy"><figcaption>T-pose, the reference for every prompt</figcaption></figure>
+        <figure class="fig"><img src="../../img/chickens/pers-pose.jpg" alt="Five poses of the falling chicken with different expressions, on a green background" width="1584" height="672" loading="lazy"><figcaption>Falling poses</figcaption></figure>
+        <figure class="fig"><img src="../../img/chickens/pers-gallina.jpg" alt="Three frames of an aviator hen flapping her wings, on a green background" width="1024" height="1024" loading="lazy"><figcaption>The coin hen</figcaption></figure>
+        <figure class="fig"><img src="../../img/chickens/pers-biplano.jpg" alt="A hawk with helmet and goggles flying a red and cream biplane, on a green background" width="1024" height="1024" loading="lazy"><figcaption>The hawk on the biplane</figcaption></figure>
+      </div>
+      <div class="carousel__nav">
+        <button class="carousel__btn" type="button" data-dir="-1" aria-label="Previous image">←</button>
+        <button class="carousel__btn" type="button" data-dir="1" aria-label="Next image">→</button>
+      </div>
+    </div>
+
+    <section class="block g4">
+      <h2 class="label mono">Interface</h2>
+      <div class="body">
+        <p>I designed the menu myself in Figma. From there Gemini generated icons, buttons and panels; the ones that had to stretch without distorting I had rebuilt in code, so they follow the screen size.</p>
+        <p>I tried two styles, leather and cloud: you can switch them in the game settings. Shown here: cloud.</p>
+      </div>
+    </section>
+    <div class="carousel" data-carousel>
+      <div class="carousel__track features">
+        <figure class="fig"><figcaption>Idea in Figma</figcaption><img src="../../img/chickens/ui-idea-nuvola.jpg" alt="Menu sketch in Figma: coin and gem counters, gear, two round buttons and a big play button among the clouds" width="648" height="1151" loading="lazy"></figure>
+        <figure class="fig"><figcaption>Menu</figcaption><img src="../../img/chickens/menu.jpg" alt="The menu in the game: coins and gems at the top, gear, Challenges and Shop inside the clouds, play button and record" width="720" height="1279" loading="lazy"></figure>
+        <figure class="fig"><figcaption>Shop</figcaption><img src="../../img/chickens/negozio.jpg" alt="The power-up shop: parachute, magnet, shield and double coins, with levels and prices" width="720" height="1279" loading="lazy"></figure>
+        <figure class="fig"><figcaption>Challenges</figcaption><img src="../../img/chickens/sfide.jpg" alt="The Challenges tab: goals with a progress bar and gems as rewards; future challenges are locked" width="720" height="1279" loading="lazy"></figure>
+        <figure class="fig"><figcaption>First game</figcaption><img src="../../img/chickens/lezione.jpg" alt="In the first game the action pauses and a card explains the gesture: push your finger up and hold it to open the parachute" width="720" height="1279" loading="lazy"></figure>
+      </div>
+      <div class="carousel__nav">
+        <button class="carousel__btn" type="button" data-dir="-1" aria-label="Previous screen">←</button>
+        <button class="carousel__btn" type="button" data-dir="1" aria-label="Next screen">→</button>
+      </div>
+    </div>
+
+    <a class="next" href="ventinove-fest.html">
+      <span class="mono">Next project</span>
+      <h2>Ventinove Fest →</h2>
+    </a>
+  </main>
+
+  <footer class="foot g4" id="contatti">
+    <span class="mono mute">Write to me</span>
+    <a class="mail" href="mailto:oberto.stefano.job@gmail.com">oberto.stefano.job@gmail.com</a>
+    <ul class="mono"><li><a href="https://www.linkedin.com/in/stefano-oberto-4177b5260/" target="_blank" rel="noopener">LinkedIn</a></li></ul>
+    <a class="mono todo" href="../../cv.pdf">Download CV ↓</a>
+    <span></span>
+    <span class="mono r">© <span id="year">2026</span></span>
+  </footer>
+
+  <script src="../../script.js"></script>
+</body>
+</html>

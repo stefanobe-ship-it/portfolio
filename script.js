@@ -297,3 +297,20 @@ document.querySelectorAll('[data-carousel]').forEach((box) => {
   update();
 });
 
+
+// Telefono finto (Chickens don't fly): su computer il gioco parte dentro la cornice,
+// sul telefono o col tocco il link apre il gioco a schermo intero
+document.querySelectorAll('[data-game]').forEach((screen) => {
+  const link = screen.querySelector('a');
+  if (!link) return;
+  link.addEventListener('click', (e) => {
+    if (!matchMedia('(min-width: 761px) and (pointer: fine)').matches) return;
+    e.preventDefault();
+    const frame = document.createElement('iframe');
+    frame.src = link.getAttribute('href');
+    frame.title = link.querySelector('img') ? link.querySelector('img').alt : '';
+    frame.allow = 'autoplay; fullscreen';
+    screen.replaceChildren(frame);
+    frame.focus({ preventScroll: true });
+  });
+});

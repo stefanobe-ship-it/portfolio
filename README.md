@@ -10,6 +10,7 @@ Sito portfolio statico (HTML + CSS + un po' di JavaScript), senza dipendenze né
   - `hoomie.html` / `club-deal.html`: caso studio **UI/UX** (obiettivo, utenti, flussi, scelte di design, risultati);
   - `ventinove-fest.html` / `siel.html`: **branding** (contesto, brief o ruolo, idea, applicazioni), con immagini vere in `img/`;
   - `coniuratio.html`: **progetto personale in corso** (il videogioco), con diario di sviluppo.
+- `gioco/chickens/`: copia giocabile di Chickens don't fly, mostrata nel telefono finto di `progetti/chickens.html`. Non si modifica a mano: si rigenera con `python3 tools/copia-gioco.py`.
 - `styles.css`: aspetto grafico. Colori e font sono in cima, nella sezione `:root`.
 - `script.js`: orologio, nome a tutta larghezza, filtri, anteprima al passaggio del cursore, comparse.
 

@@ -1,0 +1,1432 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<title>Chickens don’t fly</title>
+<link rel="stylesheet" href="cuoio.css">
+<link rel="stylesheet" href="nuvola.css">
+<script>/* ?muto (16/11): prove senza audio. Si toglie l'audio del browser prima che parta suoni.js (vale anche se Safari ne tiene una copia vecchia) */
+if (/[?&]muto\b/.test(location.search)) { window.AudioContext = undefined; window.webkitAudioContext = undefined; }</script>
+<script>/* stile dell'interfaccia (16/11): «cuoio» o «nuvola»; si sceglie in Impostazioni o con ?ui=nuvola, e resta salvato */
+(function () { var p = new URLSearchParams(location.search).get('ui'), s = null;
+  try { s = localStorage.getItem('caduta-ui'); if (p) localStorage.setItem('caduta-ui', p); } catch (e) {}
+  if ((p || s || 'nuvola') === 'nuvola') document.documentElement.classList.add('ui-nuvola'); })();</script>
+<script src="cuoio.js"></script>
+<style>
+  :root { --crema:#fffaf0; --crema2:#f3e6cc; --marrone:#a8714a; --marrone2:#7a4e30; --inchiostro:#4a2f05; --giallo:#ffd23f; --azzurro:#7fd4ff; --scuro:#101426; --carta:#1b2140; --testo:#f3f5ff; --tenue:#9aa3c7; }
+  * { box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html,body { margin:0; height:100%; background:var(--scuro); overflow:hidden; position:fixed; inset:0;
+    font-family:ui-rounded,"SF Pro Rounded",system-ui,-apple-system,sans-serif; color:var(--testo);
+    -webkit-user-select:none; user-select:none; touch-action:none; }
+  canvas { position:absolute; inset:0; width:100%; height:100%; display:block; }
+
+  /* ---- HUD ---- */
+  #hud { position:absolute; left:0; right:0; top:0; padding:calc(env(safe-area-inset-top,0px) + 10px) 16px 0; pointer-events:none;
+    font-weight:800; text-shadow:0 2px 0 rgba(0,0,0,.35); }
+  #hud .riga { display:flex; justify-content:space-between; align-items:center; font-size:20px; }
+  #monete::before { content:""; display:inline-block; width:20px; height:20px; background:url(grafiche/moneta-0.png) center/contain no-repeat;
+    margin-right:6px; vertical-align:-3px; filter:drop-shadow(0 2px 0 rgba(0,0,0,.25)); }
+  #metri { font-size:24px; }
+  #hud .sx { display:flex; align-items:center; gap:10px; }
+  /* pulsante pausa: tondo crema col bordo marrone, come le altre parti dell'interfaccia */
+  #b-pausa { pointer-events:auto; min-width:0; width:42px; height:42px; padding:0; border-radius:50%; display:flex; gap:4px; align-items:center; justify-content:center;
+    background:linear-gradient(180deg, var(--crema), var(--crema2)); border:3px solid var(--marrone); box-shadow:0 3px 0 var(--marrone2); }
+  #b-pausa::before { display:none; }
+  #b-pausa:active { transform:translateY(2px); box-shadow:0 1px 0 var(--marrone2); }
+  #b-pausa i { display:block; width:5px; height:14px; border-radius:2px; background:var(--marrone2); }
+  /* conto alla rovescia prima di ripartire */
+  #conta { position:absolute; left:0; right:0; top:38%; text-align:center; font-size:96px; font-weight:900; line-height:1; pointer-events:none; display:none; }
+  #conta.su { display:block; }
+  #conta.batti { animation:batti .9s ease-out both; }
+  @keyframes batti { 0% { transform:scale(1.6); opacity:0; } 20% { transform:scale(1); opacity:1; } 80% { opacity:1; } 100% { transform:scale(.85); opacity:0; } }
+  /* scheda della pausa */
+  /* 16/11: impostazioni sulla schermata d'avvio, in alto a destra: Musica ed Effetti (si spengono separatamente).
+     Fuori dalla schermata: dentro, Safari smetteva di ridisegnare lo sfondo. Icone PNG per lo stesso motivo. */
+  /* 16/11: schermata d'avvio con l'immagine di Stefano: intera in alto, sfuma in un cielo dello stesso colore; contenuti in basso */
+  #p-nota { max-width:230px; font-size:13px; color:#7a5a3e; text-shadow:none; }
+  #cuori { display:flex; gap:3px; }
+  #cuori img { width:24px; height:auto; filter:drop-shadow(0 2px 0 rgba(0,0,0,.25)); }
+  #cuori img.vuoto { opacity:.75; }
+  /* riga 2: pallini tondi (crema, bordo marrone) col tempo come anello colorato */
+  #hud .riga, #hud .riga2 { display:grid; grid-template-columns:1fr auto 1fr; align-items:center; }
+  #monete { justify-self:start; } #cuori { justify-self:end; }
+  #hud .riga2 { margin-top:10px; }
+  #p-para { justify-self:start; display:block; }
+  #pillole { justify-self:center; display:flex; gap:9px; }
+  #b-pausa { justify-self:end; }
+  /* 16/11 pallini dei potenziamenti e del paracadute: tutto il disco è il timer, una «torta» che si consuma in senso orario;
+     niente cornice né disco crema: solo il colore che resta, un fondo chiaro trasparente e l'icona (uguale nei due stili) */
+  .pallino { --c:#7fd4ff; --p:100; position:relative; display:none; width:44px; height:44px; border-radius:50%; padding:0;
+    background:conic-gradient(var(--c) calc(var(--p) * 1%), rgba(255,255,255,.38) 0);
+    box-shadow:inset 0 0 0 2px rgba(255,255,255,.75), 0 2px 6px rgba(30,40,90,.28); transition:opacity .2s; }
+  .pallino.su { display:block; }
+  .pallino.arriva { opacity:0; }
+  .pallino .dentro { width:100%; height:100%; border-radius:50%; display:flex; align-items:center; justify-content:center; background:none; }
+  .pallino img { width:74%; height:74%; object-fit:contain; filter:drop-shadow(0 1px 1px rgba(30,40,90,.35)); }
+  #p-para img { width:66%; height:66%; transition:opacity .2s, filter .2s; }
+  #p-para.carica img { opacity:.55; }
+  #p-para.pronto { animation:pronto 1.6s ease-in-out infinite; }
+  @keyframes pronto { 0%,100% { box-shadow:inset 0 0 0 2px rgba(255,255,255,.75), 0 2px 6px rgba(30,40,90,.28); }
+    50% { box-shadow:inset 0 0 0 2px rgba(255,255,255,.75), 0 2px 6px rgba(30,40,90,.28), 0 0 14px 4px rgba(127,212,255,.9); } }
+  #p-para.attivo { box-shadow:inset 0 0 0 2px rgba(255,255,255,.75), 0 0 16px 5px rgba(127,212,255,.95); }
+  .pallino.finisce { animation:finisce .25s steps(2) infinite; }
+  @keyframes finisce { 50% { opacity:.35; } }
+  .pallino.salto .dentro { animation:salto .4s ease-out; }
+  @keyframes salto { 0% { transform:scale(1); } 40% { transform:scale(1.3); } 100% { transform:scale(1); } }
+  .vola { position:absolute; left:0; top:0; width:34px; height:34px; pointer-events:none; z-index:5; display:flex; align-items:center; justify-content:center;
+    filter:drop-shadow(0 3px 4px rgba(0,0,0,.3)); }
+  .vola img { width:100%; height:100%; object-fit:contain; }
+  #aiuto { position:absolute; left:24px; right:24px; bottom:calc(env(safe-area-inset-bottom,0px) + 40px); text-align:center; font-size:16px;
+    font-weight:700; pointer-events:none; opacity:0; transition:opacity .5s; background:rgba(0,0,0,.45); padding:12px; border-radius:16px; line-height:1.4; }
+  #aiuto.su { opacity:1; }
+  /* lezione della prima partita: il gioco si ferma davanti al primo ostacolo e chiede il gesto */
+  #lezione { position:absolute; inset:0; display:none; align-items:flex-end; justify-content:center; padding:0 22px calc(env(safe-area-inset-bottom,0px) + 34px);
+    background:radial-gradient(circle at 50% 30%, rgba(20,30,70,0) 20%, rgba(20,30,70,.45)); pointer-events:none; }
+  #lezione.su { display:flex; }
+  #lezione .carta { pointer-events:auto; width:100%; max-width:340px; text-align:center; padding:16px 18px 18px; border-radius:24px;
+    background:linear-gradient(180deg, var(--crema), var(--crema2)); border:4px solid var(--marrone); box-shadow:0 5px 0 var(--marrone2), 0 14px 24px rgba(0,0,0,.3); }
+  #lezione h3 { margin:6px 0 4px; font-size:22px; font-weight:900; color:var(--inchiostro); }
+  #lezione p { color:#7a5a3e; text-shadow:none; font-size:16px; }
+  #lezione p b { color:#2a8fc4; }
+  #lezione .gesto { position:relative; height:84px; }
+  #lezione .freccia { position:absolute; left:50%; top:4px; width:16px; height:72px; transform:translateX(-50%); border-radius:8px;
+    background:linear-gradient(0deg, rgba(91,195,242,0), #5bc3f2); }
+  #lezione .freccia::before { content:""; position:absolute; left:50%; top:-10px; transform:translateX(-50%); border:14px solid transparent; border-bottom:16px solid #5bc3f2; border-top:0; }
+  #lezione .dito { position:absolute; left:50%; bottom:0; width:30px; height:30px; margin-left:-15px; border-radius:50%; background:rgba(255,255,255,.95);
+    border:3px solid var(--marrone); box-shadow:0 3px 0 var(--marrone2); animation:spinta 1.3s ease-in-out infinite; }
+  @keyframes spinta { 0% { transform:translateY(0); opacity:0; } 15% { opacity:1; } 55% { transform:translateY(-50px); } 85% { transform:translateY(-50px); opacity:1; } 100% { transform:translateY(-50px); opacity:0; } }
+  button.piccolo { min-width:0; margin-top:12px; padding:9px 18px 10px; font-size:15px; border-radius:14px; }
+  button.piccolo::before { left:6px; right:6px; top:3px; border-radius:10px 10px 6px 6px; }
+
+  /* scheda della prima presa: medaglia scura con l'icona che esce dal bordo in alto, nome, una riga, indizio sull'anello */
+  #spiega { position:absolute; inset:0; display:none; align-items:flex-end; justify-content:center; padding:0 22px calc(env(safe-area-inset-bottom,0px) + 34px);
+    background:radial-gradient(circle at 50% 30%, rgba(20,30,70,0) 20%, rgba(20,30,70,.5)); }
+  #spiega.su { display:flex; }
+  #spiega .carta { position:relative; width:100%; max-width:340px; text-align:center; padding:52px 20px 20px; border-radius:26px; margin-top:44px;
+    background:linear-gradient(180deg, var(--crema), var(--crema2)); border:4px solid var(--marrone); box-shadow:0 6px 0 var(--marrone2), 0 16px 28px rgba(0,0,0,.32);
+    animation:entra .45s cubic-bezier(.2,1.3,.4,1) .45s both; }
+  @keyframes entra { from { transform:translateY(40px) scale(.92); opacity:0; } to { transform:none; opacity:1; } }
+  #spiega .medaglia { position:absolute; left:50%; top:-44px; width:88px; height:88px; margin-left:-44px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center; background:radial-gradient(circle at 40% 35%, #5a3a22, #1e120a 70%);
+    box-shadow:0 0 0 5px var(--crema), 0 0 0 9px var(--marrone), 0 6px 0 9px var(--marrone2), inset 0 4px 8px rgba(0,0,0,.6); }
+  #spiega .medaglia img { width:78px; height:78px; object-fit:contain; animation:galleggia 2.4s ease-in-out infinite; }
+  #spiega .medaglia b { font-size:34px; font-weight:900; color:#ffd23f; text-shadow:0 2px 0 var(--marrone2), 2px 0 0 var(--marrone2), -2px 0 0 var(--marrone2), 0 -2px 0 var(--marrone2); }
+  #spiega h3 { margin:2px 0 6px; font-size:24px; font-weight:900; color:var(--inchiostro); }
+  #spiega p { color:#7a5a3e; text-shadow:none; font-size:17px; }
+  #spiega p b { color:var(--inchiostro); }
+  #spiega .indizio { display:flex; align-items:center; justify-content:center; gap:8px; margin:12px auto 0; padding:8px 12px; border-radius:14px; max-width:270px;
+    background:#fffdf7; box-shadow:inset 0 1px 2px rgba(122,78,48,.15); font-size:13px; font-weight:800; color:#9a7a5e; line-height:1.25; text-align:left; }
+  #spiega .anellino { --c:#ff5d73; flex:none; width:22px; height:22px; border-radius:50%;
+    background:conic-gradient(var(--c) 65%, rgba(122,78,48,.18) 0); -webkit-mask:radial-gradient(circle, transparent 6.5px, #000 7px); mask:radial-gradient(circle, transparent 6.5px, #000 7px); }
+
+  /* ---- Schermate (stile comune: crema, bordo marrone, oro) ---- */
+  .schermo { position:absolute; inset:0; display:none; flex-direction:column; align-items:center; justify-content:center; gap:14px;
+    padding:calc(env(safe-area-inset-top,0px) + 24px) 24px calc(env(safe-area-inset-bottom,0px) + 24px);
+    background:linear-gradient(180deg, rgba(20,40,90,.30), rgba(20,30,70,.50));
+    backdrop-filter:blur(2px); -webkit-backdrop-filter:blur(2px); text-align:center; }
+  .schermo.su { display:flex; }
+  .contorno { color:#fff3cf; text-shadow:0 2px 0 var(--marrone2), 2px 0 0 var(--marrone2), -2px 0 0 var(--marrone2), 0 -2px 0 var(--marrone2),
+    2px 2px 0 var(--marrone2), -2px 2px 0 var(--marrone2), 2px -2px 0 var(--marrone2), -2px -2px 0 var(--marrone2), 0 6px 0 var(--marrone2), 0 10px 16px rgba(0,0,0,.3); }
+  h1 { font-size:48px; line-height:1.02; margin:0; letter-spacing:.5px; font-weight:900; }
+  h2 { font-size:30px; margin:0; font-weight:900; }
+  p { margin:0; color:#fff; font-size:16px; font-weight:700; line-height:1.4; text-shadow:0 2px 0 rgba(0,0,0,.25); }
+  #f-titolo.record { font-size:26px; font-weight:900; color:#ffe27a; }
+  .grande { font-size:64px; font-weight:900; line-height:1; }
+  @keyframes galleggia { 0%,100% { transform:translateY(0) rotate(-4deg); } 50% { transform:translateY(-10px) rotate(4deg); } }
+  .moneta { display:inline-block; width:20px; height:20px; vertical-align:-3px; margin-right:4px; background:url(grafiche/moneta-0.png) center/contain no-repeat; }
+  /* pulsanti lucidi e «morbidi»: sopra un riflesso, sotto un bordo spesso più scuro che si schiaccia quando premi */
+  button { --a:#ffe78a; --b:#ffd23f; --c:#f4b41f; --bordo:#b98314; --ombra:#7d5709;
+    position:relative; font:inherit; font-weight:900; font-size:21px; color:#4a2f05; text-shadow:0 1px 0 rgba(255,255,255,.45);
+    background:linear-gradient(180deg, var(--a) 0%, var(--b) 48%, var(--c) 100%); border:0; border-radius:20px;
+    padding:17px 28px; min-width:220px; touch-action:manipulation; transition:transform .06s, box-shadow .06s;
+    box-shadow:inset 0 2px 0 rgba(255,255,255,.7), inset 0 -3px 0 rgba(0,0,0,.08), 0 7px 0 var(--bordo), 0 9px 0 var(--ombra), 0 14px 18px rgba(0,0,0,.28); }
+  button::before { content:""; position:absolute; left:9px; right:9px; top:5px; height:42%; border-radius:14px 14px 10px 10px;
+    background:linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,.08)); pointer-events:none; }
+  button:active { transform:translateY(6px);
+    box-shadow:inset 0 2px 0 rgba(255,255,255,.7), inset 0 -3px 0 rgba(0,0,0,.08), 0 1px 0 var(--bordo), 0 3px 0 var(--ombra), 0 5px 8px rgba(0,0,0,.25); }
+  button.secondo { --a:#5664b8; --b:#3a4690; --c:#2b3471; --bordo:#1a2050; --ombra:#0f1333; color:#fff; text-shadow:0 1px 0 rgba(0,0,0,.3); }
+  button.secondo::before { background:linear-gradient(180deg, rgba(255,255,255,.3), rgba(255,255,255,.03)); }
+  button:disabled { opacity:.45; filter:saturate(.5); }
+  /* 16/11: «Riprendi» guardando una pubblicità (per ora finta): verde, con il simbolo del video */
+  /* 16/11: gemme (premio delle sfide): la goccia verde scelta da Stefano */
+  .gemma { display:inline-block; width:20px; height:20px; vertical-align:-3px; margin-right:4px; background:url(grafiche/gemma.png) center/contain no-repeat; }
+  #lista-sfide { width:100%; display:flex; flex-direction:column; gap:10px; }
+  #avviso-sfida { position:absolute; left:50%; top:calc(env(safe-area-inset-top,0px) + 96px); transform:translateX(-50%); z-index:30; display:none;
+    align-items:center; gap:8px; padding:9px 16px; border-radius:16px; white-space:nowrap; pointer-events:none;
+    background:linear-gradient(180deg, var(--crema), var(--crema2)); border:3px solid var(--marrone); box-shadow:0 4px 0 var(--marrone2);
+    font-weight:900; font-size:14px; color:var(--inchiostro); }
+  #avviso-sfida.su { display:flex; animation:avvisa 2.8s forwards; }
+  #avviso-sfida small { display:block; font-size:11px; color:#7a5a3e; }
+  @keyframes avvisa { 0% { transform:translate(-50%,-30px); opacity:0; } 10%,85% { transform:translate(-50%,0); opacity:1; } 100% { transform:translate(-50%,-10px); opacity:0; } }
+  #pubblicita { background:#0b0f1e; backdrop-filter:none; -webkit-backdrop-filter:none; color:#fff; }
+  #pubblicita .schermo-video { width:min(82vw,340px); aspect-ratio:16/9; border-radius:16px; background:linear-gradient(135deg,#2b3471,#5664b8);
+    display:flex; align-items:center; justify-content:center; font-size:15px; opacity:.85; }
+  #pubblicita .tempo { font-size:56px; font-weight:900; }
+  #pubblicita small { opacity:.6; font-size:14px; }
+
+  /* ---- Negozio: schede come quella di Gemini (crema, foro scuro per l'icona, cartellino giallo del prezzo) ---- */
+  .pallino img.ogg { width:70%; height:70%; }
+  #spiega .medaglia img.ogg { width:58px; height:58px; }
+  .tacche { display:flex; gap:3px; }
+  .tacche i { width:14px; height:7px; border-radius:4px; background:rgba(122,78,48,.18); }
+  .tacche i.piena { background:linear-gradient(180deg, #ffe78a, #f4b41f); box-shadow:0 1px 0 #b98314; }/* =========================================================================================
+     16/11: interfaccia nuova con il kit «cuoio» (cuoio.css + cuoio.js), sul menu disegnato da Stefano.
+     Regole: raccordi dalla scala da 4 e concentrici; margini uguali su tutti i lati; font Original Surfer
+     (testi) e Bagel Fat One (titoli). Le regole qui sotto vincono su quelle vecchie più in alto.
+     ========================================================================================= */
+  html, body { font-family: var(--cu-font); }
+  h1, h2, .contorno, #conta, .cu-h { font-family: var(--cu-titolo); font-weight: 400; }
+  /* i pulsanti del kit non usano lo stile generale dei pulsanti (giallo lucido) */
+  button[data-cu], button.cu-icona { min-width: 0; border-radius: 0; box-shadow: none; transition: none; padding-top: 0; }
+  button[data-cu]::before, button.cu-icona::before { content: none; display: none; }
+  button[data-cu]:active { box-shadow: none; transform: none; }
+  button[data-cu]:disabled { opacity: 1; filter: none; }
+  button.cu-icona { width: 44px; height: 44px; padding: 0; background: none; }
+  button.cu-icona:active { transform: translateY(2px) scale(.94); box-shadow: none; }
+  [data-cu^="pulsante"] { width: 100%; max-width: 290px; --h: 58px; }
+
+  /* schede: centrate, larghezza comoda, contenuto in colonna con passo 12 */
+  .carta[data-cu] { width: min(100%, 330px); display: flex; flex-direction: column; align-items: center; gap: 12px; color: #5a3418; text-align: center; }
+  .carta[data-cu] > button[data-cu^="pulsante"] { max-width: none; }
+  .cu-h { margin: 0 0 4px; font-size: 30px; line-height: 1; color: #6a3a1c; }
+  .cu-h.piccolo { font-size: 20px; margin: 0; }
+  .cu-h.chiaro { color: #fff; text-shadow: 0 2px 0 rgba(30, 60, 110, .45); font-size: 28px; }
+  .opzione { width: 100%; display: flex; align-items: center; justify-content: space-between; font-size: 19px; }
+  .carta .cu-separatore { width: 100%; margin: 4px 0; }
+  .due { width: 100%; display: flex; gap: 12px; }
+  .due > button[data-cu] { flex: 1; --h: 50px; }
+  p { font-weight: 400; }
+
+  /* schermate su cielo (menu, potenziamenti, sfide): niente velo scuro */
+  .schermo.cielo { background: linear-gradient(180deg, #4fb0f2 0%, #8fd0fb 55%, #d6efff 100%); backdrop-filter: none; -webkit-backdrop-filter: none; overflow: hidden; }
+  .nuv { position: absolute; pointer-events: none; opacity: .95; }
+
+  /* MENU */
+  #titolo { justify-content: flex-start; padding: 0; }
+  #titolo > * { position: absolute; }
+  #titolo .barra-menu { top: calc(env(safe-area-inset-top, 0px) + 18px); left: 20px; right: 80px; display: flex; gap: 24px; }
+  #titolo .tondi-menu { top: calc(env(safe-area-inset-top, 0px) + 84px); left: 20px; right: 20px; display: flex; justify-content: space-between; }
+  #titolo #b-gioca { left: 50%; bottom: calc(env(safe-area-inset-bottom, 0px) + 120px); transform: translateX(-50%); --d: 156px; }
+  #titolo #b-gioca:active { transform: translateX(-50%); }
+  #titolo .record-menu { left: 0; right: 0; bottom: calc(env(safe-area-inset-bottom, 0px) + 76px); display: flex; align-items: center; justify-content: center; gap: 8px;
+    font: 400 22px/1 var(--cu-titolo); color: #fff; text-shadow: 0 2px 0 rgba(30, 60, 110, .45); }
+  #titolo .record-menu img { width: 30px; height: 30px; object-fit: contain; filter: drop-shadow(0 2px 1px rgba(30,60,110,.35)); }
+  button[data-cu="contatore"] { cursor: pointer; }
+  [data-cu="contatore"] b { font-weight: 400; }
+  [data-cu="contatore"].solo { padding-right: 16px; margin-left: 16px; }
+  #pallino-sfide[hidden] { display: none; }
+  #impostazioni { position: fixed; z-index: 5; display: flex; top: calc(env(safe-area-inset-top, 0px) + 16px); right: 18px; gap: 0; }   /* fuori dalle schermate: dentro, Safari smetteva di ridisegnare lo sfondo */
+  #impostazioni button { width: 44px; height: 44px; border: 0; border-radius: 0; box-shadow: none; background: none; }
+  #impostazioni button:active { transform: translateY(2px) scale(.94); box-shadow: none; }
+
+  /* IMPOSTAZIONI: sopra il menu */
+  #imposta { position: fixed; inset: 0; z-index: 20; display: none; align-items: center; justify-content: center; padding: 24px;
+    background: rgba(20, 35, 70, .45); }
+  #imposta.su { display: flex; }
+
+  /* FINE PARTITA */
+  #f-titolo.record { color: #c4651a; font-size: 22px; }
+  .metri-grandi { font: 400 60px/1 var(--cu-titolo); color: #6a3a1c; margin: -2px 0 2px; }
+  .dati-cu { width: 100%; display: flex; gap: 12px; }
+  .dato-cu { flex: 1; text-align: center; padding: 12px 8px calc(12px + var(--cu-fianco, 0px)) !important; }
+  .dato-cu span { display: block; font-size: 13px; color: #8a5a36; margin-bottom: 4px; }
+  .dato-cu strong { display: inline-flex; align-items: center; gap: 4px; font: 400 22px/1 var(--cu-titolo); color: #5a3418; }
+  .dato-cu strong img { width: 22px; height: 22px; }
+  .ic-gemma { width: 1.25em; height: 1.25em; object-fit: contain; }
+
+  /* PAUSA e PUBBLICITÀ */
+  #p-nota { max-width: none; font-size: 14px; color: #8a5a36; line-height: 1.25; }
+  #p-nota:empty { display: none; }
+  #pubblicita .tempo { font: 400 64px/1 var(--cu-titolo); }
+
+  /* POTENZIAMENTI e SFIDE: testata con indietro, titolo, contatore; lista che scorre */
+  .lista-cu { justify-content: flex-start; overflow-y: auto; touch-action: pan-y; gap: 16px; padding-top: calc(env(safe-area-inset-top, 0px) + 16px); }
+  .testa-cu { width: 100%; display: flex; align-items: center; gap: 12px; flex: none; }
+  .testa-cu .cu-h { flex: 1; min-width: 0; text-align: left; margin: 0; }
+  .testa-cu .cu-icona { flex: none; }   /* la freccia non si schiaccia accanto a un titolo lungo */
+  #lista { width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .scheda-cu { display: flex !important; flex-direction: column; align-items: center; gap: 8px; text-align: center; color: #5a3418; padding: 16px 12px calc(16px + var(--cu-fianco, 0px)) !important; }
+  .scheda-cu .icona-scheda { position: relative; width: 60px; height: 60px; display: grid; place-items: center; }
+  .scheda-cu .icona-scheda img { width: 56px; height: 56px; object-fit: contain; }
+  .scheda-cu .icona-scheda img[src*='paracadute'] { width: 46px; height: 46px; }
+  .scheda-cu .icona-scheda .lucchetto { position: absolute; right: -6px; bottom: -4px; width: 26px; height: 26px; }
+  .scheda-cu.chiusa .icona-scheda img:first-child { filter: grayscale(.7) brightness(.85); }
+  .scheda-cu h3 { margin: 0; font: 400 17px/1.1 var(--cu-titolo); color: #6a3a1c; }
+  .scheda-cu p { margin: 0; flex: 1; font-size: 14px; line-height: 1.22; color: #7a5232; text-shadow: none; }
+  .scheda-cu p span { color: #c4651a; }
+  .scheda-cu .tacche i.piena { background: linear-gradient(180deg, #faa84f, #d26318); box-shadow: 0 1px 0 #8a3f10; }
+  .scheda-cu button[data-cu] { --h: 56px; font-size: 17px; line-height: 1; flex-direction: column; gap: 3px; }
+  .scheda-cu button[data-cu] small { display: block; font-size: 12px; line-height: 1; opacity: .92; }
+  .scheda-cu button[data-cu] .moneta { width: 15px; height: 15px; vertical-align: -2px; margin-right: 3px; }
+  #lista-sfide { gap: 12px; }
+  #lista-sfide h4 { text-align: left; font: 400 16px/1 var(--cu-titolo); text-transform: none; letter-spacing: 0; color: #fff; opacity: 1; text-shadow: 0 2px 0 rgba(30, 60, 110, .4); margin: 4px 0 -2px; }
+  .sfida-cu { display: flex !important; align-items: center; gap: 12px; text-align: left; color: #5a3418; padding: 14px 16px calc(14px + var(--cu-fianco, 0px)) !important; position: relative; }
+  .sfida-cu .testo { flex: 1; min-width: 0; }
+  .sfida-cu h3 { margin: 0 0 8px; font-size: 17px; line-height: 1.15; font-weight: 400; color: #5a3418; }
+  .sfida-cu [data-cu="barra"] { height: 16px; }
+  .sfida-cu small { display: block; margin-top: 6px; font-size: 13px; color: #8a5a36; }
+  .sfida-cu .premio { display: flex; align-items: center; gap: 4px; font: 400 20px/1 var(--cu-titolo); color: #5a3418; white-space: nowrap; }
+  .sfida-cu .premio img { width: 24px; height: 24px; object-fit: contain; }
+  .sfida-cu .premio img.spunta { width: 30px; height: 30px; }
+  .sfida-cu.chiusa { opacity: .55; filter: saturate(.4); }
+  .sfida-cu .lucchetto { position: absolute; right: -6px; top: -8px; width: 26px; height: 26px; }
+
+  /* LEZIONE, SPIEGAZIONE, AVVISO: schede del kit al posto delle vecchie */
+  #lezione .carta, #spiega .carta { background: var(--cu-bg) no-repeat 0 0 / 100% 100%; border: 0; border-radius: 0; box-shadow: none; }
+  #lezione .carta { padding: 24px 24px calc(24px + var(--cu-fianco, 0px)); }
+  #spiega .carta { padding: 56px 24px calc(24px + var(--cu-fianco, 0px)); }
+  #lezione h3, #spiega h3 { font: 400 24px/1.05 var(--cu-titolo); color: #6a3a1c; }
+  #lezione p, #spiega p { line-height: 1.25; }
+  button[data-cu].piccolo { --h: 48px; width: auto; min-width: 180px; margin-top: 12px; }
+  #avviso-sfida { background: var(--cu-bg) no-repeat 0 0 / 100% 100%; border: 0; border-radius: 0; box-shadow: none;
+    padding: 12px 16px calc(12px + var(--cu-fianco, 0px)); font-weight: 400; font-size: 15px; color: #5a3418; }
+  #avviso-sfida small { font-size: 12px; color: #8a5a36; }
+
+  /* PARTITA: pausa come sola icona */
+  #b-pausa.cu-icona { width: 42px; height: 42px; border: 0; border-radius: 0; background: none; box-shadow: none; pointer-events: auto; }
+  /* PROVA (16/11): pulsanti dei mondi nella home */
+  #titolo .mondi-prova { position: absolute; left: 12px; right: 12px; top: 33%; display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; align-items: center; z-index: 2; }
+  #titolo .mondi-prova span { width: 100%; text-align: center; font: 400 14px var(--cu-font); color: #fff; text-shadow: 0 1px 2px rgba(30, 60, 110, .6); }
+  #titolo .mondi-prova button { --h: 34px !important; width: auto !important; flex: none; min-width: 0 !important; padding: 0 12px !important; font-size: 13px !important; }
+  /* 16/11: pulsante «Riscuoti» nelle sfide e salto del contatore delle gemme */
+  .sfida-cu .b-riscuoti { --h: 40px !important; min-width: 0 !important; padding: 0 12px !important; font-size: 15px !important; white-space: nowrap; }
+  .sfida-cu .b-riscuoti img { height: 1.2em; }
+  .salto { animation: saltino .4s ease-out; }
+  @keyframes saltino { 40% { transform: scale(1.18); } }
+  /* 16/11: nuvole della home che scorrono piano verso destra (ognuna col suo passo; ripartono da sinistra) */
+  #titolo .nuv { animation: deriva 90s linear infinite; }
+  #titolo .nuv:nth-of-type(1) { animation-duration: 75s; } #titolo .nuv:nth-of-type(2) { animation-duration: 110s; }
+  #titolo .nuv:nth-of-type(3) { animation-duration: 64s; } #titolo .nuv:nth-of-type(4) { animation-duration: 120s; } #titolo .nuv:nth-of-type(5) { animation-duration: 95s; }
+  @keyframes deriva { 0% { transform: translateX(0); } 49.99% { transform: translateX(140vw); } 50% { transform: translateX(-140vw); } 100% { transform: translateX(0); } }
+  /* 16/11: passaggio dal menu alla partita */
+  #titolo .barra-menu, #titolo .tondi-menu, #titolo #b-gioca, #titolo .record-menu, #titolo .mondi-prova, #impostazioni { transition: transform .45s cubic-bezier(.5,0,.75,0), opacity .4s; }
+  #titolo .nuv { transition: translate .55s cubic-bezier(.5,0,.75,0), opacity .5s; }
+  #titolo.parte .barra-menu { transform: translateY(-160%); opacity: 0; }
+  #titolo.parte .tondi-menu { transform: scale(.5); opacity: 0; }
+  #titolo.parte #b-gioca { transform: translateX(-50%) translateY(60px) scale(.6); opacity: 0; }
+  #titolo.parte .record-menu, #titolo.parte .mondi-prova { opacity: 0; }
+  #titolo.parte .nuv { translate: 0 -70vh; }
+  .gemma-vola { position: fixed; left: 0; top: 0; width: 32px; height: 32px; z-index: 50; pointer-events: none; filter: drop-shadow(0 2px 3px rgba(0,0,0,.3)); }
+</style>
+<style>/* copia del portfolio */ #titolo .mondi-prova { display: none !important; }</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+
+<div id="avviso-sfida" data-cu="riquadro sottile"></div>
+<div id="hud">
+  <!-- riga 1: cose passive. Riga 2: paracadute (sinistra), potenziamenti attivi (centro), pausa (destra) -->
+  <div class="riga"><span id="monete">0</span><span id="metri">0 m</span><span id="cuori"></span></div>
+  <div class="riga2">
+    <div class="pallino" id="p-para"><div class="dentro"><img src="grafiche/paracadute-icona.png" alt=""></div></div>
+    <div id="pillole">
+      <div class="pallino" id="p-magnet"><div class="dentro"><img class="ogg" src="grafiche/ogg-calamita.png" alt=""></div></div>
+      <div class="pallino" id="p-shield"><div class="dentro"><img class="ogg" src="grafiche/ogg-scudo.png" alt=""></div></div>
+      <div class="pallino" id="p-double"><div class="dentro"><img class="ogg" src="grafiche/ogg-doppie.png" alt=""></div></div>
+    </div>
+    <button class="cu-icona" id="b-pausa" aria-label="Pausa"><img src="grafiche/icone/pausa.png" data-icona="pausa" alt=""></button>
+  </div>
+</div>
+<div id="conta" class="contorno"></div>
+<div id="aiuto">Trascina il dito per spostarti.</div>
+<div id="lezione"><div class="carta" data-cu="riquadro">
+  <div class="gesto"><i class="freccia"></i><i class="dito"></i></div>
+  <h3>Apri il paracadute!</h3>
+  <p>Spingi il dito <b>in su</b> e tienilo.<br>Rallenti finché non molli.</p>
+  <button data-cu="pulsante arancio" class="piccolo" id="b-capito">Ho capito</button>
+</div></div>
+<!-- prima volta che prendi una bolla: il gioco si ferma e la scheda spiega cosa fa (una volta sola per tipo) -->
+<div id="spiega"><div class="carta" data-cu="riquadro">
+  <div class="medaglia" id="s-icona"></div>
+  <h3 id="s-nome"></h3>
+  <p id="s-testo"></p>
+  <div class="indizio"><i class="anellino" id="s-anello"></i><span>L'anello attorno a te è il tempo che resta</span></div>
+  <button data-cu="pulsante arancio" class="piccolo" id="b-spiega">Ho capito</button>
+</div></div>
+
+<div class="schermo su cielo" id="titolo">
+  <img class="nuv" src="grafiche/nuvola-grande.png" alt="" style="width:260px; left:-70px; top:6%">
+  <img class="nuv" src="grafiche/nuvola-media.png" alt="" style="width:200px; right:-70px; top:2%">
+  <img class="nuv" src="grafiche/nuvola-media.png" alt="" style="width:170px; left:-50px; top:42%">
+  <img class="nuv" src="grafiche/nuvola-grande.png" alt="" style="width:290px; right:-90px; top:62%">
+  <img class="nuv" src="grafiche/nuvola-grande.png" alt="" style="width:330px; left:-110px; bottom:-60px">
+  <div class="barra-menu">
+    <button data-cu="contatore" id="c-monete" aria-label="Monete"><img src="grafiche/moneta-0.png" alt=""><b id="t-monete">0</b><span data-cu="piu">+</span></button>
+    <button data-cu="contatore" id="c-gemme" aria-label="Gemme"><img src="grafiche/gemma.png" alt=""><b id="t-gemme">0</b><span data-cu="piu">+</span></button>
+  </div>
+  <div class="tondi-menu">
+    <button data-cu="tondo" id="b-sfide" aria-label="Sfide"><img src="grafiche/icone/sfide.png" data-icona="sfide" alt=""><span data-cu="pallino" id="pallino-sfide">1</span></button>
+    <button data-cu="tondo" id="b-negozio1" aria-label="Negozio"><img src="grafiche/icone/negozio.png" data-icona="negozio" alt=""></button>
+  </div>
+  <button data-cu="tasto" id="b-gioca" aria-label="Cadi"><span class="play"></span></button>
+  <!-- PROVA (16/11): partire direttamente da un mondo -->
+  <div class="mondi-prova"><span>Prova da:</span><button data-cu="pulsante cuoio" data-parti="0">Cielo</button><button data-cu="pulsante cuoio" data-parti="200">Biplano 1</button><button data-cu="pulsante cuoio" data-parti="500">Tramonto</button><button data-cu="pulsante cuoio" data-parti="1100">Notte</button><button data-cu="pulsante cuoio" data-parti="1380">Biplano 2</button><button data-cu="pulsante cuoio" data-parti="1800">Caverna</button><button data-cu="pulsante cuoio" data-parti="2600">Abisso</button><button data-cu="pulsante cuoio" data-parti="3385">Gallina</button><button data-cu="pulsante cuoio" data-parti="3500">2° giro</button></div>
+  <div class="record-menu"><img src="grafiche/icone/record.png" data-icona="record" alt=""><span id="t-record">0 m</span></div>
+</div>
+
+<div id="impostazioni"><button class="cu-icona" id="b-impostazioni" aria-label="Impostazioni"><img src="grafiche/icone/impostazioni.png" data-icona="impostazioni" alt=""></button></div>
+<!-- 16/11: impostazioni (dall'ingranaggio del menu): sopra il menu, non è una schermata -->
+<div id="imposta"><div class="carta" data-cu="riquadro">
+  <h2 class="cu-h">Impostazioni</h2>
+  <div class="opzione"><span>Musica</span><button data-cu="interruttore" data-suono="musica" aria-label="Musica"></button></div>
+  <div class="opzione"><span>Effetti</span><button data-cu="interruttore" data-suono="effetti" aria-label="Effetti"></button></div>
+  <div class="opzione"><span>Stile</span><div class="stile-ui"><button data-cu="pulsante cuoio" data-ui="cuoio">Cuoio</button><button data-cu="pulsante cuoio" data-ui="nuvola">Nuvola</button></div></div>
+  <button data-cu="pulsante cuoio" id="b-chiudi-imp">Chiudi</button>
+</div></div>
+
+<div class="schermo" id="fine">
+  <div class="carta" data-cu="riquadro">
+    <p id="f-titolo" class="cu-h piccolo">Sei caduto per</p>
+    <div id="f-metri" class="metri-grandi">0 m</div>
+    <div class="dati-cu">
+      <div class="dato-cu" data-cu="riquadro sottile"><span>Raccolte</span><strong><img src="grafiche/moneta-0.png" alt=""><b id="f-raccolte">+0</b></strong></div>
+      <div class="dato-cu" data-cu="riquadro sottile"><span>Record</span><strong id="f-record">0 m</strong></div>
+    </div>
+    <button data-cu="pulsante verde" id="b-video"><img src="grafiche/icone/video.png" data-icona="video" alt="">Riprendi</button>
+    <button data-cu="pulsante cuoio" id="b-gemme">Riprendi con 3 <img class="ic-gemma" src="grafiche/gemma.png" alt="gemme"></button>
+    <button data-cu="pulsante arancio" id="b-ancora">Gioca di nuovo</button>
+    <div class="due"><button data-cu="pulsante cuoio" id="b-negozio2">Negozio</button><button data-cu="pulsante cuoio" id="b-menu2">Menu</button></div>
+  </div>
+</div>
+
+<!-- 16/11: sfide che danno gemme -->
+<div class="schermo cielo lista-cu" id="sfide">
+  <div class="testa-cu"><button class="cu-icona" id="b-indietro2" aria-label="Indietro"><img src="grafiche/icone/indietro.png" data-icona="indietro" alt=""></button><h2 class="cu-h chiaro">Sfide</h2><div data-cu="contatore" class="solo"><img src="grafiche/gemma.png" alt=""><b id="gemme-sfide">0</b></div></div>
+  <div id="lista-sfide"></div>
+</div>
+
+<!-- 16/11: finta pubblicità per riprendere (una vera serve solo quando il gioco diventa un'app) -->
+<div class="schermo" id="pubblicita">
+  <small>Pubblicità</small>
+  <div class="schermo-video">Qui andrà il video</div>
+  <div class="tempo" id="pub-tempo">5</div>
+  <small>Dopo riprendi da dove sei caduto</small>
+</div>
+
+<div class="schermo" id="pausa">
+  <div class="carta" data-cu="riquadro">
+    <h2 class="cu-h">Pausa</h2>
+    <button data-cu="pulsante arancio" id="b-riprendi">Riprendi</button>
+    <button data-cu="pulsante cuoio" id="b-ricomincia">Ricomincia</button>
+    <button data-cu="pulsante cuoio" id="b-menu">Menu</button>
+    <div class="cu-separatore"></div>
+    <div class="opzione"><span>Musica</span><button data-cu="interruttore" data-suono="musica" aria-label="Musica"></button></div>
+    <div class="opzione"><span>Effetti</span><button data-cu="interruttore" data-suono="effetti" aria-label="Effetti"></button></div>
+    <p id="p-nota"></p>
+  </div>
+</div>
+<div class="schermo cielo lista-cu" id="negozio">
+  <div class="testa-cu"><button class="cu-icona" id="b-indietro" aria-label="Indietro"><img src="grafiche/icone/indietro.png" data-icona="indietro" alt=""></button><h2 class="cu-h chiaro">Potenziamenti</h2><div data-cu="contatore" class="solo"><img src="grafiche/moneta-0.png" alt=""><b id="monete-negozio">0</b></div></div>
+  <div id="lista"></div>
+  <button data-cu="pulsante arancio" id="b-via">Cadi</button>
+</div>
+
+<script src="suoni.js" async></script>
+<script>
+(() => {
+'use strict';
+// suoni.js si carica senza bloccare la pagina (16/11: se bloccava, su Safari lo sfondo dietro il titolo restava fermo e scuro).
+// Finché non è arrivato, o se non arriva, ogni suono è un «niente»: il gioco va avanti muto.
+const Suoni = new Proxy({}, { get: (_, k) => window.Suoni ? window.Suoni[k] : () => {} });
+const $ = id => document.getElementById(id);
+const cv = $('c'), cx = cv.getContext('2d');
+// parametri per le prove, nell'indirizzo: ?m=600 parte da 600 m · ?bonus bolle frequenti · ?falchi animali da subito ·
+// ?paracadute sempre aperto · ?azzera progressi azzerati · ?misura=85 vista più lontana · ?debug stato leggibile · ?gallina o #gallina parte poco prima della gallina · ?gemme=5 gemme per le prove
+const PARAMETRI = new URLSearchParams(location.search);
+// prova delle misure (15/11): ?misura=85 o ?misura=75 allontana la vista, tutto (personaggio, ostacoli, monete) diventa più piccolo.
+// La larghezza del mondo cresce: c'è più spazio per schivare, quindi il gioco diventa anche un po' più facile.
+const MISURA = Math.max(50, Math.min(100, +(PARAMETRI.get('misura') || 100))) / 100;
+const W = Math.round(180 / MISURA); let H = 390, scala = 1;
+
+// 15/11: si misura la tela com'è davvero a schermo (non innerHeight): su Safari la barra degli indirizzi cambia l'altezza
+// e a volte il gioco usciva schiacciato in verticale (bolle e anelli ovali). Si ricontrolla a ogni fotogramma.
+let misuraW = 0, misuraH = 0;
+function misura() {                       // logica in 180 unità di larghezza, disegno nitido alla risoluzione dello schermo
+  const lw = cv.clientWidth || innerWidth, lh = cv.clientHeight || innerHeight;
+  if (!(lw > 0 && lh > 0)) return;          // pagina ancora nascosta (misura zero): si riprova al fotogramma dopo
+  misuraW = lw; misuraH = lh;
+  H = Math.round(W * lh / lw);
+  const dpr = Math.min(3, devicePixelRatio || 1);
+  scala = lw / W;
+  cv.width = Math.round(lw * dpr); cv.height = Math.round(lh * dpr);
+  cx.setTransform(scala * dpr, 0, 0, scala * dpr, 0, 0);
+  cx.imageSmoothingEnabled = true; cx.imageSmoothingQuality = 'high';
+}
+/* ---------- Immagini (fatte con Gemini da Stefano, sfondo verde tolto) ---------- */
+const img = n => { const i = new Image(); i.src = 'grafiche/' + n; return i; };
+const FALCO = [0, 1, 2].map(i => img(`nemico-falco-${i}.png`));
+// 16/11: gufo in 3 pose (ali su, in mezzo, giù), allineate sugli occhi; la posa in mezzo viene dall'immagine singola
+const GUFO = [0, 1, 2].map(i => img(`nemico-gufo-${i}.png`));
+// 16/11: ostacoli in 3 lunghezze (corta, media, lunga) da Gemini: il gioco usa quella più adatta, così non si ripetono
+const ost3 = n => [0, 1, 2].map(i => img(`ost-${n}-${i}.png`));
+const BATTITO = [0, 1, 2, 1];             // ordine delle pose: ali su, in mezzo, giù, in mezzo
+// 15/11: braccia chiuse e aperte ridisegnate sulla stessa tela, con gli occhiali sovrapposti (prima il corpo «saltava» di ~15 px)
+// 15/11 (idea di Stefano): personaggio «a marionetta» dall'immagine a braccia aperte, a livelli: gambe e tronco sotto,
+// poi le braccia (ruotano attorno alla spalla nascosta), la testa sopra a tutto. Tela 240×187, perni delle spalle in (84,104) e (156,104).
+const IMG = { mar: { corpo: img('mar-corpo.png'), sx: img('mar-braccio-sx.png'), dx: img('mar-braccio-dx.png'), testa: img('mar-testa.png') }, paracadute: img('cade-paracadute.png'),
+  // nemici per mondo: cielo falco (3 pose), tramonto aquilone strappato, notte gufo (3 pose), caverna talpa minatrice, abisso pesce palla
+  nemico: [FALCO, img('nemico-aquilone.png'), GUFO, img('nemico-talpa.png'), img('nemico-pesce-palla.png')],
+  uovo: [img('uovo-0.png'), img('uovo-1.png')],   // 16/11: uovo d'oro intero e aperto col cuore
+  gallina: [0, 1, 2].map(i => img(`gallina-${i}.png`)),   // 16/11: gallina delle monete, 3 pose del battito d'ali (allineate sulla cresta)
+  fx: { piuma: [0, 1, 2].map(i => img(`fx-piuma-${i}.png`)), scintilla: [0, 1, 2].map(i => img(`fx-scintilla-${i}.png`)),
+        sbuffo: [0, 1].map(i => img(`fx-sbuffo-${i}.png`)) },
+  nuvole: [img('nuvola-grande.png'), img('nuvola-media.png')], nuvolaTramonto: img('nuvola-tramonto.png'),
+  luna: img('notte-luna.png'), parete: img('caverna-parete.png'),
+  ost: Object.fromEntries(['pioggia', 'nuvola-viola', 'palloncini', 'nuvola-notte', 'rocce-lunari', 'cristalli', 'stalattiti', 'trave',
+         'corallo', 'alghe', 'relitto'].map(n => [n, ost3(n)])),
+  // 15/11: una sola bolla leggera e vuota; dentro l'oggetto del potenziamento
+  bollaVuota: img('bolla-vuota.png'), sfera: img('nuvola/sfera.png'), biplano: img('nemico-biplano.png'), bomba: img('nemico-bomba-paracadute.png'), scoppio: [0, 1, 2, 3].map(k => img(`fx-scoppio-${k}.png`)), ogg: { magnet: img('ogg-calamita.png'), shield: img('ogg-scudo.png'), double: img('ogg-doppie.png') },
+  moneta: [0, 1, 2, 3, 4, 5].map(i => img(`moneta-${i}.png`)) };
+const PROVA_PARACADUTE = PARAMETRI.has('paracadute');
+let partenzaProva = 0;   // PROVA (16/11): metro di partenza scelto con i pulsanti dei mondi nella home
+const UI_NUVOLA = () => document.documentElement.classList.contains('ui-nuvola');   // stile dell'interfaccia scelto (16/11)
+const PROVA_BONUS = PARAMETRI.has('bonus');     // tutte le bolle sbloccate e frequenti, proprio sotto il personaggio
+if (PARAMETRI.has('debug')) window.dbg = () => G;   // per le prove: legge lo stato della partita dalla console
+const PROVA_FALCHI = PARAMETRI.has('falchi');   // animali in volo fin dall'inizio, spesso
+// tipi di ostacolo per mondo (Cielo, Tramonto, Notte, Caverna, Abisso); ogni fila ne usa uno, e cambia da una fila all'altra.
+// 16/11: via la nuvola col temporale (il lampo giallo si confondeva con le monete); niente giallo né oro negli ostacoli
+const TIPI_OSTACOLO = [['pioggia'], ['nuvola-viola', 'palloncini'], ['nuvola-notte', 'rocce-lunari'], ['cristalli', 'stalattiti', 'trave'], ['corallo', 'alghe', 'relitto']];
+// parte dell'immagine occupata dal corpo dell'ostacolo (sotto alcune ci sono gocce o una lanterna, che non contano)
+const CORPO = { pioggia: 0.72, 'nuvola-viola': 0.72, 'nuvola-notte': 0.66, trave: 0.8, stalattiti: 0.82 };
+// altezza dei nemici in volo, per mondo (l'aquilone ha la coda lunga, il falco le ali larghe)
+// per il suono del colpo
+const FAMIGLIA = { pioggia: 'nuvola', 'nuvola-viola': 'nuvola', 'nuvola-notte': 'nuvola', palloncini: 'gomma', cristalli: 'cristalli',
+  trave: 'legno', relitto: 'legno', corallo: 'acqua', alghe: 'acqua', 'rocce-lunari': 'roccia', stalattiti: 'roccia' };
+const ALTEZZA_NEMICO = [33, 30, 30, 27, 26];   // 16/11: aquilone nuovo, più largo (alto 30)
+// quanto si è «dentro» a un mondo (0–1): sale all'ingresso e scende all'uscita, per far comparire e sparire luna e pareti
+const presenza = (m, quale) => { const { i, t } = tratto(m); return i % 5 === quale ? Math.min(1, t / 0.08, (1 - t) / 0.12) : 0; };
+const pronta = i => i.complete && i.naturalWidth > 0;
+
+const preparate = new Map();
+// nuvole di sfondo leggermente sfocate (rimpicciolite e poi ingrandite: funziona su tutti i browser)
+function sfocata(i) {
+  const chiave = i.src + '|sfoca'; if (preparate.has(chiave)) return preparate.get(chiave);
+  if (!pronta(i)) return null;
+  // margine intorno: la sfocatura «esce» dal contorno, senza margine verrebbe tagliata dritta
+  const mg = Math.round(Math.max(i.naturalWidth, i.naturalHeight) * 0.12), tw = i.naturalWidth + 2 * mg, th = i.naturalHeight + 2 * mg;
+  const p = document.createElement('canvas'); p.width = Math.max(1, tw / 6 | 0); p.height = Math.max(1, th / 6 | 0);
+  const px = p.getContext('2d'); px.imageSmoothingQuality = 'high'; px.drawImage(i, mg / 6, mg / 6, i.naturalWidth / 6, i.naturalHeight / 6);
+  const t = document.createElement('canvas'); t.width = tw; t.height = th;
+  const tx = t.getContext('2d'); tx.imageSmoothingQuality = 'high'; tx.drawImage(p, 0, 0, tw, th);
+  const r = { tela: t, mg: mg / i.naturalWidth }; preparate.set(chiave, r); return r;
+}
+addEventListener('resize', misura); misura();
+
+/* ---------- Salvataggio ---------- */
+const CHIAVE = 'caduta_v2';   // v2: prezzi nuovi, si riparte da zero (i progressi v1 restano salvati a parte)
+const salvaVuoto = () => ({ monete:0, record:0, liv:{ slow:1, magnet:0, shield:0, double:0, heart:0 },
+  gemme:0, fatte:{}, meglio:{}, stat:{ monete:0, falchi:0, talpe:0 } });   // 16/11: gemme e sfide
+let salva = salvaVuoto();
+try { const s = JSON.parse(localStorage.getItem(CHIAVE)); if (s) salva = Object.assign(salva, s, { liv:Object.assign(salva.liv, s.liv), stat:Object.assign(salva.stat, s.stat) }); } catch(e) {}
+if (PARAMETRI.has('azzera')) salva = salvaVuoto();
+if (PARAMETRI.has('gemme')) salva.gemme = +PARAMETRI.get('gemme') || 0;   // per le prove: ?gemme=5
+const scrivi = () => { try { localStorage.setItem(CHIAVE, JSON.stringify(salva)); } catch(e) {} };
+
+/* ---------- Potenziamenti ---------- */
+const num = v => String(Math.round(v * 10) / 10).replace('.', ',');
+const OGGETTI = [
+  { id:'slow',   nome:'Rallentamento', colore:'#7fd4ff', max:6, costi:[0,150,350,700,1200,2000], val:l => 1 + 0.3 * (l - 1),
+    testo:v => `Spingi il dito in su e tienilo: il tempo rallenta, al massimo ${num(v)} s.` },
+  { id:'magnet', nome:'Calamita',      colore:'#ff5d73', max:5, costi:[300,450,800,1400,2300], val:l => 7 + 2 * (l - 1),   // 15/11: più lunga (prima 4 s), su richiesta degli amici
+    testo:v => `Da raccogliere cadendo: attira le monete per ${num(v)} s.` },
+  { id:'shield', nome:'Scudo',         colore:'#8f9bff', max:5, costi:[400,550,950,1600,2600],val:l => 5 + 2 * (l - 1),
+    testo:v => `Da raccogliere cadendo: para un urto, dura ${num(v)} s.` },
+  { id:'double', nome:'Monete doppie', colore:'#7be38c', max:5, costi:[500,650,1100,1800,2900],val:l => 5 + 1.5 * (l - 1),
+    testo:v => `Da raccogliere cadendo: ogni moneta vale 2 per ${num(v)} s.` },
+  { id:'heart',  nome:'Cuore in più',  colore:'#ff9f43', max:2, costi:[1500,4000],          val:l => 3 + l,
+    testo:v => `Parti con ${v} cuori.` },
+];
+const ogg = id => OGGETTI.find(o => o.id === id);
+const valore = id => ogg(id).val(Math.max(1, salva.liv[id]));
+
+/* ---------- Fondali (cambiano scendendo) ---------- */
+const hex = h => [parseInt(h.slice(1,3),16), parseInt(h.slice(3,5),16), parseInt(h.slice(5,7),16)];
+const FONDALI = [
+  { nome:'Cielo',    su:'#5fb8f0', giu:'#c4ecff', ost:'#4a5a78', bordo:'#8496b8', deco:'nuvola', tinta:'#ffffff', velo:0 },
+  { nome:'Tramonto', su:'#e8734f', giu:'#fbd58c', ost:'#6a2c4a', bordo:'#a8496f', deco:'nuvola', tinta:'#ffd9c2', velo:0.55 },
+  { nome:'Notte',    su:'#0d1233', giu:'#2c3676', ost:'#5b6bd0', bordo:'#9fb0ff', deco:'stella', tinta:'#ffffff', velo:0.85 },
+  { nome:'Caverna',  su:'#241815', giu:'#4d362c', ost:'#8a6a55', bordo:'#c09a7e', deco:'polvere', tinta:'#d9b99b', velo:0.93 },
+  { nome:'Abisso',   su:'#04222f', giu:'#0c5b66', ost:'#0e8f8a', bordo:'#6ff0d4', deco:'bolla', tinta:'#bff6ff', velo:0.9 },
+].map(f => Object.assign(f, { su:hex(f.su), giu:hex(f.giu), ost:hex(f.ost), bordo:hex(f.bordo) }));
+// metri per mondo. 16/11 (Stefano): prima 250, poi tutti 500; ora crescono: Cielo 500, Tramonto 600, Notte 700, Caverna 800,
+// Abisso 900. Dal secondo giro in poi ogni mondo dura 900 m.
+const LUNGHEZZE = [500, 600, 700, 800, 900];
+// in che mondo sei a m metri: i = numero del mondo (0, 1, 2… senza ricominciare), t = quanto ne hai fatto (0-1), L = lunghezza, s = metro d'inizio
+function tratto(m) {
+  if (m < 0) return { i: 0, t: m / LUNGHEZZE[0], L: LUNGHEZZE[0], s: 0 };
+  let i = 0, s = 0;
+  for (;;) { const L = LUNGHEZZE[Math.min(i, LUNGHEZZE.length - 1)]; if (m < s + L) return { i, t: (m - s) / L, L, s }; s += L; i++; }
+}
+const mix = (a, b, k) => [a[0]+(b[0]-a[0])*k, a[1]+(b[1]-a[1])*k, a[2]+(b[2]-a[2])*k];
+const rgb = c => `rgb(${c[0]|0},${c[1]|0},${c[2]|0})`;
+function fondaleA(m) {
+  const { i, t } = tratto(m);
+  const a = FONDALI[i % FONDALI.length], b = FONDALI[(i + 1) % FONDALI.length];
+  const k = t > 0.8 ? (t - 0.8) / 0.2 : 0;
+  return { su:mix(a.su,b.su,k), giu:mix(a.giu,b.giu,k), ost:mix(a.ost,b.ost,k), bordo:mix(a.bordo,b.bordo,k), velo:a.velo + (b.velo - a.velo) * k,
+           deco:(k > 0.5 ? b : a).deco, tinta:(k > 0.5 ? b : a).tinta, indice:i, nome:a.nome };
+}
+
+/* ---------- Stato della partita ---------- */
+let stato = 'titolo';
+let G = null;
+function nuova() {
+  G = {
+    x: W / 2, mira: W / 2, y: Math.round(H * 0.3),
+    prof: 0, t: 0, vite: valore('heart') | 0, viteMax: valore('heart') | 0, raccolte: 0,
+    ost: [], monete: [], bonus: [], deco: [], scie: [], scint: [], fx: [],
+    prossimaRiga: 160, prossimoBonus: PROVA_BONUS ? 200 : 900 + Math.random() * 400, prossimaDeco: 0,
+    slowMax: valore('slow'), slow: valore('slow'), slowOn: false, slowK: 0,
+    magnet: 0, shield: 0, double: 0, dur: { magnet: 1, shield: 1, double: 1 }, felice: 0, braccia: 0, intocc: 0, scossa: 0, lampo: 0, morte: 0,
+  };
+  if (salva.liv.heart === 0) { G.vite = G.viteMax = 3; }
+  // 16/11: #gallina in fondo al link (funziona anche nella pagina pubblicata, che passa solo #nome) o ?gallina: parte poco prima della gallina delle monete
+  const da = location.hash === '#gallina' || PARAMETRI.has('gallina') ? 3385 : partenzaProva || +(PARAMETRI.get('m') || 0);
+  if (da > 0) { G.prof = da * 10; G.prossimaRiga += G.prof; G.prossimoBonus += G.prof; }
+  const quante = fondaleA(metri()).deco === 'nuvola' ? 5 : 14;
+  for (let i = 0; i < quante; i++) nuovaDeco(Math.random() * H);
+}
+const metri = () => Math.floor(G.prof / 10);
+// 16/11 (tester: «finisci subito»): la velocità cresce col TEMPO di caduta, non coi metri (coi metri cresceva a valanga: massimo in 48 s).
+// Ora sale in modo regolare da 125 a 330 in 3 minuti (VEL_SECONDI), poi resta lì.
+const VEL_MIN = 125, VEL_MAX = 330, VEL_SECONDI = 180;
+const velocita = () => VEL_MIN + (VEL_MAX - VEL_MIN) * Math.min(1, (G.tv || 0) / VEL_SECONDI);
+
+/* ---------- Generazione ---------- */
+function nuovaDeco(y) {
+  const f = fondaleA(metri());
+  const d = { x: Math.random() * W, y, tipo: f.deco, tinta: f.tinta, mondo: f.indice % 5, s: 1 + (Math.random() * 3 | 0) };
+  d.par = { nuvola: 0.25 + Math.random() * 0.15, stella: 0.06, polvere: 0.5 + Math.random() * 0.3, bolla: 1.25 }[d.tipo];
+  G.deco.push(d);
+}
+// mondo di una profondità (in metri): il confine è dove cambia lo sfondo, al 90% del mondo (vedi riga())
+const mondoDi = prof => { const { i, t } = tratto(prof); return (t >= 0.9 ? i + 1 : i) % 5; };   // il mondo cambia dove cambia lo sfondo (al 90%)
+// segni del vento: cielo strisce d'aria curve, tramonto piume, notte stelline con la scia, caverna sassolini e polvere, abisso bolle
+const OPAC_VENTO = 0.6;              // 15/11: Stefano li vuole meno visibili (prima 1 = pieni)
+function nuovoSegno(mondo, v) {
+  const x = Math.random() * W, y = H + 8, r = Math.random();
+  if (mondo === 0) return { tipo: 'aria', x, y, l: 7 + v / 22, curva: (r - 0.5) * 6, vel: 2.4 };
+  if (mondo === 1) return { tipo: 'piuma', x, y, s: 1.6 + r * 1.2, ang: r * 6.28, giro: (r - 0.5) * 5, vel: 1.5 };
+  if (mondo === 2) return { tipo: 'stellina', x, y, s: 0.8 + r * 0.8, l: 5 + v / 28, vel: 2.6 };
+  if (mondo === 3) return { tipo: r < 0.5 ? 'sasso' : 'polvere', x, y, s: 0.6 + r * 0.9, l: 3 + v / 40, vel: 2.3 };
+  return { tipo: 'bolla', x, y, s: 0.8 + r * 1.6, vel: 2.6 + r };
+}
+function segno(s) {
+  if (s.tipo === 'aria') {         // striscia d'aria: una curva sottile che si assottiglia
+    cx.globalAlpha = OPAC_VENTO * (0.38); cx.strokeStyle = '#ffffff'; cx.lineWidth = 0.9;
+    cx.beginPath(); cx.moveTo(s.x, s.y); cx.quadraticCurveTo(s.x + s.curva, s.y + s.l * 0.5, s.x + s.curva * 0.3, s.y + s.l); cx.stroke();
+  } else if (s.tipo === 'piuma') {      // piuma che gira su se stessa (16/11: le piume di Gemini, chiara, marrone o rossa)
+    const dx = Math.sin(G.t * 3 + s.x) * 2;
+    cx.globalAlpha = OPAC_VENTO * 0.9; sprite(IMG.fx.piuma[(s.x * 7 | 0) % 3], s.x + dx, s.y, s.s * 4, s.ang);
+  } else if (s.tipo === 'stellina') {   // stellina a quattro punte con una scia sotto
+    const g = cx.createLinearGradient(0, s.y, 0, s.y + s.l); g.addColorStop(0, 'rgba(207,224,255,.55)'); g.addColorStop(1, 'rgba(207,224,255,0)');
+    cx.globalAlpha = OPAC_VENTO * (1); cx.strokeStyle = g; cx.lineWidth = s.s * 0.7; cx.beginPath(); cx.moveTo(s.x, s.y); cx.lineTo(s.x, s.y + s.l); cx.stroke();
+    cx.fillStyle = '#eef4ff'; cx.globalAlpha = OPAC_VENTO * (0.6 + 0.4 * Math.abs(Math.sin(G.t * 6 + s.x))); const a = s.s * 1.6, b = s.s * 0.35;
+    cx.beginPath(); cx.moveTo(s.x, s.y - a); cx.lineTo(s.x + b, s.y - b); cx.lineTo(s.x + a, s.y); cx.lineTo(s.x + b, s.y + b);
+    cx.lineTo(s.x, s.y + a); cx.lineTo(s.x - b, s.y + b); cx.lineTo(s.x - a, s.y); cx.lineTo(s.x - b, s.y - b); cx.closePath(); cx.fill();
+  } else if (s.tipo === 'sasso') {      // sassolino con un filo di polvere dietro
+    cx.globalAlpha = OPAC_VENTO * (0.25); cx.strokeStyle = '#d9b99b'; cx.lineWidth = s.s; cx.beginPath(); cx.moveTo(s.x, s.y); cx.lineTo(s.x, s.y + s.l * 2); cx.stroke();
+    cx.globalAlpha = OPAC_VENTO * (0.9); cx.fillStyle = '#7a5a45'; cx.beginPath(); cx.ellipse(s.x, s.y, s.s * 1.1, s.s * 0.85, s.x, 0, 6.2832); cx.fill();
+    cx.fillStyle = 'rgba(255,230,200,.35)'; cx.beginPath(); cx.arc(s.x - s.s * 0.3, s.y - s.s * 0.3, s.s * 0.35, 0, 6.2832); cx.fill();
+  } else if (s.tipo === 'polvere') { cx.globalAlpha = OPAC_VENTO * (0.35); cx.strokeStyle = '#d9b99b'; cx.lineWidth = 0.6; cx.beginPath(); cx.moveTo(s.x, s.y); cx.lineTo(s.x, s.y + s.l); cx.stroke(); }
+  else {                                // bolla che sale ondeggiando, con un riflesso
+    const x = s.x + Math.sin(G.t * 4 + s.x) * 1.5;
+    cx.globalAlpha = OPAC_VENTO * (0.6); cx.strokeStyle = '#d6fbff'; cx.lineWidth = 0.5; cx.beginPath(); cx.arc(x, s.y, s.s, 0, 6.2832); cx.stroke();
+    cx.globalAlpha = OPAC_VENTO * (0.7); cx.fillStyle = '#ffffff'; cx.beginPath(); cx.arc(x - s.s * 0.35, s.y - s.s * 0.35, s.s * 0.28, 0, 6.2832); cx.fill();
+  }
+}
+function riga() {
+  // 16/11 (Stefano: gli ostacoli di due mondi non devono mischiarsi): il materiale segue la profondità dove nasce la fila,
+  // e il confine è dove cambia lo sfondo (al 90% del mondo). Attorno al confine c'è un tratto vuoto alto quanto lo schermo:
+  // così sullo schermo non si vedono mai ostacoli di due mondi insieme.
+  const prof = metri() + (H + 20 - G.y) / 10, pt = tratto(prof), cQui = pt.s + pt.L * 0.9,
+        cPrima = pt.i > 0 ? pt.s - LUNGHEZZE[Math.min(pt.i - 1, LUNGHEZZE.length - 1)] * 0.1 : -1e9,
+        confine = Math.abs(prof - cQui) < Math.abs(prof - cPrima) ? cQui : cPrima;
+  if (Math.abs(prof - confine) < H / 20 + 3) { G.prossimaRiga = G.prof + 40; return; }
+  if (G.gallina) { G.prossimaRiga = G.prof + 40; return; }   // durante la gallina delle monete: niente ostacoli
+  const m = metri(), y = H + 20, r = Math.random(), primo = G.ost.length, mondo = mondoDi(prof), tipi = TIPI_OSTACOLO[mondo];
+  let mat = tipi[Math.random() * tipi.length | 0];
+  if (tipi.length > 1 && mat === G.ultimoTipo) mat = tipi[(tipi.indexOf(mat) + 1) % tipi.length];   // due file di fila mai uguali
+  G.ultimoTipo = mat;
+  let xLibero = 20 + Math.random() * (W - 40);
+  if (m > 120 && r < 0.35) {                       // muro con un varco
+    const varco = Math.max(46, 72 - m * 0.02), gx = 8 + Math.random() * (W - 16 - varco);
+    G.ost.push({ x: -4, y, w: gx + 4, h: 12, vx: 0 }, { x: gx + varco, y, w: W - gx - varco + 4, h: 12, vx: 0 });
+    xLibero = gx + varco / 2;
+  } else if ((mondo === 3 || pt.i >= 5) && r < 0.6 && mondoDi(metri()) === mondo && (mondo === 3 || Math.random() < 0.55)
+             && G.ost.filter(o => o.cade).length < (pt.i >= 5 ? 2 : 1)) {
+    // 16/11: dal secondo giro (dopo la gallina) ogni mondo ha il suo nemico che arriva dall'alto, più veloce, a volte due insieme
+    // 16/11 (idea di Stefano): in caverna la talpa cade dall'alto, una alla volta. Prima cade un po' di terriccio
+    // dove arriverà (avviso), poi entra piano e si ferma un attimo, poi accelera in picchiata. Punta dove sei quando si annuncia.
+    const altro = G.ost.find(o => o.cade);   // se ce n'è già uno, il secondo arriva dall'altra metà dello schermo
+    let tx = altro ? (altro.x + 8 < W / 2 ? W * 0.55 + Math.random() * W * 0.3 : W * 0.15 + Math.random() * W * 0.3) : G.x;
+    tx = Math.max(12, Math.min(W - 28, tx - 8));
+    G.ost.push({ x: tx, y: -26, w: 16, h: 10, vx: 0, vola: true, nemico: mondo, cade: 'avviso', ct: 0, vy: 0, sf: true, giro2: pt.i >= 5, sc: 1 });
+  } else if (mondo !== 3 && (m > 300 || PROVA_FALCHI) && r < (PROVA_FALCHI ? 0.8 : 0.6)) {   // ostacolo che si muove (in caverna le talpe cadono dall'alto)
+    G.ost.push({ x: 8 + Math.random() * (W - 32), y, w: 16, h: 8, vx: (Math.random() < 0.5 ? -1 : 1) * (30 + Math.random() * 40), vola: true });
+    // 16/11: l'animale è del mondo in cui nasce (prima: del mondo del giocatore quando compariva → pipistrelli nel mare)
+    const an = G.ost[G.ost.length - 1]; an.nemico = mondo;
+    Suoni.nemico(an.nemico, lato(an.x));
+  } else {                                         // blocco singolo (o due)
+    const w = 28 + Math.random() * 40, x = Math.random() * (W - w);
+    G.ost.push({ x, y, w, h: 10 + (Math.random() * 5 | 0), vx: 0 });
+    if (m > 200 && Math.random() < 0.3) { const w2 = 24 + Math.random() * 20; G.ost.push({ x: (x + w + 50) % (W - w2), y: y + 30, w: w2, h: 10, vx: 0 }); }
+    xLibero = x > W - x - w ? x / 2 : x + w + (W - x - w) / 2;   // lato più largo
+  }
+  for (let i = primo; i < G.ost.length; i++) if (!G.ost[i].vola) { G.ost[i].img = mat; G.ost[i].seme = Math.random() * 1000 | 0; }
+  xLibero = Math.max(10, Math.min(W - 10, xLibero));
+  // tra una riga e l'altra: un bonus oppure una fila di monete
+  const sbloccati = ['magnet', 'shield', 'double'].filter(k => PROVA_BONUS || salva.liv[k] > 0);
+  if (sbloccati.length && G.prof > G.prossimoBonus) {
+    G.bonus.push({ x: PROVA_BONUS ? G.x : xLibero, y: y + 44,   // in prova: proprio sotto il personaggio, per prenderla senza toccare
+                   tipo: sbloccati[Math.random() * sbloccati.length | 0] });
+    G.prossimoBonus = G.prof + (PROVA_BONUS ? 150 + Math.random() * 100 : 1800 + Math.random() * 1200);   // un bonus ogni 180–300 m (prima 70–120 m)
+  } else {
+    const n = 4 + (Math.random() * 3 | 0), onda = Math.random() < 0.4 ? 10 : 0;
+    for (let i = 0; i < n; i++) G.monete.push({ x: xLibero + Math.sin(i * 0.9) * onda, y: y + 30 + i * 11 });
+  }
+  // via le monete (e i bonus) che finirebbero sopra un ostacolo fermo
+  const sopra = (x, y) => G.ost.some(o => !o.vola && x > o.x - 7 && x < o.x + o.w + 7 && y > o.y - 9 && y < o.y + o.h + 9);
+  G.monete = G.monete.filter(c => !sopra(c.x, c.y));
+  for (const b of G.bonus) if (sopra(b.x, b.y)) b.y += 30;
+  G.prossimaRiga = G.prof + 80 + velocita() * 0.25 + Math.random() * 30 + (m > 120 && r < 0.35 ? 20 : 0);
+}
+
+/* ---------- Comandi: trascinare = spostarsi, colpo in su = rallentare ---------- */
+const RICARICA = 7;                       // secondi per ricaricare del tutto il rallentamento
+const dito = { giu: false, id: -1, x0: 0, px0: 0, yRif: 0, tRif: 0, yPrima: 0 };
+const SCATTO = 70;                       // px verso l'alto, in poco tempo, per far partire il rallentamento
+const MOLLA = 24;                         // px: se il dito torna giù di tanto rispetto al punto più alto, il rallentamento si ferma
+function rallenta(y) {
+  if (G && G.lezione === 'ferma') fineLezione();
+  if (stato !== 'gioco' || G.morte > 0 || G.slowOn || G.slow < G.slowMax) return;   // parte solo a barra piena
+  G.slowOn = true; dito.yAlto = y; $('aiuto').classList.remove('su');
+}
+function fineLezione() { G.lezione = 'fatta'; $('lezione').classList.remove('su'); salva.lezione = true; scrivi(); }
+function ferma() { if (G && G.slowOn) G.slowOn = false; }   // smette e la barra si ricarica da dove è arrivata
+const inGioco = () => stato === 'gioco' || stato === 'conta';   // durante il 3, 2, 1 il dito si può già appoggiare
+addEventListener('pointerdown', e => {
+  if (!inGioco()) return;
+  dito.giu = true; dito.id = e.pointerId; dito.x0 = e.clientX; dito.px0 = G.x; dito.yRif = dito.yPrima = e.clientY; dito.xRif = dito.xPrima = e.clientX; dito.tRif = e.timeStamp;
+  $('aiuto').classList.remove('su');
+});
+addEventListener('pointermove', e => {
+  if (!dito.giu || e.pointerId !== dito.id || !inGioco()) return;
+  G.mira = Math.max(12, Math.min(W - 12, dito.px0 + (e.clientX - dito.x0) / scala * 1.25));
+  // colpo verso l'alto: il punto di partenza segue il dito quando scende o quando il gesto è troppo lento
+  // (si conta da quando il dito comincia a salire; se sale troppo piano non vale)
+  if (e.clientY >= dito.yPrima || e.timeStamp - dito.tRif > 450) { dito.yRif = dito.yPrima; dito.xRif = dito.xPrima; dito.tRif = e.timeStamp; }
+  // vale solo un gesto quasi verticale: la salita deve essere almeno il doppio dello spostamento di lato (chi sterza in diagonale non rallenta per sbaglio)
+  const su_ = dito.yRif - e.clientY, lato = Math.abs(e.clientX - dito.xRif);
+  if (su_ > SCATTO && su_ > 2 * lato) { rallenta(e.clientY); dito.yRif = e.clientY; dito.xRif = e.clientX; dito.tRif = e.timeStamp; }
+  dito.yPrima = e.clientY; dito.xPrima = e.clientX;
+  // mentre rallenta: tieni tirato in su; se il dito torna giù, si ferma
+  if (G.slowOn) { dito.yAlto = Math.min(dito.yAlto, e.clientY); if (e.clientY - dito.yAlto > MOLLA) ferma(); }
+});
+const su = e => { if (e.pointerId === dito.id) { dito.giu = false; dito.id = -1; ferma(); } };
+addEventListener('pointerup', su); addEventListener('pointercancel', su);
+addEventListener('keydown', e => { if (e.code === 'Space') { e.preventDefault(); if (!e.repeat) rallenta(0); }
+  if (e.code === 'Escape' || e.code === 'KeyP') { if (stato === 'pausa') riprendi(); else pausa(); } });
+addEventListener('keyup', e => { if (e.code === 'Space') ferma(); });
+document.addEventListener('touchmove', e => { if (inGioco()) e.preventDefault(); }, { passive: false });
+document.addEventListener('visibilitychange', () => { if (document.hidden) pausa(); });   // esci dall'app: il gioco si ferma da solo
+
+/* ---------- Aggiornamento ---------- */
+const lato = x => Math.max(-1, Math.min(1, (x - W / 2) / (W / 2)));   // per i suoni: -1 sinistra, 1 destra
+function colpito(o) {
+  if (o) o.colpito = true;   // 16/11 sfide: un nemico che ti tocca non conta come evitato (anche se sei intoccabile)
+  if (G.intocc > 0) return;
+  if (G.shield > 0) { G.shield = 0; G.intocc = 0.8; G.lampo = 0.25; scintille(G.x, G.y, '#8f9bff', 14); Suoni.scudo(); return; }
+  Suoni.colpo(o && o.vola ? 'animale' : FAMIGLIA[o && o.img] || 'roccia', lato(G.x));
+  G.vite--; G.colpi = (G.colpi || 0) + 1; G.intocc = 1.3; G.scossa = 0.35; G.lampo = 0.3;
+  scintille(G.x, G.y, '#ff5d73', 12);
+  effetto(aCaso(IMG.fx.sbuffo), G.x, G.y, 0.5, 14, 28);
+  for (let k = 0; k < 3; k++) effetto(IMG.fx.piuma[k], G.x, G.y, 0.9, 9, 8, (Math.random() - 0.5) * 90, -25 - Math.random() * 40, (Math.random() - 0.5) * 8);
+  if (G.vite <= 0) { G.morte = 0.7; Suoni.morte(); }
+}
+/* ---------- 16/11 zona evento: il biplano col falco semina bombe col paracadute (Cielo, a metà del mondo; al 2° giro più fitte, una passata in più) ----------
+   Avviso come per le talpe: sbuffi di fumo del motore dal bordo da cui entrerà. Poi passa SOTTO di te da un lato all'altro e lascia
+   una fila di bombe appese al paracadute; mentre cadi le bombe ti vengono incontro e scoppiano alla tua altezza (lampo, palla di fuoco,
+   si spegne, fumo): ti salvi stando nel varco tra due bombe. Tutto ciò che si vede è un'immagine o le particelle del gioco. */
+const BOMBA_RAGGIO = 14;   // danno dello scoppio
+function evento(dt, wdt, sc) {
+  const pt = tratto(metri()); G.evFatti = G.evFatti || {}; G.bombe = G.bombe || []; G.scoppi = G.scoppi || [];
+  // nel Cielo e nella Notte (anche al 2° giro; al Tramonto per ora no, 16/11), sempre un po' più difficile: più passate, più veloce, bombe più fitte
+  if (!G.ev && (pt.i % 5 === 0 || pt.i % 5 === 2) && pt.t > 0.45 && pt.t < 0.8 && !G.evFatti[pt.i]) {
+    G.evFatti[pt.i] = true; const g2 = pt.i >= 5, m = pt.i % 5;
+    G.ev = { pass: 0, n: [3, 3, 4][m] + (g2 ? 1 : 0), vel: 64 + m * 7 + (g2 ? 12 : 0), ogni: 0.7 - m * 0.06 - (g2 ? 0.12 : 0), salta: 0.2 - m * 0.03,
+      fase: 'avviso', t: 0, dir: Math.random() < 0.5 ? 1 : -1, x: 0, y: 0, sgancio: 0 };
+  }
+  // bombe: salgono con il mondo (sei tu che cadi), dondolano; alla tua altezza scoppiano
+  for (const b of G.bombe) {
+    b.t += wdt; b.y -= sc; b.x += Math.sin(b.t * 1.6 + b.fase) * 4 * wdt;
+    if (b.y <= G.y + 2) {
+      b.via = true; G.scoppi.push({ x: b.x, y: b.y, t: 0 }); G.scossa = Math.max(G.scossa, 0.12);
+      if (Math.hypot(G.x - b.x, G.y - b.y) < BOMBA_RAGGIO) colpito({ vola: true });
+    }
+  }
+  G.bombe = G.bombe.filter(b => !b.via);
+  for (const s of G.scoppi) { s.t += dt; s.y -= sc; }
+  G.scoppi = G.scoppi.filter(s => s.t < 1);
+  const e = G.ev; if (!e) return;
+  e.t += wdt;
+  if (e.fase === 'avviso') {   // sbuffi di fumo dal bordo da cui entrerà
+    e.y = Math.min(H - 50, G.y + 180);
+    if (Math.random() < dt * 30) { const x0 = e.dir > 0 ? -4 : W + 4;
+      effetto(aCaso(IMG.fx.sbuffo), x0, e.y + (Math.random() - 0.5) * 14, 0.7, 6, 15 + e.t * 6, e.dir * (18 + Math.random() * 20), (Math.random() - 0.5) * 8); }
+    if (e.t > 1.2) { e.fase = 'vola'; e.t = 0; e.x = e.dir > 0 ? -34 : W + 34; e.sgancio = 0.25 + Math.random() * 0.3; }
+    return;
+  }
+  e.x += e.dir * e.vel * wdt; e.sgancio -= wdt;
+  if (e.sgancio <= 0 && e.x > 8 && e.x < W - 8) {   // una bomba ogni ~45 unità; a volte salta un colpo e il varco si allarga
+    e.sgancio = e.ogni * (Math.random() < e.salta ? 1.8 : 1);
+    G.bombe.push({ x: e.x, y: e.y + 6, t: 0, fase: Math.random() * 6.28 });
+  }
+  if (e.x < -40 || e.x > W + 40) { e.pass++; if (e.pass >= e.n) G.ev = null; else { e.fase = 'avviso'; e.t = 0; e.dir = -e.dir; } }
+}
+function disegnaEvento() {
+  for (const b of G.bombe || []) {   // la bomba è in basso nell'immagine: il disegno sta più su del suo centro; vicino allo scoppio pulsa
+    const vicino = Math.max(0, 1 - (b.y - G.y) / 35), puls = 1 + vicino * 0.12 * Math.sin(G.t * 38);
+    if (pronta(IMG.bomba)) sprite(IMG.bomba, b.x, b.y - 9 * puls, 30 * puls, Math.sin(b.t * 1.6 + b.fase) * 0.12);
+  }
+  for (const s of G.scoppi || []) {   // lampo, palla di fuoco, si spegne, fumo che svanisce
+    const f = s.t < 0.07 ? 0 : s.t < 0.3 ? 1 : s.t < 0.55 ? 2 : 3, i = IMG.scoppio[f]; if (!pronta(i)) continue;
+    const h = f === 0 ? 30 : f === 1 ? 28 + 14 * Math.min(1, (s.t - 0.07) / 0.1) : f === 2 ? 42 : 44 + (s.t - 0.55) * 20;
+    cx.globalAlpha = f === 3 ? Math.max(0, 1 - (s.t - 0.55) / 0.45) : 1; sprite(i, s.x, s.y, h, 0); cx.globalAlpha = 1;
+  }
+  const e = G.ev; if (e && e.fase === 'vola') { cono(e.x, e.y, e.dir, [0.16, 0.26, 0.42][tratto(metri()).i % 5] || 0.26); biplano(e.x, e.y, e.dir); }
+}
+// 16/11: fascio di luce davanti al biplano, un cono che sfuma (più forte al tramonto e di notte)
+function cono(x, y, dir, forza) {
+  const nx = x + dir * 21, ny = y + 2, L = 95, a = 0.32;
+  const g = cx.createRadialGradient(nx, ny, 2, nx, ny, L);
+  g.addColorStop(0, `rgba(255,244,214,${forza})`); g.addColorStop(0.45, `rgba(255,236,190,${forza * 0.45})`); g.addColorStop(1, 'rgba(255,236,190,0)');
+  cx.save(); cx.globalCompositeOperation = 'lighter'; cx.fillStyle = g;
+  cx.beginPath(); cx.moveTo(nx, ny - 1.5); cx.arc(nx, ny, L, dir > 0 ? -a : Math.PI - a, dir > 0 ? a : Math.PI + a); cx.lineTo(nx, ny + 1.5); cx.closePath(); cx.fill();
+  cx.restore();
+}
+function biplano(x, y, dir) {   // immagine di Stefano (falco ai comandi); guarda a destra, si gira quando va a sinistra
+  if (!pronta(IMG.biplano)) return;
+  cx.save(); cx.translate(x, y); cx.scale(dir, 1); sprite(IMG.biplano, 0, 0, 34, Math.sin(G.t * 6) * 0.04); cx.restore();
+}
+// 16/11: effetti disegnati (scintilla dorata sulle monete, sbuffo e piume quando sbatti): crescono e svaniscono
+function effetto(i, x, y, dur, h0, h1, vx = 0, vy = 0, giro = 0) { G.fx.push({ i, x, y, t: 0, dur, h0, h1, vx, vy, giro, ang: Math.random() * 6.28 * (giro ? 1 : 0) }); }
+const aCaso = l => l[Math.random() * l.length | 0];
+function scintille(x, y, colore, n) {
+  for (let i = 0; i < n; i++) { const a = Math.random() * 6.28, v = 30 + Math.random() * 70;
+    G.scint.push({ x, y, vx: Math.cos(a) * v, vy: Math.sin(a) * v, t: 0.3 + Math.random() * 0.3, colore }); }
+}
+function passo(dt) {
+  if (stato === 'conta') {                 // 3, 2, 1: il gioco resta fermo, poi riparte
+    const prima_ = Math.ceil(G.conta); G.conta -= dt; const ora = Math.ceil(G.conta);
+    if (G.conta <= 0) { stato = 'gioco'; $('conta').classList.remove('su', 'batti'); Suoni.via(); }
+    else if (ora !== prima_) batti(ora);
+    return;
+  }
+  if (stato !== 'gioco') return;
+  G.t += dt;
+  if (G.yMeta && G.y < G.yMeta) G.y = Math.min(G.yMeta, G.y + (G.yMeta - G.y + 6) * Math.min(1, dt * 4.5));   // 16/11: entra cadendo dall'alto
+  // prima partita: quando arriva il primo ostacolo il gioco si ferma e insegna il rallentamento
+  if (G.lezione === 'attesa' && G.ost.some(o => o.y > G.y && o.y - G.y < 95)) { G.lezione = 'ferma'; $('lezione').classList.add('su'); $('aiuto').classList.remove('su'); }
+  if (G.lezione === 'ferma' || G.spiega) return;   // fermo per la lezione o per la scheda della prima presa
+  if (G.morte > 0) { G.morte -= dt; G.scossa = Math.max(0, G.scossa - dt); avanzaScintille(dt); if (G.morte <= 0) finePartita(); return; }
+
+  G.tv = (G.tv || 0) + dt;                 // tempo di caduta vera (senza pause, lezione, morte): decide la velocità
+  // rallentamento
+  if (PROVA_PARACADUTE) { G.slow = G.slowMax; G.slowOn = true; }   // per le prove: ?paracadute lo tiene sempre aperto
+  // una volta acceso dura tutto il tempo (non si spreca), poi si ricarica da zero
+  if (G.slowOn) { G.slow -= dt; if (G.slow <= 0) { G.slow = 0; G.slowOn = false; } }
+  else G.slow = Math.min(G.slowMax, G.slow + G.slowMax / RICARICA * dt);
+  if (G.slowOn !== !!G.paraPrima) { G.slowOn ? Suoni.apre() : Suoni.chiude(); G.paraPrima = G.slowOn; }   // 16/11 suoni del paracadute
+  if (!G.slowOn && G.slow >= G.slowMax && G.slowPrima < G.slowMax) Suoni.caricato(); G.slowPrima = G.slow;
+  G.slowK += ((G.slowOn ? 1 : 0) - G.slowK) * Math.min(1, dt * 10);
+  const wdt = dt * (1 - 0.65 * G.slowK);
+
+  // caduta
+  const v = velocita(), sc = v * wdt;
+  G.prof += sc;
+  const xPrima = G.x;
+  G.x += (G.mira - G.x) * Math.min(1, dt * 22);
+  // 16/11 suoni: «swoosh» quando parte uno spostamento (o cambia verso); più è ampio, più è forte
+  { const vx = (G.x - xPrima) / Math.max(dt, 0.001), dir = Math.sign(vx); G.swT = Math.max(0, (G.swT || 0) - dt);
+    if (Math.abs(vx) > 70 && G.swT <= 0 && (dir !== G.swDir || !G.swVa)) { Suoni.swoosh(dir, Math.abs(G.mira - xPrima) / 90); G.swT = 0.22; G.swDir = dir; }
+    G.swVa = Math.abs(vx) > 40; if (!G.swVa) G.swDir = 0; }
+  // braccia aperte quando si sposta: si aprono appena il dito sterza, restano aperte un attimo dopo (niente sfarfallio), passaggio rapido
+  // 15/11 (Stefano): tornare in picchiata (braccia lungo i fianchi) richiede più tempo: si aprono in ~0,1 s, si richiudono in ~0,6 s
+  if (Math.abs(G.mira - G.x) > 1.5) G.bracciaT = 0.2; else G.bracciaT = Math.max(0, (G.bracciaT || 0) - dt);
+  const apre = G.bracciaT > 0; G.bracciaApre = apre;
+  G.braccia += ((apre ? 1 : 0) - G.braccia) * Math.min(1, dt * (apre ? 16 : 4));
+  if ((G.t * 2 | 0) !== G.ctrlT) { G.ctrlT = G.t * 2 | 0; controlla(); }   // sfide sui metri: due volte al secondo
+  for (const k of ['magnet', 'shield', 'double']) if (G[k] > 0 && G[k] <= dt) Suoni.finePotere();   // 16/11: un potenziamento finisce
+  for (const k of ['magnet', 'shield', 'double', 'intocc', 'scossa', 'lampo', 'felice']) G[k] = Math.max(0, G[k] - dt);
+
+  const f = fondaleA(metri());
+
+  { const fr = tratto(metri()).t; if (G.frPrima !== undefined && G.frPrima < 0.85 && fr >= 0.85) Suoni.passaggio(); G.frPrima = fr; }   // 16/11: il suono «respira» nel tratto vuoto tra due mondi
+  if (G.prof >= G.prossimaRiga) riga();
+  if (G.prof >= G.prossimaDeco) { nuovaDeco(H + 10); G.prossimaDeco = G.prof + { nuvola: 120, stella: 60, polvere: 14, bolla: 22 }[f.deco]; }
+  // segni del vento (15/11): diversi per mondo
+  const mondo = f.indice % 5, quanti = v / 300 * 0.5 * (W / 180);
+  if (Math.random() < quanti * [1, 0.45, 0.8, 1, 0.9][mondo]) G.scie.push(nuovoSegno(mondo, v));
+
+  // 16/11 (Stefano): prima del secondo giro, quando torna il cielo dopo l'abisso, arriva la gallina delle monete.
+  // Niente ostacoli; lei cade sotto di te a zig-zag e lascia una scia di monete. Se le prendi tutte, alla fine c'è l'uovo d'oro: un cuore in più.
+  { const tq = tratto(metri());
+    if (!G.gallinaFatta && tq.i === 4 && metri() >= tq.s + tq.L * 0.9 - 15) {   // parte nel tratto vuoto prima del cielo: lì sotto non ci sono ostacoli
+      G.gallinaFatta = true; G.galTot = 0; G.galPerse = 0;
+      G.gallina = { x: W / 2, y: -30, t: 0, fase: 'entra', ultima: G.prof, dir: 1 };
+      Suoni.bolla('double', 0);
+    } }
+  if (G.gallina) {
+    const g = G.gallina, xPrima = g.x; g.t += wdt;
+    const giu = H * 0.62;
+    if (g.fase === 'entra') { const q = Math.min(1, g.t / 1.1); g.y = -30 + (giu + 30) * (1 - (1 - q) * (1 - q)); if (q >= 1) { g.fase = 'gira'; g.t = 0; g.ultima = G.prof; } }
+    else if (g.fase === 'gira') {
+      g.x = W / 2 + Math.sin(g.t * 1.4) * W * 0.3 + Math.sin(g.t * 3.1) * W * 0.05;
+      g.y = giu + Math.sin(g.t * 2.2) * 6;
+      if (G.prof - g.ultima >= 14) { g.ultima = G.prof; G.monete.push({ x: g.x, y: g.y - 8, gallina: true }); G.galTot++; }
+      if (g.t > 8) { g.fase = 'via'; g.t = 0; g.vy = 0; if (G.galPerse === 0) G.uovo = { x: g.x, y: g.y + 4 }; }
+    } else { g.vy += 500 * wdt; g.y += g.vy * wdt; if (g.y > H + 40) G.gallina = null; }
+    g.dir = g.x > xPrima + 0.05 ? 1 : g.x < xPrima - 0.05 ? -1 : g.dir;
+  }
+  if (G.uovo) {
+    const u = G.uovo; u.y -= sc;
+    if (G.galPerse > 0) { effetto(aCaso(IMG.fx.sbuffo || IMG.fx.scintilla), u.x, u.y, 0.4, 8, 18); G.uovo = null; }
+    else if (Math.abs(G.x - u.x) < 14 && Math.abs(G.y - u.y) < 15) {
+      G.vite++; G.viteMax = Math.max(G.viteMax, G.vite); G.felice = 0.35; conta('uova');
+      scintille(u.x, u.y, '#ffd23f', 18); scintille(u.x, u.y, '#ff5d73', 10); effetto(IMG.uovo[1], u.x, u.y - 4, 0.9, 24, 32, 0, -28); Suoni.bolla('shield', lato(u.x)); G.uovo = null;
+    } else if (u.y < -20) G.uovo = null;
+  }
+
+  // ostacoli
+  for (const o of G.ost) {
+    if (o.cade) { cadeTalpa(o, wdt); if (o.cade === 'avviso') continue; } else o.y -= sc;
+    // 16/11 sfide: un nemico è evitato quando ti ha superato senza toccarti
+    if (o.vola && !o.ev && (o.cade ? o.cade === 'giu' && o.y > G.y + 14 : o.y + o.h < G.y - 8)) evitato(o);
+    // 16/11: l'aquilone è portato dal vento: va avanti e indietro morbido (raffiche), cambia verso solo ai bordi
+    if (o.vola && !o.cade && o.nemico === 1) {
+      if (o.vb === undefined) { o.vb = o.vx; o.wt = Math.random() * 6; }
+      o.wt += wdt; if ((o.x < 10 && o.vb < 0) || (o.x + o.w > W - 10 && o.vb > 0)) o.vb = -o.vb;
+      o.vx = o.vb + Math.sin(o.wt * 1.3) * 38;
+    }
+    if (o.vx) { const mg = o.vola ? 8 : 0;   // il falco è più largo del suo corpo: gira prima del bordo, così non esce dallo schermo
+      o.x += o.vx * wdt; if (o.x < mg || o.x + o.w > W - mg) { o.vx = -o.vx; o.x = Math.max(mg, Math.min(W - o.w - mg, o.x)); } }
+    if (Math.abs(G.x - (o.x + o.w / 2)) < o.w / 2 + 6 && Math.abs(G.y - (o.y + o.h / 2)) < o.h / 2 + 5) colpito(o);
+    // 16/11 suoni: quando un ostacolo ti passa accanto da vicino senza toccarti, «fiuu» dal suo lato
+    if (!o.sf && o.y + o.h / 2 < G.y) { o.sf = true; const dx = Math.max(o.x - G.x, G.x - (o.x + o.w), 0) - 6;
+      if (dx < 22 && G.intocc <= 0) Suoni.sfiora(Math.sign(o.x + o.w / 2 - G.x), 1 - Math.max(0, dx) / 22); }
+  }
+  evento(dt, wdt, sc);   // 16/11: zona evento (biplano che semina bombe nel Cielo)
+  // monete
+  for (const c of G.monete) {
+    c.y -= sc;
+    const dx = G.x - c.x, dy = G.y - c.y, d = Math.hypot(dx, dy);
+    if (G.magnet > 0 && d < 75 && d > 0.1) { c.x += dx / d * 240 * dt; c.y += dy / d * 240 * dt; }
+    if (c.gallina && !c.persa && !(d < 13) && c.y < G.y - 14) { c.persa = true; G.galPerse++; }
+    if (d < 13) { c.presa = true; G.felice = 0.35; G.raccolte += G.double > 0 ? 2 : 1; conta('monete', G.double > 0 ? 2 : 1); Suoni.moneta(G.double > 0, lato(c.x)); scintille(c.x, c.y, '#ffd23f', 3); effetto(aCaso(IMG.fx.scintilla), c.x, c.y, 0.35, 5, 12); }
+  }
+  // bonus
+  for (const b of G.bonus) {
+    b.y -= sc;
+    if (Math.abs(G.x - b.x) < 16 && Math.abs(G.y - b.y) < 15) { b.presa = true; Suoni.bolla(b.tipo, lato(b.x)); G[b.tipo] = valore(b.tipo); scintille(b.x, b.y, ogg(b.tipo).colore, 14); G.dur[b.tipo] = G[b.tipo]; vola(b.tipo, b.x, b.y); if (!(salva.visti || {})[b.tipo]) spiega(b.tipo); }   // 15/11: niente testo, l'icona vola al suo posto
+  }
+  for (const d of G.deco) d.y -= sc * (d.tipo === f.deco ? d.par : 1);   // quelle del fondale vecchio escono in fretta
+  for (const s of G.scie) { s.y -= sc * s.vel; if (s.giro) s.ang += s.giro * dt; }
+  avanzaScintille(dt);
+
+  G.ost = G.ost.filter(o => o.cade ? o.y < H + 40 : o.y > -30);
+  G.monete = G.monete.filter(c => !c.presa && c.y > -10);
+  G.bonus = G.bonus.filter(b => !b.presa && b.y > -15);
+  G.deco = G.deco.filter(d => d.y > -30);
+  G.scie = G.scie.filter(s => s.y > -20);
+}
+// nemico che cade dall'alto (16/11): avviso 0,7 s (0,5 dal secondo giro) → entrata che frena 0,45 s → fermo 0,35 s → picchiata.
+// Al primo giro solo la talpa (caverna). Dal secondo giro ognuno a modo suo e più veloce (×1,35):
+// falco picchiata dritta e veloce · aquilone scende ondeggiando · gufo piega verso di te · talpa come prima · pesce palla si gonfia
+const TALPA_FERMA = 52;   // dove si ferma, dall'alto: sotto la fascia di cuori e metri (il personaggio è a ~105-117)
+const COLORE_AVVISO = [['#ffffff', '#dbe9f5'], ['#ffd0b0', '#ff9f80'], ['#ffe9a0', '#fff6d0'], ['#8a6a4a', '#5e4632'], ['#bff6ff', '#ffffff']];
+function cadeTalpa(o, dt) {
+  o.ct += dt;
+  const k = o.giro2 ? 1.35 : 1, n = o.nemico;
+  if (o.cade === 'avviso') {
+    const col = COLORE_AVVISO[n];
+    if (Math.random() < dt * 40) G.scint.push({ x: o.x + 2 + Math.random() * 12, y: 30 + Math.random() * 4, vx: (Math.random() - 0.5) * 8, vy: 45 + Math.random() * 40, t: 0.5 + Math.random() * 0.3, colore: col[Math.random() < 0.5 ? 0 : 1] });
+    if (o.ct > (o.giro2 ? 0.5 : 0.7)) { o.cade = 'entra'; o.ct = 0; Suoni.nemico(n, lato(o.x + 8)); }
+  } else if (o.cade === 'entra') {
+    const q = Math.min(1, o.ct / 0.45), e = 1 - (1 - q) * (1 - q);   // frena arrivando
+    o.y = -26 + (TALPA_FERMA + 26) * e;
+    if (q >= 1) { o.cade = 'ferma'; o.ct = 0; }
+  } else if (o.cade === 'ferma') {
+    if (o.ct > 0.35) { o.cade = 'giu'; o.ct = 0; o.x0 = o.x; }
+  } else {
+    if (n === 0) { o.vy = Math.min(560 * k, o.vy + 1100 * k * dt); }                                   // falco
+    else if (n === 1) { o.vy = 150 * k; o.x = o.x0 + Math.sin(o.ct * 4) * 26; }                      // aquilone
+    else if (n === 2) { o.vy = Math.min(380 * k, o.vy + 650 * k * dt); o.x += Math.sign(G.x - 8 - o.x) * Math.min(Math.abs(G.x - 8 - o.x), 70 * dt); }   // gufo
+    else if (n === 4) { o.vy = Math.min(300 * k, o.vy + 500 * k * dt); const g = 1 + 0.6 * Math.min(1, o.ct / 0.5);   // pesce palla
+      if (g !== o.sc) { const cx0 = o.x + o.w / 2, cy0 = o.y + o.h / 2; o.sc = g; o.w = 16 * g; o.h = 10 * g; o.x = cx0 - o.w / 2; o.y = cy0 - o.h / 2; } }
+    else { o.vy = Math.min(420 * k, o.vy + 750 * k * dt); }                                            // talpa
+    o.x = Math.max(4, Math.min(W - o.w - 4, o.x));
+    o.y += o.vy * dt;
+  }
+}
+function avanzaScintille(dt) {
+  for (const p of G.scint) { p.x += p.vx * dt; p.y += p.vy * dt; p.t -= dt; }
+  G.scint = G.scint.filter(p => p.t > 0);
+  for (const e of G.fx) { e.t += dt; e.x += e.vx * dt; e.y += e.vy * dt; e.vy += 30 * dt; e.ang += e.giro * dt; }
+  G.fx = G.fx.filter(e => e.t < e.dur);
+}
+
+/* ---------- Disegno (stile morbido) ---------- */
+const tondo = (x, y, w, h, rr) => { cx.beginPath(); cx.roundRect(x, y, w, h, rr); };
+const cerchio = (x, y, rr) => { cx.beginPath(); cx.arc(x, y, rr, 0, 6.2832); };
+function cielo(f) {                      // cielo sfumato; le nuvole sono immagini singole che scorrono
+  const g = cx.createLinearGradient(0, 0, 0, H);
+  g.addColorStop(0, rgb(f.su)); g.addColorStop(1, rgb(f.giu));
+  cx.fillStyle = g; cx.fillRect(0, 0, W, H);
+}
+// ostacolo (16/11): ogni tipo ha 3 pezzi (corto, medio, lungo). Si sceglie quello con le proporzioni più vicine all'ostacolo
+// e lo si disegna intero, mai stirato; se l'ostacolo è più lungo anche del pezzo lungo, se ne affiancano più copie
+// sovrapposte. Una copia sì e una no è specchiata, così due ostacoli uguali non sembrano copiati.
+function lastra(tipo, x, y, w, h, seme) {
+  const pezzi = IMG.ost[tipo], corpo = CORPO[tipo] || 1, dh = h * 1.7, cy = y + h / 2;
+  let i = null, meglio = 1e9;
+  for (const p of pezzi) if (pronta(p)) { const d = Math.abs(Math.log(p.naturalWidth / (p.naturalHeight * corpo) / (w / dh))); if (d < meglio) { meglio = d; i = p; } }
+  if (!i) return false;
+  const a = i.naturalWidth / (i.naturalHeight * corpo);          // proporzioni del solo corpo
+  const bh = Math.max(dh * 0.75, Math.min(dh * 1.35, w / a)), ih = bh / corpo, iw = bh * a;
+  const n = iw >= w * 0.85 ? 1 : Math.ceil((w - iw) / (iw * 0.75)) + 1, passo = n > 1 ? (w - iw) / (n - 1) : 0;
+  for (let k = 0; k < n; k++) {
+    const px = n > 1 ? x + k * passo : x + (w - iw) / 2, py = cy - bh / 2 + (n > 1 ? (k % 2 ? 1 : -1) * dh * 0.04 : 0);
+    if ((k + (seme | 0)) % 2) { cx.save(); cx.translate(px + iw, py); cx.scale(-1, 1); cx.drawImage(i, 0, 0, iw, ih); cx.restore(); }
+    else cx.drawImage(i, px, py, iw, ih);
+  }
+  return true;
+}
+function nuvoletta(x, y, s, tinta) {
+  cx.fillStyle = tinta;
+  cerchio(x, y, s); cx.fill(); cerchio(x + s * 1.1, y - s * 0.35, s * 1.25); cx.fill(); cerchio(x + s * 2.3, y, s * 0.95); cx.fill();
+  tondo(x - s, y - s * 0.2, s * 4.2, s * 1.2, s * 0.6); cx.fill();
+}
+function sprite(i, x, y, alt, ang) {
+  if (!pronta(i)) return false;
+  const w = alt * i.naturalWidth / i.naturalHeight;
+  cx.save(); cx.translate(x, y); if (ang) cx.rotate(ang); cx.drawImage(i, -w / 2, -alt / 2, w, alt); cx.restore(); return true;
+}
+function disegna() {
+  const f = fondaleA(G ? metri() : 0);
+  cielo(f);
+  if (!G) return;
+  cx.save();
+  if (G.scossa > 0) cx.translate((Math.random() - 0.5) * 6 * G.scossa / 0.35, (Math.random() - 0.5) * 6 * G.scossa / 0.35);
+
+  // notte: la luna, lontana, sale piano mentre cadi
+  const mm = metri(), luna = presenza(mm, 2);
+  if (luna > 0 && pronta(IMG.luna)) { const t = tratto(mm).t;
+    cx.globalAlpha = luna * 0.92; sprite(IMG.luna, W * 0.76, H * 0.22 - t * 40, 36); cx.globalAlpha = 1; }
+  // decorazioni lontane
+  for (const d of G.deco) {
+    if (d.tipo === 'nuvola') {             // più vicina = più grande e più veloce
+      const n = d.mondo === 1 ? IMG.nuvolaTramonto : IMG.nuvole[d.s % 2], w = 34 + (d.par - 0.25) * 380;   // al tramonto nuvole rosa
+      // 15/11: più trasparenti e sfocate, così restano «dietro» e non si confondono con gli ostacoli
+      const alt = w * n.naturalHeight / Math.max(1, n.naturalWidth), sf = sfocata(n);
+      cx.globalAlpha = 0.36 + (d.par - 0.25) * 1.6;
+      if (sf) { const m = sf.mg * w; cx.drawImage(sf.tela, d.x - w / 2 - m, d.y - alt / 2 - m, w + 2 * m, alt + 2 * m); }
+      else if (!sprite(n, d.x, d.y, alt)) { cx.globalAlpha = 0.35; nuvoletta(d.x, d.y, d.s * 2.2 + 2, d.tinta); }
+    }
+    else if (d.tipo === 'stella') { cx.globalAlpha = 0.4 + 0.5 * Math.abs(Math.sin(G.t * 2 + d.x)); cx.fillStyle = d.tinta; cerchio(d.x, d.y, d.s > 2 ? 1.1 : 0.6); cx.fill(); }
+    else if (d.tipo === 'polvere') { cx.globalAlpha = 0.35; cx.fillStyle = d.tinta; cerchio(d.x, d.y, d.s * 0.45); cx.fill(); }
+    else { cx.globalAlpha = 0.5; cx.strokeStyle = d.tinta; cx.lineWidth = 0.7; cerchio(d.x, d.y, d.s + 1); cx.stroke(); }
+  }
+  // caverna: pareti di roccia ai due lati, che scorrono con gli ostacoli
+  const pareti = presenza(mm, 3), pi = IMG.parete;
+  if (pareti > 0 && pronta(pi)) {
+    const pw = 15, ph = pw * pi.naturalHeight / pi.naturalWidth, off = (G.prof % ph);
+    cx.globalAlpha = pareti;
+    for (let y = -off; y < H; y += ph) {
+      cx.drawImage(pi, -1, y, pw, ph + 0.5);
+      cx.save(); cx.translate(W + 1, y); cx.scale(-1, 1); cx.drawImage(pi, 0, 0, pw, ph + 0.5); cx.restore();
+    }
+    cx.globalAlpha = 1;
+  }
+  cx.lineCap = 'round';
+  for (const s of G.scie) segno(s);
+  cx.globalAlpha = 1;
+
+  // monete (6 fotogrammi che girano)
+  for (const c of G.monete) {
+    const fr = IMG.moneta[((G.t * 12 + c.x * 0.37) | 0) % 6];
+    if (!sprite(fr, c.x, c.y, 10)) { cx.fillStyle = '#ffd23f'; cerchio(c.x, c.y, 4); cx.fill(); }
+  }
+  // uovo d'oro (provvisorio, disegnato) e gallina
+  if (G.uovo && G.galPerse === 0 && sprite(IMG.uovo[0], G.uovo.x, G.uovo.y + Math.sin(G.t * 5) * 1.5, 22, Math.sin(G.t * 3) * 0.1)) {}
+  else if (G.uovo && G.galPerse === 0) { const u = G.uovo, y = u.y + Math.sin(G.t * 5) * 1.5;
+    cx.fillStyle = '#e8a91c'; cx.beginPath(); cx.ellipse(u.x, y, 6.5, 8.5, 0, 0, Math.PI * 2); cx.fill();
+    cx.fillStyle = '#ffd95a'; cx.beginPath(); cx.ellipse(u.x - 1, y - 1, 5, 7, 0, 0, Math.PI * 2); cx.fill();
+    cx.fillStyle = 'rgba(255,255,255,.75)'; cx.beginPath(); cx.ellipse(u.x - 2.5, y - 4, 1.5, 2.5, -0.4, 0, Math.PI * 2); cx.fill();
+    cx.fillStyle = '#ff5d73'; cerchio(u.x - 1, y + 1.5, 1.4); cx.fill(); cerchio(u.x + 1, y + 1.5, 1.4); cx.fill();
+    cx.beginPath(); cx.moveTo(u.x - 2.3, y + 2); cx.lineTo(u.x, y + 4.6); cx.lineTo(u.x + 2.3, y + 2); cx.fill(); }
+  if (G.gallina) { const g = G.gallina;
+    cx.save(); cx.translate(g.x, g.y); cx.scale(g.dir, 1);
+    const posa = IMG.gallina[BATTITO[(G.t * 12 | 0) % 4]];   // larga come il protagonista (30), in picchiata appena inclinata
+    if (!sprite(posa, 0, 0, 27, 0.3 + Math.sin(G.t * 3) * 0.08 + (g.fase === 'via' ? 0.4 : 0))) { cx.fillStyle = '#fff3e0'; cerchio(0, 0, 9); cx.fill(); }
+    cx.restore(); }
+  disegnaEvento();
+  // bonus: l'oggetto (che dondola appena) e sopra la bolla trasparente, così il riflesso passa sopra l'oggetto
+  for (const b of G.bonus) {
+    const x = b.x, y = b.y + Math.sin(G.t * 5) * 2, og = IMG.ogg[b.tipo];
+    if (UI_NUVOLA() && og && pronta(og) && pronta(IMG.sfera)) { sprite(IMG.sfera, x, y, 25); sprite(og, x, y, 12, Math.sin(G.t * 3 + b.x) * 0.12); continue; }   // stile nuvola (16/11): sfera morbida, l'oggetto sopra
+    if (pronta(IMG.bollaVuota) && og && pronta(og)) { sprite(og, x, y, 12.5, Math.sin(G.t * 3 + b.x) * 0.12); sprite(IMG.bollaVuota, x, y, 22); continue; }
+    const g = cx.createRadialGradient(x - 3, y - 3, 1, x, y, 11);
+    g.addColorStop(0, 'rgba(255,255,255,.7)'); g.addColorStop(0.6, 'rgba(220,240,255,.18)'); g.addColorStop(1, 'rgba(255,255,255,.35)');
+    cx.fillStyle = g; cerchio(x, y, 11); cx.fill(); cx.strokeStyle = 'rgba(255,255,255,.75)'; cx.lineWidth = 0.7; cerchio(x, y, 11); cx.stroke();
+    cx.font = '900 9px ui-rounded, system-ui, sans-serif'; cx.textAlign = 'center'; cx.textBaseline = 'middle';
+    cx.lineWidth = 2; cx.strokeStyle = '#7a4e30'; cx.strokeText('×2', x, y + 0.5); cx.fillStyle = '#ffd23f'; cx.fillText('×2', x, y + 0.5);
+  }
+  // ostacoli: immagini diverse per mondo; nemici che volano diversi per mondo
+  for (const o of G.ost) {
+    if (o.vola) {
+      if (o.cade === 'avviso') continue;
+      const vento = o.nemico === 1 && !o.cade, dir = o.cade ? (o.x + 8 < W / 2 ? 1 : -1) : (vento ? o.vb ?? o.vx : o.vx) > 0 ? 1 : -1, x = o.x + o.w / 2 + (o.cade === 'ferma' ? Math.sin(G.t * 60) * 0.8 : 0), y = o.y + o.h / 2 + (o.cade ? 0 : vento ? Math.sin(G.t * 1.7 + o.x) * 3 : Math.sin(G.t * 9 + o.x) * 1.2);   // l'aquilone galleggia lento
+      cx.save(); cx.translate(x, y); cx.scale(dir, 1); if (o.cade === 'giu') { const r0 = Math.min(1, o.ct * 5); cx.rotate(o.nemico === 0 ? r0 * 1.2 : o.nemico === 1 ? Math.sin(o.ct * 4) * 0.4 : o.nemico === 3 ? r0 * 0.9 : 0); }    // l'immagine guarda a destra: si gira quando va a sinistra
+      // falco in cielo e al tramonto, pipistrello di notte e in caverna, pesce palla nell'abisso (deciso quando nasce, in riga())
+      const nn = IMG.nemico[o.nemico], ali = Array.isArray(nn), ni = ali ? nn[BATTITO[(G.t * 10 + (o.fase = o.fase ?? Math.random() * 4) | 0) % 4]] : nn;   // il falco batte le ali (10 pose al secondo)
+      // 15/11 (Stefano): animali più grossi e senza contorno. 16/11: l'aquilone ondeggia nel vento
+      if (!sprite(ni, 0, 0, ALTEZZA_NEMICO[o.nemico] * (o.sc || 1), vento ? Math.sin(G.t * 1.3 + o.x) * 0.1 + ((o.vx - (o.vb || 0)) * dir) / 320 : 0)) { cx.fillStyle = rgb(f.ost); cerchio(0, 0, 5.5); cx.fill(); }
+      cx.restore();
+    } else {
+      if (!lastra(o.img, o.x, o.y, o.w, o.h, o.seme)) { cx.fillStyle = rgb(f.ost); tondo(o.x, o.y, o.w, o.h, Math.min(o.h / 2, 5)); cx.fill(); }
+    }
+  }
+  // personaggio
+  if (G.morte <= 0 && (stato === 'gioco' || stato === 'conta' || stato === 'pausa')) {   // si vede anche fermo in pausa e durante il 3, 2, 1
+    const inclina = Math.max(-0.35, Math.min(0.35, (G.mira - G.x) * 0.03));
+    // mani lungo i fianchi quando cade dritto, braccia aperte quando si sposta.
+    // 15/11: mai due immagini a metà trasparenza (il corpo diventava trasparente): una posa resta piena sotto e l'altra compare sopra;
+    // a metà passaggio si scambiano. Durante il passaggio il personaggio si «gonfia» appena, così il cambio si legge come un gesto.
+    const S = 30 / 240 * (1 + 0.08 * Math.max(0, G.felice) / 0.35), a0 = G.intocc > 0 && (G.t * 14 | 0) % 2 ? 0.45 : 1;
+    const M = IMG.mar;
+    if (pronta(M.corpo) && pronta(M.sx) && pronta(M.dx) && pronta(M.testa)) {
+      const pk = pronta(IMG.paracadute) ? G.slowK : 0, pc = IMG.paracadute;   // mentre rallenta apre il paracadute
+      const b = G.braccia, k = b * b * (3 - 2 * b), sw = 1 + (G.bracciaApre ? 0.06 : 0.015) * Math.sin(Math.PI * k);   // il «gonfiarsi» solo quando apre: chiudendo è lento e morbido
+      // braccia: aperte = 0°, in picchiata = 60° indietro verso le gambe (sopra il tronco, sotto la testa)
+      const ang = (1 - k) * 60 * Math.PI / 180, sc = S * sw;
+      const corpo = al => {
+        if (al <= 0.01) return;
+        cx.save(); cx.globalAlpha = al; cx.translate(G.x, G.y); if (inclina) cx.rotate(inclina); cx.scale(sc, sc); cx.translate(-120, -93.5);
+        cx.drawImage(M.corpo, 0, 0);
+        for (const [im, px, a] of [[M.sx, 84, ang], [M.dx, 156, -ang]]) { cx.save(); cx.translate(px, 104); cx.rotate(a); cx.drawImage(im, -px, -104); cx.restore(); }
+        cx.drawImage(M.testa, 0, 0);
+        cx.restore();
+      };
+      const para = al => { if (al <= 0.01) return; const hp = pc.naturalHeight * 30 / 215; cx.globalAlpha = al; sprite(pc, G.x, G.y - hp * 0.26, hp, inclina * 0.5); };
+      if (pk < 0.5) { corpo(a0); para(a0 * 2 * pk); } else { para(a0); corpo(a0 * 2 * (1 - pk)); }   // paracadute: stesso principio
+    } else { cx.globalAlpha = a0; cx.fillStyle = '#f2a03d'; cerchio(G.x, G.y, 6); cx.fill(); }
+    cx.globalAlpha = 1;
+    anelli();
+  }
+  for (const p of G.scint) { cx.fillStyle = p.colore; cerchio(p.x, p.y, 1.2); cx.fill(); }
+  for (const e of G.fx) { const k = e.t / e.dur; cx.globalAlpha = 1 - k * k; sprite(e.i, e.x, e.y, e.h0 + (e.h1 - e.h0) * k, e.ang); }
+  cx.globalAlpha = 1;
+  cx.restore();
+
+  if (G.slowK > 0.02) { cx.fillStyle = `rgba(127,212,255,${0.16 * G.slowK})`; cx.fillRect(0, 0, W, H);
+    const v = cx.createRadialGradient(W / 2, H / 2, H * 0.3, W / 2, H / 2, H * 0.75);
+    v.addColorStop(0, 'rgba(255,255,255,0)'); v.addColorStop(1, `rgba(220,245,255,${0.6 * G.slowK})`); cx.fillStyle = v; cx.fillRect(0, 0, W, H); }
+  if (G.lampo > 0) { cx.fillStyle = `rgba(255,255,255,${G.lampo * 1.5})`; cx.fillRect(0, 0, W, H); }
+}
+
+/* ---------- HUD ---------- */
+const cache = {};
+function metti(id, testo, html) { if (cache[id] !== testo) { cache[id] = testo; $(id)[html ? 'innerHTML' : 'textContent'] = testo; } }
+function hud() {
+  if (!G) return;
+  metti('monete', String(G.raccolte));
+  metti('metri', metri() + ' m');
+  metti('cuori', '<img src="grafiche/cuore-pieno.png" alt="">'.repeat(Math.max(0, G.vite)) + '<img class="vuoto" src="grafiche/cuore-vuoto.png" alt="">'.repeat(Math.max(0, G.viteMax - G.vite)), true);
+  // pallino del paracadute: si riempie mentre si ricarica, si svuota mentre lo usi
+  const pp = $('p-para'), pronto = !G.slowOn && G.slow >= G.slowMax;
+  pp.style.setProperty('--p', (100 * G.slow / G.slowMax).toFixed(1));
+  pp.classList.toggle('attivo', G.slowOn); pp.classList.toggle('pronto', pronto); pp.classList.toggle('carica', !G.slowOn && !pronto);
+  // pallini dei potenziamenti attivi: il bordo colorato è il tempo che resta
+  for (const k of ['magnet', 'shield', 'double']) {
+    const el = $('p-' + k), on = G[k] > 0;
+    el.classList.toggle('su', on);
+    if (on) { el.style.setProperty('--p', (100 * G[k] / G.dur[k]).toFixed(1)); el.style.setProperty('--c', ogg(k).colore); el.classList.toggle('finisce', G[k] < 1.5); }
+  }
+}
+const OGGETTO = { magnet: 'ogg-calamita', shield: 'ogg-scudo', double: 'ogg-doppie', heart: 'ogg-cuore' };   // immagini degli oggetti (15/11)
+// presa una bolla: la sua icona vola dalla bolla al suo pallino in alto, che poi fa un piccolo salto
+function vola(tipo, x, y) {
+  const dest = $('p-' + tipo); dest.classList.add('su', 'arriva');
+  const r = dest.getBoundingClientRect(), el = document.createElement('div'), m = 17;
+  el.className = 'vola';
+  el.innerHTML = `<img src="grafiche/${OGGETTO[tipo]}.png" alt="">`;
+  document.body.appendChild(el);
+  const x0 = x * scala - m, y0 = y * scala - m, x1 = r.left + r.width / 2 - m, y1 = r.top + r.height / 2 - m;
+  const xm = (x0 + x1) / 2 + (x1 > x0 ? -30 : 30), ym = (y0 + y1) / 2;   // passa un po' di lato: una curva, non una riga dritta
+  const a = el.animate([
+    { transform: `translate(${x0}px,${y0}px) scale(1.3)` },
+    { transform: `translate(${xm}px,${ym}px) scale(1.15)`, offset: 0.5 },
+    { transform: `translate(${x1}px,${y1}px) scale(1)` }], { duration: 650, easing: 'cubic-bezier(.45,0,.3,1)', fill: 'forwards' });
+  a.onfinish = () => { el.remove(); dest.classList.remove('arriva', 'salto'); void dest.offsetWidth; dest.classList.add('salto'); };
+}
+// prima volta che prendi una bolla: si ferma tutto, l'icona vola al suo posto, poi arriva la scheda (una volta sola per tipo)
+const SPIEGA = {
+  magnet: v => `Attira verso di te le monete vicine per <b>${num(v)} secondi</b>.`,
+  shield: v => `Ti salva da un colpo. Dura <b>${num(v)} secondi</b>.`,
+  double: v => `Ogni moneta vale <b>doppio</b> per ${num(v)} secondi.`,
+};
+function spiega(tipo) {
+  G.spiega = tipo; G.spiegaDa = performance.now(); ferma(); dito.giu = false; dito.id = -1;
+  $('s-icona').innerHTML = `<img class="ogg" src="grafiche/${OGGETTO[tipo]}.png" alt="">`;
+  $('s-nome').textContent = ogg(tipo).nome; $('s-testo').innerHTML = SPIEGA[tipo](valore(tipo));
+  $('s-anello').style.setProperty('--c', ogg(tipo).colore);
+  const sp = $('spiega'); sp.classList.remove('su'); void sp.offsetWidth; sp.classList.add('su');
+}
+function chiudiSpiega() {
+  if (!G || !G.spiega || performance.now() - G.spiegaDa < 900) return;   // non si chiude per sbaglio col dito che stava già sterzando
+  salva.visti = Object.assign({}, salva.visti, { [G.spiega]: true }); scrivi();
+  G.spiega = null; $('spiega').classList.remove('su'); contoAllaRovescia();   // riparte con 3, 2, 1
+}
+// anelli attorno al personaggio: uno per ogni cosa attiva (paracadute, scudo, calamita, monete doppie), si consumano come una lancetta
+function anelli() {
+  const lista = [];
+  if (G.slowOn) lista.push(['#7fd4ff', G.slow / G.slowMax, G.slow]);
+  for (const k of ['shield', 'magnet', 'double']) if (G[k] > 0) lista.push([ogg(k).colore, G[k] / G.dur[k], G[k], k]);
+  lista.forEach(([colore, fr, resta, k], i) => {
+    const r = 15 + i * 3.4, lampeggia = resta < 1.5 && (G.t * 8 | 0) % 2;
+    if (k === 'shield') { cx.globalAlpha = 0.14; cx.fillStyle = colore; cerchio(G.x, G.y, r); cx.fill(); }   // lo scudo protegge: un velo dentro
+    cx.globalAlpha = 0.22; cx.strokeStyle = '#ffffff'; cx.lineWidth = 1.6; cerchio(G.x, G.y, r); cx.stroke();
+    cx.globalAlpha = lampeggia ? 0.3 : 0.95; cx.strokeStyle = colore; cx.lineWidth = 1.9; cx.lineCap = 'round';
+    cx.beginPath(); cx.arc(G.x, G.y, r, -Math.PI / 2, -Math.PI / 2 + Math.max(0, Math.min(1, fr)) * 6.2832); cx.stroke();
+  });
+  cx.globalAlpha = 1;
+}
+
+/* ---------- Schermate ---------- */
+// 16/11: le icone Musica/Effetti stanno nello stesso posto nel titolo e nella pausa
+function mostra(id) { for (const s of document.querySelectorAll('.schermo')) s.classList.toggle('su', s.id === id); $('hud').style.display = id ? 'none' : ''; $('impostazioni').style.display = id === 'titolo' ? '' : 'none'; }
+function vaiTitolo() { stato = 'titolo'; aggiornaMenu(); mostra('titolo'); }
+// 16/11: menu nuovo — contatori di monete e gemme, record, pallino rosso = sfide completate dall'ultima visita alle Sfide
+function aggiornaMenu() {
+  metti('t-record', salva.record + ' m'); metti('t-monete', String(salva.monete)); metti('t-gemme', String(salva.gemme));
+  const n = Object.keys(salva.riscuoti || {}).length, p = $('pallino-sfide'); p.textContent = n; p.hidden = !n;   // sfide da riscuotere
+}
+function gioca() { nuova(); G.lezione = salva.lezione ? 'fatta' : 'attesa'; $('lezione').classList.remove('su'); stato = 'gioco'; dito.giu = false; dito.id = -1; mostra(null); if (salva.record < 50) { $('aiuto').classList.add('su'); setTimeout(() => $('aiuto').classList.remove('su'), 5000); } }
+/* ---------- Pausa ---------- */
+function batti(n) { Suoni.conta(n); const c = $('conta'); c.textContent = n; c.classList.remove('batti'); void c.offsetWidth; c.classList.add('su', 'batti'); }
+function pausa() {
+  if (!inGioco() || G.morte > 0 || G.lezione === 'ferma' || G.spiega) return;   // durante la lezione il gioco è già fermo
+  ferma(); dito.giu = false; dito.id = -1; stato = 'pausa';
+  $('conta').classList.remove('su', 'batti'); $('aiuto').classList.remove('su');
+  $('p-nota').textContent = G.raccolte > 0 ? `Se torni al menu perdi le ${G.raccolte} monete di questa partita.` : 'Se torni al menu la partita finisce.';
+  mostra('pausa');
+}
+function contoAllaRovescia() { stato = 'conta'; G.conta = 3; mostra(null); batti(3); }
+function riprendi() { if (stato === 'pausa') contoAllaRovescia(); }
+function ricomincia() { gioca(); contoAllaRovescia(); }
+/* ---------- Sfide (16/11, idea di Stefano): danno gemme. Si vedono 3 attive; le successive sono chiuse col lucchetto ----------
+   tipo 'tot' = si somma su tutte le partite; 'partita' = in una partita sola (si ricorda il meglio) */
+const SFIDE = [
+  { id:'m1', testo:'Raccogli 1000 monete',              tipo:'tot',     conta:'monete',     n:1000,  g:1 },
+  { id:'f1', testo:'Evita 20 falchi',                   tipo:'tot',     conta:'falchi',     n:20,    g:1 },
+  { id:'d1', testo:'Arriva a 1000 m',                   tipo:'partita', conta:'metri',      n:1000,  g:2 },
+  { id:'m2', testo:'Raccogli 3000 monete',              tipo:'tot',     conta:'monete',     n:3000,  g:2 },
+  { id:'f2', testo:'Evita 50 falchi',                   tipo:'tot',     conta:'falchi',     n:50,    g:2 },
+  { id:'t1', testo:'Evita 30 talpe',                    tipo:'tot',     conta:'talpe',      n:30,    g:2 },   // 16/11 (Stefano): sommate su più partite
+  { id:'s1', testo:'Arriva a 2000 m senza perdere cuori', tipo:'partita', conta:'senzaColpi', n:2000, g:3 },
+  { id:'u1', testo:"Prendi l'uovo d'oro",               tipo:'partita', conta:'uova',       n:1,     g:3 },
+  { id:'m3', testo:'Raccogli 10000 monete',             tipo:'tot',     conta:'monete',     n:10000, g:5 },
+  { id:'f3', testo:'Evita 100 falchi',                  tipo:'tot',     conta:'falchi',     n:100,   g:5 },
+  { id:'d2', testo:'Arriva a 5000 m',                   tipo:'partita', conta:'metri',      n:5000,  g:5 },
+];
+const sfideAttive = () => SFIDE.filter(x => !salva.fatte[x.id]).slice(0, 3);
+function valoreSfida(x) {
+  if (x.tipo === 'tot') return salva.stat[x.conta] || 0;
+  if (!G || !(stato === 'gioco' || stato === 'conta' || stato === 'pausa' || stato === 'fine')) return 0;
+  if (x.conta === 'metri') return metri();
+  if (x.conta === 'senzaColpi') return G.colpi ? 0 : metri();
+  return (G.stat || {})[x.conta] || 0;
+}
+function conta(k, n = 1) {
+  if (!G) return;
+  if (k in salva.stat) salva.stat[k] += n;
+  G.stat = G.stat || {}; G.stat[k] = (G.stat[k] || 0) + n;
+  controlla();
+}
+function evitato(o) {
+  o.ev = true; if (o.colpito) return;
+  if (o.nemico === 0) conta('falchi'); else if (o.nemico === 3) conta('talpe');
+}
+function controlla() {
+  for (const x of sfideAttive()) {
+    const v = valoreSfida(x);
+    if (x.tipo === 'partita') salva.meglio[x.id] = Math.max(salva.meglio[x.id] || 0, Math.min(v, x.n));
+    // 16/11: le gemme non arrivano da sole: la sfida resta «da riscuotere» finché non la tocchi nella scheda Sfide
+    if (v >= x.n) { salva.fatte[x.id] = true; (salva.riscuoti = salva.riscuoti || {})[x.id] = true; scrivi(); avvisoSfida(x); Suoni.compra(); controlla(); return; }
+  }
+}
+let avvisoT = 0;
+function avvisoSfida(x) {
+  const a = $('avviso-sfida');
+  a.innerHTML = `<span>Sfida completata!<small>${x.testo} · riscuoti in Sfide</small></span><span>+${x.g} <i class="gemma"></i></span>`;
+  a.classList.remove('su'); void a.offsetWidth; a.classList.add('su');
+  clearTimeout(avvisoT); avvisoT = setTimeout(() => a.classList.remove('su'), 2900);
+}
+function schedaSfide() {
+  stato = 'sfide'; mostra('sfide');
+  $('gemme-sfide').textContent = salva.gemme;
+  const attive = sfideAttive().map(x => x.id);
+  const riga = (x, cls) => {
+    const v = x.tipo === 'tot' ? salva.stat[x.conta] || 0 : salva.meglio[x.id] || 0, fatta = cls === 'fatta' || cls === 'riscuoti', pct = fatta ? 100 : Math.min(100, v / x.n * 100);
+    const sotto = cls === 'riscuoti' ? 'Completata!' : fatta ? 'Fatta' : `${Math.min(v, x.n)} / ${x.n}${x.tipo === 'partita' ? ' · in una partita' : ''}`;
+    return `<div class="sfida-cu ${cls}" data-cu="riquadro sottile"><div class="testo"><h3>${x.testo}</h3><div data-cu="barra" style="--pieno:${(pct / 100).toFixed(3)}"></div><small>${sotto}</small></div>
+      <div class="premio">${cls === 'riscuoti' ? `<button data-cu="pulsante verde" class="b-riscuoti" data-sfida="${x.id}">Riscuoti +${x.g}<img src="grafiche/gemma.png" alt="gemme"></button>` : fatta ? '<img class="spunta" src="grafiche/icone/fatto.png" data-icona="fatto" alt="Fatta">' : `+${x.g}<img src="grafiche/gemma.png" alt="gemme">`}</div>${cls === 'chiusa' ? '<img class="lucchetto" src="grafiche/lucchetto.png" alt="">' : ''}</div>`;
+  };
+  const rs = salva.riscuoti || {}, daPrendere = SFIDE.filter(x => rs[x.id]);
+  const dopo = SFIDE.filter(x => !salva.fatte[x.id] && !attive.includes(x.id)), fatte = SFIDE.filter(x => salva.fatte[x.id] && !rs[x.id]);
+  $('lista-sfide').innerHTML = (daPrendere.length ? '<h4>Da riscuotere</h4>' + daPrendere.map(x => riga(x, 'riscuoti')).join('') : '') + '<h4>Adesso</h4>' + SFIDE.filter(x => attive.includes(x.id)).map(x => riga(x, 'attiva')).join('')
+    + (dopo.length ? '<h4>Dopo</h4>' + dopo.map(x => riga(x, 'chiusa')).join('') : '')
+    + (fatte.length ? '<h4>Fatte</h4>' + fatte.map(x => riga(x, 'fatta')).join('') : '');
+  // riscuoti: le gemme passano al contatore, la riga scende tra le «Fatte»
+  document.querySelectorAll('.b-riscuoti').forEach(b => b.onclick = () => {
+    const x = SFIDE.find(s => s.id === b.dataset.sfida); if (!x || !(salva.riscuoti || {})[x.id]) return;
+    const r0 = b.getBoundingClientRect(), prima = salva.gemme;
+    delete salva.riscuoti[x.id]; salva.gemme += x.g; scrivi(); Suoni.compra(); schedaSfide();
+    // 16/11: le gemme volano dal pulsante al contatore, come un oggetto preso in partita
+    const num = $('gemme-sfide'), c = num.parentElement, r1 = c.getBoundingClientRect(); num.textContent = prima;
+    for (let k = 0; k < x.g; k++) {
+      const el = document.createElement('img'); el.src = 'grafiche/gemma.png'; el.alt = ''; el.className = 'gemma-vola'; document.body.appendChild(el);
+      const x0 = r0.left + r0.width / 2 - 16, y0 = r0.top + r0.height / 2 - 16, x1 = r1.left + 18 - 16, y1 = r1.top + r1.height / 2 - 16;
+      const xm = (x0 + x1) / 2 - 40, ym = Math.min(y0, y1) - 40;
+      const a = el.animate([{ transform: `translate(${x0}px,${y0}px) scale(1.4)` }, { transform: `translate(${xm}px,${ym}px) scale(1.2)`, offset: 0.5 },
+        { transform: `translate(${x1}px,${y1}px) scale(.9)` }], { duration: 700, delay: k * 140, easing: 'cubic-bezier(.45,0,.3,1)', fill: 'both' });
+      a.onfinish = () => { el.remove(); num.textContent = prima + k + 1; c.classList.remove('salto'); void c.offsetWidth; c.classList.add('salto'); };
+    }
+  });
+}
+
+function finePartita() {
+  stato = 'fine'; const m = metri(), nuovoRecord = m > salva.record;
+  salva.monete += G.raccolte - (G.salvate || 0); G.salvate = G.raccolte; if (nuovoRecord) salva.record = m; scrivi();
+  $('f-titolo').textContent = nuovoRecord ? 'Nuovo record!' : 'Sei caduto per';
+  $('f-titolo').classList.toggle('record', nuovoRecord);
+  $('f-metri').textContent = m + ' m'; $('f-raccolte').textContent = '+' + G.raccolte; $('f-record').textContent = salva.record + ' m';
+  controlla();
+  $('b-video').style.display = G.ripreso ? 'none' : '';   // una sola ripresa per partita
+  $('b-gemme').style.display = G.ripreso || salva.gemme < 3 ? 'none' : '';   // oppure si paga con 3 gemme
+  $('aiuto').classList.remove('su'); mostra('fine'); if (nuovoRecord) Suoni.record();
+}
+function negozio() {
+  stato = 'negozio'; mostra('negozio');
+  $('monete-negozio').textContent = salva.monete;
+  const ICONA = Object.assign({ slow:'paracadute-icona' }, OGGETTO);
+  $('lista').innerHTML = OGGETTI.map(o => {
+    const l = salva.liv[o.id], pieno = l >= o.max, costo = o.costi[l], chiuso = l === 0 && o.id !== 'heart';
+    const etichetta = pieno ? 'Massimo' : `<small>${chiuso ? 'Sblocca' : l === 0 ? 'Compra' : 'Potenzia'}</small><span class="prezzo"><i class="moneta"></i>${costo}</span>`;
+    let tacche = ''; for (let i = 0; i < o.max; i++) tacche += `<i class="${i < l ? 'piena' : ''}"></i>`;
+    const icona = `<img src="grafiche/${ICONA[o.id]}.png" alt="">`;
+    return `<div class="scheda-cu ${chiuso ? 'chiusa' : ''}" data-cu="riquadro sottile"><div class="icona-scheda">${icona}${chiuso ? '<img class="lucchetto" src="grafiche/lucchetto.png" alt="">' : ''}</div><h3>${o.nome}</h3>
+      <p>${o.testo(o.val(Math.max(1, l)))}${!pieno && l > 0 ? ` <span>→ ${num(o.val(l + 1))}</span>` : ''}</p>
+      <div class="tacche">${tacche}</div>
+      <button data-cu="pulsante arancio" data-id="${o.id}" ${pieno || salva.monete < costo ? 'disabled' : ''}>${etichetta}</button></div>`;
+  }).join('');
+}
+$('lista').addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  const o = ogg(b.dataset.id), l = salva.liv[o.id], costo = o.costi[l];
+  if (l >= o.max || salva.monete < costo) return;
+  salva.monete -= costo; salva.liv[o.id]++; scrivi(); negozio(); Suoni.compra();
+});
+$('spiega').addEventListener('click', chiudiSpiega);   // basta un tocco ovunque (anche sul pulsante)
+$('b-pausa').addEventListener('pointerdown', e => e.stopPropagation());   // il tocco sul pulsante non sposta il personaggio
+$('b-pausa').onclick = pausa; $('b-riprendi').onclick = riprendi; $('b-ricomincia').onclick = ricomincia;
+$('b-menu').onclick = $('b-menu2').onclick = () => { nuova(); vaiTitolo(); };   // le monete raccolte nella partita si perdono (deciso da Stefano 15/11)
+// 16/11 (Stefano): guardi la pubblicità (5 s) e riparti dallo stesso punto con un cuore, intoccabile per 2 s, dopo il 3, 2, 1
+$('b-video').onclick = () => {
+  if (!G || G.ripreso || stato !== 'fine') return;
+  stato = 'pubblicita'; mostra('pubblicita'); let n = 5; $('pub-tempo').textContent = n;
+  const t = setInterval(() => {
+    n--; $('pub-tempo').textContent = n;
+    if (n > 0) return;
+    clearInterval(t); riparti();
+  }, 1000);
+};
+function riparti() {
+  G.ripreso = true; G.vite = 1; G.viteMax = Math.max(1, G.viteMax); G.morte = 0; G.intocc = 2; G.scossa = 0; G.lampo = 0;
+  G.ost = G.ost.filter(o => o.y < G.y - 20 || o.y > G.y + 80);   // via quello che hai addosso
+  contoAllaRovescia();
+}
+$('b-gemme').onclick = () => {   // 16/11: riprendere senza pubblicità costa 3 gemme
+  if (!G || G.ripreso || stato !== 'fine' || salva.gemme < 3) return;
+  salva.gemme -= 3; scrivi(); riparti();
+};
+$('b-sfide').onclick = schedaSfide; $('b-indietro2').onclick = vaiTitolo;
+aggiornaMenu();
+$('c-monete').onclick = $('c-gemme').onclick = negozio;   // il «+»: per ora apre il negozio (comprare con soldi veri solo nell'app)
+$('b-impostazioni').onclick = () => $('imposta').classList.add('su');
+$('b-chiudi-imp').onclick = () => $('imposta').classList.remove('su');
+// stile dell'interfaccia (16/11): cuoio o nuvola, cambia subito e resta salvato
+function scegliUI(t) {
+  document.documentElement.classList.toggle('ui-nuvola', t === 'nuvola');
+  try { localStorage.setItem('caduta-ui', t); } catch (e) {}
+  if (window.Cuoio) Cuoio.ridisegna();
+  document.querySelectorAll('[data-ui]').forEach(b => b.classList.toggle('scelto', b.dataset.ui === t));
+}
+document.querySelectorAll('[data-ui]').forEach(b => b.onclick = () => scegliUI(b.dataset.ui));
+scegliUI(document.documentElement.classList.contains('ui-nuvola') ? 'nuvola' : 'cuoio');
+$('imposta').addEventListener('click', e => { if (e.target.id === 'imposta') $('imposta').classList.remove('su'); });
+// 16/11: dal menu alla partita con un passaggio animato: il menu si apre, le nuvole salgono, poi l'omino entra cadendo dall'alto
+function partiAnimato(m) {
+  const t = $('titolo'); if (t.classList.contains('parte')) return;
+  partenzaProva = m; t.classList.add('parte'); $('impostazioni').style.opacity = '0';
+  setTimeout(() => { gioca(); G.yMeta = G.y; G.y = -26; t.classList.remove('parte'); $('impostazioni').style.opacity = ''; }, 520);
+}
+$('b-gioca').onclick = () => partiAnimato(0); $('b-ancora').onclick = gioca; $('b-via').onclick = gioca;
+// PROVA (16/11): pulsanti nella home per partire da un mondo; «Ancora» riparte dallo stesso punto. Da togliere quando non servono più.
+document.querySelectorAll('[data-parti]').forEach(b => b.onclick = () => partiAnimato(+b.dataset.parti));
+$('b-capito').onclick = () => { if (G && G.lezione === 'ferma') fineLezione(); }; $('b-negozio1').onclick = negozio; $('b-indietro').onclick = vaiTitolo; $('b-negozio2').onclick = negozio;
+
+// 16/11 suoni: pulsanti sì/no (titolo e pausa), salvati; un piccolo «tic» su ogni pulsante
+const audioSi = k => salva[k] !== undefined ? salva[k] !== false : salva.suoni !== false;   // «suoni: no» di prima vale per entrambi
+function mostraSuoni() {
+  const mu = audioSi('musica'), ef = audioSi('effetti'); Suoni.imposta({ musica: mu, effetti: ef });
+  document.querySelectorAll('[data-suono]').forEach(b => b.classList.toggle('acceso', b.dataset.suono === 'musica' ? mu : ef));   // interruttori nelle impostazioni e nella pausa
+}
+let tSuoni = 0;   // nel simulatore un tocco a volte arriva due volte: un secondo cambio entro 0,4 s si ignora
+const cambia = k => () => { const t = performance.now(); if (t - tSuoni < 400) return; tSuoni = t; salva[k] = !audioSi(k); scrivi(); mostraSuoni(); };
+document.querySelectorAll('[data-suono]').forEach(b => { b.onclick = cambia(b.dataset.suono); });
+mostraSuoni(); addEventListener('suoni-pronti', mostraSuoni);
+document.addEventListener('click', e => { if (e.target.closest('button') && !e.target.closest('#lista')) Suoni.tocco(); });
+function suonoAmbiente() {
+  const inPartita = G && (stato === 'gioco' || stato === 'conta' || stato === 'pausa');
+  if (!inPartita) { Suoni.ambiente({ mondo: 0, vel: 0, lento: 0, livello: 0.35 }); return; }
+  const m = metri(), { i, t, L } = tratto(m), fermo = G.lezione === 'ferma' || G.spiega || G.morte > 0;
+  const poteri = {}; for (const k of ['magnet', 'shield', 'double']) if (G[k] > 0) poteri[k] = [G[k], G.dur[k]];   // tempo che resta e durata: il suono scende mentre scade
+  Suoni.ambiente({ mondo: i % 5 + (t > 0.8 ? (t - 0.8) / 0.2 : 0), vel: (velocita() - VEL_MIN) / (VEL_MAX - VEL_MIN), lento: G.slowK,
+    vuoto: Math.abs(t - 0.9) < (H / 20 + 3) / L ? 1 : 0, poteri: fermo || stato === 'pausa' ? {} : poteri,
+    livello: stato === 'pausa' ? 0.3 : G.morte > 0 ? 0.2 : fermo ? 0.5 : 1 });
+}
+
+/* ---------- Ciclo ---------- */
+let prima = 0, fotogrammi = 0;
+function ciclo(t) {
+  const dt = Math.min(0.05, (t - prima) / 1000 || 0); prima = t;
+  requestAnimationFrame(ciclo);              // prima di tutto: un errore in un fotogramma non deve fermare il gioco per sempre
+  if (cv.clientWidth !== misuraW || cv.clientHeight !== misuraH) misura();
+  if (!misuraW) return;
+  passo(dt); disegna(); hud(); suonoAmbiente();
+  // 16/11: su Safari lo sfondo sfocato dietro le schermate a volte restava fermo al primo fotogramma (scuro):
+  // nei primi istanti si cambia di pochissimo la sfocatura, così Safari la ridisegna
+  if (++fotogrammi === 8 || fotogrammi === 40 || fotogrammi === 120) for (const el of document.querySelectorAll('.schermo:not(#titolo)')) {   // il titolo ora non è sfocato (ha la sua immagine)
+    const v = fotogrammi === 40 ? 'blur(2px)' : 'blur(2.01px)'; el.style.backdropFilter = v; el.style.webkitBackdropFilter = v; }
+}
+nuova(); vaiTitolo(); requestAnimationFrame(ciclo);
+
+// per le prove: avanzare a mano e leggere lo stato
+window.__caduta = { get G() { return G; }, get stato() { return stato; }, salva, passo, disegna, hud, gioca, negozio, dito, metri: () => metri(), scrivi };
+})();
+</script>
+</body>
+</html>

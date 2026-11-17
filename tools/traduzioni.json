@@ -2025,5 +2025,233 @@
  "Render in Blender del carretto fermo su una strada lastricata, davanti alle botteghe": {
   "en": "Blender render of the handcart standing on a paved street in front of the shops",
   "de": "Blender-Rendering des Karrens auf einer gepflasterten Straße vor den Läden"
+ },
+ "Chickens don't fly": "Chickens don't fly",
+ "Chickens don't fly →": "Chickens don't fly →",
+ "Chickens don't fly — Stefano Oberto": "Chickens don't fly — Stefano Oberto",
+ "Menu": "Menu",
+ "Un piccolo gioco per esplorare come si lavora con l'AI.": {
+  "en": "A small game to explore how to work with AI.",
+  "de": "Ein kleines Spiel, um zu erkunden, wie man mit KI arbeitet."
+ },
+ "Personale · Game UI · AI": {
+  "en": "Personal · Game UI · AI",
+  "de": "Persönlich · Game UI · KI"
+ },
+ "Nel tempo libero costruisco un piccolo gioco con l'AI, dai personaggi ai menu.": {
+  "en": "In my free time I'm building a small game with AI, from the characters to the menus.",
+  "de": "In meiner Freizeit baue ich mit KI ein kleines Spiel, von den Figuren bis zu den Menüs."
+ },
+ "Sto costruendo Chickens don't fly, un piccolo gioco per telefono: un'esplorazione di come si lavora con l'AI su grafica, interfaccia e personaggi. È il posto dove sperimento quello che poi porto nel lavoro.": {
+  "en": "I'm building Chickens don't fly, a small mobile game: an exploration of how to work with AI on graphics, interface and characters. It's where I experiment with what I then bring to my work.",
+  "de": "Ich baue Chickens don't fly, ein kleines Handyspiel: eine Erkundung, wie man mit KI an Grafik, Interface und Figuren arbeitet. Hier probiere ich aus, was ich dann in meine Arbeit mitnehme."
+ },
+ "Provalo →": {
+  "en": "Try it →",
+  "de": "Ausprobieren →"
+ },
+ "Chickens don't fly, un piccolo gioco per telefono di Stefano Oberto: un'esplorazione di come si lavora con l'AI su grafica, interfaccia e character design, con Claude e Gemini.": {
+  "en": "Chickens don't fly, a small mobile game by Stefano Oberto: an exploration of how to work with AI on graphics, interface and character design, with Claude and Gemini.",
+  "de": "Chickens don't fly, ein kleines Handyspiel von Stefano Oberto: eine Erkundung, wie man mit KI an Grafik, Interface und Character Design arbeitet, mit Claude und Gemini."
+ },
+ "Un piccolo gioco per telefono, per esplorare come si lavora con l'AI.": {
+  "en": "A small mobile game, to explore how to work with AI.",
+  "de": "Ein kleines Handyspiel, um zu erkunden, wie man mit KI arbeitet."
+ },
+ "Grafica, interfaccia e personaggi generati con Gemini, codice scritto da Claude.": {
+  "en": "Graphics, interface and characters generated with Gemini, code written by Claude.",
+  "de": "Grafik, Interface und Figuren mit Gemini generiert, Code von Claude geschrieben."
+ },
+ "Da solo: game design, direzione artistica, interfaccia": {
+  "en": "Solo: game design, art direction, interface",
+  "de": "Allein: Game Design, Art Direction, Interface"
+ },
+ "Esplorazione con Claude e Gemini: UI, character design, elementi grafici": {
+  "en": "Exploration with Claude and Gemini: UI, character design, graphic elements",
+  "de": "Erkundung mit Claude und Gemini: UI, Character Design, grafische Elemente"
+ },
+ "▶ Gioca": {
+  "en": "▶ Play",
+  "de": "▶ Spielen"
+ },
+ "Provalo": {
+  "en": "Try it",
+  "de": "Ausprobieren"
+ },
+ "Il gioco gira qui, dentro il telefono. Trascina per spostarti, spingi in su e tieni premuto per aprire il paracadute.": {
+  "en": "The game runs right here, inside the phone. Drag to move, push up and hold to open the parachute.",
+  "de": "Das Spiel läuft hier, im Handy. Ziehen, um dich zu bewegen; nach oben schieben und halten, um den Fallschirm zu öffnen."
+ },
+ "Con l'audio · pensato per il telefono": {
+  "en": "With sound · made for phones",
+  "de": "Mit Ton · fürs Handy gemacht"
+ },
+ "Apri a schermo intero ↗": {
+  "en": "Open full screen ↗",
+  "de": "Im Vollbild öffnen ↗"
+ },
+ "Chickens don't fly è prima di tutto un'esplorazione: un gioco abbastanza piccolo da finirlo, per capire fin dove si arriva lavorando con l'AI su elementi grafici, interfaccia e character design.": {
+  "en": "Chickens don't fly is first of all an exploration: a game small enough to finish, to find out how far you can get working with AI on graphic elements, interface and character design.",
+  "de": "Chickens don't fly ist vor allem eine Erkundung: ein Spiel, klein genug, um es fertigzustellen, um herauszufinden, wie weit man mit KI bei grafischen Elementen, Interface und Character Design kommt."
+ },
+ "Personaggi, nemici, ostacoli, icone ed elementi dell'interfaccia li genero con Gemini. Il codice lo scrive Claude, seguendo le mie indicazioni. Io decido la direzione, lo stile e cosa tenere, e provo il gioco a ogni passo.": {
+  "en": "Characters, enemies, obstacles, icons and interface elements are generated with Gemini. The code is written by Claude, following my directions. I decide the direction, the style and what to keep, and I play the game at every step.",
+  "de": "Figuren, Gegner, Hindernisse, Icons und Interface-Elemente generiere ich mit Gemini. Den Code schreibt Claude nach meinen Vorgaben. Ich entscheide Richtung, Stil und was bleibt, und teste das Spiel bei jedem Schritt."
+ },
+ "Un pollo aviatore cade nel vuoto e non sa volare. Bisogna arrivare il più in basso possibile.": {
+  "en": "An aviator chicken falls into the void and can't fly. The goal is to get as far down as possible.",
+  "de": "Ein Flieger-Huhn fällt ins Leere und kann nicht fliegen. Ziel ist es, so tief wie möglich zu kommen."
+ },
+ "Trascini il dito per schivare ostacoli e animali e raccogliere le monete.": {
+  "en": "You drag your finger to dodge obstacles and animals and collect coins.",
+  "de": "Du ziehst den Finger, um Hindernissen und Tieren auszuweichen und Münzen zu sammeln."
+ },
+ "Spingi in su e tieni premuto per aprire il paracadute e rallentare.": {
+  "en": "Push up and hold to open the parachute and slow down.",
+  "de": "Nach oben schieben und halten öffnet den Fallschirm und bremst."
+ },
+ "Con le monete compri potenziamenti; le sfide danno gemme.": {
+  "en": "Coins buy power-ups; challenges give gems.",
+  "de": "Mit Münzen kaufst du Power-ups; Herausforderungen bringen Edelsteine."
+ },
+ "Cadendo attraversi cinque mondi: Cielo, Tramonto, Notte, Caverna e Abisso.": {
+  "en": "As you fall you cross five worlds: Sky, Sunset, Night, Cave and Abyss.",
+  "de": "Beim Fallen durchquerst du fünf Welten: Himmel, Sonnenuntergang, Nacht, Höhle und Abgrund."
+ },
+ "Il pollo aviatore in caduta libera tra le monete, con occhiali da volo e casco di cuoio": {
+  "en": "The aviator chicken in free fall among coins, with flying goggles and a leather helmet",
+  "de": "Das Flieger-Huhn im freien Fall zwischen Münzen, mit Fliegerbrille und Lederhelm"
+ },
+ "Cielo": {
+  "en": "Sky",
+  "de": "Himmel"
+ },
+ "Tramonto": {
+  "en": "Sunset",
+  "de": "Sonnenuntergang"
+ },
+ "Notte": {
+  "en": "Night",
+  "de": "Nacht"
+ },
+ "Caverna": {
+  "en": "Cave",
+  "de": "Höhle"
+ },
+ "Abisso": {
+  "en": "Abyss",
+  "de": "Abgrund"
+ },
+ "Personaggi": {
+  "en": "Characters",
+  "de": "Figuren"
+ },
+ "Il protagonista è nato da una serie di prove con Gemini. Scelto il personaggio, ho fatto generare una T-pose da allegare come riferimento a ogni prompt successivo, così pose, animali e oggetti restano nello stesso stile 3D morbido.": {
+  "en": "The main character came out of a series of tries with Gemini. Once I had picked him, I had a T-pose generated to attach as a reference to every following prompt, so poses, animals and objects stay in the same soft 3D style.",
+  "de": "Die Hauptfigur entstand aus einer Reihe von Versuchen mit Gemini. Nach der Auswahl ließ ich eine T-Pose generieren, die ich jedem weiteren Prompt als Referenz beilege, damit Posen, Tiere und Objekte im gleichen weichen 3D-Stil bleiben."
+ },
+ "Ogni elemento si genera da solo su un fondo verde pieno, poi si ritaglia ed entra nel gioco.": {
+  "en": "Each element is generated on its own on a solid green background, then cut out and put into the game.",
+  "de": "Jedes Element wird einzeln auf vollem Grün generiert, dann freigestellt und ins Spiel gebracht."
+ },
+ "T-pose, il riferimento per tutti i prompt": {
+  "en": "T-pose, the reference for every prompt",
+  "de": "T-Pose, die Referenz für alle Prompts"
+ },
+ "Pose in caduta": {
+  "en": "Falling poses",
+  "de": "Posen im Fall"
+ },
+ "La gallina delle monete": {
+  "en": "The coin hen",
+  "de": "Das Münzhuhn"
+ },
+ "Il falco sul biplano": {
+  "en": "The hawk on the biplane",
+  "de": "Der Falke im Doppeldecker"
+ },
+ "Interfaccia": {
+  "en": "Interface",
+  "de": "Interface"
+ },
+ "Il menu l'ho disegnato io in Figma. Da lì Gemini ha generato icone, pulsanti e riquadri; quelli che dovevano allungarsi senza deformarsi li ho fatti ricostruire nel codice, così seguono la misura dello schermo.": {
+  "en": "I designed the menu myself in Figma. From there Gemini generated icons, buttons and panels; the ones that had to stretch without distorting I had rebuilt in code, so they follow the screen size.",
+  "de": "Das Menü habe ich selbst in Figma entworfen. Davon ausgehend generierte Gemini Icons, Buttons und Rahmen; die, die sich ohne Verzerrung dehnen mussten, ließ ich im Code nachbauen, damit sie sich der Bildschirmgröße anpassen."
+ },
+ "Ho provato due stili, cuoio e nuvola: si cambiano dalle impostazioni del gioco. Qui si vede la nuvola.": {
+  "en": "I tried two styles, leather and cloud: you can switch them in the game settings. Shown here: cloud.",
+  "de": "Ich habe zwei Stile ausprobiert, Leder und Wolke: Sie lassen sich in den Spieleinstellungen wechseln. Hier zu sehen: Wolke."
+ },
+ "Idea in Figma": {
+  "en": "Idea in Figma",
+  "de": "Idee in Figma"
+ },
+ "Negozio": {
+  "en": "Shop",
+  "de": "Shop"
+ },
+ "Sfide": {
+  "en": "Challenges",
+  "de": "Herausforderungen"
+ },
+ "Prima partita": {
+  "en": "First game",
+  "de": "Erstes Spiel"
+ },
+ "Il pollo cade nel cielo azzurro tra nuvole temporalesche; in basso un biplano pilotato da un falco sgancia bombe col paracadute": {
+  "en": "The chicken falls through a blue sky among storm clouds; below, a biplane flown by a hawk drops bombs on parachutes",
+  "de": "Das Huhn fällt durch den blauen Himmel zwischen Gewitterwolken; unten wirft ein Doppeldecker mit einem Falken am Steuer Bomben an Fallschirmen ab"
+ },
+ "Cielo arancio al tramonto con nuvole rosa, aquiloni portati dal vento e monete": {
+  "en": "Orange sunset sky with pink clouds, kites carried by the wind and coins",
+  "de": "Orangefarbener Abendhimmel mit rosa Wolken, vom Wind getragenen Drachen und Münzen"
+ },
+ "Cielo notturno con la luna che dorme, rocce sospese, un gufo e una fila di monete": {
+  "en": "Night sky with a sleeping moon, floating rocks, an owl and a row of coins",
+  "de": "Nachthimmel mit schlafendem Mond, schwebenden Felsen, einer Eule und einer Reihe Münzen"
+ },
+ "Caverna con pareti di roccia, una trave di legno e una talpa con il casco da minatore": {
+  "en": "Cave with rock walls, a wooden beam and a mole wearing a miner's helmet",
+  "de": "Höhle mit Felswänden, einem Holzbalken und einem Maulwurf mit Grubenhelm"
+ },
+ "Fondale marino scuro con bolle, relitti di legno e pesci palla": {
+  "en": "Dark seabed with bubbles, wooden wrecks and pufferfish",
+  "de": "Dunkler Meeresgrund mit Blasen, Holzwracks und Kugelfischen"
+ },
+ "Il pollo aviatore in T-pose visto di fronte, da dietro e di lato, su fondo verde": {
+  "en": "The aviator chicken in T-pose seen from the front, back and side, on a green background",
+  "de": "Das Flieger-Huhn in T-Pose von vorne, hinten und seitlich, auf grünem Hintergrund"
+ },
+ "Cinque pose del pollo in caduta, con espressioni diverse, su fondo verde": {
+  "en": "Five poses of the falling chicken with different expressions, on a green background",
+  "de": "Fünf Posen des fallenden Huhns mit verschiedenen Gesichtsausdrücken, auf grünem Hintergrund"
+ },
+ "Tre fotogrammi di una gallina aviatrice che sbatte le ali, su fondo verde": {
+  "en": "Three frames of an aviator hen flapping her wings, on a green background",
+  "de": "Drei Einzelbilder einer Flieger-Henne, die mit den Flügeln schlägt, auf grünem Hintergrund"
+ },
+ "Un falco con casco e occhiali ai comandi di un biplano rosso e crema, su fondo verde": {
+  "en": "A hawk with helmet and goggles flying a red and cream biplane, on a green background",
+  "de": "Ein Falke mit Helm und Brille am Steuer eines rot-cremefarbenen Doppeldeckers, auf grünem Hintergrund"
+ },
+ "Bozza del menu in Figma: contatori di monete e gemme, ingranaggio, due pulsanti tondi e un grande tasto play tra le nuvole": {
+  "en": "Menu sketch in Figma: coin and gem counters, gear, two round buttons and a big play button among the clouds",
+  "de": "Menü-Entwurf in Figma: Münz- und Edelsteinzähler, Zahnrad, zwei runde Buttons und ein großer Play-Button zwischen Wolken"
+ },
+ "Il menu nel gioco: monete e gemme in alto, ingranaggio, Sfide e Negozio dentro le nuvole, tasto play e record": {
+  "en": "The menu in the game: coins and gems at the top, gear, Challenges and Shop inside the clouds, play button and record",
+  "de": "Das Menü im Spiel: Münzen und Edelsteine oben, Zahnrad, Herausforderungen und Shop in den Wolken, Play-Button und Rekord"
+ },
+ "Il negozio dei potenziamenti: paracadute, calamita, scudo e monete doppie, con livelli e prezzi": {
+  "en": "The power-up shop: parachute, magnet, shield and double coins, with levels and prices",
+  "de": "Der Power-up-Shop: Fallschirm, Magnet, Schild und doppelte Münzen, mit Stufen und Preisen"
+ },
+ "La scheda Sfide: obiettivi con la barra di avanzamento e le gemme in premio; le sfide future sono chiuse col lucchetto": {
+  "en": "The Challenges tab: goals with a progress bar and gems as rewards; future challenges are locked",
+  "de": "Der Tab Herausforderungen: Ziele mit Fortschrittsbalken und Edelsteinen als Belohnung; künftige Herausforderungen sind gesperrt"
+ },
+ "Alla prima partita il gioco si ferma e una scheda spiega il gesto: spingi il dito in su e tienilo per aprire il paracadute": {
+  "en": "In the first game the action pauses and a card explains the gesture: push your finger up and hold it to open the parachute",
+  "de": "Im ersten Spiel hält das Spiel an und eine Karte erklärt die Geste: Finger nach oben schieben und halten, um den Fallschirm zu öffnen"
  }
 }

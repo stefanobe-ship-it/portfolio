@@ -1,0 +1,89 @@
+/* =====================================================================================================
+   Tema «nuvola» (16/11/2026) — prova di Stefano, si sceglie in Impostazioni → Stile (o con ?ui=nuvola).
+   Vale solo con <html class="ui-nuvola">: cuoio.js in quel caso non disegna il cuoio e qui si usano
+   le immagini della cartella nuvola dentro grafiche (ritagliate dalle immagini generate da Stefano; gli originali sono in originali, nuvola-…).
+   Pillole, cornici e contatore li disegna cuoio.js a misura («nove pezzi»: angoli interi, bordi e centro allungati) in --cu-bg.
+   ===================================================================================================== */
+html.ui-nuvola { --nu-testo: #5b4f9a; --nu-scuro: #43397f; --nu-tenue: #8a80bf; --nu-ombra: rgba(91, 79, 154, .45); }
+
+html.ui-nuvola [data-cu] { background-image: none; color: var(--nu-testo); text-shadow: none; }
+
+/* --- pulsanti a pillola: estremità tonde intatte, centro che si allunga --- */
+html.ui-nuvola [data-cu^="pulsante"], html.ui-nuvola [data-cu^="riquadro"], html.ui-nuvola [data-cu="contatore"] {
+  background: var(--cu-bg, none) 0 0 / 100% 100% no-repeat; border: 0; border-image: none;
+}
+html.ui-nuvola [data-cu^="pulsante"] { padding-bottom: calc(var(--h) * .08); color: var(--nu-testo); text-shadow: 0 1px 0 rgba(255, 255, 255, .8); transition: transform .08s; }
+html.ui-nuvola [data-cu="pulsante arancio"] { color: #fff; text-shadow: 0 2px 0 rgba(170, 80, 30, .45); }
+html.ui-nuvola [data-cu="pulsante verde"] { color: #fff; text-shadow: 0 2px 0 rgba(30, 110, 70, .45); }
+html.ui-nuvola [data-cu^="pulsante"]:active, html.ui-nuvola [data-cu^="pulsante"].premuto,
+html.ui-nuvola [data-cu^="tondo"]:active, html.ui-nuvola [data-cu^="tasto"]:active {
+  padding-top: 0; padding-bottom: calc(var(--h, 0px) * .08); transform: translateY(2px) scale(.96);
+}
+html.ui-nuvola [data-cu^="pulsante"]:disabled { opacity: .5; filter: saturate(.4); }
+
+/* --- tondi (Sfide, Negozio) e tasto play --- */
+html.ui-nuvola [data-cu^="tondo"] { height: var(--d); background: url(grafiche/nuvola/tondo-lilla.png) center / contain no-repeat; }
+html.ui-nuvola [data-cu^="tondo"] > img { width: 54%; height: 54%; }
+html.ui-nuvola [data-cu="tasto"] { height: var(--d); background: url(grafiche/nuvola/play.png) center / contain no-repeat; }
+html.ui-nuvola [data-cu="tasto"] > .play { display: none; }
+
+/* --- riquadri: cornici a nuvola (i bordi a onde si ripetono, non si allungano) --- */
+html.ui-nuvola [data-cu^="riquadro"] { padding: 48px 40px 48px; }
+html.ui-nuvola [data-cu="riquadro sottile"] { padding: 20px 18px; }
+html.ui-nuvola .scheda-cu, html.ui-nuvola .sfida-cu { padding: 26px 22px !important; }
+html.ui-nuvola #avviso-sfida { padding: 22px 24px; }
+
+/* --- contatore (monete, gemme): la moneta nel buco a sinistra, il «+» sulla bolla a destra --- */
+html.ui-nuvola [data-cu="contatore"] {
+  --h: 56px;
+  min-width: calc(var(--h) * 1.75); margin-left: 0; padding: 0 calc(var(--h) * .55) calc(var(--h) * .06) calc(var(--h) * .66);
+  font: 400 calc(var(--h) * .36)/1 var(--cu-titolo); color: var(--nu-testo);
+}
+html.ui-nuvola [data-cu="contatore"] > img { left: calc(var(--h) * .2); top: 52%; height: calc(var(--h) * .42); filter: none; }
+html.ui-nuvola [data-cu="contatore"] > [data-cu="piu"] { right: calc(var(--h) * .04); top: calc(var(--h) * .02); transform: none; width: calc(var(--h) * .42); height: calc(var(--h) * .42); }
+html.ui-nuvola [data-cu="piu"] { background: url(grafiche/nuvola/piu.png) center / contain no-repeat; color: transparent; }
+html.ui-nuvola [data-cu="pallino"] { background: url(grafiche/nuvola/pallino.png) center / contain no-repeat; color: #fff; text-shadow: 0 1px 0 rgba(150, 30, 30, .45); }
+
+/* --- barra e interruttore --- */
+html.ui-nuvola [data-cu="barra"] {
+  border-radius: 999px; background: linear-gradient(180deg, #aee9c6, #7fd3a3) 3px 3px / calc((100% - 6px) * var(--pieno)) calc(100% - 6px) no-repeat, linear-gradient(180deg, #e3def7, #f6f4fd);
+  box-shadow: inset 0 2px 3px var(--nu-ombra), 0 1px 0 #fff;
+}
+html.ui-nuvola [data-cu="interruttore"] { height: 43px; background: url(grafiche/nuvola/interruttore-no.png) center / contain no-repeat; }
+html.ui-nuvola [data-cu="interruttore"].acceso { background-image: url(grafiche/nuvola/interruttore-si.png); }
+html.ui-nuvola .cu-separatore { height: 14px; background: url(grafiche/nuvola/separatore.png) center / 100% 100% no-repeat; box-shadow: none; }
+html.ui-nuvola .cu-separatore::after { display: none; }
+
+/* --- icone a nuvola (stesse immagini al posto di quelle di cuoio) --- */
+html.ui-nuvola .cu-icona > img { filter: drop-shadow(0 2px 2px rgba(67, 57, 127, .55)) drop-shadow(0 0 6px rgba(67, 57, 127, .35)); }
+html.ui-nuvola img[data-icona="impostazioni"] { content: url(grafiche/nuvola/i-impostazioni.png); }
+html.ui-nuvola img[data-icona="sfide"] { content: url(grafiche/nuvola/i-sfide.png); }
+html.ui-nuvola img[data-icona="negozio"] { content: url(grafiche/nuvola/i-negozio.png); }
+html.ui-nuvola img[data-icona="record"] { content: url(grafiche/nuvola/i-record.png); }
+html.ui-nuvola img[data-icona="pausa"] { content: url(grafiche/nuvola/i-pausa.png); }
+html.ui-nuvola img[data-icona="indietro"] { content: url(grafiche/nuvola/i-indietro.png); }
+html.ui-nuvola img[data-icona="fatto"] { content: url(grafiche/nuvola/i-fatto.png); }
+html.ui-nuvola img[data-icona="video"] { content: url(grafiche/nuvola/i-play.png); }
+
+/* --- testi: dal marrone al lilla --- */
+html.ui-nuvola .carta[data-cu], html.ui-nuvola .scheda-cu, html.ui-nuvola .sfida-cu, html.ui-nuvola .sfida-cu h3,
+html.ui-nuvola .dato-cu strong, html.ui-nuvola .sfida-cu .premio, html.ui-nuvola #avviso-sfida { color: var(--nu-testo); }
+html.ui-nuvola .cu-h, html.ui-nuvola .metri-grandi, html.ui-nuvola .scheda-cu h3, html.ui-nuvola #lezione h3, html.ui-nuvola #spiega h3 { color: var(--nu-scuro); }
+html.ui-nuvola .dato-cu span, html.ui-nuvola #p-nota, html.ui-nuvola .sfida-cu small, html.ui-nuvola #avviso-sfida small, html.ui-nuvola .scheda-cu p { color: var(--nu-tenue); }
+html.ui-nuvola .cu-h.chiaro, html.ui-nuvola #lista-sfide h4 { color: #fff; text-shadow: 0 2px 0 var(--nu-ombra); }
+html.ui-nuvola #f-titolo.record, html.ui-nuvola .scheda-cu p span { color: #e0783e; }
+
+/* --- selettore dello stile (Impostazioni) --- */
+.stile-ui { display: flex; gap: 8px; }
+.stile-ui button { --h: 40px !important; min-width: 0 !important; padding: 0 14px !important; font-size: 15px !important; opacity: .55; }
+.stile-ui button.scelto { opacity: 1; }
+
+/* --- schede di lezione e di spiegazione (hanno regole con id nel gioco: qui servono selettori più forti) --- */
+html.ui-nuvola #lezione .carta, html.ui-nuvola #spiega .carta { background: var(--cu-bg, none) 0 0 / 100% 100% no-repeat; }
+html.ui-nuvola #lezione .carta { padding: 44px 40px 40px; }
+html.ui-nuvola #spiega .carta { padding: 64px 40px 40px; }
+html.ui-nuvola #lezione p, html.ui-nuvola #spiega p { color: var(--nu-tenue); }
+html.ui-nuvola #lezione p b, html.ui-nuvola #spiega p b { color: var(--nu-scuro); }
+html.ui-nuvola #spiega .medaglia { background: url(grafiche/nuvola/sfera.png) center / contain no-repeat; box-shadow: none; }
+html.ui-nuvola #spiega .medaglia img.ogg { width: 46px; height: 46px; }
+html.ui-nuvola #spiega .indizio { background: rgba(255, 255, 255, .7); box-shadow: inset 0 1px 2px var(--nu-ombra); color: var(--nu-tenue); }
